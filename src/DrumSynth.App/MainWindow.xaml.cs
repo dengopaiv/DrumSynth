@@ -19,6 +19,7 @@ public partial class MainWindow : Window
 
     public MainWindow()
     {
+        _isLoading = true; // Prevent event handlers during initialization
         InitializeComponent();
         _audioService = new AudioService();
         _currentParams = new DrumSynthParams();
@@ -30,6 +31,7 @@ public partial class MainWindow : Window
         OverWave1.SelectedIndex = 0;
         OverWave2.SelectedIndex = 0;
         OverMethod.SelectedIndex = 2; // RM default
+        _isLoading = false;
     }
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
