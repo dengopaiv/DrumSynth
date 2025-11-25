@@ -1,0 +1,64 @@
+<Application x:Class="DrumSynth.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Accessible color scheme with good contrast -->
+            <SolidColorBrush x:Key="ToneSectionBrush" Color="#C0CAD0"/>
+            <SolidColorBrush x:Key="NoiseSectionBrush" Color="#BAC8BE"/>
+            <SolidColorBrush x:Key="OvertonesSectionBrush" Color="#C0C0CD"/>
+            <SolidColorBrush x:Key="NoiseBandSectionBrush" Color="#C4B8C4"/>
+            <SolidColorBrush x:Key="DistortionSectionBrush" Color="#C0D2D2"/>
+            <SolidColorBrush x:Key="FilterSectionBrush" Color="#D0D0C0"/>
+            <SolidColorBrush x:Key="MasterSectionBrush" Color="#D0D0D0"/>
+
+            <!-- Base styles for accessibility -->
+            <Style TargetType="CheckBox">
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="Padding" Value="4,2"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Slider">
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="IsSnapToTickEnabled" Value="True"/>
+                <Setter Property="TickFrequency" Value="1"/>
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="Padding" Value="4,2"/>
+                <Setter Property="MinWidth" Value="60"/>
+            </Style>
+
+            <Style TargetType="ComboBox">
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="Padding" Value="4,2"/>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="Padding" Value="12,4"/>
+                <Setter Property="MinWidth" Value="70"/>
+            </Style>
+
+            <Style TargetType="GroupBox">
+                <Setter Property="Margin" Value="4"/>
+                <Setter Property="Padding" Value="4"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="Padding" Value="2"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+
+            <!-- Section header style -->
+            <Style x:Key="SectionHeader" TargetType="CheckBox">
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="Margin" Value="0,0,0,4"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

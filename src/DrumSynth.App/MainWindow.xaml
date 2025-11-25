@@ -1,0 +1,527 @@
+<Window x:Class="DrumSynth.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="DrumSynth 3.0"
+        Width="900" Height="700"
+        MinWidth="800" MinHeight="600"
+        Background="#C0C0C0"
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
+
+    <Window.InputBindings>
+        <KeyBinding Key="Space" Command="{Binding PlayCommand}" Modifiers="Ctrl"/>
+        <KeyBinding Key="O" Command="{Binding LoadCommand}" Modifiers="Ctrl"/>
+        <KeyBinding Key="S" Command="{Binding SaveCommand}" Modifiers="Ctrl"/>
+    </Window.InputBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Menu Bar -->
+        <Menu Grid.Row="0"
+              AutomationProperties.Name="Main menu">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open Preset..."
+                          InputGestureText="Ctrl+O"
+                          AutomationProperties.Name="Open preset file"
+                          Click="OpenPreset_Click"/>
+                <MenuItem Header="_Save Preset..."
+                          InputGestureText="Ctrl+S"
+                          AutomationProperties.Name="Save preset file"
+                          Click="SavePreset_Click"/>
+                <Separator/>
+                <MenuItem Header="E_xport to WAV..."
+                          AutomationProperties.Name="Export sound to WAV file"
+                          Click="ExportWav_Click"/>
+                <Separator/>
+                <MenuItem Header="E_xit"
+                          Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Reset All Parameters"
+                          AutomationProperties.Name="Reset all synthesis parameters to defaults"
+                          Click="ResetParams_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_Keyboard Shortcuts"
+                          Click="ShowShortcuts_Click"/>
+                <MenuItem Header="_About DrumSynth"
+                          Click="ShowAbout_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Panel: File Browser -->
+            <DockPanel Grid.Column="0">
+                <Label DockPanel.Dock="Top"
+                       Content="Preset Library"
+                       FontWeight="Bold"
+                       AutomationProperties.Name="Preset library section"/>
+
+                <!-- Kit Folders -->
+                <Label DockPanel.Dock="Top" Content="Kits:"/>
+                <ListBox x:Name="KitList"
+                         DockPanel.Dock="Top"
+                         Height="150"
+                         AutomationProperties.Name="Drum kit folders"
+                         AutomationProperties.HelpText="Select a kit folder to browse presets"
+                         SelectionChanged="KitList_SelectionChanged"/>
+
+                <!-- Preset Files -->
+                <Label DockPanel.Dock="Top" Content="Presets:" Margin="0,8,0,0"/>
+                <ListBox x:Name="PresetList"
+                         AutomationProperties.Name="Preset files"
+                         AutomationProperties.HelpText="Select a preset to load and preview"
+                         SelectionChanged="PresetList_SelectionChanged"/>
+            </DockPanel>
+
+            <!-- Right Panel: Synthesis Parameters -->
+            <ScrollViewer Grid.Column="1"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Envelope Display (placeholder for now) -->
+                    <Border Grid.Row="0"
+                            Background="White"
+                            BorderBrush="Gray"
+                            BorderThickness="1"
+                            Height="140"
+                            Margin="4">
+                        <Canvas x:Name="EnvelopeCanvas"
+                                AutomationProperties.Name="Envelope display"
+                                AutomationProperties.HelpText="Visual display of envelope curves. Use Tab to access envelope controls."
+                                Focusable="True"
+                                KeyDown="EnvelopeCanvas_KeyDown"/>
+                    </Border>
+
+                    <!-- Synthesis Sections -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- TONE Section -->
+                        <GroupBox Grid.Column="0" Grid.Row="0"
+                                  Background="{StaticResource ToneSectionBrush}"
+                                  AutomationProperties.Name="Tone synthesis section">
+                            <GroupBox.Header>
+                                <CheckBox x:Name="ToneOn"
+                                          Content="Tone"
+                                          Style="{StaticResource SectionHeader}"
+                                          AutomationProperties.Name="Enable tone generator"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label Content="Level:" Width="50"/>
+                                    <TextBlock x:Name="ToneLevelText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="ToneLevel"
+                                            Minimum="1" Maximum="181" Value="128"
+                                            AutomationProperties.Name="Tone level"
+                                            AutomationProperties.HelpText="Adjust tone volume from 1 to 181"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="F1:" Width="50"/>
+                                    <TextBox x:Name="ToneF1" Text="200"
+                                             AutomationProperties.Name="Tone start frequency in Hertz"
+                                             TextChanged="ParamChanged"/>
+                                    <Label Content="F2:" Width="30"/>
+                                    <TextBox x:Name="ToneF2" Text="120"
+                                             AutomationProperties.Name="Tone end frequency in Hertz"
+                                             TextChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Droop:" Width="50"/>
+                                    <TextBlock x:Name="ToneDroopText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="ToneDroop"
+                                            Minimum="0" Maximum="100" Value="0"
+                                            AutomationProperties.Name="Tone pitch droop amount"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Phase:" Width="50"/>
+                                    <TextBox x:Name="TonePhase" Text="90"
+                                             AutomationProperties.Name="Tone start phase in degrees"
+                                             TextChanged="ParamChanged"/>
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- NOISE Section -->
+                        <GroupBox Grid.Column="1" Grid.Row="0"
+                                  Background="{StaticResource NoiseSectionBrush}"
+                                  AutomationProperties.Name="Noise synthesis section">
+                            <GroupBox.Header>
+                                <CheckBox x:Name="NoiseOn"
+                                          Content="Noise"
+                                          Style="{StaticResource SectionHeader}"
+                                          AutomationProperties.Name="Enable noise generator"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label Content="Level:" Width="50"/>
+                                    <TextBlock x:Name="NoiseLevelText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="NoiseLevel"
+                                            Minimum="1" Maximum="181" Value="128"
+                                            AutomationProperties.Name="Noise level"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Slope:" Width="50"/>
+                                    <TextBlock x:Name="NoiseSlopeText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="NoiseSlope"
+                                            Minimum="-100" Maximum="100" Value="0"
+                                            AutomationProperties.Name="Noise color slope, negative for darker, positive for brighter"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <CheckBox x:Name="NoiseFixedSeq"
+                                          Content="Fixed random sequence"
+                                          IsChecked="True"
+                                          AutomationProperties.Name="Use fixed random sequence for consistent results"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- DISTORTION Section -->
+                        <GroupBox Grid.Column="2" Grid.Row="0"
+                                  Background="{StaticResource DistortionSectionBrush}"
+                                  AutomationProperties.Name="Distortion section">
+                            <GroupBox.Header>
+                                <CheckBox x:Name="DistortionOn"
+                                          Content="Distortion"
+                                          Style="{StaticResource SectionHeader}"
+                                          AutomationProperties.Name="Enable distortion"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label Content="Clip:" Width="50"/>
+                                    <TextBlock x:Name="DistClipText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="DistClipping"
+                                            Minimum="0" Maximum="60" Value="0"
+                                            AutomationProperties.Name="Distortion clipping amount in decibels"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Bits:" Width="50"/>
+                                    <ComboBox x:Name="DistBits"
+                                              AutomationProperties.Name="Bit reduction depth"
+                                              SelectionChanged="ParamChanged">
+                                        <ComboBoxItem Content="16 bit"/>
+                                        <ComboBoxItem Content="12 bit"/>
+                                        <ComboBoxItem Content="8 bit"/>
+                                        <ComboBoxItem Content="4 bit"/>
+                                    </ComboBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Rate:" Width="50"/>
+                                    <ComboBox x:Name="DistRate"
+                                              AutomationProperties.Name="Sample rate reduction"
+                                              SelectionChanged="ParamChanged">
+                                        <ComboBoxItem Content="44.1 kHz"/>
+                                        <ComboBoxItem Content="22 kHz"/>
+                                        <ComboBoxItem Content="11 kHz"/>
+                                        <ComboBoxItem Content="5.5 kHz"/>
+                                    </ComboBox>
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- OVERTONES Section -->
+                        <GroupBox Grid.Column="0" Grid.Row="1"
+                                  Background="{StaticResource OvertonesSectionBrush}"
+                                  AutomationProperties.Name="Overtones synthesis section">
+                            <GroupBox.Header>
+                                <CheckBox x:Name="OvertonesOn"
+                                          Content="Overtones"
+                                          Style="{StaticResource SectionHeader}"
+                                          AutomationProperties.Name="Enable overtones generator"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label Content="Level:" Width="50"/>
+                                    <TextBlock x:Name="OverLevelText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="OverLevel"
+                                            Minimum="1" Maximum="181" Value="128"
+                                            AutomationProperties.Name="Overtones level"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="F1:" Width="50"/>
+                                    <TextBox x:Name="OverF1" Text="200"
+                                             AutomationProperties.Name="Overtone 1 frequency"
+                                             TextChanged="ParamChanged"/>
+                                    <ComboBox x:Name="OverWave1" Width="60"
+                                              AutomationProperties.Name="Overtone 1 waveform"
+                                              SelectionChanged="ParamChanged">
+                                        <ComboBoxItem Content="Sine"/>
+                                        <ComboBoxItem Content="Sine²"/>
+                                        <ComboBoxItem Content="Tri"/>
+                                        <ComboBoxItem Content="Saw"/>
+                                        <ComboBoxItem Content="Square"/>
+                                    </ComboBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="F2:" Width="50"/>
+                                    <TextBox x:Name="OverF2" Text="120"
+                                             AutomationProperties.Name="Overtone 2 frequency"
+                                             TextChanged="ParamChanged"/>
+                                    <ComboBox x:Name="OverWave2" Width="60"
+                                              AutomationProperties.Name="Overtone 2 waveform"
+                                              SelectionChanged="ParamChanged">
+                                        <ComboBoxItem Content="Sine"/>
+                                        <ComboBoxItem Content="Sine²"/>
+                                        <ComboBoxItem Content="Tri"/>
+                                        <ComboBoxItem Content="Saw"/>
+                                        <ComboBoxItem Content="Square"/>
+                                    </ComboBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Method:" Width="50"/>
+                                    <ComboBox x:Name="OverMethod"
+                                              AutomationProperties.Name="Overtone combination method"
+                                              SelectionChanged="ParamChanged">
+                                        <ComboBoxItem Content="Add"/>
+                                        <ComboBoxItem Content="FM"/>
+                                        <ComboBoxItem Content="RM"/>
+                                        <ComboBoxItem Content="808 Cymbal"/>
+                                    </ComboBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Mix:" Width="50"/>
+                                    <TextBlock x:Name="OverParamText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="OverParam"
+                                            Minimum="0" Maximum="100" Value="50"
+                                            AutomationProperties.Name="Overtone mix or modulation amount"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox x:Name="OverTrack1" Content="Track 1"
+                                              AutomationProperties.Name="Track overtone 1 to tone frequency"
+                                              Checked="ParamChanged" Unchecked="ParamChanged"/>
+                                    <CheckBox x:Name="OverTrack2" Content="Track 2"
+                                              AutomationProperties.Name="Track overtone 2 to tone frequency"
+                                              Checked="ParamChanged" Unchecked="ParamChanged"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- NOISE BAND 1 Section -->
+                        <GroupBox Grid.Column="1" Grid.Row="1"
+                                  Background="{StaticResource NoiseBandSectionBrush}"
+                                  AutomationProperties.Name="Noise band 1 section">
+                            <GroupBox.Header>
+                                <CheckBox x:Name="Band1On"
+                                          Content="Noise Band 1"
+                                          Style="{StaticResource SectionHeader}"
+                                          AutomationProperties.Name="Enable noise band 1"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label Content="Level:" Width="50"/>
+                                    <TextBlock x:Name="Band1LevelText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="Band1Level"
+                                            Minimum="1" Maximum="181" Value="128"
+                                            AutomationProperties.Name="Noise band 1 level"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Freq:" Width="50"/>
+                                    <TextBox x:Name="Band1Freq" Text="1000"
+                                             AutomationProperties.Name="Noise band 1 center frequency in Hertz"
+                                             TextChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Width:" Width="50"/>
+                                    <TextBlock x:Name="Band1WidthText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="Band1Width"
+                                            Minimum="0" Maximum="100" Value="50"
+                                            AutomationProperties.Name="Noise band 1 bandwidth"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- NOISE BAND 2 Section -->
+                        <GroupBox Grid.Column="2" Grid.Row="1"
+                                  Background="{StaticResource NoiseBandSectionBrush}"
+                                  AutomationProperties.Name="Noise band 2 section">
+                            <GroupBox.Header>
+                                <CheckBox x:Name="Band2On"
+                                          Content="Noise Band 2"
+                                          Style="{StaticResource SectionHeader}"
+                                          AutomationProperties.Name="Enable noise band 2"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label Content="Level:" Width="50"/>
+                                    <TextBlock x:Name="Band2LevelText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="Band2Level"
+                                            Minimum="1" Maximum="181" Value="128"
+                                            AutomationProperties.Name="Noise band 2 level"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Freq:" Width="50"/>
+                                    <TextBox x:Name="Band2Freq" Text="3100"
+                                             AutomationProperties.Name="Noise band 2 center frequency in Hertz"
+                                             TextChanged="ParamChanged"/>
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="Width:" Width="50"/>
+                                    <TextBlock x:Name="Band2WidthText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="Band2Width"
+                                            Minimum="0" Maximum="100" Value="40"
+                                            AutomationProperties.Name="Noise band 2 bandwidth"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- FILTER Section -->
+                        <GroupBox Grid.Column="0" Grid.Row="2"
+                                  Background="{StaticResource FilterSectionBrush}"
+                                  AutomationProperties.Name="Master filter section">
+                            <GroupBox.Header>
+                                <CheckBox x:Name="FilterOn"
+                                          Content="Filter"
+                                          Style="{StaticResource SectionHeader}"
+                                          AutomationProperties.Name="Enable master filter"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label Content="Q:" Width="50"/>
+                                    <TextBlock x:Name="FilterResText" Width="30" TextAlignment="Right"
+                                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                    <Slider x:Name="FilterResonance"
+                                            Minimum="0" Maximum="99" Value="0"
+                                            AutomationProperties.Name="Filter resonance amount"
+                                            ValueChanged="ParamChanged"/>
+                                </DockPanel>
+                                <CheckBox x:Name="FilterHighPass" Content="High-pass"
+                                          AutomationProperties.Name="Use high-pass filter instead of low-pass"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                                <CheckBox x:Name="FilterOvertonesOnly" Content="Overtones only"
+                                          AutomationProperties.Name="Apply filter only to overtones section"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- MASTER Section -->
+                        <GroupBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                                  Background="{StaticResource MasterSectionBrush}"
+                                  AutomationProperties.Name="Master output section">
+                            <GroupBox.Header>
+                                <CheckBox x:Name="MasterOn"
+                                          Content="Master"
+                                          Style="{StaticResource SectionHeader}"
+                                          AutomationProperties.Name="Enable master adjustments"
+                                          Checked="ParamChanged" Unchecked="ParamChanged"/>
+                            </GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <DockPanel>
+                                        <Label Content="Tune:" Width="60"/>
+                                        <TextBox x:Name="MasterTune" Text="0.00"
+                                                 AutomationProperties.Name="Master tuning in semitones"
+                                                 TextChanged="ParamChanged"/>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Label Content="Stretch:" Width="60"/>
+                                        <TextBox x:Name="MasterStretch" Text="100.0"
+                                                 AutomationProperties.Name="Time stretch percentage, 100 is normal"
+                                                 TextChanged="ParamChanged"/>
+                                    </DockPanel>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <DockPanel>
+                                        <Label Content="Level:" Width="50"/>
+                                        <TextBlock x:Name="MasterLevelText" Width="50" TextAlignment="Right"
+                                                   VerticalAlignment="Center" Margin="0,0,4,0"/>
+                                        <Slider x:Name="MasterLevel"
+                                                Minimum="-20" Maximum="20" Value="0"
+                                                AutomationProperties.Name="Master output level in decibels"
+                                                ValueChanged="ParamChanged"/>
+                                    </DockPanel>
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+        <!-- Status Bar -->
+        <Grid Grid.Row="2" Background="#E0E0E0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="8,4">
+                <Label Content="Comment:"/>
+                <TextBox x:Name="CommentText" Width="400"
+                         AutomationProperties.Name="Preset comment or description"
+                         TextChanged="ParamChanged"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="8,4">
+                <Button x:Name="PlayButton"
+                        Content="_Play"
+                        Click="Play_Click"
+                        AutomationProperties.Name="Play synthesized sound"
+                        AutomationProperties.HelpText="Press to hear the current drum sound. Keyboard shortcut: Ctrl+Space"/>
+                <Button x:Name="StopButton"
+                        Content="_Stop"
+                        Click="Stop_Click"
+                        AutomationProperties.Name="Stop playback"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
