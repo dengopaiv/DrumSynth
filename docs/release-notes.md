@@ -30,7 +30,8 @@ It replaces the 3.0 "Modern WPF Edition", which stays on the `modern-wpf` branch
 - **An envelope editor that works without a mouse:**
   - a list of points read as "Point 2 of 3: 45.4 ms, −14.0 dB";
   - time and level fields;
-  - Add, Delete, Copy, Paste and Reset (Ctrl+N, Delete, Ctrl+C, Ctrl+V).
+  - Add, Delete, Copy, Paste and Reset (Ctrl+N, Delete, Ctrl+C, Ctrl+V);
+  - **envelope files**, new in this edition: Save envelope (Ctrl+Shift+S) keeps an envelope shape in a `.dse` file, Load envelope (Ctrl+Shift+O) puts one into any envelope of any sound, and Load envelope from sound takes an envelope out of another sound.
 
   The original's mouse graph is still there.
 - Messages ("Saved", "Envelope copied", warnings) are spoken through NVDA (Tolk), or sent as UI Automation notifications, and shown in the status bar.
@@ -42,6 +43,7 @@ It replaces the 3.0 "Modern WPF Edition", which stays on the `modern-wpf` branch
 - The Ctrl key on its own no longer plays the sound, because screen reader users press it to stop speech. Enter and Ctrl+P play.
 - Clicking a sound in the kit, or pressing F1 to F12, synthesizes it from its `.ds` file. The original played the sound's WAV file, which had to be generated first.
 - "Save .WAV" in the Save dialog now decides whether the WAV is saved. The original always saved it.
+- Envelopes can be saved and loaded on their own, and taken from another sound. The original could only copy an envelope within the sound being edited.
 - Help is a Markdown file, `gui-help.md`, instead of WinHelp, which today's Windows can't open.
 
 ### Known limits

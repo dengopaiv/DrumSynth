@@ -215,9 +215,16 @@ EnvelopeEditor::EnvelopeEditor(wxWindow* parent, Preset* preset, Host host)
     paste_ = new wxButton(this, wxID_ANY, "Paste envelope");
     auto* reset = new wxButton(this, wxID_ANY, "Reset envelope");
     for (wxButton* b : {add_, del_, copy, paste_, reset}) buttons->Add(b, 0, wxRIGHT, 4);
+    // envelope files: not in the original
+    auto* files = new wxBoxSizer(wxHORIZONTAL);
+    auto* saveFile = new wxButton(this, wxID_ANY, "Save envelope...");
+    auto* loadFile = new wxButton(this, wxID_ANY, "Load envelope...");
+    auto* fromSound = new wxButton(this, wxID_ANY, "Load envelope from sound...");
+    for (wxButton* b : {saveFile, loadFile, fromSound}) files->Add(b, 0, wxRIGHT, 4);
     auto* right = new wxBoxSizer(wxVERTICAL);
     right->Add(fields, 0, wxBOTTOM, 6);
-    right->Add(buttons, 0);
+    right->Add(buttons, 0, wxBOTTOM, 4);
+    right->Add(files, 0);
     pts->Add(right, 0);
 
     auto* main = new wxBoxSizer(wxVERTICAL);
@@ -239,6 +246,9 @@ EnvelopeEditor::EnvelopeEditor(wxWindow* parent, Preset* preset, Host host)
     copy->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { Copy(); });
     paste_->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { Paste(); });
     reset->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { Reset(); });
+    saveFile->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { if (host_.saveFile) host_.saveFile(); });
+    loadFile->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { if (host_.loadFile) host_.loadFile(); });
+    fromSound->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { if (host_.loadFromSound) host_.loadFromSound(); });
 
     UpdateNames();
     Reload();
@@ -420,6 +430,15 @@ void EnvelopeEditor::Paste()
     sel_ = 0;
     Edited();
     Announce("Envelope pasted, " + wxString::Format("%zu points", out.size()), this);
+}
+
+void EnvelopeEditor::Replace(const Envelope& e, const wxString& what)
+{
+    // all points are taken, as loading a sound takes them (Paste takes 19)
+    env() = e.empty() ? Envelope{{0, 0}} : e;
+    sel_ = 0;
+    Edited();
+    Announce(what + wxString::Format(", %zu points", env().size()), this);
 }
 
 void EnvelopeEditor::Reset()

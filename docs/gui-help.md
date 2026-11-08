@@ -26,6 +26,8 @@ To use DrumSynth:
 | Ctrl+S | Save as |
 | Ctrl+K | Go to the kit list |
 | Ctrl+E | Go to the envelope point list |
+| Ctrl+Shift+S | Save the current envelope as an envelope file |
+| Ctrl+Shift+O | Load an envelope file into the current envelope |
 | In the sound list | Space or Enter plays the sound; Delete deletes the sound; double-click loads it |
 | In the point list | Ctrl+N (or Insert, without a screen reader: Insert is the NVDA key) adds a point, Delete deletes one, Ctrl+C and Ctrl+V copy and paste the envelope |
 | Alt+letter | Go to a control: Alt+P Play, Alt+I kits, Alt+D sounds, Alt+L Load, Alt+S Save, Alt+T Tone on, Alt+O Overtones on, Alt+N Noise on, Alt+R Filter, Alt+A Master on, Alt+V envelope choice, Alt+G view range, Alt+M point time, Alt+C comment. Alt+F, Alt+K, Alt+E and Alt+H open the File, Kit, Envelope and Help menus. |
@@ -53,6 +55,14 @@ Each section uses an envelope for its volume. There is also an envelope for the 
 - **Delete point** deletes the selected point. The first and last points can't be deleted.
 - **Copy envelope** and **Paste envelope** copy the current envelope to another. As in the original, only the first 19 points are copied.
 - **Reset envelope** gives the envelope its default shape.
+
+**Envelope files** keep envelope shapes to use again in any sound. The original program didn't have them.
+- **Save envelope...** (Ctrl+Shift+S) saves the current envelope as a `.dse` file. Its name starts as the sound's name and the envelope's, for example "Kick Tone".
+- **Load envelope...** (Ctrl+Shift+O) puts an envelope file into the current envelope. Any envelope file fits any envelope: a Tone shape can become a Filter shape.
+- **Load envelope from sound...** takes an envelope out of another sound's `.ds` file without loading the sound. Choose the sound, then which of its seven envelopes goes into the current one. The current envelope is offered first.
+- All points are kept, unlike Paste. As when saving a sound, times and levels are saved as whole numbers.
+- The files go in the `Envelopes` folder next to DrumSynth unless you choose another one, which is then remembered.
+- Loading replaces the current envelope. Load the sound again if you want the old envelope back.
 
 **The graph** shows the envelope for sighted users, with the other active envelopes in their section colours:
 - Click to add a point. Drag a point to move it, or drag it off the top or bottom to delete it.

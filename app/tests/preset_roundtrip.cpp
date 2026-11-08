@@ -8,6 +8,12 @@
 // original GUI would also change the sound when re-saving: envelope values
 // that are not whole numbers (putenv writes Format(x, "0")), or values a
 // control cannot hold. Exit code 1 if a preset differs for any other reason.
+//
+// It also saves every envelope of every preset as an envelope file
+// (SaveEnvelopeFile, .dse) and loads it back (LoadEnvelopeFile): the
+// envelope must come back as saving the sound writes it, putenv's text.
+// The same is checked for a 31-point envelope longer than 255 characters.
+// Exit code 1 if one differs.
 #include <cmath>
 #include <cstdio>
 #include <string>
@@ -45,6 +51,24 @@ static bool WholeEnvelopes(const Preset& p)
     return true;
 }
 
+// Save an envelope as an envelope file and load it back: it must be what
+// saving a sound writes (putenv's whole numbers).
+static bool EnvelopeFileRoundTrip(const Envelope& env, const std::wstring& file, const char* what)
+{
+    Envelope back;
+    if (!SaveEnvelopeFile(file, env, "Tone") || !LoadEnvelopeFile(file, &back)) {
+        printf("envelope file failed\t%s\n", what);
+        return false;
+    }
+    // the trailing space putenv writes is removed on reading, as Windows does
+    std::string a = FormatEnvelope(env), b = FormatEnvelope(back);
+    if (a != b) {
+        printf("envelope file differs\t%s\t%s\t%s\n", what, a.c_str(), b.c_str());
+        return false;
+    }
+    return true;
+}
+
 int main(int argc, char** argv)
 {
     if (argc != 2) { fprintf(stderr, "usage: preset_roundtrip LISTFILE\n"); return 2; }
@@ -53,8 +77,15 @@ int main(int argc, char** argv)
     wchar_t tmp[MAX_PATH];
     GetTempPathW(MAX_PATH, tmp);
     std::wstring out = std::wstring(tmp) + L"ds_roundtrip.ds";
+    std::wstring envFile = std::wstring(tmp) + L"ds_roundtrip.dse";
     char line[4096];
-    int same = 0, rounding = 0, other = 0;
+    int same = 0, rounding = 0, other = 0, envChecked = 0, envFiles = 0;
+    // an envelope longer than the 255 characters a .ds value can have
+    Envelope longEnv;
+    for (int i = 0; i < 31; i++) longEnv.push_back({430000.0 + i * 401.5, i == 30 ? 0.0 : 99.0 - i});
+    if (FormatEnvelope(longEnv).size() <= 255) { fprintf(stderr, "the long envelope is too short\n"); return 2; }
+    envFiles += EnvelopeFileRoundTrip(longEnv, envFile, "(31-point envelope)") ? 0 : 1;
+    envChecked++;
     while (fgets(line, sizeof(line), list)) {
         std::string p(line);
         while (!p.empty() && (p.back() == '\n' || p.back() == '\r')) p.pop_back();
@@ -63,6 +94,8 @@ int main(int argc, char** argv)
         Preset preset = Preset::NewSound();
         std::string version;
         if (!preset.Load(in, &version)) { printf("unreadable\t%s\n", p.c_str()); other++; continue; }
+        for (int e = 1; e <= 7; e++) envFiles += EnvelopeFileRoundTrip(preset.env[e], envFile, p.c_str()) ? 0 : 1;
+        envChecked += 7;
         DeleteFileW(out.c_str());
         preset.Save(out);
         std::vector<int16_t> a, b;
@@ -82,5 +115,7 @@ int main(int argc, char** argv)
     }
     fprintf(stderr, "same %d, differ as the original GUI's re-saving does %d, differ otherwise %d\n", same,
             rounding, other);
-    return other ? 1 : 0;
+    fprintf(stderr, "envelope files: %d envelopes saved and loaded, %d differ\n", envChecked, envFiles);
+    DeleteFileW(envFile.c_str());
+    return other || envFiles ? 1 : 0;
 }

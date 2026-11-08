@@ -64,6 +64,11 @@ private:
     void SetLocation();
     void ShowHelp();
     void SetTitleFor(const std::wstring& path);
+    // Envelope files (.dse) and envelopes of other sounds: not in the original
+    std::wstring EnvelopeDir() const;
+    void SaveEnvelopeFile();
+    void LoadEnvelopeFile();
+    void LoadEnvelopeFromSound();
 
     void OnCharHook(wxKeyEvent& ev);
     void OnClose(wxCloseEvent& ev);
@@ -80,6 +85,7 @@ private:
     std::wstring lastKitRender_;          // the .ds path of the last one played
     std::wstring tempDs_, tempWav_;
     std::wstring dsPath_;
+    std::wstring envPath_;               // the folder of envelope files last used
     int saveWav_ = 1;
     std::wstring iniPath_;
     bool soundListMouse_ = false;

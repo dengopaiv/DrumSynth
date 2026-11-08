@@ -66,3 +66,20 @@ Envelope DefaultEnvelope(int e);   // Setup()
 Envelope ResetEnvelope(int e);     // mnuReset_Click
 Envelope ParseEnvelope(const std::string& s);     // getEnv() in drumsyn.bas (VB Val)
 std::string FormatEnvelope(const Envelope& env);  // putenv()
+
+// Envelope files (.dse), an addition of this edition: one envelope, kept to
+// be loaded into any envelope of any sound. The file is a small INI file,
+// ANSI, in the format the .ds files use for envelopes:
+//
+//   [DrumSynth Envelope]
+//   Version=1
+//   Envelope=0,100 4410,30 8820,0
+//   From=Tone
+//
+// Envelope is written as putenv() writes it (whole numbers, as saving a
+// sound does) and read as getEnv() reads it. From names the envelope it was
+// saved from; it is only for information. There is no 255-character limit,
+// unlike the original's reading of .ds files.
+bool SaveEnvelopeFile(const std::wstring& path, const Envelope& env, const std::string& from);
+// false if the file can't be read or has no [DrumSynth Envelope] Envelope.
+bool LoadEnvelopeFile(const std::wstring& path, Envelope* env);

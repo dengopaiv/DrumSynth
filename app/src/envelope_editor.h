@@ -6,6 +6,8 @@
 // reader need: a choice of envelope, a list of points read as
 // "Point 2 of 3: 45.4 ms, -14.0 dB", fields for the selected point's time and
 // level, and buttons for adding, deleting, copying, pasting and resetting.
+// Buttons for envelope files and for taking an envelope from another sound
+// are additions (the main window does the files, through Host).
 // The rules are the original's (docs/gui-checklist.md, section 3).
 #pragma once
 
@@ -27,6 +29,9 @@ public:
         std::function<bool(int env)> isOn;        // envIsOn()
         std::function<int()> overtoneMethod;      // for the envelope names
         std::function<void()> changed;            // an envelope was edited
+        // envelope files and envelopes of other sounds (the main window
+        // has the dialogs and folders)
+        std::function<void()> saveFile, loadFile, loadFromSound;
     };
     EnvelopeEditor(wxWindow* parent, Preset* preset, Host host);
 
@@ -44,6 +49,11 @@ public:
     void Copy();
     void Paste();
     void Reset();
+    // The envelope being edited, and replacing it (a loaded envelope file,
+    // or an envelope of another sound); `what` is announced with the
+    // number of points.
+    const Envelope& Current() const { return preset_->env[cur_]; }
+    void Replace(const Envelope& e, const wxString& what);
     size_t Selected() const { return sel_; }
     void SelectPoint(size_t i);
     double ViewRange() const;       // samples shown by the graph

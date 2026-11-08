@@ -122,6 +122,7 @@ The new GUI provides all of that from the keyboard:
 - Changed on purpose:
 - **Ctrl alone does not play.** In the original, the Ctrl key on its own plays the sound (`Form_KeyDown`). Screen reader users press Ctrl to stop speech, so it would play constantly. Enter and Ctrl+P play instead. ✗
 - **Kit sounds are synthesized, not read from WAV files.** In the original, clicking a sound and F1–F12 play the sound's WAV file, which exists only after Save or Generate All WAVs: the engine was a separate DLL that wrote files. The engine is part of the program now, so a sound with a `.ds` file is rendered from it into memory and played, and nothing is written into the kit. The result is the WAV the original would have generated, byte for byte. A WAV-only sound still plays its file. The renders of the kit shown are kept, so pressing a key again plays at once; a `.ds` changed since is rendered again. ✗
+- **Envelope files: an addition.** The original can only copy an envelope to another envelope of the same sound, while the program runs. Save envelope... (Ctrl+Shift+S) writes the current envelope to a `.dse` file (format in `app/src/preset.h`). Load envelope... (Ctrl+Shift+O) puts one into the current envelope. Load envelope from sound... takes one of the seven envelopes of another `.ds` file. These are an Envelope menu and buttons below the envelope editor's buttons. Envelopes are written as `putenv` writes them (whole numbers) and read as `getEnv` reads them, but loading takes all points (Paste takes 19), and an envelope file has no 255-character limit. The folder is `Envelopes` next to the program, or the last one used (`[Files] EnvelopePath` in `DrumSyn.ini`, relative when inside the program's folder). ✗
 
 - **Alt+letter shortcuts** are unique across the window. Windows' own dialog handling doesn't reach controls inside the section group boxes, so the main window handles them, as Windows would: a button is pressed, a check box is focused and toggled.
 - **Ctrl+N adds an envelope point.** Insert does too, but Insert is the NVDA key.
@@ -134,6 +135,8 @@ Menu accelerators:
 | Ctrl+S | Save |
 | Ctrl+P | Play, as well as Enter (and Ctrl alone in the original). F5 stays the fifth sound, as in the original. |
 | Ctrl+E | Go to the envelope point list |
+| Ctrl+Shift+S | Save envelope (an envelope file; an addition) |
+| Ctrl+Shift+O | Load envelope (an envelope file; an addition) |
 | Ctrl+K | Go to the kit list |
 
 Enter keeps its normal meaning on buttons and in lists. In the sound list it plays the selected sound.

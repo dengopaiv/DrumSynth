@@ -89,6 +89,36 @@ std::string FormatEnvelope(const Envelope& env)
     return s;
 }
 
+bool SaveEnvelopeFile(const std::wstring& path, const Envelope& env, const std::string& from)
+{
+    std::string text = "[DrumSynth Envelope]\r\nVersion=1\r\nEnvelope=" + FormatEnvelope(env) + "\r\n";
+    if (!from.empty()) text += "From=" + from + "\r\n";
+    FILE* f = _wfopen(path.c_str(), L"wb");
+    if (!f) return false;
+    bool ok = fwrite(text.data(), 1, text.size(), f) == text.size();
+    return fclose(f) == 0 && ok;
+}
+
+bool LoadEnvelopeFile(const std::wstring& path, Envelope* env)
+{
+    FILE* f = _wfopen(path.c_str(), L"rb");
+    if (!f) return false;
+    std::string text;
+    char buf[65536];
+    size_t n;
+    while ((n = fread(buf, 1, sizeof(buf), f)) > 0) text.append(buf, n);
+    fclose(f);
+    ds_ini* ini = ds_ini_parse(text.data(), text.size());
+    if (!ini) return false;
+    // the Windows rules, as for .ds files, but with room for any envelope
+    std::vector<char> value(text.size() + 1);
+    unsigned len = ds_ini_get_string(ini, "DrumSynth Envelope", "Envelope", "", value.data(), (unsigned)value.size());
+    ds_ini_free(ini);
+    if (len == 0) return false;
+    *env = ParseEnvelope(std::string(value.data(), len));
+    return true;
+}
+
 Preset Preset::NewSound()
 {
     Preset p;

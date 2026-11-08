@@ -7,6 +7,7 @@
 #include <filesystem>
 #include <functional>
 #include <wx/button.h>
+#include <wx/choicdlg.h>
 #include <wx/dirdlg.h>
 #include <wx/filedlg.h>
 #include <wx/menu.h>
@@ -31,7 +32,8 @@ namespace {
 
 enum {
     ID_PLAY = wxID_HIGHEST + 1, ID_LOAD, ID_SAVE, ID_GEN_WAVS, ID_DEL_WAVS, ID_DEL_SOUND, ID_NEW_KIT,
-    ID_LOCATION, ID_GO_POINTS, ID_GO_KITS, ID_ENV_COPY, ID_ENV_PASTE, ID_ENV_RESET, ID_HELP
+    ID_LOCATION, ID_GO_POINTS, ID_GO_KITS, ID_ENV_COPY, ID_ENV_PASTE, ID_ENV_RESET, ID_HELP,
+    ID_ENV_SAVE, ID_ENV_LOAD, ID_ENV_FROM_SOUND
 };
 
 const std::vector<wxString> kWaves = {"Sine", "Sine²", "Tri", "Saw", "Square"};
@@ -119,6 +121,9 @@ MainFrame::MainFrame(const wxString& openFile)
     };
     host.overtoneMethod = [this] { return preset_.method; };
     host.changed = [this] { Changed(); };
+    host.saveFile = [this] { SaveEnvelopeFile(); };
+    host.loadFile = [this] { LoadEnvelopeFile(); };
+    host.loadFromSound = [this] { LoadEnvelopeFromSound(); };
     auto* envBox = new wxStaticBoxSizer(wxVERTICAL, scroll, "Envelopes");
     env_ = new EnvelopeEditor(envBox->GetStaticBox(), &preset_, host);
     envBox->Add(env_, 1, wxEXPAND | wxALL, 4);
@@ -197,6 +202,10 @@ void MainFrame::MakeMenus()
     env->Append(ID_ENV_COPY, "&Copy envelope");
     env->Append(ID_ENV_PASTE, "&Paste envelope");
     env->Append(ID_ENV_RESET, "&Reset envelope");
+    env->AppendSeparator();
+    env->Append(ID_ENV_SAVE, "&Save envelope...\tCtrl+Shift+S");
+    env->Append(ID_ENV_LOAD, "&Load envelope...\tCtrl+Shift+O");
+    env->Append(ID_ENV_FROM_SOUND, "Load envelope from so&und...");
     auto* help = new wxMenu;
     help->Append(ID_HELP, "DrumSynth &help");
     help->Append(wxID_ABOUT, "&About DrumSynth");
@@ -221,6 +230,9 @@ void MainFrame::MakeMenus()
     Bind(wxEVT_MENU, [this](wxCommandEvent&) { env_->Copy(); }, ID_ENV_COPY);
     Bind(wxEVT_MENU, [this](wxCommandEvent&) { env_->Paste(); }, ID_ENV_PASTE);
     Bind(wxEVT_MENU, [this](wxCommandEvent&) { env_->Reset(); }, ID_ENV_RESET);
+    Bind(wxEVT_MENU, [this](wxCommandEvent&) { SaveEnvelopeFile(); }, ID_ENV_SAVE);
+    Bind(wxEVT_MENU, [this](wxCommandEvent&) { LoadEnvelopeFile(); }, ID_ENV_LOAD);
+    Bind(wxEVT_MENU, [this](wxCommandEvent&) { LoadEnvelopeFromSound(); }, ID_ENV_FROM_SOUND);
     Bind(wxEVT_MENU, [this](wxCommandEvent&) { ShowHelp(); }, ID_HELP);
     Bind(wxEVT_MENU, [this](wxCommandEvent&) {
         wxMessageBox("DrumSynth " DS_VERSION_STRING ", accessible edition.\n\n"
@@ -661,6 +673,10 @@ void MainFrame::LoadSettings()
     if (fs::path(dsPath_).is_relative()) dsPath_ = (fs::path(ExeDir()) / dsPath_).lexically_normal().wstring();
     while (!dsPath_.empty() && dsPath_.back() == L'\\') dsPath_.pop_back();
     saveWav_ = (int)vb::Val(ToAnsi(IniGet(iniPath_, L"Files", L"SaveWAVs", L"1")));
+    // envelope files: the Envelopes folder next to the program unless
+    // another one was used
+    envPath_ = IniGet(iniPath_, L"Files", L"EnvelopePath", L"Envelopes");
+    if (fs::path(envPath_).is_relative()) envPath_ = (fs::path(ExeDir()) / envPath_).lexically_normal().wstring();
     int x = (int)vb::Val(ToAnsi(IniGet(iniPath_, L"Window", L"X", L"-1")));
     int y = (int)vb::Val(ToAnsi(IniGet(iniPath_, L"Window", L"Y", L"-1")));
     if (x > 0 && y > 0) SetPosition(wxPoint(x, y));
@@ -672,11 +688,13 @@ void MainFrame::SaveSettings()
     WritePrivateProfileStringW(L"Window", L"X", std::to_wstring(pos.x).c_str(), iniPath_.c_str());
     WritePrivateProfileStringW(L"Window", L"Y", std::to_wstring(pos.y).c_str(), iniPath_.c_str());
     // a location inside the program's folder is kept relative
-    std::wstring path = dsPath_;
-    std::error_code ec;
-    fs::path rel = fs::relative(dsPath_, ExeDir(), ec);
-    if (!ec && !rel.empty() && rel.native().rfind(L"..", 0) != 0) path = rel.wstring();
-    WritePrivateProfileStringW(L"Files", L"Path", path.c_str(), iniPath_.c_str());
+    auto keep = [](const std::wstring& dir) {
+        std::error_code ec;
+        fs::path rel = fs::relative(dir, ExeDir(), ec);
+        return (!ec && !rel.empty() && rel.native().rfind(L"..", 0) != 0) ? rel.wstring() : dir;
+    };
+    WritePrivateProfileStringW(L"Files", L"Path", keep(dsPath_).c_str(), iniPath_.c_str());
+    WritePrivateProfileStringW(L"Files", L"EnvelopePath", keep(envPath_).c_str(), iniPath_.c_str());
     WritePrivateProfileStringW(L"Files", L"SaveWAVs", std::to_wstring(saveWav_).c_str(), iniPath_.c_str());
 }
 
@@ -807,6 +825,88 @@ void MainFrame::PlaySoundAt(int i)
 }
 
 void MainFrame::SetTitleFor(const std::wstring& path) { SetTitle(NeatName(path) + L" - DrumSynth"); }
+
+// ---- Envelope files ---------------------------------------------------------------
+// Not in the original: an envelope can be saved on its own (.dse, see
+// preset.h) and loaded into any envelope of any sound, and an envelope can
+// be taken from another sound's .ds file.
+
+std::wstring MainFrame::EnvelopeDir() const
+{
+    std::error_code ec;
+    if (fs::is_directory(envPath_, ec)) return envPath_;
+    // the Envelopes folder next to the program is made when first needed
+    std::wstring def = ExeDir() + L"\\Envelopes";
+    fs::create_directories(def, ec);
+    return fs::is_directory(def, ec) ? def : ExeDir();
+}
+
+void MainFrame::SaveEnvelopeFile()
+{
+    wxString what = EnvelopeEditor::EnvelopeName(env_->CurrentEnvelope(), preset_.method);
+    // the default name: the sound's name and the envelope's
+    wxString name = what;
+    wxString title = GetTitle(), sound;
+    if (title.EndsWith(" - DrumSynth", &sound)) name = sound + " " + what;
+    wxFileDialog dlg(this, "Save the " + what + " envelope", EnvelopeDir(), name + ".dse",
+                     "DrumSynth envelopes (*.dse)|*.dse|All files (*.*)|*.*", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+    if (dlg.ShowModal() != wxID_OK) return;
+    std::wstring path = dlg.GetPath().ToStdWstring();
+    if (!::SaveEnvelopeFile(path, env_->Current(), ToAnsi(what))) {
+        Warn("The envelope could not be saved.");
+        return;
+    }
+    envPath_ = fs::path(path).parent_path().wstring();
+    SetStatusText("Envelope saved as " + NeatName(path));
+    Announce("Envelope saved as " + NeatName(path), this);
+}
+
+void MainFrame::LoadEnvelopeFile()
+{
+    wxString what = EnvelopeEditor::EnvelopeName(env_->CurrentEnvelope(), preset_.method);
+    wxFileDialog dlg(this, "Load an envelope into " + what, EnvelopeDir(), "",
+                     "DrumSynth envelopes (*.dse)|*.dse|All files (*.*)|*.*", wxFD_OPEN | wxFD_FILE_MUST_EXIST);
+    if (dlg.ShowModal() != wxID_OK) return;
+    std::wstring path = dlg.GetPath().ToStdWstring();
+    Envelope e;
+    if (!::LoadEnvelopeFile(path, &e)) {
+        Warn("This is not a DrumSynth envelope file.");
+        return;
+    }
+    envPath_ = fs::path(path).parent_path().wstring();
+    env_->Replace(e, "Loaded " + NeatName(path) + " into " + what);
+}
+
+void MainFrame::LoadEnvelopeFromSound()
+{
+    // the file dialog starts at the kit shown, with its selected sound
+    wxString what = EnvelopeEditor::EnvelopeName(env_->CurrentEnvelope(), preset_.method);
+    std::wstring dir = KitDir(), name;
+    bool wavOnly = false;
+    if (SelectedSound(&name, &wavOnly) && !wavOnly) name += L".ds";
+    else name.clear();
+    wxFileDialog dlg(this, "Load an envelope into " + what + " from a sound", dir.empty() ? dsPath_ : dir, name,
+                     "DrumSynth sounds (*.ds)|*.ds|All files (*.*)|*.*", wxFD_OPEN | wxFD_FILE_MUST_EXIST);
+    if (dlg.ShowModal() != wxID_OK) return;
+    std::wstring path = dlg.GetPath().ToStdWstring();
+    Preset p = Preset::NewSound();
+    std::string version;
+    if (!p.Load(path, &version)) {
+        Warn("The sound could not be read.");
+        return;
+    }
+    // the source's envelope names (they depend on its overtone method)
+    wxArrayString choices;
+    for (int e = 1; e <= 7; e++)
+        choices.Add(EnvelopeEditor::EnvelopeName(e, p.method) + wxString::Format(": %zu points", p.env[e].size()));
+    wxSingleChoiceDialog pick(this, "Which envelope of " + NeatName(path) + " goes into " + what + "?",
+                              "Load envelope from sound", choices);
+    pick.SetSelection(env_->CurrentEnvelope() - 1);
+    if (pick.ShowModal() != wxID_OK) return;
+    int src = pick.GetSelection() + 1;
+    env_->Replace(p.env[src], "Loaded the " + EnvelopeEditor::EnvelopeName(src, p.method) + " envelope of " +
+                                  NeatName(path) + " into " + what);
+}
 
 void MainFrame::LoadFile(const std::wstring& path)
 {

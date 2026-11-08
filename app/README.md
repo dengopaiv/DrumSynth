@@ -73,6 +73,16 @@ Before the test was written, F1–F12 only played existing WAV files, and the re
 
 The test also found that the status bar cut long messages short ("Rendered 0.16 s..."). The control then held only the shortened text, which is what a screen reader reads. The status bar now keeps the whole message.
 
+To test envelope files, run `powershell -File app/tests/envelope_files.ps1 [-Exe <DrumSynth.exe>]`. It starts with `drumsynths\tr808\Kick.ds`, then:
+- saves its Tone envelope with Ctrl+Shift+S;
+- checks the file;
+- resets the envelope, loads the file again with Ctrl+Shift+O, and checks that the point list is as before;
+- loads the Tone envelope of `Handclap.ds` with Load envelope from sound, and checks the point list.
+
+It types into the program and its dialogs only while one of them is in front. In the Windows file dialogs, it puts the name into the name box and presses the dialog's OK button. (A typed name opens the box's autocomplete list, and an Enter just after the dialog opens can reach another part of the dialog.) It passed on 2026-11-08.
+
+`preset_roundtrip` also saves every envelope of every preset as an envelope file and loads it back. On 2026-11-08, 5,944 envelopes, including a 31-point envelope longer than 255 characters, all came back as saving a sound writes them.
+
 ### With NVDA
 
 `powershell -File app/tests/nvda_speech.ps1 -Ds <file.ds>` drives the program with the keyboard under a portable NVDA, and prints what NVDA spoke from its log (level 12).
