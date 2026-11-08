@@ -80,7 +80,7 @@ Problems the test found, all fixed:
 - Insert, the NVDA key, couldn't add points: Ctrl+N does now.
 - Alt shortcuts didn't reach the section controls, and Alt+E was claimed twice.
 - Empty lists read "unknown".
-- Announcements didn't reach NVDA: they do now through Tolk, which the build copies from `C:\GIT\environment	olk` when it is there.
+- Announcements didn't reach NVDA: they do now through Tolk, which the build copies from `C:\GIT\environment\tolk` (the `TOLK_DIR` CMake setting) when it is there.
 
 JAWS was not available to test, and Narrator was not tested.
 
