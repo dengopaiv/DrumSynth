@@ -50,3 +50,8 @@ if(EXISTS "${TOLK_DIR}/src/Tolk.dll")
         COMMAND ${CMAKE_COMMAND} -E copy_if_different "${TOLK_DIR}/src/Tolk.dll" $<TARGET_FILE_DIR:DrumSynth>
         COMMAND ${CMAKE_COMMAND} -E copy_directory "${TOLK_DIR}/libs/x64" $<TARGET_FILE_DIR:DrumSynth>)
 endif()
+
+# Test: what UI Automation (Narrator's interface) reports for the running GUI.
+add_executable(uia_dump tests/uia_dump.cpp)
+target_compile_definitions(uia_dump PRIVATE UNICODE _UNICODE)
+target_link_libraries(uia_dump PRIVATE ole32 oleaut32 uiautomationcore)
