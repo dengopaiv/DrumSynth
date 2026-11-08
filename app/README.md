@@ -82,7 +82,11 @@ Problems the test found, all fixed:
 - Empty lists read "unknown".
 - Announcements didn't reach NVDA: they do now through Tolk, which the build copies from `C:\GIT\environment\tolk` (the `TOLK_DIR` CMake setting) when it is there.
 
-JAWS was not available to test, and Narrator was not tested.
+### What UI Automation reports (Narrator)
+
+Narrator's speech can't be logged the same way. `build\app\Release\uia_dump.exe "DrumSynth"` lists what UI Automation, the interface Narrator uses, reports for the running program. On 2026-11-08 every control had its proper type and name: button, list, group, check box, slider, edit, combo box. The sliders carried the original's value texts ("Tone level, slider, −12.7 dB"; "Noise colour (slope), Pink (−58)"). There were no unnamed focusable controls.
+
+JAWS was not available to test.
 
 ### What MSAA reports
 

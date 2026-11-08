@@ -53,7 +53,7 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
 1. **Check the engine on other processors** (an AMD one and a recent Intel one) with `tools/check_reference.py`. Postponed, 2026-11-08. The x87 transcendental instructions may differ in their last bit between models (findings, section 9).
 2. **Screen readers.** NVDA was tested on 2026-11-08 with `app/tests/nvda_speech.ps1` (results in `app/README.md`); the problems it found are fixed. Still to do:
    - JAWS: not installed here;
-   - Narrator;
+   - Narrator: what UI Automation reports was checked with `app/tests/uia_dump` (correct types, names and slider texts), but Narrator's speech was not heard;
    - longer real sound design work, to tune wording and announcements.
 
 ## The existing WPF port
