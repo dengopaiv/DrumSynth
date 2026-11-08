@@ -404,7 +404,10 @@ wxSizer* MainFrame::MakeSections(wxWindow* p)
     AddSlider(tp, g, "Tone level:", 1, 181, 9, lev, &preset_.toneLevel);
     AddText(tp, g, "Start frequency:", "Hz", &preset_.toneF1);
     AddText(tp, g, "End frequency:", "Hz", &preset_.toneF2);
-    AddSlider(tp, g, "Droop:", 0, 100, 10, [](int v) { return wxString(vb::DroopName(v)); }, &preset_.droop);
+    // the original shows only the name; every value sounds different, so
+    // the number is added, as for the noise colour
+    AddSlider(tp, g, "Droop:", 0, 100, 10,
+              [](int v) { return wxString::Format("%s (%d)", vb::DroopName(v), v); }, &preset_.droop);
     AddText(tp, g, "Phase at start:", "degrees", &preset_.phase);
     c1->Add(tone, 0, wxEXPAND | wxBOTTOM, 6);
 

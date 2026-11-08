@@ -118,7 +118,7 @@ Everything else is mouse only: the envelope editing, the envelope selection and 
 The new GUI provides all of that from the keyboard:
 - Tab and Shift+Tab move between controls, in the order of 1.3.
 - Each control has a name that screen readers announce, including its unit.
-- Sliders announce their value text (−6.0 dB, Slow, Pink, Q = 20…), not only the raw number.
+- Sliders announce their value text (−6.0 dB, Slow (10), Pink (−58), Q = 20…), not only the raw number. Where the original shows only a name (Droop, Slope), the number follows it: every step sounds different, and a sighted user sees the slider's position, which the name alone doesn't tell.
 - Changed on purpose:
 - **Ctrl alone does not play.** In the original, the Ctrl key on its own plays the sound (`Form_KeyDown`). Screen reader users press Ctrl to stop speech, so it would play constantly. Enter and Ctrl+P play instead. ✗
 - **Kit sounds are synthesized, not read from WAV files.** In the original, clicking a sound and F1–F12 play the sound's WAV file, which exists only after Save or Generate All WAVs: the engine was a separate DLL that wrote files. The engine is part of the program now, so a sound with a `.ds` file is rendered from it into memory and played, and nothing is written into the kit. The result is the WAV the original would have generated, byte for byte. A WAV-only sound still plays its file. The renders of the kit shown are kept, so pressing a key again plays at once; a `.ds` changed since is rendered again. ✗

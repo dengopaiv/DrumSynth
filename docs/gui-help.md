@@ -30,7 +30,7 @@ To use DrumSynth:
 | In the point list | Ctrl+N (or Insert, without a screen reader: Insert is the NVDA key) adds a point, Delete deletes one, Ctrl+C and Ctrl+V copy and paste the envelope |
 | Alt+letter | Go to a control: Alt+P Play, Alt+I kits, Alt+D sounds, Alt+L Load, Alt+S Save, Alt+T Tone on, Alt+O Overtones on, Alt+N Noise on, Alt+R Filter, Alt+A Master on, Alt+V envelope choice, Alt+G view range, Alt+M point time, Alt+C comment. Alt+F, Alt+K, Alt+E and Alt+H open the File, Kit, Envelope and Help menus. |
 
-Sliders say their value the way the original shows it beside them: "−6.0 dB", "Slow", "Pink (−58)", "Q = 20". Use the arrow keys for small steps and Page Up and Page Down for large ones.
+Sliders say their value the way the original shows it beside them: "−6.0 dB", "Slow (10)", "Pink (−58)", "Q = 20". Where the original shows only a name, as for Droop and the noise colour, the number follows it, because every step sounds different. Use the arrow keys for small steps and Page Up and Page Down for large ones.
 
 The original also played the sound when the Ctrl key was pressed on its own. This edition doesn't: screen reader users press Ctrl to stop speech.
 
@@ -64,7 +64,7 @@ Each section uses an envelope for its volume. There is also an envelope for the 
 
 The Tone Generator produces a swept-frequency sine wave:
 - **Start and end frequency** in Hz define the sweep.
-- **Droop** sets its shape, from a linear sweep ("Linear") to a very fast sweep that reaches the end frequency almost immediately ("Fast").
+- **Droop** sets its shape, from a linear sweep ("Linear") to a very fast sweep that reaches the end frequency almost immediately ("Fast"). It goes from 0 to 100: 0 and 1 are linear, and above that each step makes the sweep faster.
 - **Phase at start** can be varied to produce a click.
 
 ### Overtones
