@@ -56,6 +56,8 @@ Result on 2026-11-08: 843 identical. The other 6 change exactly as the original 
 - two have Tuning, Stretch and Level all 0, so they load with Master off and are saved with Stretch 100;
 - four have both filter boxes on, so they are saved with the overtones-only filter.
 
+To test Play, run `powershell -File app/tests/smoke_play.ps1 -Ds <file.ds>`. It starts the program with the sound, presses Play through the menu command, and checks that the program is still running and has written and rendered its temporary preset. It passed on 2026-11-08 with a normal preset, and with one that makes the original hang.
+
 To see what a screen reader sees, start the program, then run:
 
 ```
