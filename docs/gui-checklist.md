@@ -93,11 +93,11 @@ Status for section 2: ✓ (all items; see the notes in section 8).
 | 4.1 | A location folder (`DS_PATH`, `[Files] Path` in `DrumSyn.ini`, default the program folder) holding kit folders | The same | ✓ |
 | 4.2 | Kit list (`kitList`): subfolders, first letter upper-cased; names with a character below `A` (other than space) shown all upper case | A list box with the same names | ✓ |
 | 4.3 | Sound list (`fileList`): the kit's `.ds` files without extension, then `.wav` files that have no `.ds`, shown lower case with a trailing space marking them | The same entries. WAV-only entries are described as "(WAV only)" for screen readers. | ✓ |
-| 4.4 | Clicking a sound plays its WAV; Load is disabled for WAV-only entries; double-click or right-click while holding loads it | Selecting plays (Space or Enter in the list); Load button; WAV-only entries can't be loaded | ✓ |
+| 4.4 | Clicking a sound plays its WAV; Load is disabled for WAV-only entries; double-click or right-click while holding loads it | Selecting plays (Space or Enter in the list); Load button; WAV-only entries can't be loaded. A sound with a `.ds` is synthesized from it instead of playing its WAV (section 5). | ✓ |
 | 4.5 | Load (`butLoad`): reads every key, with the defaults listed in `openfile` | The same | ✓ |
 | 4.6 | Save (`butSave`): asks for a name (`fileform`: "Save As…", with a "Save .WAV" box). The name may not contain `. \ / : * ? " < > \|`. If a WAV of that name exists without a `.ds`, it asks "Overwrite Existing .WAV File?" Then it writes the `.ds` with `WritePrivateProfileString` (keys updated in place in an existing file) and **always** writes the WAV: it copies the last render, or renders. The "Save .WAV" box is remembered (`[Files] SaveWAVs`) but never used, an original quirk. | The same dialog and checks. The WAV is written when "Save .WAV" is ticked, which is what the box says (a deliberate fix, noted in the help). | ✓ |
 | 4.7 | Play (`butPlay`), Enter, or Ctrl: writes a temporary `.ds` (`DrumSyn-.tmp`), renders it (`DrumSyn~.tmp`) with the progress in the title, and plays it with `PlaySound`. If nothing changed since the last render, it only plays. | The same, with the C17 engine | ✓ |
-| 4.8 | F1–F12 play the first twelve sounds in the list, Shift+F1–F12 the next twelve (`Form_KeyDown`) | The same keys | ✓ |
+| 4.8 | F1–F12 play the first twelve sounds in the list, Shift+F1–F12 the next twelve (`Form_KeyDown`) | The same keys, synthesizing from the `.ds` (section 5) | ✓ |
 | 4.9 | Right-click menu on the sound list: Generate All WAVs, "Delete WAVs (size k)", Delete File, New Kit…, Set Location…, Cancel | A "Kit" menu in the menu bar with the same items, plus the same context menu | ✓ |
 | 4.10 | Generate All WAVs (`genform`): renders every `.ds` in the kit whose WAV is missing, with a progress bar and Cancel | A progress dialog with Cancel | ✓ |
 | 4.11 | Delete WAVs: deletes the WAV of every sound that has a `.ds`, without asking | The same, after a confirmation (deleting without asking is not accessible) | ✓ |
@@ -120,7 +120,8 @@ The new GUI provides all of that from the keyboard:
 - Each control has a name that screen readers announce, including its unit.
 - Sliders announce their value text (−6.0 dB, Slow, Pink, Q = 20…), not only the raw number.
 - Changed on purpose:
-- **Ctrl alone does not play.** In the original, the Ctrl key on its own plays the sound (`Form_KeyDown`). Screen reader users press Ctrl to stop speech, so it would play constantly. Enter and F5 play instead. ✗
+- **Ctrl alone does not play.** In the original, the Ctrl key on its own plays the sound (`Form_KeyDown`). Screen reader users press Ctrl to stop speech, so it would play constantly. Enter and Ctrl+P play instead. ✗
+- **Kit sounds are synthesized, not read from WAV files.** In the original, clicking a sound and F1–F12 play the sound's WAV file, which exists only after Save or Generate All WAVs: the engine was a separate DLL that wrote files. The engine is part of the program now, so a sound with a `.ds` file is rendered from it into memory and played, and nothing is written into the kit. The result is the WAV the original would have generated, byte for byte. A WAV-only sound still plays its file. The renders of the kit shown are kept, so pressing a key again plays at once; a `.ds` changed since is rendered again. ✗
 
 - **Alt+letter shortcuts** are unique across the window. Windows' own dialog handling doesn't reach controls inside the section group boxes, so the main window handles them, as Windows would: a button is pressed, a check box is focused and toggled.
 - **Ctrl+N adds an envelope point.** Insert does too, but Insert is the NVDA key.
@@ -131,11 +132,11 @@ Menu accelerators:
 |---|---|
 | Ctrl+O | Load |
 | Ctrl+S | Save |
-| F5 | Play, as well as Enter and Ctrl as in the original |
+| Ctrl+P | Play, as well as Enter (and Ctrl alone in the original). F5 stays the fifth sound, as in the original. |
 | Ctrl+E | Go to the envelope point list |
 | Ctrl+K | Go to the kit list |
 
-Enter keeps its normal meaning on buttons and in lists. In the sound list it plays the selected sound's WAV.
+Enter keeps its normal meaning on buttons and in lists. In the sound list it plays the selected sound.
 
 ## 6. Values the original GUI cannot show
 

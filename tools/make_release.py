@@ -165,8 +165,9 @@ Start DrumSynth.exe. No installation is needed. The Kits folder holds
 {kits} kits of sounds: the DrumSynth 2.0 library and later presets. Kit, Set
 location chooses another folder of kits; the choice is kept in DrumSyn.ini.
 
-Press F1 to F12 to play the first sounds of a kit, Enter or F5 to play the
-sound being edited. All keys and controls are described in gui-help.md (the
+Press F1 to F12 to play the first sounds of a kit, Enter or Ctrl+P to play
+the sound being edited. Kit sounds are synthesized as you play them, so the
+kits need no WAV files. All keys and controls are described in gui-help.md (the
 Help button opens it).
 
 Spoken messages: with NVDA running, messages such as "Saved" are spoken

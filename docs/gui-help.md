@@ -13,20 +13,20 @@ DrumSynth lets you organise and audition your sounds, and store them in very sma
 To use DrumSynth:
 1. Turn on whichever sections you want to use.
 2. Adjust the parameters and envelopes.
-3. Press **Play** (Enter or F5) to hear the result.
+3. Press **Play** (Enter or Ctrl+P) to hear the result.
 
 ## Keys
 
 | Key | What it does |
 |---|---|
 | Tab, Shift+Tab | Move between controls: Play, Kits, Sounds, Load, Save, then the sections (Tone, Overtones, Noise, Noise Band 1 and 2, Distortion, Filter, Master), the envelope editor, the comment and Help |
-| Enter, F5 | Play the sound. Enter keeps its usual meaning on buttons and in lists. |
-| F1 to F12 | Play the first twelve sounds in the sound list; Shift+F1 to F12 play the next twelve |
+| Enter, Ctrl+P | Play the sound being edited. Enter keeps its usual meaning on buttons and in lists. |
+| F1 to F12 | Play the first twelve sounds in the sound list; Shift+F1 to F12 play the next twelve. They are synthesized from their `.ds` files, so no WAV files are needed. |
 | Ctrl+O | Load the selected sound |
 | Ctrl+S | Save as |
 | Ctrl+K | Go to the kit list |
 | Ctrl+E | Go to the envelope point list |
-| In the sound list | Space or Enter plays the sound's WAV; Delete deletes the sound; double-click loads it |
+| In the sound list | Space or Enter plays the sound; Delete deletes the sound; double-click loads it |
 | In the point list | Ctrl+N (or Insert, without a screen reader: Insert is the NVDA key) adds a point, Delete deletes one, Ctrl+C and Ctrl+V copy and paste the envelope |
 | Alt+letter | Go to a control: Alt+P Play, Alt+I kits, Alt+D sounds, Alt+L Load, Alt+S Save, Alt+T Tone on, Alt+O Overtones on, Alt+N Noise on, Alt+R Filter, Alt+A Master on, Alt+V envelope choice, Alt+G view range, Alt+M point time, Alt+C comment. Alt+F, Alt+K, Alt+E and Alt+H open the File, Kit, Envelope and Help menus. |
 
@@ -108,7 +108,7 @@ With **Master on** off, the sound is saved untuned, unstretched and at 0 dB. The
 
 DrumSynth works with **kits**: folders of sounds inside one location folder.
 
-- **Finding sounds:** choose a kit, then a sound. Selecting a sound with the mouse, or pressing Space or Enter on it, plays its WAV file if there is one. **Load** loads the sound for editing.
+- **Finding sounds:** choose a kit, then a sound. Selecting a sound with the mouse, or pressing Space or Enter on it, plays it: DrumSynth synthesizes it from its `.ds` file, without writing anything into the kit. **Load** loads the sound for editing.
 - **WAV-only sounds:** WAV files that have no `.ds` file are listed as "(WAV only)". They can be played but not loaded.
 - **Saving:** **Save** asks for a name. With **Save .WAV** ticked, it also saves the WAV file, which other programs need. Saving over an existing name replaces that sound.
 
@@ -116,7 +116,7 @@ The **Kit** menu, and the context menu of the sound list (Shift+F10 or the conte
 
 | Item | What it does |
 |---|---|
-| Generate all WAVs | Makes the WAV of every sound in the kit that doesn't have one |
+| Generate all WAVs | Makes the WAV of every sound in the kit that doesn't have one, for other programs. DrumSynth itself doesn't need them. |
 | Delete all WAVs | Deletes the WAVs of all sounds that have a `.ds` file. A WAV can always be made again from its `.ds`. |
 | Delete sound | Deletes the selected sound |
 | New kit | Makes a new kit folder |

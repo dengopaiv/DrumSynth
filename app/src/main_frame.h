@@ -1,6 +1,8 @@
 // main_frame.h - the DrumSynth main window (gui/DRUMSYN.FRM), accessible.
 #pragma once
 
+#include <filesystem>
+#include <map>
 #include <string>
 #include <vector>
 #include <wx/checkbox.h>
@@ -69,6 +71,13 @@ private:
     Preset preset_;
     bool playable_ = false;
     std::vector<unsigned char> wav_;     // the last render, kept for PlaySound
+    struct KitRender {                   // a kit sound rendered for F1-F12 and the list
+        std::filesystem::file_time_type time; // of its .ds when rendered
+        std::vector<unsigned char> wav;
+        unsigned notes = 0;
+    };
+    std::map<std::wstring, KitRender> kitRenders_; // by .ds path, for the kit shown
+    std::wstring lastKitRender_;          // the .ds path of the last one played
     std::wstring tempDs_, tempWav_;
     std::wstring dsPath_;
     int saveWav_ = 1;

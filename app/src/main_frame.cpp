@@ -97,7 +97,9 @@ MainFrame::MainFrame(const wxString& openFile)
     iniPath_ = ExeDir() + L"\\DrumSyn.ini";
     LoadSettings();
 
-    CreateStatusBar();
+    // without wxSTB_ELLIPSIZE_END: it puts the shortened text ("Rendered
+    // 0.16 s...") into the control, which is what screen readers read
+    CreateStatusBar(1, wxSTB_SIZEGRIP | wxSTB_SHOW_TIPS | wxFULL_REPAINT_ON_RESIZE);
     auto* scroll = new wxScrolledWindow(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxVSCROLL | wxHSCROLL | wxTAB_TRAVERSAL);
     scroll->SetScrollRate(10, 10);
     auto* main = new wxBoxSizer(wxVERTICAL);
@@ -176,7 +178,7 @@ MainFrame::MainFrame(const wxString& openFile)
 void MainFrame::MakeMenus()
 {
     auto* file = new wxMenu;
-    file->Append(ID_PLAY, "&Play\tF5");
+    file->Append(ID_PLAY, "&Play\tCtrl+P"); // F5 plays sound 5 (Form_KeyDown)
     file->Append(ID_LOAD, "&Load selected sound\tCtrl+O");
     file->Append(ID_SAVE, "&Save as...\tCtrl+S");
     file->AppendSeparator();
@@ -233,7 +235,7 @@ wxSizer* MainFrame::MakeFileArea(wxWindow* p)
 {
     auto* row = new wxBoxSizer(wxHORIZONTAL);
     play_ = new wxButton(p, ID_PLAY, "&Play");
-    play_->SetToolTip("Play the sound (Enter or F5)");
+    play_->SetToolTip("Play the sound (Enter or Ctrl+P)");
     play_->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { Play(); });
     row->Add(play_, 0, wxRIGHT | wxALIGN_TOP, 8);
 
@@ -561,34 +563,43 @@ void MainFrame::Changed()
 
 // ---- Sound -----------------------------------------------------------------------
 
-bool MainFrame::Render(std::vector<unsigned char>* wav, unsigned* notes, int* code)
+// ds2wav() into memory: read a .ds file with the engine's own parser (the
+// same rules as the original), render it, and give the WAV file's bytes,
+// exactly as the original would have written them. Returns the result code.
+static int RenderDsFile(const std::wstring& path, std::vector<unsigned char>* wav, unsigned* notes)
 {
-    // butPlay_Click: savefile() to a temporary .ds, then ds2wav() on it. The
-    // engine reads the file with the same rules as the original.
-    DeleteFileW(tempDs_.c_str());
-    if (!preset_.Save(tempDs_)) { *code = DS_ERR_OUTPUT; return false; }
-    FILE* f = _wfopen(tempDs_.c_str(), L"rb");
+    FILE* f = _wfopen(path.c_str(), L"rb");
+    if (!f) return DS_ERR_INPUT;
     std::string text;
-    if (f) {
-        char buf[65536];
-        size_t n;
-        while ((n = fread(buf, 1, sizeof(buf), f)) > 0) text.append(buf, n);
-        fclose(f);
-    }
+    char buf[65536];
+    size_t n;
+    while ((n = fread(buf, 1, sizeof(buf), f)) > 0) text.append(buf, n);
+    fclose(f);
     ds_ini* ini = ds_ini_parse(text.data(), text.size());
+    if (!ini) return DS_ERR_OUTPUT;
     ds_source src = ds_ini_source(ini);
     ds_sound sound;
-    wxBusyCursor busy;
-    *code = ds_render(&src, nullptr, &sound);
+    int code = ds_render(&src, nullptr, &sound);
     ds_ini_free(ini);
-    if (*code != DS_OK) return false;
+    if (code != DS_OK) return code;
     *notes = sound.notes;
     unsigned char* bytes = nullptr;
-    size_t n = ds_wav_bytes(&sound, &bytes);
+    n = ds_wav_bytes(&sound, &bytes);
+    ds_sound_free(&sound);
+    if (n == 0) return DS_ERR_OUTPUT;
     wav->assign(bytes, bytes + n);
     free(bytes);
-    ds_sound_free(&sound);
-    return n > 0;
+    return DS_OK;
+}
+
+bool MainFrame::Render(std::vector<unsigned char>* wav, unsigned* notes, int* code)
+{
+    // butPlay_Click: savefile() to a temporary .ds, then ds2wav() on it
+    DeleteFileW(tempDs_.c_str());
+    if (!preset_.Save(tempDs_)) { *code = DS_ERR_OUTPUT; return false; }
+    wxBusyCursor busy;
+    *code = RenderDsFile(tempDs_, wav, notes);
+    return *code == DS_OK;
 }
 
 void MainFrame::AnnounceNotes(unsigned notes)
@@ -706,6 +717,14 @@ void MainFrame::FillSoundList()
     sounds_->Clear();
     soundEntries_.clear();
     std::wstring dir = KitDir();
+    // keep the renders of this kit only, and the last one played, which
+    // may still be playing (PlaySound reads it from memory)
+    std::wstring prefix = dir + L"\\";
+    for (auto it = kitRenders_.begin(); it != kitRenders_.end();) {
+        bool keep = it->first == lastKitRender_ ||
+                    (!dir.empty() && it->first.compare(0, prefix.size(), prefix) == 0);
+        it = keep ? std::next(it) : kitRenders_.erase(it);
+    }
     if (dir.empty()) { sounds_->Append("(no sounds)"); return; }
     std::vector<std::wstring> ds, wav;
     std::error_code ec;
@@ -748,10 +767,40 @@ bool MainFrame::SelectedSound(std::wstring* name, bool* wavOnly) const
 
 void MainFrame::PlaySoundAt(int i)
 {
+    // fileList_MouseDown and Form_KeyDown played the sound's WAV file, which
+    // had to be made first with Generate All WAVs. The engine is part of the
+    // program now, so a sound with a .ds file is rendered from it (into
+    // memory: the kit folder is not changed) and played; only a sound
+    // without a .ds plays its WAV file.
     if (i < 0 || (size_t)i >= soundEntries_.size()) return;
     sounds_->SetSelection(i);
-    load_->Enable(!soundEntries_[i].second);
-    PlayFile(KitDir() + L"\\" + soundEntries_[i].first + L".wav");
+    const auto& [name, wavOnly] = soundEntries_[i];
+    load_->Enable(!wavOnly);
+    std::wstring base = KitDir() + L"\\" + name;
+    if (wavOnly) { PlayFile(base + L".wav"); return; }
+
+    // The renders are kept, so playing a sound again (a drum pad) is
+    // immediate; one whose .ds changed since is rendered again.
+    std::wstring ds = base + L".ds";
+    std::error_code ec;
+    auto time = fs::last_write_time(ds, ec);
+    auto it = kitRenders_.find(ds);
+    if (it == kitRenders_.end() || it->second.time != time) {
+        PlaySoundW(nullptr, nullptr, 0); // the buffer being replaced may be playing
+        KitRender r;
+        r.time = time;
+        wxBusyCursor busy;
+        int code = RenderDsFile(ds, &r.wav, &r.notes);
+        if (code != DS_OK) {
+            Warn(wxString::Format("The sound could not be rendered (result %d).", code));
+            return;
+        }
+        it = kitRenders_.insert_or_assign(ds, std::move(r)).first;
+        AnnounceNotes(it->second.notes);
+    }
+    lastKitRender_ = ds;
+    if (!PlaySoundW(reinterpret_cast<LPCWSTR>(it->second.wav.data()), nullptr, SND_MEMORY | SND_ASYNC | SND_NODEFAULT))
+        Warn("The sound could not be played.");
 }
 
 void MainFrame::SetTitleFor(const std::wstring& path) { SetTitle(NeatName(path) + L" - DrumSynth"); }
@@ -864,28 +913,12 @@ void MainFrame::GenerateAll()
     for (const auto& n : todo) {
         if (!prog.Update(done, n)) break;
         std::wstring ds = dir + L"\\" + n + L".ds", wav = dir + L"\\" + n + L".wav";
-        Preset p;
-        std::string ver;
-        FILE* f = _wfopen(ds.c_str(), L"rb");
-        std::string text;
-        if (f) {
-            char buf[65536];
-            size_t k;
-            while ((k = fread(buf, 1, sizeof(buf), f)) > 0) text.append(buf, k);
-            fclose(f);
-        }
-        ds_ini* ini = ds_ini_parse(text.data(), text.size());
-        ds_source src = ds_ini_source(ini);
-        ds_sound sound;
-        if (ds_render(&src, nullptr, &sound) == DS_OK) {
-            unsigned char* bytes = nullptr;
-            size_t k = ds_wav_bytes(&sound, &bytes);
+        std::vector<unsigned char> bytes;
+        unsigned notes = 0;
+        if (RenderDsFile(ds, &bytes, &notes) == DS_OK) {
             FILE* o = _wfopen(wav.c_str(), L"wb");
-            if (o) { fwrite(bytes, 1, k, o); fclose(o); }
-            free(bytes);
-            ds_sound_free(&sound);
+            if (o) { fwrite(bytes.data(), 1, bytes.size(), o); fclose(o); }
         }
-        ds_ini_free(ini);
         done++;
     }
     FillSoundList();

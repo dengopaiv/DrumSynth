@@ -109,7 +109,7 @@ try {
     Step "Level: Up" "{UP}"
     Step "Points again: Ctrl+E" "^e"
     Step "Copy envelope: Ctrl+C" "^c" 1500
-    Step "Play: F5" "{F5}" 2500
+    Step "Play: Ctrl+P" "^p" 2500
     Step "Envelope choice: Alt+V" "%v"
     Step "Envelope choice: Down" "{DOWN}"
     Step "Overtones on: Alt+O" "%o"

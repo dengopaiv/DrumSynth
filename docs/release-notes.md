@@ -24,7 +24,7 @@ It replaces the 3.0 "Modern WPF Edition", which stays on the `modern-wpf` branch
 
 ### The program: everything the original did, accessible
 
-- All sections and controls of DrumSynth 2.0, the kit and sound browser, Play, Load, Save, Generate and Delete WAVs, New Kit and Set Location, and F1 to F12 to play sounds. The full list is in [gui-checklist.md](gui-checklist.md).
+- All sections and controls of DrumSynth 2.0, the kit and sound browser, Play, Load, Save, Generate and Delete WAVs, New Kit and Set Location, and F1 to F12 to play sounds. Kit sounds are synthesized from their `.ds` files as you play them, so the kits need no WAV files. The full list is in [gui-checklist.md](gui-checklist.md).
 - Native Windows controls in a logical tab order, each with a name.
 - Sliders speak the original's value texts: "−6.0 dB", "Slow", "Pink (−58)", "Q = 20".
 - **An envelope editor that works without a mouse:**
@@ -39,7 +39,8 @@ It replaces the 3.0 "Modern WPF Edition", which stays on the `modern-wpf` branch
 
 ### Differences from the original program
 
-- The Ctrl key on its own no longer plays the sound, because screen reader users press it to stop speech. Enter and F5 play.
+- The Ctrl key on its own no longer plays the sound, because screen reader users press it to stop speech. Enter and Ctrl+P play.
+- Clicking a sound in the kit, or pressing F1 to F12, synthesizes it from its `.ds` file. The original played the sound's WAV file, which had to be generated first.
 - "Save .WAV" in the Save dialog now decides whether the WAV is saved. The original always saved it.
 - Help is a Markdown file, `gui-help.md`, instead of WinHelp, which today's Windows can't open.
 

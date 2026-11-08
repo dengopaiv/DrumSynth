@@ -58,6 +58,21 @@ Result on 2026-11-08: 843 identical. The other 6 change exactly as the original 
 
 To test Play, run `powershell -File app/tests/smoke_play.ps1 -Ds <file.ds>`. It starts the program with the sound, presses Play through the menu command, and checks that the program is still running and has written and rendered its temporary preset. It passed on 2026-11-08 with a normal preset, and with one that makes the original hang.
 
+To test the kit keys, run `powershell -File app/tests/fkeys_play.ps1 [-Exe <DrumSynth.exe>] [-Kit tr808]`. It chooses a kit without WAV files, then:
+- presses F1, F3 and F5, and checks that each selects and plays its sound (1, 3, 5) with no warning;
+- checks that F5 is not taken by Play;
+- presses Space in the sound list;
+- presses Ctrl+P, and checks that the status bar shows the render of the sound being edited;
+- finally checks that no WAV file was written into the kit.
+
+wxWidgets sees the F-keys through a keyboard hook, which only real key presses reach. So this test types. Like the NVDA test, it sends a key only while DrumSynth is the foreground window.
+
+On 2026-11-08 it passed on the build and on the packaged release, with kit tr808.
+
+Before the test was written, F1–F12 only played existing WAV files, and the release's kits have almost none. F5 played the fifth sound instead of Play, despite the help.
+
+The test also found that the status bar cut long messages short ("Rendered 0.16 s..."). The control then held only the shortened text, which is what a screen reader reads. The status bar now keeps the whole message.
+
 ### With NVDA
 
 `powershell -File app/tests/nvda_speech.ps1 -Ds <file.ds>` drives the program with the keyboard under a portable NVDA, and prints what NVDA spoke from its log (level 12).
