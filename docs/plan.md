@@ -20,7 +20,8 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
 | 2026-11-08 | **The engine aims to be as exact as possible: identical to `ref`, sample for sample.** Not "higher precision than the original": the original's roundings are part of its sound. The method is in [rewrite-plan.md](rewrite-plan.md). | "The more precision we have, the better." |
 | 2026-11-08 | **Where the original hangs, the engine renders and flags** (`DS_NOTE_HANG`): it produces a sound and never freezes. | User's choice, from three options: render and flag, refuse with an error, or render silence. |
 | 2026-11-08 | **The GUI warns but allows** combinations that freeze the original, such as a one-point tone envelope with tracked triangle overtones. The editor allows what the original allowed, and announces a warning when the engine flags a note. | Faithful to the original's editor, and accessible: the warning is announced. |
-| 2026-11-08 | **Testing on other CPUs is postponed.** It stays an open item. | No other machine available now. |
+| 2026-11-08 | **Testing on other CPUs is postponed.** It stays an open item. | No other machine available now (asked again later the same day: still postponed). |
+| 2026-11-08 | **Screen reader coverage: NVDA tested by its speech; Narrator covered by the UI Automation check; JAWS skipped.** | User's choice. Narrator reads the UI Automation tree that `app/tests/uia_dump` verified. JAWS is not installed, and the user chose not to install the demo. |
 
 ## Done
 
@@ -51,10 +52,11 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
 ## Next
 
 1. **Check the engine on other processors** (an AMD one and a recent Intel one) with `tools/check_reference.py`. Postponed, 2026-11-08. The x87 transcendental instructions may differ in their last bit between models (findings, section 9).
-2. **Screen readers.** NVDA was tested on 2026-11-08 with `app/tests/nvda_speech.ps1` (results in `app/README.md`); the problems it found are fixed. Still to do:
-   - JAWS: not installed here;
-   - Narrator: what UI Automation reports was checked with `app/tests/uia_dump` (correct types, names and slider texts), but Narrator's speech was not heard;
-   - longer real sound design work, to tune wording and announcements.
+2. **Screen readers: done as decided on 2026-11-08** (results in `app/README.md`):
+   - NVDA: tested by its speech with `app/tests/nvda_speech.ps1`; the problems it found are fixed.
+   - Narrator: covered by the UI Automation check, `app/tests/uia_dump`: correct types, names and slider texts.
+   - JAWS: skipped.
+   - Further tuning of wording and announcements comes from using the program.
 
 ## The existing WPF port
 
