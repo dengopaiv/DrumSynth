@@ -41,3 +41,12 @@ add_custom_command(TARGET DrumSynth POST_BUILD
 add_executable(msaa_dump tests/msaa_dump.cpp)
 target_compile_definitions(msaa_dump PRIVATE UNICODE _UNICODE)
 target_link_libraries(msaa_dump PRIVATE oleacc ole32 oleaut32)
+
+# Optional: Tolk and NVDA's controller client next to the program, so
+# announcements reach NVDA, JAWS and others directly (app/README.md).
+set(TOLK_DIR "C:/GIT/environment/tolk" CACHE PATH "Folder with src/Tolk.dll and libs/x64")
+if(EXISTS "${TOLK_DIR}/src/Tolk.dll")
+    add_custom_command(TARGET DrumSynth POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different "${TOLK_DIR}/src/Tolk.dll" $<TARGET_FILE_DIR:DrumSynth>
+        COMMAND ${CMAKE_COMMAND} -E copy_directory "${TOLK_DIR}/libs/x64" $<TARGET_FILE_DIR:DrumSynth>)
+endif()

@@ -75,12 +75,16 @@ private:
     std::wstring iniPath_;
     bool soundListMouse_ = false;
     bool loading_ = false;
+    wxWindow* lastFocus_ = nullptr;
 
     struct Bound { std::function<void()> apply; };
     std::vector<Bound> bindings_;        // control <- preset, for ApplyToControls
 
     wxButton* play_ = nullptr;
     wxButton* load_ = nullptr;
+    wxButton* save_ = nullptr;
+    wxCheckBox* masterOn_ = nullptr;
+    bool noKits_ = false;
     wxListBox* kits_ = nullptr;
     wxListBox* sounds_ = nullptr;
     std::vector<std::pair<std::wstring, bool>> soundEntries_; // name, WAV only

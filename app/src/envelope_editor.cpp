@@ -179,10 +179,10 @@ EnvelopeEditor::EnvelopeEditor(wxWindow* parent, Preset* preset, Host host)
     : wxPanel(parent), preset_(preset), host_(std::move(host))
 {
     auto* top = new wxBoxSizer(wxHORIZONTAL);
-    top->Add(new wxStaticText(this, wxID_ANY, "&Envelope:"), 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 4);
+    top->Add(new wxStaticText(this, wxID_ANY, "En&velope:"), 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 4);
     envChoice_ = new wxChoice(this, wxID_ANY);
     top->Add(envChoice_, 0, wxRIGHT, 12);
-    top->Add(new wxStaticText(this, wxID_ANY, "&View range:"), 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 4);
+    top->Add(new wxStaticText(this, wxID_ANY, "View ran&ge:"), 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 4);
     rangeChoice_ = new wxChoice(this, wxID_ANY);
     for (const auto& r : kRanges) rangeChoice_->Append(r.name);
     rangeChoice_->SetSelection(kDefaultRange);
@@ -192,28 +192,28 @@ EnvelopeEditor::EnvelopeEditor(wxWindow* parent, Preset* preset, Host host)
 
     auto* pts = new wxBoxSizer(wxHORIZONTAL);
     auto* left = new wxBoxSizer(wxVERTICAL);
-    left->Add(new wxStaticText(this, wxID_ANY, "&Points:"), 0, wxBOTTOM, 2);
+    left->Add(new wxStaticText(this, wxID_ANY, "Points:"), 0, wxBOTTOM, 2);
     list_ = new wxListBox(this, wxID_ANY, wxDefaultPosition, wxSize(300, 110));
     left->Add(list_, 1, wxEXPAND);
     pts->Add(left, 1, wxEXPAND | wxRIGHT, 8);
 
     auto* fields = new wxFlexGridSizer(2, 4, 6);
-    fields->Add(new wxStaticText(this, wxID_ANY, "&Time (samples):"), 0, wxALIGN_CENTER_VERTICAL);
+    fields->Add(new wxStaticText(this, wxID_ANY, "Ti&me (samples):"), 0, wxALIGN_CENTER_VERTICAL);
     auto* trow = new wxBoxSizer(wxHORIZONTAL);
     time_ = new wxSpinCtrl(this, wxID_ANY, "", wxDefaultPosition, wxSize(100, -1), wxSP_ARROW_KEYS, 0, kMaxTime, 0);
     trow->Add(time_, 0);
     timeMs_ = new wxStaticText(this, wxID_ANY, "0 ms");
     trow->Add(timeMs_, 0, wxALIGN_CENTER_VERTICAL | wxLEFT, 6);
     fields->Add(trow);
-    fields->Add(new wxStaticText(this, wxID_ANY, "&Level (0 to 100):"), 0, wxALIGN_CENTER_VERTICAL);
+    fields->Add(new wxStaticText(this, wxID_ANY, "Level (0 to 100):"), 0, wxALIGN_CENTER_VERTICAL);
     level_ = new wxSpinCtrl(this, wxID_ANY, "", wxDefaultPosition, wxSize(100, -1), wxSP_ARROW_KEYS, 0, 100, 0);
     fields->Add(level_);
     auto* buttons = new wxBoxSizer(wxHORIZONTAL);
-    add_ = new wxButton(this, wxID_ANY, "&Add point");
-    del_ = new wxButton(this, wxID_ANY, "&Delete point");
-    auto* copy = new wxButton(this, wxID_ANY, "C&opy envelope");
-    paste_ = new wxButton(this, wxID_ANY, "Pa&ste envelope");
-    auto* reset = new wxButton(this, wxID_ANY, "&Reset envelope");
+    add_ = new wxButton(this, wxID_ANY, "Add point");
+    del_ = new wxButton(this, wxID_ANY, "Delete point");
+    auto* copy = new wxButton(this, wxID_ANY, "Copy envelope");
+    paste_ = new wxButton(this, wxID_ANY, "Paste envelope");
+    auto* reset = new wxButton(this, wxID_ANY, "Reset envelope");
     for (wxButton* b : {add_, del_, copy, paste_, reset}) buttons->Add(b, 0, wxRIGHT, 4);
     auto* right = new wxBoxSizer(wxVERTICAL);
     right->Add(fields, 0, wxBOTTOM, 6);
@@ -451,7 +451,8 @@ void EnvelopeEditor::OnListKey(wxKeyEvent& ev)
 {
     int k = ev.GetKeyCode();
     if (k == WXK_DELETE) { DeletePoint(sel_, true); return; }
-    if (k == WXK_INSERT) { AddAtSelection(); return; }
+    // Insert is the NVDA key, so Ctrl+N adds a point as well
+    if (k == WXK_INSERT || (ev.ControlDown() && k == 'N')) { AddAtSelection(); return; }
     if (ev.ControlDown() && k == 'C') { Copy(); return; }
     if (ev.ControlDown() && k == 'V') { Paste(); return; }
     ev.Skip();

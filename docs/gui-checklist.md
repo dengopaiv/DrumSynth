@@ -122,6 +122,9 @@ The new GUI provides all of that from the keyboard:
 - Changed on purpose:
 - **Ctrl alone does not play.** In the original, the Ctrl key on its own plays the sound (`Form_KeyDown`). Screen reader users press Ctrl to stop speech, so it would play constantly. Enter and F5 play instead. ✗
 
+- **Alt+letter shortcuts** are unique across the window. Windows' own dialog handling doesn't reach controls inside the section group boxes, so the main window handles them, as Windows would: a button is pressed, a check box is focused and toggled.
+- **Ctrl+N adds an envelope point.** Insert does too, but Insert is the NVDA key.
+
 Menu accelerators:
 
 | Keys | Action |

@@ -27,8 +27,8 @@ To use DrumSynth:
 | Ctrl+K | Go to the kit list |
 | Ctrl+E | Go to the envelope point list |
 | In the sound list | Space or Enter plays the sound's WAV; Delete deletes the sound; double-click loads it |
-| In the point list | Insert adds a point, Delete deletes one, Ctrl+C and Ctrl+V copy and paste the envelope |
-| Alt+underlined letter | Go to that control (for example Alt+E for the envelope choice) |
+| In the point list | Ctrl+N (or Insert, without a screen reader: Insert is the NVDA key) adds a point, Delete deletes one, Ctrl+C and Ctrl+V copy and paste the envelope |
+| Alt+letter | Go to a control: Alt+P Play, Alt+I kits, Alt+D sounds, Alt+L Load, Alt+S Save, Alt+T Tone on, Alt+O Overtones on, Alt+N Noise on, Alt+R Filter, Alt+A Master on, Alt+V envelope choice, Alt+G view range, Alt+M point time, Alt+C comment. Alt+F, Alt+K, Alt+E and Alt+H open the File, Kit, Envelope and Help menus. |
 
 Sliders say their value the way the original shows it beside them: "−6.0 dB", "Slow", "Pink (−58)", "Q = 20". Use the arrow keys for small steps and Page Up and Page Down for large ones.
 

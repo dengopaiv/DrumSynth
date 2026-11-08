@@ -58,6 +58,34 @@ Result on 2026-11-08: 843 identical. The other 6 change exactly as the original 
 
 To test Play, run `powershell -File app/tests/smoke_play.ps1 -Ds <file.ds>`. It starts the program with the sound, presses Play through the menu command, and checks that the program is still running and has written and rendered its temporary preset. It passed on 2026-11-08 with a normal preset, and with one that makes the original hang.
 
+### With NVDA
+
+`powershell -File app/tests/nvda_speech.ps1 -Ds <file.ds>` drives the program with the keyboard under a portable NVDA, and prints what NVDA spoke from its log (level 12).
+
+It **terminates a running NVDA** for about a minute. It always restarts the installed NVDA afterwards if none is running. It also refuses to send a key while DrumSynth isn't the foreground window, so keys never go elsewhere.
+
+Result on 2026-11-08 (NVDA 2026.3):
+
+| Steps | What NVDA spoke |
+|---|---|
+| Tab through Play, Kits, Sounds, Load, Save | "Kits: list, Acoustic", "Sounds … list, Brush1" |
+| Tab through the Tone section | "Tone grouping", "Tone on check box checked", "Tone level slider −12.7 dB", then "−12.5 dB" and "−10.8 dB" as it moves |
+| Text fields and Droop | "Start frequency: edit 180"; "Droop slider Linear", "Fast" |
+| The point list (Ctrl+E), adding a point (Ctrl+N), then Time and Level | "Points: list, Point 1 of 4: 0 ms, Mute"; "Added Point 3 of 5: 7.778 ms, −4.4 dB"; "Time (samples): edit 343", "344" |
+| Copy, the Envelope list (Alt+V), Overtones on (Alt+O) and Space, the Kit menu | "Tone envelope copied"; "Envelope: combo box Tone", "Noise"; "Overtones on check box checked", "not checked"; "Kit subMenu", "Generate all WAVs" |
+
+Problems the test found, all fixed:
+- Tab didn't move at all.
+- Focus was lost when the window was activated again.
+- Insert, the NVDA key, couldn't add points: Ctrl+N does now.
+- Alt shortcuts didn't reach the section controls, and Alt+E was claimed twice.
+- Empty lists read "unknown".
+- Announcements didn't reach NVDA: they do now through Tolk, which the build copies from `C:\GIT\environment	olk` when it is there.
+
+JAWS was not available to test, and Narrator was not tested.
+
+### What MSAA reports
+
 To see what a screen reader sees, start the program, then run:
 
 ```

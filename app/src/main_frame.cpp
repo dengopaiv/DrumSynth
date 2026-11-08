@@ -98,7 +98,7 @@ MainFrame::MainFrame(const wxString& openFile)
     LoadSettings();
 
     CreateStatusBar();
-    auto* scroll = new wxScrolledWindow(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxVSCROLL | wxHSCROLL);
+    auto* scroll = new wxScrolledWindow(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxVSCROLL | wxHSCROLL | wxTAB_TRAVERSAL);
     scroll->SetScrollRate(10, 10);
     auto* main = new wxBoxSizer(wxVERTICAL);
     main->Add(MakeFileArea(scroll), 0, wxEXPAND | wxALL, 6);
@@ -123,7 +123,7 @@ MainFrame::MainFrame(const wxString& openFile)
     main->Add(envBox, 1, wxEXPAND | wxALL, 6);
 
     auto* bottom = new wxBoxSizer(wxHORIZONTAL);
-    bottom->Add(new wxStaticText(scroll, wxID_ANY, "Co&mment:"), 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 4);
+    bottom->Add(new wxStaticText(scroll, wxID_ANY, "&Comment:"), 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 4);
     comment_ = new wxTextCtrl(scroll, wxID_ANY, FromAnsi(preset_.comment));
     comment_->Bind(wxEVT_TEXT, [this](wxCommandEvent&) {
         if (loading_) return;
@@ -135,7 +135,7 @@ MainFrame::MainFrame(const wxString& openFile)
         e.Skip();
     });
     bottom->Add(comment_, 1, wxEXPAND | wxRIGHT, 8);
-    auto* help = new wxButton(scroll, ID_HELP, "&Help");
+    auto* help = new wxButton(scroll, ID_HELP, "Help");
     bottom->Add(help, 0);
     main->Add(bottom, 0, wxEXPAND | wxALL, 6);
 
@@ -150,6 +150,20 @@ MainFrame::MainFrame(const wxString& openFile)
     if (GetSize().y > screen.y - 60) SetSize(GetSize().x, screen.y - 60);
 
     Bind(wxEVT_CHAR_HOOK, &MainFrame::OnCharHook, this);
+    // Keep the keyboard focus on a control when the window is activated
+    // again (Alt+Tab): remember the last focused control and restore it.
+    Bind(wxEVT_CHILD_FOCUS, [this](wxChildFocusEvent& e) {
+        wxWindow* f = FindFocus();
+        if (f && f != this && IsDescendant(f)) lastFocus_ = f;
+        e.Skip();
+    });
+    Bind(wxEVT_ACTIVATE, [this](wxActivateEvent& e) {
+        if (e.GetActive()) CallAfter([this] {
+            wxWindow* f = FindFocus();
+            if ((!f || !IsDescendant(f) || f == this) && lastFocus_) lastFocus_->SetFocus();
+        });
+        e.Skip();
+    });
     Bind(wxEVT_CLOSE_WINDOW, &MainFrame::OnClose, this);
     Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { ShowHelp(); }, ID_HELP);
 
@@ -222,7 +236,7 @@ wxSizer* MainFrame::MakeFileArea(wxWindow* p)
     row->Add(play_, 0, wxRIGHT | wxALIGN_TOP, 8);
 
     auto* kcol = new wxBoxSizer(wxVERTICAL);
-    kcol->Add(new wxStaticText(p, wxID_ANY, "&Kits:"), 0, wxBOTTOM, 2);
+    kcol->Add(new wxStaticText(p, wxID_ANY, "K&its:"), 0, wxBOTTOM, 2);
     kits_ = new wxListBox(p, wxID_ANY, wxDefaultPosition, wxSize(160, 120));
     kits_->Bind(wxEVT_LISTBOX, [this](wxCommandEvent&) { FillSoundList(); });
     kcol->Add(kits_, 1, wxEXPAND);
@@ -265,10 +279,10 @@ wxSizer* MainFrame::MakeFileArea(wxWindow* p)
     auto* bcol = new wxBoxSizer(wxVERTICAL);
     load_ = new wxButton(p, ID_LOAD, "&Load");
     load_->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { LoadSelected(); });
-    auto* save = new wxButton(p, ID_SAVE, "&Save...");
-    save->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { SaveAs(); });
+    save_ = new wxButton(p, ID_SAVE, "&Save...");
+    save_->Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { SaveAs(); });
     bcol->Add(load_, 0, wxEXPAND | wxBOTTOM, 4);
-    bcol->Add(save, 0, wxEXPAND);
+    bcol->Add(save_, 0, wxEXPAND);
     row->Add(bcol, 0);
     return row;
 }
@@ -382,7 +396,7 @@ wxSizer* MainFrame::MakeSections(wxWindow* p)
     auto* tone = new wxStaticBoxSizer(wxVERTICAL, p, "Tone");
     wxWindow* tp = tone->GetStaticBox();
     auto* g = grid(tone);
-    chkOn_[0] = AddCheck(tp, g, "Tone o&n", &preset_.toneOn);
+    chkOn_[0] = AddCheck(tp, g, "&Tone on", &preset_.toneOn);
     AddSlider(tp, g, "Tone level:", 1, 181, 9, lev, &preset_.toneLevel);
     AddText(tp, g, "Start frequency:", "Hz", &preset_.toneF1);
     AddText(tp, g, "End frequency:", "Hz", &preset_.toneF2);
@@ -432,7 +446,7 @@ wxSizer* MainFrame::MakeSections(wxWindow* p)
     auto* noise = new wxStaticBoxSizer(wxVERTICAL, p, "Noise");
     wxWindow* np = noise->GetStaticBox();
     g = grid(noise);
-    chkOn_[1] = AddCheck(np, g, "Noise o&n", &preset_.noiseOn);
+    chkOn_[1] = AddCheck(np, g, "&Noise on", &preset_.noiseOn);
     AddSlider(np, g, "Noise level:", 1, 181, 9, lev, &preset_.noiseLevel);
     AddSlider(np, g, "Noise colour (slope):", -100, 100, 10,
               [](int v) { return wxString::Format("%s (%d)", vb::SlopeName(v), v); }, &preset_.slope);
@@ -467,7 +481,7 @@ wxSizer* MainFrame::MakeSections(wxWindow* p)
     auto* filt = new wxStaticBoxSizer(wxVERTICAL, p, "Filter");
     wxWindow* fp = filt->GetStaticBox();
     g = grid(filt);
-    filter_ = AddCheck(fp, g, "&Filter", &preset_.filter);
+    filter_ = AddCheck(fp, g, "Filte&r", &preset_.filter);
     otFilter_ = AddCheck(fp, g, "Filter overtones only", &preset_.otFilter);
     AddCheck(fp, g, "High-pass", &preset_.highPass);
     AddSlider(fp, g, "Resonance:", 0, 99, 10, [](int v) { return wxString::Format("Q = %d", v); }, &preset_.resonance);
@@ -477,7 +491,7 @@ wxSizer* MainFrame::MakeSections(wxWindow* p)
     auto* master = new wxStaticBoxSizer(wxVERTICAL, p, "Master");
     wxWindow* mp = master->GetStaticBox();
     g = grid(master);
-    AddCheck(mp, g, "Maste&r on", &preset_.masterOn);
+    masterOn_ = AddCheck(mp, g, "M&aster on", &preset_.masterOn);
     AddText(mp, g, "Tuning:", "semitones transpose", &preset_.tuning);
     AddText(mp, g, "Stretch:", "% timestretch", &preset_.stretch);
     AddSlider(mp, g, "Master level:", -20, 20, 3, [](int v) { return wxString(vb::MasterDb(v)); }, &preset_.masterDb);
@@ -659,15 +673,20 @@ void MainFrame::ReadKits()
         names.push_back(n);
     }
     for (const auto& n : names) kits_->Append(n);
-    if (!names.empty()) kits_->SetSelection(0);
-    else SetStatusText("No kit folders here. Use Kit, Set location, to choose the folder that holds them.");
+    noKits_ = names.empty();
+    if (noKits_) {
+        // an empty list reads as "unknown" to screen readers: say what to do
+        kits_->Append("(no kits here: use Kit, Set location)");
+        SetStatusText("No kit folders here. Use Kit, Set location, to choose the folder that holds them.");
+    }
+    kits_->SetSelection(0);
     FillSoundList();
 }
 
 std::wstring MainFrame::KitDir() const
 {
     int i = kits_->GetSelection();
-    if (i < 0) return std::wstring();
+    if (i < 0 || noKits_) return std::wstring();
     return dsPath_ + L"\\" + kits_->GetString(i).ToStdWstring();
 }
 
@@ -677,7 +696,7 @@ void MainFrame::FillSoundList()
     sounds_->Clear();
     soundEntries_.clear();
     std::wstring dir = KitDir();
-    if (dir.empty()) return;
+    if (dir.empty()) { sounds_->Append("(no sounds)"); return; }
     std::vector<std::wstring> ds, wav;
     std::error_code ec;
     for (const auto& f : fs::directory_iterator(dir, ec)) {
@@ -703,6 +722,9 @@ void MainFrame::FillSoundList()
             sounds_->Append(n + L" (WAV only)");
         }
     }
+    if (soundEntries_.empty()) sounds_->Append("(no sounds in this kit)");
+    sounds_->SetSelection(0);
+    if (!soundEntries_.empty()) load_->Enable(!soundEntries_[0].second);
 }
 
 bool MainFrame::SelectedSound(std::wstring* name, bool* wavOnly) const
@@ -942,6 +964,34 @@ void MainFrame::ShowHelp()
 void MainFrame::OnCharHook(wxKeyEvent& ev)
 {
     int k = ev.GetKeyCode();
+    // Alt+letter shortcuts of the labels (docs/gui-help.md). Windows' own
+    // handling doesn't reach controls inside the section group boxes, so
+    // they are done here: a button is pressed, a check box is focused and
+    // toggled, anything else is focused.
+    if (ev.AltDown() && !ev.ControlDown() && k >= 'A' && k <= 'Z') {
+        const std::pair<int, wxWindow*> keys[] = {
+            {'P', play_}, {'I', kits_}, {'D', sounds_}, {'L', load_}, {'S', save_}, {'T', chkOn_[0]},
+            {'O', chkOn_[2]}, {'N', chkOn_[1]}, {'R', filter_}, {'A', masterOn_}, {'C', comment_}};
+        for (const auto& [key, w] : keys) {
+            if (key != k || !w || !w->IsEnabled()) continue;
+            if (auto* b = wxDynamicCast(w, wxButton)) {
+                wxCommandEvent e(wxEVT_BUTTON, b->GetId());
+                e.SetEventObject(b);
+                b->SetFocus();
+                b->GetEventHandler()->ProcessEvent(e);
+            } else if (auto* c = wxDynamicCast(w, wxCheckBox)) {
+                c->SetFocus();
+                c->SetValue(!c->GetValue());
+                wxCommandEvent e(wxEVT_CHECKBOX, c->GetId());
+                e.SetEventObject(c);
+                e.SetInt(c->GetValue() ? 1 : 0);
+                c->GetEventHandler()->ProcessEvent(e);
+            } else {
+                w->SetFocus();
+            }
+            return;
+        }
+    }
     // Form_KeyDown: F1-F12 play sounds 1-12, Shift+F1-F12 sounds 13-24
     if (k >= WXK_F1 && k <= WXK_F12 && !ev.ControlDown() && !ev.AltDown()) {
         PlaySoundAt(k - WXK_F1 + (ev.ShiftDown() ? 12 : 0));
