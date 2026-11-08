@@ -21,6 +21,7 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
 | 2026-11-08 | **Where the original hangs, the engine renders and flags** (`DS_NOTE_HANG`): it produces a sound and never freezes. | User's choice, from three options: render and flag, refuse with an error, or render silence. |
 | 2026-11-08 | **The GUI warns but allows** combinations that freeze the original, such as a one-point tone envelope with tracked triangle overtones. The editor allows what the original allowed, and announces a warning when the engine flags a note. | Faithful to the original's editor, and accessible: the warning is announced. |
 | 2026-11-08 | **Testing on other CPUs is postponed.** It stays an open item. | No other machine available now (asked again later the same day: still postponed). |
+| 2026-11-08 | **Out of scope for now:** the engine check on other processors, JAWS testing, and listening to Narrator's speech. They stay listed under Next for later. | Confirmed by the user: they can't be done on this machine. |
 | 2026-11-08 | **Screen reader coverage: NVDA tested by its speech; Narrator covered by the UI Automation check; JAWS skipped.** | User's choice. Narrator reads the UI Automation tree that `app/tests/uia_dump` verified. JAWS is not installed, and the user chose not to install the demo. |
 
 ## Done
