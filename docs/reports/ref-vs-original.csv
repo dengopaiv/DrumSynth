@@ -1,0 +1,7 @@
+id,key,tier,length a,length b,differing samples,max diff,diff dBFS,diff vs sound dB,first diff ms,peak a,peak b,rms a dBFS,clipped a,clipped b,lag,features
+0076,library/Latin/Shaker_1.ds,large,7200,7200,7180,10697,-26.6,3.0,0.0,5568,5708,-29.6,0,0,,noise; noise slope; version DrumSynth v1.0
+0765,drumsynths/DF-MOD.DS,identical,290400,290400,0,0,,,,25457,25457,-23.8,0,0,,tone; tone droop; overtones 808 Cymbal; stretch
+0771,drumsynths/bell.ds,small,26400,26400,4260,5,-95.7,-85.9,0.02,32700,32700,-9.8,1109,1109,,noise; noise slope; overtones FM; overtone tracking; filter (overtones only); stretch; tuning
+0779,drumsynths/fat and dark.ds,large,28800,28800,26573,65400,-7.3,2.3,0.0,32700,32700,-9.7,1295,1431,,noise; noise slope; noise band 1; noise band 2; filter; stretch; tuning
+0782,drumsynths/hardcore clap.ds,large,28800,28800,26875,65400,-8.5,3.1,0.0,32700,32700,-11.6,737,698,,noise; noise slope; noise band 2; filter; stretch; tuning
+0786,drumsynths/kraftwerk.ds,identical,27600,27600,0,0,,,,18401,18401,-17.5,0,0,,tone; tone droop; overtones Add; overtone tracking; stretch

@@ -1,0 +1,850 @@
+id,key,tier,length a,length b,differing samples,max diff,diff dBFS,diff vs sound dB,first diff ms,peak a,peak b,rms a dBFS,clipped a,clipped b,lag,features
+0001,library/Acoustic/Brush1.ds,within 1 step,3600,3600,2,1,-122.9,-98.0,6.53,11940,11940,-24.8,0,0,,tone; noise; noise slope; version DrumSynth v1.0
+0002,library/Acoustic/Brush2.ds,within 1 step,6000,6000,1,1,-128.1,-103.8,18.0,11888,11888,-24.3,0,0,,tone; noise; noise slope; version DrumSynth v1.0
+0003,library/Acoustic/JazzKick.ds,within 1 step,14400,14400,22,1,-118.5,-100.5,1.77,18443,18443,-18.0,0,0,,tone; tone droop; noise band 1; version DrumSynth v1.0
+0004,library/Acoustic/JazzSnr H.ds,small,8400,8400,32,2,-109.1,-91.9,6.89,16384,16384,-17.3,0,0,,tone; tone droop; noise; noise slope; noise band 1; distortion; filter
+0005,library/Acoustic/JazzSnr.ds,within 1 step,8400,8400,41,1,-113.4,-94.4,7.14,32700,32700,-19.1,1,1,,tone; tone droop; noise; noise slope; noise band 1; filter
+0006,library/Acoustic/K_Muffle.ds,within 1 step,13200,13200,520,1,-104.4,-94.0,2.49,31379,31379,-10.3,0,0,,tone; tone droop; version DrumSynth v1.0
+0007,library/Acoustic/Kick.ds,within 1 step,10800,10800,8,1,-121.6,-105.8,26.73,25896,25896,-15.8,0,0,,tone; tone droop; noise; noise slope; noise band 1; version DrumSynth v1.0
+0008,library/Acoustic/Plain Kick.ds,within 1 step,8400,8400,7,1,-121.1,-102.5,0.75,21533,21533,-18.6,0,0,,tone; noise band 1; version DrumSynth v1.0
+0009,library/Acoustic/Ride.ds,small,22800,22800,6080,2,-94.1,-74.1,0.7,27669,27668,-20.0,0,0,,overtones RM; noise band 1; noise band 2; version DrumSynth v1.0
+0010,library/Acoustic/Ride2.ds,small,34800,34800,1326,2,-104.5,-78.2,19.25,16077,16077,-26.3,0,0,,overtones RM; noise band 1; version DrumSynth v1.0
+0011,library/Acoustic/Ride3.ds,small,39600,39600,7745,3,-93.6,-69.7,1.52,28759,28759,-23.9,0,0,,overtones FM; noise band 1; filter; high-pass
+0012,library/Acoustic/Snare.ds,within 1 step,14400,14400,497,1,-104.9,-88.9,2.7,32700,32700,-16.0,40,40,,tone; tone droop; noise; noise slope; noise band 1; filter; version DrumSynth v1.0
+0013,library/Effects/Bubble.ds,identical,4800,4800,0,0,,,,8720,8720,-20.8,0,0,,tone; version DrumSynth v1.0
+0014,library/Effects/Cicada.ds,small,9600,9600,2608,5,-92.0,-66.5,59.3,9098,9098,-25.5,0,0,,noise band 1; version DrumSynth v1.0
+0015,library/Effects/Glass.ds,within 1 step,13200,13200,5,1,-124.5,-103.0,23.13,19815,19815,-21.5,0,0,,tone; noise band 1; version DrumSynth v1.0
+0016,library/Effects/Glass_rn.ds,within 1 step,90000,90000,527,1,-112.6,-97.8,0.5,21927,21927,-14.8,0,0,,tone; tone droop; overtones Add; filter (overtones only)
+0017,library/Effects/Gunshot.ds,within 1 step,19200,19200,488,1,-106.3,-88.9,1.43,32700,32700,-17.3,18,18,,tone; noise; noise slope; noise band 1; version DrumSynth v1.0
+0018,library/Effects/Hammer.ds,small,9600,9600,132,4,-98.8,-86.2,16.15,31684,31684,-12.6,0,0,,tone; noise band 2; distortion; filter; version DrumSynth v1.0
+0019,library/Effects/Laser.ds,small,22800,22800,2242,2,-100.3,-78.1,27.44,23310,23310,-22.2,0,0,,tone; overtones RM; overtone tracking; version DrumSynth v1.0
+0020,library/Effects/Reverse.ds,within 1 step,15600,15600,487,1,-105.4,-89.6,128.32,32700,32700,-15.8,1,1,,tone; noise; noise slope; version DrumSynth v1.0
+0021,library/Effects/Ringing.ds,within 1 step,21600,21600,1,1,-133.7,-120.9,0.86,16320,16320,-12.8,0,0,,overtones FM; version DrumSynth v1.0
+0022,library/Effects/Scissors.ds,identical,3600,3600,0,0,,,,22303,22303,-25.4,0,0,,noise; noise slope
+0023,library/Effects/Sonar.ds,within 1 step,88800,88800,8275,1,-100.6,-76.9,10.93,14560,14560,-23.7,0,0,,noise band 1; noise band 2; version DrumSynth v1.0
+0024,library/Effects/dialing.ds,identical,21600,21600,0,0,,,,16318,16318,-12.8,0,0,,overtones FM; version DrumSynth v1.0
+0025,library/Effects/hammer2.ds,small,16800,16800,74,4,-103.6,-87.4,2.34,31684,31684,-16.2,0,0,,tone; tone droop; noise band 2; distortion; filter; stretch; version DrumSynth v1.0
+0026,library/Effects/impulses.ds,within 1 step,43200,43200,2,1,-133.7,-110.4,124.01,27883,27883,-23.2,0,0,,tone; overtones Add
+0027,library/Effects/loop.ds,within 1 step,42000,42000,1616,1,-104.5,-83.3,1.04,32700,32700,-21.2,1,1,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; noise band 1; version DrumSynth v1.0
+0028,library/Effects/thunder.ds,within 1 step,88800,88800,1955,1,-106.9,-88.1,54.92,16406,16406,-18.7,0,0,,noise band 1; noise band 2; filter; version DrumSynth v1.0
+0029,library/Electro/Boom.ds,within 1 step,37200,37200,5,1,-129.0,-110.4,2.95,20780,20780,-18.6,0,0,,tone; overtones Add; version DrumSynth v1.0
+0030,library/Electro/H_closed.ds,identical,4800,4800,0,0,,,,29969,29969,-19.6,0,0,,tone; noise; noise slope
+0031,library/Electro/H_open.ds,within 1 step,20400,20400,2,1,-130.4,-109.1,16.89,30735,30735,-21.2,0,0,,tone; noise; noise slope; version DrumSynth v1.0
+0032,library/Electro/Hi-q.ds,within 1 step,6000,6000,506,1,-101.0,-81.7,0.59,10324,10324,-19.3,0,0,,tone; tone droop; version DrumSynth v1.0
+0033,library/Electro/Hi-q_2.ds,within 1 step,6000,6000,21,1,-114.9,-95.4,3.58,10363,10363,-19.5,0,0,,tone; tone droop; version DrumSynth v1.0
+0034,library/Electro/K_8bit.ds,identical,9600,9600,0,0,,,,17424,17424,-12.4,0,0,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; downsampling; version DrumSynth v1.0
+0035,library/Electro/K_Linn.ds,identical,15600,15600,0,0,,,,24361,24361,-17.0,0,0,,tone; noise; noise slope; version DrumSynth v1.0
+0036,library/Electro/K_reverb.ds,small,12000,12000,106,2,-107.0,-97.5,21.75,32700,32700,-9.4,565,565,,tone; tone droop; noise; noise slope; noise band 1; distortion
+0037,library/Electro/S_8bit.ds,large,14400,14400,3,607,-71.5,-56.1,25.85,22201,22201,-15.3,0,0,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; downsampling; version DrumSynth v1.0
+0038,library/Electro/S_Linn.ds,within 1 step,12000,12000,403,1,-105.0,-91.4,6.08,32700,32700,-13.7,7,7,,tone; noise; noise slope; version DrumSynth v1.0
+0039,library/Electro/S_reverb.ds,small,13200,13200,72,3,-104.9,-91.5,3.67,25600,25600,-13.3,0,0,,tone; tone droop; noise; noise slope; noise band 1; distortion; filter
+0040,library/Electro/Syntom_1.ds,within 1 step,16800,16800,406,1,-106.5,-86.9,7.41,16285,16285,-19.5,0,0,,tone; version DrumSynth v1.0
+0041,library/Electro/Syntom_2.ds,within 1 step,16800,16800,1469,1,-100.9,-81.4,1.04,16256,16256,-19.5,0,0,,tone; version DrumSynth v1.0
+0042,library/Electro/s_eq.ds,within 1 step,10800,10800,902,1,-101.1,-86.5,2.49,32700,32700,-14.6,93,93,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; version DrumSynth v1.0
+0043,library/Farfisa/Fisa Bongo.ds,within 1 step,18000,18000,41,1,-116.7,-90.5,0.11,24506,24506,-26.2,0,0,,overtones Add; noise band 1; noise band 2
+0044,library/Farfisa/Fisa Cym.ds,small,20400,20400,2825,2,-98.5,-70.6,2.72,7640,7640,-27.9,0,0,,noise band 1; noise band 2
+0045,library/Farfisa/Fisa Hat.ds,within 1 step,8400,8400,22,1,-116.1,-89.3,3.02,11729,11729,-26.8,0,0,,noise band 1; noise band 2
+0046,library/Farfisa/Fisa K_H.ds,within 1 step,9600,9600,26,1,-116.0,-102.3,0.82,30509,30509,-13.7,0,0,,tone; tone droop; noise band 1; noise band 2
+0047,library/Farfisa/Fisa K_K.ds,within 1 step,18000,18000,7,1,-124.4,-108.2,1.34,32700,32700,-16.2,12,12,,tone; tone droop; overtones Add; noise band 1; noise band 2
+0048,library/Farfisa/Fisa Kick.ds,within 1 step,12000,12000,121,1,-110.3,-96.9,5.99,26895,26895,-13.3,0,0,,tone; tone droop
+0049,library/Farfisa/Fisa S_B.ds,within 1 step,10800,10800,384,1,-104.8,-88.9,0.5,30341,30341,-15.9,0,0,,tone; tone droop; noise; noise slope; overtones Add; noise band 1
+0050,library/Farfisa/Fisa Snare.ds,within 1 step,10800,10800,325,1,-105.5,-89.8,0.86,32635,32635,-15.7,0,0,,tone; tone droop; noise; noise slope; overtones Add; noise band 1
+0051,library/Farfisa/Fisa Tom.ds,within 1 step,18000,18000,9,1,-123.3,-106.9,0.75,26264,26264,-16.4,0,0,,overtones Add; noise band 1; noise band 2
+0052,library/Ferraro/curb meat bass.ds,small,31200,31200,13,318,-74.1,-72.0,2.24,32700,32700,-2.0,19182,19182,,tone; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; filter (overtones only)
+0053,library/Ferraro/eel bass.ds,within 1 step,18000,18000,473,1,-106.1,-97.8,1.72,32700,32700,-8.4,1330,1330,,tone; noise; noise slope; noise band 1; noise band 2; filter; stretch
+0054,library/Ferraro/feed this.ds,large,31200,31200,8,40033,-43.2,-41.2,56.73,32700,32700,-2.0,19345,19345,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; filter (overtones only)
+0055,library/Ferraro/gerbil snare.ds,small,33600,33600,2,906,-73.4,-61.7,278.28,11624,11624,-11.8,0,0,,tone; noise; overtones Add; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; stretch
+0056,library/Ferraro/grumpy buzzard.ds,small,10800,10800,1,1277,-68.5,-64.1,144.31,26244,26244,-4.5,0,0,,tone; tone droop; noise; noise slope; overtones FM; noise band 1; distortion; bit reduction
+0057,library/Ferraro/jaguar hats.ds,large,33600,33600,4168,2315,-50.6,-39.4,2.54,32700,32700,-11.2,1456,1456,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter (overtones only); high-pass
+0058,library/Ferraro/radio hats.ds,small,31200,31200,383,6,-108.8,-94.0,2.18,32700,32700,-14.8,497,497,,tone; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; filter (overtones only); high-pass
+0059,library/Ferraro/worm bass.ds,small,20400,20400,94,32,-83.6,-73.8,35.06,17689,17689,-9.9,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter
+0060,library/JürgenSohn/hihatopclo.ds,small,36000,36000,20513,6,-88.7,-68.5,2.18,25110,25110,-20.2,0,0,,tone; tone droop; overtones FM; noise band 1; noise band 2; filter (overtones only)
+0061,library/JürgenSohn/kick.ds,within 1 step,18000,18000,119,1,-112.1,-93.2,9.57,13601,13601,-18.9,0,0,,tone; tone droop
+0062,library/JürgenSohn/ramacymlong.ds,within 1 step,34800,34800,5,1,-128.7,-110.1,0.63,22479,22479,-18.6,0,0,,tone; tone droop; overtones Add
+0063,library/JürgenSohn/ramacymshort.ds,within 1 step,16800,16800,3,1,-127.8,-110.8,13.83,21567,21567,-17.0,0,0,,tone; tone droop; overtones Add
+0064,library/JürgenSohn/ride6.ds,small,42000,42000,1126,2,-105.2,-89.5,1.43,32700,32700,-15.7,57,57,,tone; overtones FM; noise band 1; noise band 2
+0065,library/JürgenSohn/snare5.ds,small,9600,9600,17,3,-110.9,-98.6,8.89,32700,32700,-12.4,270,270,,tone; noise; noise slope; overtones Add; noise band 1; noise band 2; distortion
+0066,library/JürgenSohn/vibra.ds,identical,15600,15600,0,0,,,,11072,11072,-23.6,0,0,,tone; overtones Add; noise band 1; noise band 2; stretch
+0067,library/JürgenSohn/wood.ds,within 1 step,7200,7200,17,1,-116.6,-98.5,25.37,32123,32123,-18.1,0,0,,noise band 1; noise band 2
+0068,library/JürgenSohn/wood2.ds,within 1 step,7200,7200,21,1,-115.7,-97.2,1.29,31869,31869,-18.5,0,0,,noise band 1; noise band 2
+0069,library/JürgenSohn/zurrr.ds,small,42000,42000,3445,3,-95.1,-87.0,2.09,32700,32700,-8.1,1349,1349,,overtones RM; filter
+0070,library/Latin/Bongo_h.ds,identical,10800,10800,0,0,,,,22011,22011,-18.8,0,0,,noise; noise slope; overtones FM; version DrumSynth v1.0
+0071,library/Latin/Bongo_m2.ds,within 1 step,4800,4800,9,1,-117.6,-97.0,3.38,14950,14950,-20.6,0,0,,noise band 2; version DrumSynth v1.0
+0072,library/Latin/Bongo_mu.ds,within 1 step,7200,7200,2,1,-125.9,-103.3,1.04,18353,18353,-22.5,0,0,,noise; noise slope; overtones FM; version DrumSynth v1.0
+0073,library/Latin/Clave_we.ds,within 1 step,20400,20400,230,1,-109.8,-88.6,7.94,32284,32284,-21.2,0,0,,tone; noise band 1
+0074,library/Latin/Gamelan.ds,within 1 step,22800,22800,1,1,-133.9,-111.0,11.72,23966,23966,-22.9,0,0,,overtones RM; version DrumSynth v1.0
+0075,library/Latin/Maracas.ds,within 1 step,4800,4800,3,1,-122.4,-105.9,10.39,32587,32587,-16.5,0,0,,noise; noise slope; version DrumSynth v1.0
+0076,library/Latin/Shaker_1.ds,identical,7200,7200,0,0,,,,5568,5568,-29.6,0,0,,noise; noise slope; version DrumSynth v1.0
+0077,library/Latin/Shaker_2.ds,identical,20400,20400,0,0,,,,5824,5824,-32.0,0,0,,noise; noise slope; version DrumSynth v1.0
+0078,library/Latin/Tamb_hit.ds,within 1 step,9600,9600,3,1,-125.4,-105.6,26.89,30106,30106,-19.8,0,0,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0079,library/Latin/Tamb_shk.ds,within 1 step,9600,9600,1,1,-130.1,-102.5,2.88,6421,6421,-27.7,0,0,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0080,library/Latin/ThumbPno.ds,within 1 step,26400,26400,288,1,-109.9,-88.8,128.14,18879,18879,-21.1,0,0,,tone; noise; noise slope; overtones RM; noise band 1; version DrumSynth v1.0
+0081,library/Latin/Triangle.ds,within 1 step,21600,21600,1,1,-133.7,-111.3,9.43,9576,9576,-22.4,0,0,,tone; version DrumSynth v1.0
+0082,library/Latin/bongo_l.ds,within 1 step,8400,8400,1,1,-129.6,-111.7,81.81,16205,16205,-17.8,0,0,,noise; noise slope; overtones FM; version DrumSynth v1.0
+0083,library/Latin/guiro.ds,identical,18000,18000,0,0,,,,16641,16641,-23.8,0,0,,overtones 808 Cymbal; distortion; filter; high-pass
+0084,library/Latin/one_clap.ds,small,4800,4800,34,3,-102.6,-83.8,20.18,24025,24025,-18.8,0,0,,noise band 1; noise band 2; distortion
+0085,library/Latin/taiko.ds,within 1 step,20400,20400,437,1,-107.0,-86.9,3.83,19885,19885,-20.1,0,0,,tone; noise band 2; version DrumSynth v1.0
+0086,library/Linn/linn_cab.ds,within 1 step,3600,3600,3,1,-121.1,-109.1,26.21,32700,32700,-12.0,8,8,,noise; noise slope; noise band 1; filter; high-pass
+0087,library/Linn/linn_cga1.ds,within 1 step,12000,12000,2,1,-128.1,-111.4,18.41,32700,32700,-16.7,60,60,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; tuning; version DrumSynth v1.0
+0088,library/Linn/linn_cga2.ds,within 1 step,12000,12000,5,1,-124.1,-107.1,15.99,32700,32700,-17.0,43,43,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; version DrumSynth v1.0
+0089,library/Linn/linn_cga3.ds,within 1 step,9600,9600,71,1,-111.6,-94.6,6.73,32700,32700,-17.1,25,25,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; stretch; tuning; version DrumSynth v1.0
+0090,library/Linn/linn_cgam.ds,within 1 step,4800,4800,1,1,-127.1,-110.6,18.55,32700,32700,-16.5,39,39,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; stretch; tuning; version DrumSynth v1.0
+0091,library/Linn/linn_clp.ds,within 1 step,7200,7200,359,1,-103.3,-89.3,0.75,32700,32700,-14.1,13,13,,noise; noise slope; noise band 1; noise band 2; filter; high-pass; stretch
+0092,library/Linn/linn_cow.ds,identical,4800,4800,0,0,,,,16243,16243,-13.2,0,0,,tone; tone droop; overtones Add; noise band 1; noise band 2; distortion; bit reduction
+0093,library/Linn/linn_kik.ds,within 1 step,7200,7200,169,1,-106.6,-95.3,4.04,29225,29225,-11.3,0,0,,tone; tone droop; noise; noise slope; noise band 1; filter
+0094,library/Linn/linn_snr.ds,small,7200,7200,1,511,-74.7,-63.3,84.81,29929,29929,-11.4,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; filter
+0095,library/Linn/linn_stk.ds,identical,4800,4800,0,0,,,,30276,30276,-14.3,0,0,,overtones Add; noise band 1; noise band 2; distortion; bit reduction
+0096,library/Linn/linn_tamb.ds,small,12000,12000,3342,3,-94.3,-77.4,0.91,20736,20736,-16.9,0,0,,overtones 808 Cymbal; noise band 1; noise band 2; distortion; downsampling
+0097,library/Linn/linn_tom1.ds,small,34800,34800,8,114,-85.6,-70.0,66.78,22801,22801,-15.6,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; distortion; bit reduction; filter; stretch; tuning; version DrumSynth v1.0
+0098,library/Linn/linn_tom2.ds,small,27600,27600,3,180,-84.8,-71.9,416.64,22801,22801,-12.9,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; distortion; bit reduction; filter; stretch; version DrumSynth v1.0
+0099,library/Linn/linn_tom3.ds,small,20400,20400,6,181,-80.5,-67.4,46.1,22801,22801,-13.1,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; distortion; bit reduction; filter; stretch; tuning; version DrumSynth v1.0
+0100,library/Linn/linn_tom4.ds,identical,13200,13200,0,0,,,,22801,22801,-13.4,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; distortion; bit reduction; filter; stretch; tuning; version DrumSynth v1.0
+0101,library/Linn/linn_tom5.ds,identical,13200,13200,0,0,,,,22801,22801,-13.5,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; distortion; bit reduction; filter; stretch; tuning; version DrumSynth v1.0
+0102,library/R&B/Hat_O.ds,within 1 step,8400,8400,48,1,-112.7,-90.0,0.25,32700,32700,-22.7,2,2,,overtones RM; noise band 1; version DrumSynth v1.0
+0103,library/R&B/S_hollow.ds,within 1 step,16800,16800,56,1,-115.1,-95.3,15.78,22201,22201,-19.8,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; downsampling; version DrumSynth v1.0
+0104,library/R&B/clapfilt.ds,within 1 step,18000,18000,37,1,-117.2,-99.4,2.45,32700,32700,-17.7,7,7,,noise; noise slope; noise band 1; filter; tuning; version DrumSynth v1.0
+0105,library/R&B/hat rattle.ds,within 1 step,15600,15600,1,1,-132.2,-103.0,0.86,9508,9508,-29.3,0,0,,noise; noise slope; noise band 1; noise band 2
+0106,library/R&B/hat.ds,within 1 step,2400,2400,46,1,-107.5,-85.3,8.34,22653,22653,-22.2,0,0,,noise band 1; version DrumSynth v1.0
+0107,library/R&B/k_hard.ds,small,6000,6000,59,2,-105.3,-99.0,9.27,32700,32700,-6.4,312,312,,noise band 1; noise band 2; distortion; filter; version DrumSynth v1.0
+0108,library/R&B/k_muffle.ds,within 1 step,22800,22800,521,1,-106.7,-93.1,17.12,32140,32140,-13.6,0,0,,tone; tone droop; overtones Add; overtone tracking; version DrumSynth v1.0
+0109,library/R&B/k_soft.ds,within 1 step,8400,8400,53,1,-112.3,-100.8,14.17,32700,32700,-11.5,239,239,,noise band 1; noise band 2; version DrumSynth v1.0
+0110,library/R&B/old kik.ds,within 1 step,8400,8400,131,1,-108.4,-96.3,12.47,23543,23543,-12.0,0,0,,tone; tone droop; noise; noise slope; filter
+0111,library/R&B/popclap.ds,within 1 step,9600,9600,1497,1,-98.4,-81.4,20.5,25016,25016,-16.9,0,0,,noise; noise slope; noise band 1
+0112,library/R&B/popsnare.ds,within 1 step,15600,15600,35,1,-116.8,-99.5,2.68,32700,32700,-17.3,92,92,,noise band 1; noise band 2
+0113,library/R&B/s_pitch.ds,identical,6000,6000,0,0,,,,22595,22595,-17.5,0,0,,tone; tone droop; noise; noise slope; version DrumSynth v1.0
+0114,library/R&B/s_spit.ds,within 1 step,12000,12000,747,1,-102.4,-84.9,1.84,32700,32700,-17.5,59,59,,noise; noise slope; overtones Add; noise band 1; noise band 2; version DrumSynth v1.0
+0115,library/R&B/snare&hat.ds,small,12000,12000,1330,2,-99.8,-78.2,1.7,25720,25720,-21.6,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; version DrumSynth v1.0
+0116,library/R&B/x_backwd.ds,within 1 step,39600,39600,1,1,-136.3,-105.9,1.25,14725,14725,-30.4,0,0,,noise; noise slope; overtones FM; overtone tracking; noise band 1; filter; version DrumSynth v1.0
+0117,library/cr78/Bongo_h.ds,identical,3600,3600,0,0,,,,15158,15158,-19.4,0,0,,tone; stretch; version DrumSynth v1.0
+0118,library/cr78/Bongo_l.ds,within 1 step,3600,3600,2,1,-122.9,-103.4,1.0,14997,14997,-19.5,0,0,,tone; version DrumSynth v1.0
+0119,library/cr78/Clave.ds,identical,3600,3600,0,0,,,,15434,15434,-20.4,0,0,,tone; version DrumSynth v1.0
+0120,library/cr78/Conga.ds,within 1 step,8400,8400,2,1,-126.5,-112.9,6.28,21039,21039,-13.7,0,0,,tone; version DrumSynth v1.0
+0121,library/cr78/Cymbal.ds,identical,22800,22800,0,0,,,,23506,23506,-17.8,0,0,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0122,library/cr78/Hihat.ds,small,4800,4800,1054,2,-94.5,-79.4,0.5,27120,27120,-15.1,0,0,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0123,library/cr78/Kick.ds,within 1 step,10800,10800,1,1,-130.6,-118.7,101.95,29183,29183,-12.0,0,0,,tone; version DrumSynth v1.0
+0124,library/cr78/Maracas.ds,within 1 step,2400,2400,95,1,-104.3,-89.4,2.22,18409,18409,-14.9,0,0,,noise band 1; version DrumSynth v1.0
+0125,library/cr78/Rim.ds,identical,2400,2400,0,0,,,,31594,31594,-20.8,0,0,,tone; version DrumSynth v1.0
+0126,library/cr78/Snare.ds,identical,4800,4800,0,0,,,,32700,32700,-14.4,11,11,,tone; noise; noise slope; version DrumSynth v1.0
+0127,library/cr78/Tamb.ds,within 1 step,10800,10800,141,1,-109.2,-93.8,8.64,20821,20821,-15.4,0,0,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0128,library/cr8000/Clap.ds,within 1 step,10800,10800,862,1,-101.3,-83.1,0.48,32700,32700,-18.2,14,14,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0129,library/cr8000/Clave.ds,within 1 step,3600,3600,86,1,-106.5,-87.8,0.95,23777,23777,-18.7,0,0,,overtones Add; filter; version DrumSynth v1.0
+0130,library/cr8000/Conga_l.ds,within 1 step,13200,13200,1,1,-131.5,-117.0,39.84,24865,24865,-14.5,0,0,,tone; version DrumSynth v1.0
+0131,library/cr8000/Conga_m.ds,within 1 step,10800,10800,1,1,-130.6,-117.8,12.29,28117,28117,-12.9,0,0,,tone; version DrumSynth v1.0
+0132,library/cr8000/Cowbell.ds,large,9600,9600,211,50,-79.3,-54.7,121.16,16614,16614,-24.6,0,0,,overtones Add; filter; version DrumSynth v1.0
+0133,library/cr8000/Cymbal.ds,large,21600,21600,9450,1054,-69.3,-49.1,0.5,32700,32700,-20.2,5,5,,noise; noise slope; overtones Add; noise band 1; filter (overtones only); high-pass; version DrumSynth v1.0
+0134,library/cr8000/Hat_c.ds,large,7200,7200,2,1672,-64.4,-46.1,0.73,28869,28869,-18.3,0,0,,noise; noise slope; overtones Add; version DrumSynth v1.0
+0135,library/cr8000/Hat_o.ds,within 1 step,16800,16800,2,1,-129.6,-114.6,21.11,27971,27971,-15.0,0,0,,noise; noise slope; overtones Add; version DrumSynth v1.0
+0136,library/cr8000/Kick.ds,within 1 step,4800,4800,16,1,-115.1,-100.3,4.13,28098,28098,-14.8,0,0,,tone; filter; version DrumSynth v1.0
+0137,library/cr8000/Rim.ds,small,3600,3600,15,2,-108.3,-85.2,1.93,16384,16384,-23.1,0,0,,noise band 1; distortion
+0138,library/cr8000/Snare.ds,within 1 step,4800,4800,2,1,-124.1,-107.8,5.58,28833,28833,-16.3,0,0,,tone; noise; noise slope; filter; version DrumSynth v1.0
+0139,library/instrmnt/E Piano.ds,within 1 step,32400,32400,3,1,-130.6,-106.1,3.27,16214,16214,-24.5,0,0,,tone; overtones FM; version DrumSynth v1.0
+0140,library/instrmnt/FM Bass.ds,within 1 step,32400,32400,215,1,-112.1,-90.9,0.91,18715,18715,-21.2,0,0,,tone; tone droop; overtones FM; version DrumSynth v1.0
+0141,library/instrmnt/Moog bass.ds,within 1 step,9600,9600,56,1,-112.6,-97.5,4.88,30483,30483,-15.2,0,0,,noise; noise slope; overtones Add; filter; tuning
+0142,library/instrmnt/Oboe.ds,within 1 step,86400,86400,19,1,-126.9,-113.6,134.42,27191,27191,-13.2,0,0,,tone; overtones FM; version DrumSynth v1.0
+0143,library/instrmnt/Temple Bell.ds,within 1 step,64800,64800,17,1,-126.1,-102.3,0.88,21437,21437,-23.8,0,0,,tone; overtones FM; version DrumSynth v1.0
+0144,library/instrmnt/flute.ds,within 1 step,40800,40800,285,1,-111.9,-99.1,112.52,13590,13590,-12.8,0,0,,noise; noise slope; overtones Add; noise band 1; version DrumSynth v1.0
+0145,library/instrmnt/mute bass.ds,within 1 step,36000,36000,2,1,-132.9,-113.1,31.32,16818,16818,-19.8,0,0,,noise; noise slope; overtones FM; version DrumSynth v1.0
+0146,library/instrmnt/pizzi.ds,within 1 step,8400,8400,1,1,-129.6,-111.5,32.74,21669,21669,-18.0,0,0,,noise; noise slope; overtones FM; version DrumSynth v1.0
+0147,library/instrmnt/soft piano.ds,within 1 step,49200,49200,43,1,-120.9,-95.3,11.7,17660,17660,-25.6,0,0,,overtones FM; noise band 1; noise band 2; filter
+0148,library/instrmnt/square lead.ds,identical,33600,33600,0,0,,,,17995,17995,-17.1,0,0,,overtones Add; noise band 1; version DrumSynth v1.0
+0149,library/instrmnt/sweep.ds,within 1 step,15600,15600,3,1,-127.5,-107.8,13.08,15788,15788,-19.7,0,0,,tone; overtones Add; noise band 1; noise band 2; stretch; version DrumSynth v1.0
+0150,library/instrmnt/techno stab.ds,identical,8400,8400,0,0,,,,15876,15876,-11.1,0,0,,overtones FM; distortion; bit reduction; downsampling; filter (overtones only)
+0151,library/instrmnt/tinkle.ds,within 1 step,64800,64800,299,1,-113.7,-88.8,0.63,26436,26436,-24.8,0,0,,overtones FM; noise band 1; version DrumSynth v1.0
+0152,library/instrmnt/trumpet.ds,small,86400,86400,29,4,-121.1,-107.4,33.2,26730,26730,-13.7,0,0,,tone; overtones FM; version DrumSynth v1.0
+0153,library/instrmnt/upright bass.ds,within 1 step,43200,43200,2,1,-133.7,-113.4,92.22,16402,16402,-20.3,0,0,,overtones FM; noise band 1; version DrumSynth v1.0
+0154,library/instrmnt/violin.ds,small,38400,38400,2445,12,-101.9,-89.7,12.99,14093,14093,-12.3,0,0,,overtones FM; noise band 1; version DrumSynth v1.0
+0155,library/instrmnt/whistler.ds,within 1 step,38400,38400,1844,1,-103.5,-87.5,46.53,14668,14668,-15.9,0,0,,overtones FM; noise band 1; version DrumSynth v1.0
+0156,library/magnetboy/Eye Eye.ds,identical,61200,61200,0,0,,,,32700,32700,-14.5,780,780,,tone; tone droop; distortion; bit reduction; downsampling
+0157,library/magnetboy/Fp1.ds,large,195600,195600,56706,7002,-57.3,-42.6,12.31,32700,32700,-14.7,417,417,,tone; tone droop; overtones RM; overtone tracking; noise band 1; distortion; downsampling; filter; high-pass
+0158,library/magnetboy/Mist1.ds,large,136800,136800,101778,143,-57.3,-48.2,30.07,32700,32700,-9.1,288,291,,tone; tone droop; noise band 1; distortion; bit reduction; downsampling
+0159,library/magnetboy/Mist2.ds,large,153600,153600,48752,36,-74.8,-56.8,14.51,22977,22977,-18.0,0,0,,tone; tone droop; noise band 1; distortion; bit reduction; downsampling; filter; high-pass
+0160,library/magnetboy/Randion1.ds,large,291600,291600,16888,11939,-43.8,-32.7,13.79,32700,32700,-11.1,12,12,,tone; tone droop; overtones 808 Cymbal; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter; stretch
+0161,library/magnetboy/Squelb.ds,large,195600,195600,166737,12166,-47.4,-35.7,12.11,30392,30394,-11.8,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling
+0162,library/magnetboy/Throaties1.ds,large,195600,195600,52432,62,-70.3,-53.8,13.79,32700,32700,-16.5,1240,1240,,tone; tone droop; overtones FM; overtone tracking; noise band 1; distortion; downsampling; filter; high-pass
+0163,library/magnetboy/Tone float1.ds,large,93600,93600,76360,507,-44.6,-34.4,34.47,29362,29290,-10.2,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling
+0164,library/magnetboy/Tone1.ds,large,32400,32400,568,6854,-48.1,-29.5,2.59,32700,32700,-18.6,15,15,,tone; tone droop; overtones 808 Cymbal
+0165,library/magnetboy/Tone10.ds,large,120000,120000,69307,7,-84.8,-57.7,1.16,26985,26985,-27.2,0,0,,tone; tone droop; overtones FM; overtone tracking; noise band 1
+0166,library/magnetboy/Tone11.ds,within 1 step,120000,120000,85,1,-121.8,-92.7,4.85,23193,23193,-29.1,0,0,,tone; tone droop; overtones RM; overtone tracking; noise band 1
+0167,library/magnetboy/Tone12.ds,within 1 step,120000,120000,48,1,-124.3,-97.2,2.63,32700,32700,-27.1,5,5,,tone; tone droop; overtones RM; overtone tracking; noise band 1; filter (overtones only)
+0168,library/magnetboy/Tone14.ds,small,80400,80400,15066,2,-97.4,-81.2,2.77,31741,31741,-16.3,0,0,,tone; tone droop; overtones FM; overtone tracking; noise band 1; filter
+0169,library/magnetboy/Tone15.ds,identical,36000,36000,0,0,,,,19498,19498,-19.5,0,0,,noise; noise slope; overtones FM; overtone tracking
+0170,library/magnetboy/Tone16.ds,identical,36000,36000,0,0,,,,19531,19531,-21.7,0,0,,tone; tone droop; noise; noise slope; overtones Add
+0171,library/magnetboy/Tone17.ds,within 1 step,68400,68400,10,1,-128.7,-117.0,407.96,22534,22534,-11.7,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking
+0172,library/magnetboy/Tone18.ds,large,68400,68400,10500,256,-55.4,-42.6,26.26,21888,21888,-12.8,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; distortion; bit reduction; downsampling
+0173,library/magnetboy/Tone19.ds,small,68400,68400,12026,16,-78.9,-66.6,23.76,25281,25281,-12.2,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; distortion; bit reduction; downsampling; tuning
+0174,library/magnetboy/Tone2.ds,large,32400,32400,11169,4104,-54.6,-37.6,2.86,32700,32700,-17.0,1,1,,tone; tone droop; overtones 808 Cymbal
+0175,library/magnetboy/Tone20.ds,small,38400,38400,8196,15,-81.9,-72.1,0.54,32700,32700,-9.9,1509,1509,,overtones FM; overtone tracking; noise band 1; distortion; downsampling; filter; high-pass
+0176,library/magnetboy/Tone3.ds,large,72000,72000,16025,20726,-39.5,-16.0,19.98,32700,32700,-23.5,3,3,,tone; tone droop; overtones 808 Cymbal
+0177,library/magnetboy/Tone4.ds,within 1 step,72000,72000,2063,1,-105.7,-86.6,5.92,22367,22367,-19.1,0,0,,tone; tone droop; overtones Add; overtone tracking
+0178,library/magnetboy/Tone5.ds,within 1 step,72000,72000,510,1,-111.8,-92.8,11.27,22568,22568,-19.0,0,0,,tone; tone droop; overtones Add
+0179,library/magnetboy/Tone6.ds,large,72000,72000,6330,6607,-57.3,-36.2,3.95,11236,11236,-21.1,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; distortion; bit reduction; downsampling
+0180,library/magnetboy/Tone7.ds,large,72000,72000,1155,7212,-58.0,-39.8,2.65,25447,25447,-18.2,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking
+0181,library/magnetboy/Tone8.ds,large,64800,64800,914,2207,-64.4,-36.2,2.43,16882,16882,-28.2,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking
+0182,library/magnetboy/Tone9.ds,within 1 step,106800,106800,2,1,-137.6,-120.7,242.22,12267,12267,-16.9,0,0,,overtones FM
+0183,library/misc bass/a day in the noise.ds,small,38400,38400,130,79,-83.3,-72.7,42.09,10632,10632,-10.6,0,0,,tone; tone droop; noise band 1; distortion; downsampling; filter
+0184,library/misc bass/bumble bass.ds,small,16800,16800,54,2,-110.0,-96.8,1.56,18769,18769,-13.2,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; filter (overtones only); high-pass
+0185,library/misc bass/depth bass drum.ds,within 1 step,25200,25200,42,1,-118.1,-107.0,6.94,32700,32700,-11.1,418,418,,tone; tone droop; overtones RM; overtone tracking
+0186,library/misc bass/dirty a.ds,small,38400,38400,4840,4,-94.9,-85.7,1.54,20670,20670,-9.1,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion
+0187,library/misc bass/filter idea bd.ds,small,96000,96000,214,4,-106.8,-90.7,15.46,32700,32700,-16.1,634,634,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter
+0188,library/misc bass/jarre bass drum.ds,within 1 step,25200,25200,43,1,-118.0,-109.4,5.42,32700,32700,-8.6,1256,1256,,tone; tone droop; overtones FM; overtone tracking
+0189,library/misc bass/jungle laser.ds,small,195600,195600,17,9,-111.9,-92.9,57.23,4124,4124,-19.0,0,0,,tone; tone droop; overtones FM; distortion; filter
+0190,library/misc bass/low end hum.ds,small,38400,38400,117,15,-93.1,-82.8,12.95,16887,16887,-10.4,0,0,,tone; tone droop; overtones FM; overtone tracking; noise band 1; distortion; filter
+0191,library/misc bass/melodictone.ds,within 1 step,19200,19200,9,1,-123.6,-112.0,23.33,32700,32700,-11.6,122,122,,tone; tone droop; overtones RM
+0192,library/misc bass/metal bass.ds,within 1 step,16800,16800,19,1,-119.8,-104.8,17.28,32700,32700,-14.9,1,1,,tone; tone droop; overtones FM; filter (overtones only); high-pass
+0193,library/misc bass/more bass 2.ds,within 1 step,120000,120000,14,1,-129.6,-115.5,115.03,32700,32700,-14.2,556,556,,tone; tone droop; overtones FM; overtone tracking; stretch
+0194,library/misc bass/more bass.ds,within 1 step,120000,120000,1061,1,-110.8,-96.6,5.31,32700,32700,-14.2,575,575,,tone; tone droop; overtones FM; overtone tracking; stretch
+0195,library/misc bass/rubber.ds,within 1 step,30000,30000,16,1,-123.0,-106.4,25.4,25858,25858,-16.7,0,0,,overtones RM; overtone tracking; filter
+0196,library/misc bass/smooth bass.ds,small,43200,43200,195,2,-111.4,-102.1,3.85,32700,32700,-9.3,1083,1083,,tone; tone droop; overtones FM; overtone tracking; distortion
+0197,library/misc bass/solid.ds,within 1 step,120000,120000,783,1,-112.2,-95.3,1.93,31564,31564,-16.9,0,0,,tone; tone droop; overtones RM; overtone tracking; noise band 1; stretch
+0198,library/misc bass/synthbass.ds,within 1 step,19200,19200,4,1,-127.1,-110.3,4.1,32700,32700,-16.8,4,4,,tone; tone droop; overtones RM; filter
+0199,library/misc bass/the funk.ds,small,38400,38400,18,29,-94.6,-85.2,746.85,11955,11955,-9.4,0,0,,noise band 1; distortion; downsampling; filter
+0200,library/misc bass/warm bass.ds,small,43200,43200,824,2,-105.0,-94.1,4.17,32700,32700,-10.9,914,914,,tone; tone droop; overtones RM; overtone tracking; distortion
+0201,library/misc claps/big beat clap.ds,small,6000,6000,6,12,-99.3,-86.3,6.39,11664,11664,-13.0,0,0,,noise; noise slope; noise band 1; distortion; filter; high-pass; stretch
+0202,library/misc claps/bright clap.ds,small,9600,9600,1878,3,-95.8,-80.2,0.14,32700,32700,-15.5,1,1,,noise; noise slope; noise band 1; noise band 2; filter; high-pass
+0203,library/misc claps/clap layer.ds,identical,6000,6000,0,0,,,,16384,16384,-16.2,0,0,,noise; noise slope; distortion; downsampling; filter; high-pass; stretch
+0204,library/misc claps/clap.ds,within 1 step,7200,7200,525,1,-101.7,-86.6,1.61,32700,32700,-15.1,13,13,,noise; noise slope; noise band 1; noise band 2; filter; high-pass; stretch
+0205,library/misc claps/clap2.ds,identical,8400,8400,0,0,,,,14269,14269,-26.7,0,0,,tone; overtones 808 Cymbal
+0206,library/misc claps/classic clap.ds,small,10800,10800,22,5,-104.3,-89.2,2.06,32700,32700,-15.0,99,99,,noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0207,library/misc claps/electro clap.ds,small,9600,9600,25,5,-103.0,-90.2,1.09,32700,32700,-12.8,211,211,,noise; noise slope; noise band 2; distortion; bit reduction; filter; high-pass
+0208,library/misc claps/filter clappy.ds,small,10800,10800,2701,2,-95.1,-83.6,2.74,32700,32700,-11.5,129,129,,noise; noise slope; noise band 1; filter; high-pass; stretch
+0209,library/misc claps/pitch clap 2.ds,small,8400,8400,3,288,-75.6,-61.9,41.34,32700,32700,-13.7,104,104,,noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0210,library/misc claps/pitch clap.ds,identical,10800,10800,0,0,,,,32700,32700,-16.0,78,78,,noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0211,library/misc claps/shutter clap.ds,small,9600,9600,312,4,-98.5,-86.8,0.48,30109,30109,-11.8,0,0,,noise; noise slope; noise band 1; distortion; downsampling; filter; high-pass; stretch; tuning
+0212,library/misc claps/u don't kno.ds,within 1 step,14400,14400,265,1,-107.7,-87.1,2.0,32700,32700,-20.5,1,1,,noise; noise slope; noise band 1; filter; high-pass
+0213,library/misc electro/'lectro spliff.ds,small,43200,43200,12,5,-113.1,-101.5,131.22,25182,25182,-11.6,0,0,,overtones FM; noise band 1; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0214,library/misc electro/a round thing.ds,small,12000,12000,26,255,-68.8,-60.7,18.48,16419,16419,-8.1,0,0,,tone; tone droop; distortion; bit reduction; filter
+0215,library/misc electro/applied engineering.ds,small,38400,38400,48,64,-83.3,-66.6,11.68,26022,26022,-16.6,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; filter; high-pass
+0216,library/misc electro/atmosphere of space.ds,small,7200,7200,4775,23,-74.3,-61.6,0.39,32496,32496,-12.7,0,0,,tone
+0217,library/misc electro/bottle bill fx.ds,large,12000,12000,5712,6774,-35.3,-19.7,9.98,23143,23143,-15.6,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass
+0218,library/misc electro/casio poppin.ds,within 1 step,4800,4800,2,1,-124.1,-100.9,10.88,25139,25139,-23.2,0,0,,tone; tone droop; overtones Add; overtone tracking; filter; high-pass
+0219,library/misc electro/category.ds,small,44400,44400,14,20,-101.7,-84.0,13.65,12100,12100,-17.7,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; stretch
+0220,library/misc electro/cheap fx.ds,within 1 step,27600,27600,3,1,-129.9,-103.9,163.72,8155,8155,-26.0,0,0,,tone; tone droop; overtones RM; overtone tracking; filter
+0221,library/misc electro/chrip q.ds,small,44400,44400,16,3,-115.5,-98.0,20.18,32700,32700,-17.5,708,708,,tone; tone droop; distortion; filter; high-pass; stretch
+0222,library/misc electro/clean rock bd.ds,within 1 step,27600,27600,17,1,-122.4,-110.5,11.02,32700,32700,-11.9,177,177,,tone; tone droop; overtones FM; filter
+0223,library/misc electro/cold shot.ds,small,38400,38400,106,41,-84.8,-65.1,3.38,16887,16887,-19.7,0,0,,overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0224,library/misc electro/confusion.ds,identical,18000,18000,0,0,,,,12100,12100,-11.7,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction
+0225,library/misc electro/cymbal madness.ds,identical,44400,44400,0,0,,,,6562,6562,-15.5,0,0,,overtones 808 Cymbal; distortion
+0226,library/misc electro/depth fx.ds,small,27600,27600,3828,9,-86.9,-61.2,1.16,12467,12467,-25.7,0,0,,tone; tone droop; noise; noise slope; overtones FM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; tuning
+0227,library/misc electro/dialed.ds,small,67200,67200,4140,42,-86.0,-66.6,3.17,18038,18038,-19.5,0,0,,tone; tone droop; overtones FM; overtone tracking; filter; high-pass
+0228,library/misc electro/doom bump.ds,large,25200,25200,2070,494,-70.5,-50.6,3.27,30796,30796,-19.9,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking; noise band 1; filter
+0229,library/misc electro/electric triangle.ds,small,43200,43200,340,8,-93.3,-77.7,1.9,16384,16384,-15.6,0,0,,tone; overtones RM; overtone tracking; distortion; bit reduction; downsampling; stretch
+0230,library/misc electro/electro perc long.ds,small,10800,10800,3088,11,-88.7,-75.5,0.84,32700,32700,-13.2,147,147,,overtones 808 Cymbal; noise band 1; noise band 2; distortion; filter; high-pass; stretch
+0231,library/misc electro/electro perc short.ds,small,3600,3600,537,4,-94.1,-79.7,0.7,32700,32700,-14.4,40,40,,overtones 808 Cymbal; noise band 1; noise band 2; distortion; filter; high-pass; stretch
+0232,library/misc electro/electro rim 2.ds,identical,8400,8400,0,0,,,,14409,14409,-22.6,0,0,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass
+0233,library/misc electro/electro rim 3.ds,small,9600,9600,58,7,-96.6,-82.9,0.5,29584,29584,-13.7,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 2; distortion; filter; high-pass; stretch
+0234,library/misc electro/electro rim.ds,identical,8400,8400,0,0,,,,21025,21025,-20.8,0,0,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass
+0235,library/misc electro/electro squeek.ds,within 1 step,34800,34800,3,1,-131.0,-107.0,1.09,32700,32700,-24.0,27,27,,tone; tone droop; overtones RM; overtone tracking; filter; stretch
+0236,library/misc electro/fuzzy q bd.ds,small,37200,37200,1269,11,-84.9,-70.1,2.81,16419,16419,-14.8,0,0,,tone; tone droop; noise band 1; noise band 2; distortion; bit reduction
+0237,library/misc electro/g question.ds,small,14400,14400,7,2,-120.8,-108.3,3.76,32700,32700,-12.5,372,372,,overtones FM; overtone tracking; distortion; filter; high-pass
+0238,library/misc electro/general obscurity.ds,small,21600,21600,144,11,-91.5,-70.9,2.99,23143,23143,-20.6,0,0,,tone; tone droop; noise; noise slope; overtones RM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0239,library/misc electro/hard bork.ds,small,9600,9600,380,12,-88.6,-79.3,4.22,18769,18769,-9.3,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling; tuning
+0240,library/misc electro/hello q.ds,identical,22800,22800,0,0,,,,5181,5181,-16.0,0,0,,overtones Add; distortion; bit reduction; downsampling; filter; high-pass
+0241,library/misc electro/just the tweet.ds,small,46800,46800,2149,2,-103.1,-79.0,0.63,20653,20653,-24.1,0,0,,tone; tone droop; overtones FM; overtone tracking; stretch
+0242,library/misc electro/lo-fi house c.ds,identical,10800,10800,0,0,,,,16384,16384,-15.7,0,0,,tone; overtones RM; distortion; bit reduction; downsampling; filter; high-pass
+0243,library/misc electro/lo-fi metal.ds,small,46800,46800,570,17,-92.5,-74.8,7.26,10392,10392,-17.8,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; noise band 2; distortion; downsampling; filter; high-pass; stretch
+0244,library/misc electro/lo-finess.ds,large,37200,37200,3,14633,-47.9,-37.7,16.01,14633,14633,-10.2,0,0,,tone; tone droop; noise band 2; distortion; bit reduction
+0245,library/misc electro/long q 1.ds,small,9600,9600,86,18,-85.9,-73.7,3.11,14484,14484,-12.1,0,0,,tone; tone droop; distortion
+0246,library/misc electro/long q 2.ds,small,7200,7200,11,18,-93.9,-83.0,6.46,14484,14484,-10.9,0,0,,tone; tone droop; distortion
+0247,library/misc electro/long q 3.ds,identical,22800,22800,0,0,,,,14484,14484,-13.1,0,0,,tone; tone droop; distortion; tuning
+0248,library/misc electro/long quack.ds,small,24000,24000,1,45,-101.0,-82.3,72.45,16384,16384,-18.8,0,0,,tone; tone droop; overtones FM; distortion; bit reduction; filter; high-pass
+0249,library/misc electro/low bit tom.ds,identical,7200,7200,0,0,,,,16419,16419,-8.6,0,0,,tone; tone droop; distortion; bit reduction
+0250,library/misc electro/metal noise shot.ds,small,20400,20400,6956,4,-91.6,-77.9,1.93,32589,32589,-13.7,0,0,,noise band 1; noise band 2; stretch
+0251,library/misc electro/open reso.ds,small,38400,38400,7,2,-125.0,-103.9,41.18,10656,10656,-21.1,0,0,,noise; noise slope; overtones 808 Cymbal; overtone tracking; distortion; filter; high-pass
+0252,library/misc electro/paging the jetsons.ds,small,46800,46800,3,3,-124.7,-107.3,0.73,16419,16419,-17.4,0,0,,tone; tone droop; distortion; bit reduction; stretch
+0253,library/misc electro/pan.ds,identical,46800,46800,0,0,,,,20735,20735,-15.0,0,0,,tone; tone droop; overtones FM; overtone tracking; stretch
+0254,library/misc electro/pleasant combo.ds,small,82800,82800,390,11,-98.8,-84.9,1.63,32700,32700,-13.9,1491,1491,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0255,library/misc electro/q-ziq for the masses.ds,small,36000,36000,1,22,-109.0,-87.8,226.46,10201,10201,-21.2,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; filter; high-pass; stretch
+0256,library/misc electro/rich bd.ds,small,7200,7200,2,178,-80.9,-71.2,22.45,23499,23499,-9.7,0,0,,tone; tone droop; overtones Add; distortion; filter; high-pass
+0257,library/misc electro/ring.ds,within 1 step,44400,44400,6,1,-129.0,-106.3,1.77,13848,13848,-22.7,0,0,,tone; overtones RM; overtone tracking; filter; high-pass
+0258,library/misc electro/ringing sn.ds,identical,8400,8400,0,0,,,,13479,13479,-13.4,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0259,library/misc electro/rockin electro bass drum.ds,identical,27600,27600,0,0,,,,20670,20670,-9.3,0,0,,tone; tone droop; overtones FM; distortion; bit reduction; downsampling; filter
+0260,library/misc electro/shocking kiss.ds,identical,7200,7200,0,0,,,,16384,16384,-13.3,0,0,,tone; tone droop; distortion; bit reduction
+0261,library/misc electro/siren sing.ds,identical,25200,25200,0,0,,,,6889,6889,-22.8,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction
+0262,library/misc electro/slide tom.ds,small,7200,7200,12,9,-99.0,-80.5,10.66,16384,16384,-18.5,0,0,,tone; noise band 1; distortion; bit reduction; downsampling; filter; high-pass; tuning
+0263,library/misc electro/space dynamic.ds,small,21600,21600,4009,50,-76.9,-66.8,10.68,32700,32700,-10.1,1661,1661,,tone; tone droop; overtones FM; overtone tracking; distortion; filter; high-pass; stretch
+0264,library/misc electro/spaceness.ds,large,26400,26400,14768,17853,-26.1,-8.9,19.98,31368,28921,-17.2,0,0,,overtones 808 Cymbal
+0265,library/misc electro/startling one.ds,small,427200,427200,18612,2,-103.9,-74.9,1.68,15629,15629,-29.0,0,0,,tone; tone droop; overtones RM; overtone tracking; filter
+0266,library/misc electro/tone percussion.ds,within 1 step,12000,12000,10,1,-121.1,-103.8,0.36,32700,32700,-17.3,73,73,,tone; tone droop; overtones FM; overtone tracking; filter; high-pass; tuning
+0267,library/misc electro/tweet.ds,small,46800,46800,1854,7,-93.7,-76.0,0.34,20736,20736,-17.7,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 2; distortion; filter; high-pass; stretch
+0268,library/misc electro/wee dog.ds,large,8400,8400,1260,4661,-42.3,-23.4,0.82,20353,20353,-18.9,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; downsampling; filter
+0269,library/misc electro/what to do at 220.ds,identical,9600,9600,0,0,,,,17956,17956,-20.5,0,0,,overtones RM
+0270,library/misc electro/who hears all sound.ds,large,16800,16800,304,7540,-48.6,-33.0,19.95,27445,27445,-15.6,0,0,,tone; tone droop; overtones 808 Cymbal; noise band 1; distortion; bit reduction; downsampling
+0271,library/misc electro/why hit.ds,within 1 step,16800,16800,6,1,-124.8,-111.0,12.38,32700,32700,-13.8,5,5,,tone; tone droop; overtones FM; overtone tracking; filter; high-pass
+0272,library/misc electro/yr tv will be next.ds,large,61200,61200,32215,1223,-53.4,-36.4,4.38,32700,32700,-17.0,295,294,,tone; overtones RM; overtone tracking; filter; high-pass; stretch
+0273,library/misc electro/zappy bells.ds,small,38400,38400,164,256,-83.5,-69.5,3.49,14963,14963,-14.0,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; distortion; downsampling; filter; high-pass
+0274,library/misc fx/2 bit click.ds,identical,3600,3600,0,0,,,,8464,8464,-35.3,0,0,,noise band 1; distortion; bit reduction; filter; high-pass
+0275,library/misc fx/2-bit zone drone.ds,identical,70800,70800,0,0,,,,16384,16384,-18.3,0,0,,noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0276,library/misc fx/a blast.ds,small,42000,42000,13,16,-101.4,-84.8,40.05,5289,5289,-16.6,0,0,,noise band 1; distortion; filter; high-pass
+0277,library/misc fx/across the universe.ds,identical,320400,320400,0,0,,,,6536,6536,-30.4,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass
+0278,library/misc fx/alarm 3.ds,identical,120000,120000,0,0,,,,12100,12100,-20.1,0,0,,overtones FM; overtone tracking; distortion; bit reduction; downsampling; stretch
+0279,library/misc fx/alarming buzz 2.ds,identical,37200,37200,0,0,,,,8229,8229,-14.9,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion
+0280,library/misc fx/alarming buzz.ds,identical,34800,34800,0,0,,,,5825,5825,-17.8,0,0,,overtones RM; overtone tracking; distortion
+0281,library/misc fx/alien curiousity.ds,identical,58800,58800,0,0,,,,5192,5192,-19.8,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; stretch
+0282,library/misc fx/ambient backgroud.ds,within 1 step,58800,58800,22,1,-124.6,-103.9,105.56,10008,10008,-20.7,0,0,,tone; tone droop; overtones FM; overtone tracking; filter; stretch
+0283,library/misc fx/click.ds,identical,7200,7200,0,0,,,,32700,32700,-33.8,3,3,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; filter; high-pass
+0284,library/misc fx/coo.ds,within 1 step,92400,92400,154,1,-118.1,-93.8,5.69,10598,10598,-24.3,0,0,,tone; tone droop; overtones FM; overtone tracking; filter; high-pass; stretch
+0285,library/misc fx/detonate.ds,within 1 step,163200,163200,14322,1,-100.9,-82.8,1.54,21177,21177,-18.1,0,0,,noise band 1
+0286,library/misc fx/dirty transform 2.ds,large,58800,58800,85,2560,-51.6,-36.4,265.49,8229,8229,-15.2,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; stretch
+0287,library/misc fx/dirty transform.ds,small,58800,58800,16,320,-75.9,-62.2,132.97,8229,8229,-13.6,0,0,,tone; tone droop; distortion; bit reduction; downsampling; filter; stretch
+0288,library/misc fx/distorion oscilator.ds,small,195600,195600,1003,38,-90.2,-75.1,36.35,5825,5825,-15.0,0,0,,tone; tone droop; overtones FM; distortion; filter
+0289,library/misc fx/electric intro to a.ds,large,427200,427200,421324,1053,-40.1,-23.3,0.41,26825,26825,-16.8,0,0,,tone; tone droop; filter
+0290,library/misc fx/electric waves out my window.ds,large,436800,436800,80327,32,-77.6,-59.2,8.84,15107,15110,-18.4,0,0,,noise; noise slope; noise band 1; noise band 2; filter; high-pass
+0291,library/misc fx/elekperc1.ds,within 1 step,14400,14400,353,1,-106.4,-89.9,0.93,32700,32700,-16.5,64,64,,noise; noise slope; overtones Add; noise band 1; noise band 2; filter; high-pass; stretch
+0292,library/misc fx/elekperc2.ds,identical,22800,22800,0,0,,,,32700,32700,-9.7,1336,1336,,tone; tone droop; noise band 1; distortion; bit reduction; filter; high-pass; stretch; tuning
+0293,library/misc fx/end of broadcast day.ds,identical,219600,219600,0,0,,,,8211,8211,-15.6,0,0,,noise; noise slope; distortion; bit reduction
+0294,library/misc fx/entre.ds,small,120000,120000,75,3,-115.8,-96.0,4.15,16384,16384,-19.7,0,0,,overtones FM; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter; stretch
+0295,library/misc fx/experiment 1.ds,large,226800,226800,4910,255,-58.9,-49.7,17.41,16419,16419,-9.2,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; filter
+0296,library/misc fx/experiment 2 - turn off the tv.ds,large,226800,226800,5086,255,-58.7,-49.6,22.0,16419,16419,-9.1,0,0,,tone; tone droop; distortion; bit reduction; filter
+0297,library/misc fx/experiment 3 - the transform.ds,small,206400,206400,178,3,-112.4,-99.9,2.29,32700,32700,-12.5,3370,3370,,tone; tone droop; overtones FM; overtone tracking; distortion; filter
+0298,library/misc fx/experiment 4 - clean.ds,within 1 step,206400,206400,257,1,-119.4,-99.3,5.65,32700,32700,-20.0,55,55,,tone; tone droop; overtones FM; filter
+0299,library/misc fx/f#m7 space signal.ds,large,260400,260400,300,542,-70.9,-52.0,2351.22,13014,13014,-18.9,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0300,library/misc fx/feedback.ds,small,92400,92400,79,5,-119.7,-98.8,18.44,10299,10299,-20.9,0,0,,tone; tone droop; overtones FM; overtone tracking; filter; high-pass; stretch
+0301,library/misc fx/flashy wind.ds,within 1 step,16800,16800,10,1,-122.6,-108.1,22.24,28744,28744,-14.4,0,0,,noise; noise slope; filter; high-pass
+0302,library/misc fx/flipper.ds,identical,20400,20400,0,0,,,,13225,13225,-29.9,0,0,,overtones 808 Cymbal; distortion; downsampling
+0303,library/misc fx/formant techno.ds,identical,25200,25200,0,0,,,,32700,32700,-7.5,1054,1054,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass
+0304,library/misc fx/frequency revolution.ds,small,128400,128400,8,10,-112.4,-95.1,1177.8,5181,5181,-17.3,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; filter; high-pass
+0305,library/misc fx/fried food for dinner.ds,identical,56400,56400,0,0,,,,23193,23193,-15.3,0,0,,tone; tone droop; overtones FM; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter; high-pass; tuning
+0306,library/misc fx/funky stab.ds,within 1 step,7200,7200,1,1,-128.9,-105.2,5.71,26636,26636,-23.7,0,0,,overtones 808 Cymbal; stretch
+0307,library/misc fx/future.ds,small,38400,38400,8,4,-115.1,-99.7,54.42,9476,9476,-15.4,0,0,,tone; tone droop; overtones 808 Cymbal; distortion; downsampling; filter; high-pass
+0308,library/misc fx/gmaj lo-fi chord 2.ds,small,20400,20400,6,383,-74.0,-64.0,87.35,18383,18383,-9.9,0,0,,tone; overtones RM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0309,library/misc fx/gmaj lo-fi chord.ds,large,20400,20400,3,1532,-64.9,-55.5,92.45,18383,18383,-9.5,0,0,,tone; overtones RM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter (overtones only); stretch
+0310,library/misc fx/halt variety.ds,large,400800,400800,74,17832,-57.2,-42.4,33.22,9406,9406,-14.8,0,0,,tone; tone droop; overtones FM; overtone tracking
+0311,library/misc fx/hip-hop stop 2.ds,identical,38400,38400,0,0,,,,13416,13416,-17.1,0,0,,overtones 808 Cymbal; overtone tracking; distortion; bit reduction; downsampling
+0312,library/misc fx/hip-hop stop.ds,large,38400,38400,1232,6400,-38.6,-24.2,42.45,16887,16887,-14.4,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0313,library/misc fx/hollow.ds,identical,120000,120000,0,0,,,,12100,12100,-25.5,0,0,,overtones 808 Cymbal; overtone tracking; distortion; bit reduction; downsampling; stretch
+0314,library/misc fx/howdy oil barrel.ds,small,36000,36000,298,6,-96.1,-75.9,6.24,8229,8229,-20.2,0,0,,tone; tone droop; overtones FM; overtone tracking; noise band 1; distortion; filter; high-pass; stretch
+0315,library/misc fx/jaggies.ds,large,120000,120000,8268,10915,-43.6,-32.5,19.95,32700,32700,-11.1,814,814,,tone; overtones 808 Cymbal; noise band 1; distortion; bit reduction; downsampling; stretch
+0316,library/misc fx/laser gun & ricochet.ds,large,38400,38400,530,6301,-56.2,-41.9,5.99,14963,14963,-14.4,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; distortion; downsampling; filter; high-pass
+0317,library/misc fx/machine drone.ds,identical,259200,259200,0,0,,,,12100,12100,-12.7,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling; stretch
+0318,library/misc fx/metal twist.ds,small,43200,43200,881,15,-84.2,-64.5,37.94,4556,4556,-19.8,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; filter; high-pass; stretch
+0319,library/misc fx/modular fm counterpoint.ds,large,140400,140400,61761,505,-74.7,-53.5,13.4,19232,19231,-21.3,0,0,,tone; overtones FM; overtone tracking; filter
+0320,library/misc fx/modular.ds,within 1 step,140400,140400,41,1,-125.7,-99.0,5.24,9530,9530,-26.7,0,0,,tone; overtones RM; overtone tracking; filter
+0321,library/misc fx/multi-ping.ds,within 1 step,127200,127200,12,1,-130.6,-116.6,27.55,16693,16693,-14.0,0,0,,tone; tone droop
+0322,library/misc fx/my atari memory.ds,large,427200,427200,387,12797,-59.1,-40.6,384.51,8211,8211,-18.5,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; distortion; bit reduction; filter; tuning
+0323,library/misc fx/new sweep.ds,small,58800,58800,360,10,-98.1,-79.5,5.8,8229,8229,-18.6,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0324,library/misc fx/noise filtering.ds,large,328800,328800,145630,31,-75.1,-53.2,2.49,32700,32700,-21.9,2,2,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; noise band 1; filter; high-pass
+0325,library/misc fx/not trying too hard.ds,small,24000,24000,60,36,-85.2,-69.5,99.32,13042,13042,-15.7,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling; filter
+0326,library/misc fx/numb.ds,identical,128400,128400,0,0,,,,12100,12100,-14.6,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling; stretch
+0327,library/misc fx/obligatory ufo liftoff 2.ds,large,320400,320400,289075,48,-66.9,-48.0,3.29,21293,21293,-18.9,0,0,,tone; overtones FM; overtone tracking; filter; high-pass
+0328,library/misc fx/obligatory ufo liftoff.ds,large,320400,320400,46320,273,-58.9,-37.4,93.42,24765,24765,-21.4,0,0,,tone; overtones FM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass
+0329,library/misc fx/oom paa.ds,within 1 step,18000,18000,60,1,-115.1,-98.1,52.38,32690,32690,-17.0,0,0,,tone; tone droop; noise; noise slope; distortion; bit reduction; downsampling; filter
+0330,library/misc fx/oom pulse.ds,small,18000,18000,540,3,-100.8,-82.1,7.26,16384,16384,-18.7,0,0,,tone; tone droop; distortion; bit reduction; downsampling; filter
+0331,library/misc fx/owwww.ds,small,38400,38400,60,40,-95.1,-79.5,91.25,6035,6035,-15.6,0,0,,overtones Add; noise band 1; distortion; downsampling; filter
+0332,library/misc fx/playing in water.ds,within 1 step,36000,36000,10,1,-125.9,-101.7,0.73,32700,32700,-24.2,2,2,,noise; filter; high-pass
+0333,library/misc fx/plot thickens 2.ds,large,392400,392400,6329,5371,-71.4,-55.5,209.23,17752,17752,-15.9,0,0,,overtones FM; overtone tracking; noise band 1
+0334,library/misc fx/punch flange 2.ds,identical,654000,654000,0,0,,,,32700,32700,-11.1,50976,50976,,tone; tone droop; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0335,library/misc fx/punch flange.ds,identical,242400,242400,0,0,,,,32700,32700,-5.0,76696,76696,,tone; tone droop; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0336,library/misc fx/q zone drone.ds,within 1 step,70800,70800,2659,1,-104.6,-85.9,2.02,32700,32700,-18.6,12,12,,overtones RM; overtone tracking; noise band 1; noise band 2; filter; high-pass
+0337,library/misc fx/recption.ds,large,128400,128400,1,14636,-58.1,-44.4,157.62,7318,7318,-13.7,0,0,,tone; overtones FM; overtone tracking; distortion; stretch
+0338,library/misc fx/sci-fi door open.ds,within 1 step,40800,40800,9,1,-126.9,-113.9,38.34,14065,14065,-13.0,0,0,,overtones FM; overtone tracking; filter; stretch
+0339,library/misc fx/sci-fi.ds,identical,92400,92400,0,0,,,,8566,8566,-15.8,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; stretch
+0340,library/misc fx/sickly wineglass.ds,within 1 step,67200,67200,3,1,-133.8,-108.0,1003.47,17429,17429,-25.8,0,0,,overtones FM; distortion; bit reduction; downsampling
+0341,library/misc fx/sign off.ds,large,234000,234000,49048,2360,-49.0,-32.6,29.39,18188,18188,-16.4,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0342,library/misc fx/slow moving traffic.ds,small,60000,60000,66,15,-96.9,-91.6,18.93,20670,20670,-5.3,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; filter; high-pass; stretch
+0343,library/misc fx/synthetic dive crust.ds,identical,39600,39600,0,0,,,,16384,16384,-8.4,0,0,,tone; tone droop; distortion; bit reduction; downsampling; filter; high-pass
+0344,library/misc fx/synthetic dive.ds,within 1 step,39600,39600,40,1,-120.3,-108.2,4.01,16357,16357,-12.0,0,0,,tone; tone droop
+0345,library/misc fx/teeth.ds,small,171600,171600,14,8,-113.4,-69.4,10.11,8566,8566,-44.1,0,0,,tone; overtones FM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0346,library/misc fx/the plot thickens.ds,identical,320400,320400,0,0,,,,12996,12996,-21.7,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; distortion; bit reduction
+0347,library/misc fx/the tweek.ds,large,46800,46800,1856,366,-60.9,-47.2,20.68,10392,10392,-13.7,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; noise band 2; distortion; downsampling; filter; high-pass; stretch
+0348,library/misc fx/transportive.ds,within 1 step,320400,320400,3,1,-140.6,-118.1,417.23,32700,32700,-22.5,2,2,,overtones 808 Cymbal; overtone tracking; filter; high-pass
+0349,library/misc fx/ufo buzz 2.ds,identical,99600,99600,0,0,,,,8211,8211,-18.0,0,0,,overtones RM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0350,library/misc fx/ufo buzz.ds,identical,99600,99600,0,0,,,,5813,5813,-18.3,0,0,,tone; overtones RM; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0351,library/misc fx/what time is it.ds,large,320400,320400,2,3866,-70.6,-48.8,1009.57,9200,9200,-21.8,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; distortion; bit reduction; downsampling
+0352,library/misc fx/wipeout.ds,large,120000,120000,10980,22250,-28.3,-2.0,9.98,12100,12100,-26.3,0,0,,overtones 808 Cymbal; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0353,library/misc fx/wooo.ds,small,18000,18000,6,15,-102.8,-85.6,29.12,32486,32486,-17.2,0,0,,tone; tone droop; noise; noise slope; overtones RM; distortion; bit reduction; filter; high-pass
+0354,library/misc fx/yeah hit dry.ds,small,44400,44400,189,2,-113.4,-102.1,19.66,26569,26569,-11.3,0,0,,tone; tone droop; overtones FM; distortion; downsampling; filter; high-pass
+0355,library/misc fx/yeah hit.ds,small,44400,44400,318,2,-111.4,-100.4,20.14,26569,26569,-11.0,0,0,,tone; tone droop; overtones FM; noise band 1; distortion; downsampling; filter; high-pass
+0356,library/misc fx/zipper.ds,large,38400,38400,23743,6712,-59.5,-50.2,1.86,20670,20670,-9.3,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion
+0357,library/misc hats/amen ride.ds,small,16800,16800,166,26,-82.3,-66.5,32.15,19321,19321,-15.9,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; tuning
+0358,library/misc hats/band pass cymbal.ds,large,44400,44400,3390,2046,-63.3,-38.1,1.29,32700,32700,-25.2,3,3,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass; tuning
+0359,library/misc hats/basic hh.ds,large,8400,8400,166,2104,-60.8,-37.2,9.98,26371,26371,-23.6,0,0,,noise; noise slope; overtones 808 Cymbal; filter; high-pass
+0360,library/misc hats/bright 808 hat 2.ds,within 1 step,9600,9600,2,1,-127.1,-107.6,26.94,32700,32700,-19.6,1,1,,noise; noise slope
+0361,library/misc hats/bright 808 hat 3.ds,small,21600,21600,183,50,-89.3,-77.4,18.41,31775,31775,-11.9,0,0,,noise; noise slope; overtones 808 Cymbal; stretch
+0362,library/misc hats/bright 808 hat.ds,within 1 step,6000,6000,1,1,-128.1,-110.5,26.94,32700,32700,-17.6,1,1,,noise; noise slope
+0363,library/misc hats/bring me out.ds,large,8400,8400,1875,21368,-37.0,-23.2,2.06,32700,32700,-13.8,45,45,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass
+0364,library/misc hats/clicky hat.ds,small,99600,99600,14,2,-122.8,-75.8,0.77,8078,8078,-47.0,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0365,library/misc hats/close ride.ds,large,109200,109200,13013,1776,-64.1,-37.1,1.43,32700,32700,-27.0,5,5,,overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass; stretch; tuning
+0366,library/misc hats/default hi-hat.ds,identical,3600,3600,0,0,,,,18376,18376,-22.0,0,0,,noise
+0367,library/misc hats/drama hat 2.ds,identical,21600,21600,0,0,,,,32700,32700,-25.5,3,3,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; overtone tracking; filter; high-pass; stretch; tuning
+0368,library/misc hats/drama hat.ds,within 1 step,21600,21600,1,1,-133.7,-108.6,9.34,32700,32700,-25.0,8,8,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; overtone tracking; filter; high-pass; stretch; tuning
+0369,library/misc hats/dusty simple hh.ds,identical,3600,3600,0,0,,,,16384,16384,-16.7,0,0,,noise; noise slope; distortion; tuning
+0370,library/misc hats/dusty simple oh.ds,within 1 step,8400,8400,3,1,-124.8,-111.1,41.95,32700,32700,-13.7,3,3,,noise; noise slope; overtones 808 Cymbal; filter; high-pass; tuning
+0371,library/misc hats/electro hh.ds,identical,3600,3600,0,0,,,,16384,16384,-21.3,0,0,,noise; noise slope; noise band 1; distortion; bit reduction; filter; high-pass
+0372,library/misc hats/electrometallic hat.ds,within 1 step,24000,24000,77,1,-115.2,-94.5,12.63,32700,32700,-20.7,7,7,,noise; noise slope; overtones 808 Cymbal; noise band 1; filter; high-pass
+0373,library/misc hats/errie ride.ds,large,85200,85200,9606,3090,-59.1,-31.4,11.09,27611,27611,-27.8,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2
+0374,library/misc hats/fedora hat.ds,identical,2400,2400,0,0,,,,7322,7322,-18.7,0,0,,noise; noise slope; distortion; bit reduction; filter; high-pass; stretch; tuning
+0375,library/misc hats/feelin' high hat 1.ds,large,4800,4800,190,2466,-55.4,-43.2,1.86,32700,32700,-12.2,51,51,,noise; noise slope; overtones 808 Cymbal; overtone tracking
+0376,library/misc hats/feelin' high hat 2.ds,small,4800,4800,66,65,-87.0,-72.1,9.98,32700,32700,-14.8,7,7,,noise; noise slope; overtones 808 Cymbal; overtone tracking
+0377,library/misc hats/feelin' high hat 3.ds,large,4800,4800,128,1879,-58.7,-43.4,4.74,32700,32700,-15.3,5,5,,noise; noise slope; overtones 808 Cymbal; overtone tracking; filter; high-pass
+0378,library/misc hats/feelin' open high hat.ds,large,14400,14400,504,1665,-58.9,-45.7,9.61,32700,32700,-13.1,11,11,,noise; noise slope; overtones 808 Cymbal; overtone tracking; stretch
+0379,library/misc hats/flat cymbal.ds,within 1 step,92400,92400,6,1,-132.2,-111.1,5.06,32700,32700,-21.1,1,1,,noise; noise slope; stretch
+0380,library/misc hats/get out.ds,large,61200,61200,6196,1525,-72.0,-50.2,4.17,32700,32700,-21.9,3,3,,noise; noise slope; overtones FM; noise band 1; filter (overtones only); high-pass; stretch
+0381,library/misc hats/hardhat 2.ds,large,19200,19200,29,30276,-39.5,-20.9,9.98,30276,30276,-18.6,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; distortion; bit reduction; filter; high-pass
+0382,library/misc hats/hardhat.ds,large,19200,19200,26,30646,-39.1,-20.3,9.98,30276,30276,-18.8,0,0,,noise; noise slope; overtones 808 Cymbal; distortion; bit reduction; filter; high-pass
+0383,library/misc hats/hardly hh.ds,identical,8400,8400,0,0,,,,32700,32700,-18.6,40,40,,noise; noise slope; overtones 808 Cymbal; noise band 1; distortion; bit reduction; filter; high-pass
+0384,library/misc hats/heavy electrihat.ds,large,7200,7200,86,23248,-37.0,-23.7,20.43,11624,11624,-13.3,0,0,,overtones 808 Cymbal; overtone tracking; distortion; filter; high-pass; stretch
+0385,library/misc hats/hh.ds,within 1 step,4800,4800,227,1,-103.6,-87.6,2.06,32700,32700,-16.0,3,3,,noise; noise slope; overtones Add; noise band 1; filter; high-pass; stretch
+0386,library/misc hats/hip overtone hat.ds,large,126000,126000,556,6240,-56.0,-29.0,9.98,32700,32700,-27.0,3,3,,noise; noise slope; overtones 808 Cymbal; noise band 1; filter; high-pass; stretch
+0387,library/misc hats/large open hh.ds,within 1 step,21600,21600,204,1,-110.6,-98.3,1.66,32700,32700,-12.2,35,35,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass
+0388,library/misc hats/lighthat.ds,large,19200,19200,223,11213,-46.1,-15.1,1.72,32700,32700,-31.0,1,1,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass
+0389,library/misc hats/little hat.ds,identical,20400,20400,0,0,,,,9216,9216,-32.3,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0390,library/misc hats/live hat.ds,large,126000,126000,696,9421,-50.3,-24.4,1.97,32700,32700,-25.9,12,12,,noise; noise slope; overtones 808 Cymbal; noise band 1; filter; high-pass; stretch
+0391,library/misc hats/live sound hh.ds,small,8400,8400,1503,2,-97.5,-81.4,1.45,32700,32700,-16.1,2,2,,noise; noise slope; overtones RM; overtone tracking; noise band 1; filter; high-pass
+0392,library/misc hats/live sound oh.ds,small,19200,19200,12048,12,-81.4,-65.2,1.32,32700,32700,-16.2,3,3,,noise; noise slope; overtones RM; overtone tracking; noise band 1; filter; high-pass; stretch
+0393,library/misc hats/loaded hat.ds,identical,20400,20400,0,0,,,,22735,22735,-24.4,0,0,,noise; noise slope; overtones 808 Cymbal; filter; high-pass
+0394,library/misc hats/loaded open hat.ds,small,74400,74400,33,93,-95.8,-71.8,148.32,23673,23673,-24.0,0,0,,noise; noise slope; overtones 808 Cymbal; filter; high-pass; stretch
+0395,library/misc hats/oh so high hat.ds,within 1 step,12000,12000,1,1,-131.1,-110.7,2.02,14484,14484,-20.4,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking; distortion; filter; high-pass; tuning
+0396,library/misc hats/oil hat.ds,within 1 step,7200,7200,37,1,-113.2,-99.5,0.66,27569,27569,-13.7,0,0,,noise band 1; filter; high-pass
+0397,library/misc hats/pedal hh.ds,small,27600,27600,260,7,-108.5,-84.9,2.11,31687,31687,-23.6,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass; tuning
+0398,library/misc hats/q ride 2.ds,large,126000,126000,77710,9038,-50.6,-23.0,2.36,20297,20297,-27.6,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 2; filter; high-pass; stretch
+0399,library/misc hats/q ride.ds,large,126000,126000,8774,3235,-54.0,-25.6,1.0,15772,15772,-28.4,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 2; filter; high-pass; stretch
+0400,library/misc hats/sandy ride.ds,large,320400,320400,392,1391,-76.5,-52.3,26.15,25257,25257,-24.1,0,0,,noise; noise slope; overtones 808 Cymbal; overtone tracking; filter; high-pass
+0401,library/misc hats/scratchy hh.ds,identical,7200,7200,0,0,,,,28900,28900,-12.2,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0402,library/misc hats/shaker ride long.ds,small,49200,49200,521,56,-95.9,-73.0,2.56,32700,32700,-22.9,4,4,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass; stretch; tuning
+0403,library/misc hats/shaker ride.ds,small,27600,27600,34,9,-110.1,-87.1,9.34,32700,32700,-23.0,2,2,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass; tuning
+0404,library/misc hats/simple ride.ds,identical,80400,80400,0,0,,,,24815,24815,-29.2,0,0,,noise; noise slope; overtones 808 Cymbal; stretch
+0405,library/misc hats/sleepy 1.ds,within 1 step,20400,20400,11,1,-123.0,-98.8,2.74,32700,32700,-24.2,6,6,,noise; noise slope; overtones 808 Cymbal; noise band 1; filter; high-pass; stretch
+0406,library/misc hats/sleepy 2.ds,large,20400,20400,462,5869,-52.3,-21.8,2.18,18683,18683,-30.5,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; filter; high-pass; stretch
+0407,library/misc hats/sleepy ride 2.ds,large,66000,66000,4437,955,-65.8,-40.8,10.0,26082,26082,-25.0,0,0,,noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; filter; high-pass; stretch
+0408,library/misc hats/sleepy ride.ds,large,40800,40800,3812,1459,-62.8,-42.5,10.0,32700,32700,-20.4,9,9,,noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; stretch
+0409,library/misc hats/slick hat compressd open.ds,within 1 step,99600,99600,3,1,-135.5,-112.3,24.15,32566,32566,-23.2,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass
+0410,library/misc hats/slick hat half open.ds,within 1 step,99600,99600,5,1,-133.3,-104.8,2.34,32358,32358,-28.5,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass
+0411,library/misc hats/slick hat open.ds,within 1 step,99600,99600,10,1,-130.3,-107.4,49.18,29999,29999,-22.9,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass
+0412,library/misc hats/slick hat.ds,identical,70800,70800,0,0,,,,28631,28631,-30.7,0,0,,noise; noise slope; overtones 808 Cymbal; filter; high-pass; stretch
+0413,library/misc hats/slide hat.ds,within 1 step,66000,66000,4,1,-132.5,-106.1,0.05,28258,28258,-26.4,0,0,,noise; noise slope; overtones 808 Cymbal; filter; high-pass; stretch; tuning
+0414,library/misc hats/softie lo-fi hat.ds,small,10800,10800,4,2,-118.6,-90.6,2.27,6470,6470,-28.0,0,0,,noise band 1; distortion; bit reduction; downsampling; filter; high-pass
+0415,library/misc hats/softie lo-fi open hat 2.ds,small,33600,33600,2,2,-126.5,-103.6,2.77,6800,6800,-22.9,0,0,,noise band 1; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0416,library/misc hats/softie lo-fi open hat.ds,identical,20400,20400,0,0,,,,6540,6540,-23.1,0,0,,noise band 1; distortion; bit reduction; downsampling; filter; high-pass
+0417,library/misc hats/squeeze  me open hat.ds,large,99600,99600,13158,7939,-38.5,-14.6,3.33,22490,23580,-23.9,0,0,,overtones 808 Cymbal; filter; high-pass
+0418,library/misc hats/squeeze me hat.ds,large,99600,99600,3919,7998,-47.0,-14.3,3.33,22548,22544,-32.6,0,0,,overtones 808 Cymbal; filter; high-pass
+0419,library/misc hats/stack hhh.ds,large,99600,99600,1,256,-92.1,-57.1,63.72,16641,16641,-35.1,0,0,,tone; tone droop; overtones 808 Cymbal; noise band 1; distortion; bit reduction; filter; high-pass
+0420,library/misc hats/starry hh.ds,large,7200,7200,494,1734,-58.9,-34.1,20.0,27498,27498,-24.7,0,0,,tone; noise; overtones 808 Cymbal; overtone tracking; filter; high-pass
+0421,library/misc hats/starry short oh.ds,large,9600,9600,1706,3558,-50.7,-31.7,20.0,28557,28557,-19.0,0,0,,tone; noise; noise slope; overtones 808 Cymbal; overtone tracking; filter; high-pass
+0422,library/misc hats/static tone hat.ds,identical,38400,38400,0,0,,,,9213,9213,-22.9,0,0,,overtones 808 Cymbal; overtone tracking; noise band 2; distortion; bit reduction
+0423,library/misc hats/tarp hh.ds,identical,44400,44400,0,0,,,,30109,30109,-21.4,0,0,,tone; tone droop; noise; noise slope; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0424,library/misc hats/the sting hat 2.ds,within 1 step,80400,80400,333,1,-114.1,-90.7,0.52,32700,32700,-23.4,19,19,,noise; noise slope; overtones 808 Cymbal; noise band 1; stretch
+0425,library/misc hats/the sting hat.ds,within 1 step,50400,50400,32,1,-122.3,-99.7,0.48,32700,32700,-22.6,40,40,,noise; noise slope; overtones 808 Cymbal; noise band 1; stretch
+0426,library/misc hats/the sting open hat.ds,small,80400,80400,2791,11,-91.1,-70.2,0.95,32006,32006,-20.8,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; stretch
+0427,library/misc hats/threshold noise open.ds,large,99600,99600,554,65400,-22.4,-8.5,10.0,32700,32700,-13.9,4053,4079,,overtones 808 Cymbal; distortion; bit reduction; filter (overtones only); high-pass
+0428,library/misc hats/threshold noise.ds,large,99600,99600,48,32700,-33.2,-9.0,9.98,32700,32700,-24.2,381,381,,overtones 808 Cymbal; distortion; bit reduction; filter (overtones only); high-pass
+0429,library/misc hats/touch me hat.ds,identical,6000,6000,0,0,,,,32700,32700,-20.1,2,2,,noise; noise slope; overtones 808 Cymbal; distortion; bit reduction; downsampling; filter; high-pass
+0430,library/misc perc/ambient tom.ds,within 1 step,8400,8400,16,1,-117.5,-103.2,3.61,32700,32700,-14.3,21,21,,tone; tone droop; noise band 1
+0431,library/misc perc/bell rim.ds,small,9600,9600,4,25,-96.2,-73.3,0.82,32700,32700,-22.8,16,16,,tone; tone droop; noise; noise slope; overtones Add; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0432,library/misc perc/bell.ds,within 1 step,7200,7200,1,1,-128.9,-106.2,0.91,16544,16544,-22.7,0,0,,tone; tone droop; overtones Add; overtone tracking; filter; high-pass
+0433,library/misc perc/clav 2.ds,within 1 step,6000,6000,20,1,-115.1,-99.9,1.25,32700,32700,-15.2,9,9,,overtones Add; noise band 1; filter; high-pass; tuning
+0434,library/misc perc/clav.ds,identical,3600,3600,0,0,,,,16096,16096,-19.5,0,0,,noise band 1
+0435,library/misc perc/deep cowbell.ds,small,18000,18000,39,8,-99.9,-82.0,14.06,25600,25600,-17.9,0,0,,overtones RM; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0436,library/misc perc/dist tom 2.ds,small,8400,8400,12,18,-93.8,-81.0,21.32,16419,16419,-12.8,0,0,,tone; tone droop; distortion; filter; high-pass
+0437,library/misc perc/dist tom.ds,identical,7200,7200,0,0,,,,16384,16384,-17.1,0,0,,tone; tone droop; distortion; bit reduction; downsampling
+0438,library/misc perc/door knock.ds,small,10800,10800,12,2,-115.5,-99.3,2.18,25966,25966,-16.2,0,0,,noise; noise slope; noise band 1; noise band 2; distortion; filter; high-pass; tuning
+0439,library/misc perc/electric clav.ds,identical,3600,3600,0,0,,,,10337,10337,-12.8,0,0,,noise band 1; distortion
+0440,library/misc perc/feel me clinky.ds,identical,25200,25200,0,0,,,,16384,16384,-21.4,0,0,,overtones FM; overtone tracking; distortion; bit reduction; downsampling; tuning
+0441,library/misc perc/fidelity faction tom.ds,identical,24000,24000,0,0,,,,21025,21025,-16.1,0,0,,tone; tone droop; distortion; filter; high-pass; stretch
+0442,library/misc perc/funk box perc 1.ds,small,24000,24000,28,9,-100.7,-80.1,10.2,16384,16384,-20.6,0,0,,noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0443,library/misc perc/funk box perc 2.ds,small,24000,24000,2,9,-112.0,-89.6,30.02,16384,16384,-22.5,0,0,,noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0444,library/misc perc/funkay timbale.ds,within 1 step,9600,9600,2,1,-127.1,-101.5,49.41,13033,13033,-25.7,0,0,,noise; noise slope; overtones RM; overtone tracking; filter; high-pass
+0445,library/misc perc/give it to me.ds,identical,25200,25200,0,0,,,,9777,9777,-18.6,0,0,,overtones RM; distortion; bit reduction; downsampling; filter; high-pass
+0446,library/misc perc/hammond cowbell.ds,within 1 step,12000,12000,1,1,-131.1,-109.3,0.63,28188,28188,-21.8,0,0,,tone; tone droop; overtones FM; filter; high-pass
+0447,library/misc perc/hollow wood 2.ds,within 1 step,6000,6000,12,1,-117.3,-97.8,2.9,31924,31924,-19.5,0,0,,overtones RM; noise band 1; filter; high-pass; tuning
+0448,library/misc perc/hollow wood.ds,within 1 step,6000,6000,7,1,-119.6,-99.7,5.69,24546,24546,-19.9,0,0,,overtones RM; noise band 1; filter; high-pass; tuning
+0449,library/misc perc/it's the simple things.ds,within 1 step,12000,12000,208,1,-107.9,-86.0,17.23,16356,16356,-21.9,0,0,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass
+0450,library/misc perc/layered sleigh bell.ds,small,18000,18000,3238,2,-96.9,-70.5,1.36,6938,6938,-26.3,0,0,,noise; noise slope; noise band 1; noise band 2; filter; high-pass; stretch
+0451,library/misc perc/light tamb 1.ds,within 1 step,8400,8400,388,1,-103.7,-85.8,12.2,32700,32700,-17.9,15,15,,noise; noise slope; noise band 1; noise band 2
+0452,library/misc perc/light tamb 2.ds,within 1 step,9600,9600,389,1,-104.2,-85.6,12.7,32700,32700,-18.7,14,14,,noise; noise slope; noise band 1; noise band 2
+0453,library/misc perc/light tamb 3.ds,within 1 step,9600,9600,293,1,-105.5,-86.0,10.77,32700,32700,-19.5,12,12,,noise; noise slope; noise band 1; noise band 2
+0454,library/misc perc/like a tabla 1.ds,within 1 step,15600,15600,51,1,-115.2,-92.5,0.66,32700,32700,-22.7,8,8,,tone; tone droop; overtones FM; noise band 1
+0455,library/misc perc/like a tabla 2.ds,within 1 step,30000,30000,168,1,-112.8,-90.5,1.0,32700,32700,-22.3,10,10,,tone; tone droop; overtones FM; noise band 1; stretch
+0456,library/misc perc/like a tabla 3.ds,within 1 step,30000,30000,152,1,-113.3,-90.8,1.0,32700,32700,-22.4,13,13,,tone; tone droop; overtones FM; overtone tracking; noise band 1; stretch
+0457,library/misc perc/limited shaker.ds,within 1 step,9600,9600,2,1,-127.1,-103.0,52.99,14283,14283,-24.2,0,0,,noise; noise slope; filter; high-pass
+0458,library/misc perc/lo-fi tamb.ds,within 1 step,9600,9600,969,1,-100.3,-78.7,1.22,11624,11624,-21.6,0,0,,noise; noise slope; noise band 1; noise band 2; distortion; downsampling; filter; high-pass
+0459,library/misc perc/low key tom.ds,within 1 step,12000,12000,186,1,-108.4,-90.1,12.47,17539,17539,-18.3,0,0,,noise band 1; filter; high-pass
+0460,library/misc perc/low ping.ds,small,24000,24000,48,2,-113.2,-86.5,14.58,6889,6889,-26.7,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion
+0461,library/misc perc/mellow shake.ds,within 1 step,6000,6000,1,1,-128.1,-111.1,26.51,25173,25173,-17.0,0,0,,noise; noise slope; filter; high-pass; stretch
+0462,library/misc perc/metallic node.ds,small,9600,9600,40,2,-112.1,-86.6,1.63,7318,7318,-25.5,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; stretch
+0463,library/misc perc/mild tamb.ds,small,9600,9600,1214,2,-99.3,-74.9,11.34,12129,12129,-24.3,0,0,,noise; noise slope; noise band 1; noise band 2
+0464,library/misc perc/ol' skool shake.ds,identical,13200,13200,0,0,,,,10568,10568,-26.9,0,0,,noise; noise slope; distortion; bit reduction; downsampling; filter; stretch; tuning
+0465,library/misc perc/poppy.ds,identical,2400,2400,0,0,,,,24336,24336,-9.2,0,0,,tone; tone droop; distortion; downsampling; filter; high-pass
+0466,library/misc perc/q tom.ds,identical,10800,10800,0,0,,,,13376,13376,-18.8,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling; tuning
+0467,library/misc perc/resonant knock.ds,small,7200,7200,77,6,-96.0,-81.8,3.17,14623,14623,-14.2,0,0,,noise band 1; distortion; bit reduction
+0468,library/misc perc/ringmod rim 2.ds,small,40800,40800,1060,42,-83.1,-64.3,6.8,32700,32700,-18.8,220,220,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 2; distortion; bit reduction; downsampling; stretch
+0469,library/misc perc/ringmod rim.ds,small,9600,9600,120,14,-91.5,-70.7,4.54,31088,31088,-20.7,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 2; distortion; bit reduction; downsampling
+0470,library/misc perc/shaaka 2.ds,within 1 step,9600,9600,2,1,-127.1,-110.8,49.18,32700,32700,-16.4,3,3,,noise; noise slope; stretch
+0471,library/misc perc/shaaka.ds,identical,7200,7200,0,0,,,,32700,32700,-15.9,33,33,,noise; noise slope
+0472,library/misc perc/short tom 1.ds,identical,12000,12000,0,0,,,,19050,19050,-19.8,0,0,,tone; tone droop; noise band 2; distortion; bit reduction; downsampling
+0473,library/misc perc/short tom 2.ds,small,12000,12000,12,2,-114.3,-94.2,25.94,17424,17424,-20.1,0,0,,tone; tone droop; noise band 2; distortion; bit reduction; downsampling
+0474,library/misc perc/short tom.ds,small,12000,12000,6,2,-117.3,-97.2,35.87,21066,21066,-20.1,0,0,,tone; tone droop; noise band 2; distortion; bit reduction; downsampling
+0475,library/misc perc/sickly cowbell.ds,identical,16800,16800,0,0,,,,20220,20220,-28.9,0,0,,overtones 808 Cymbal; filter (overtones only)
+0476,library/misc perc/slinky tamb.ds,small,12000,12000,1834,2,-98.2,-76.4,3.04,8100,8100,-21.8,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; downsampling; filter
+0477,library/misc perc/super tom.ds,within 1 step,7200,7200,1,1,-128.9,-113.5,0.5,29801,29801,-15.4,0,0,,tone; noise; noise slope; overtones RM; overtone tracking; noise band 1
+0478,library/misc perc/sweetness shaker.ds,within 1 step,6000,6000,1,1,-128.1,-106.4,66.71,18985,18985,-21.7,0,0,,noise; noise slope
+0479,library/misc perc/timbale sound.ds,small,6000,6000,3,3,-113.8,-91.8,2.18,16384,16384,-21.9,0,0,,overtones FM; overtone tracking; noise band 1; distortion; filter; high-pass
+0480,library/misc perc/tom tone.ds,within 1 step,8400,8400,20,1,-116.5,-97.2,31.59,18267,18267,-19.4,0,0,,tone; tone droop
+0481,library/misc perc/tom.ds,within 1 step,7200,7200,136,1,-107.5,-94.8,12.34,32430,32430,-12.7,0,0,,tone; tone droop
+0482,library/misc perc/tommy.ds,within 1 step,10800,10800,39,1,-114.7,-93.6,4.51,25729,25729,-21.2,0,0,,tone; tone droop; overtones RM; overtone tracking; noise band 2
+0483,library/misc perc/tone tom.ds,small,12000,12000,2,32,-98.1,-81.8,11.13,28900,28900,-16.4,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; filter; high-pass; tuning
+0484,library/misc perc/torn tweeter.ds,identical,8400,8400,0,0,,,,12392,12392,-28.7,0,0,,overtones 808 Cymbal; distortion; bit reduction
+0485,library/misc perc/tweety cowbell 2.ds,small,19200,19200,88,2,-107.7,-92.1,10.75,25600,25600,-15.5,0,0,,overtones RM; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0486,library/misc perc/tweety cowbell.ds,small,7200,7200,14,2,-111.4,-91.7,4.94,12830,12830,-19.7,0,0,,overtones RM; noise band 1; noise band 2; distortion; downsampling; filter; high-pass; stretch
+0487,library/misc perc/type noise.ds,small,3600,3600,473,2,-99.0,-80.4,1.13,31305,31305,-18.6,0,0,,noise; noise slope; noise band 1; filter
+0488,library/misc perc/very high clav.ds,small,6000,6000,1060,5,-90.0,-75.7,1.75,32700,32700,-14.3,48,48,,noise band 1; noise band 2; filter
+0489,library/misc perc/video game clip.ds,identical,6000,6000,0,0,,,,16384,16384,-19.9,0,0,,overtones Add
+0490,library/misc perc/weird 1.ds,small,7200,7200,424,110,-86.0,-60.6,0.82,17161,17161,-25.3,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; filter; high-pass
+0491,library/misc perc/wood and metal.ds,small,6000,6000,1057,11,-85.0,-70.6,1.56,11598,11598,-14.4,0,0,,noise; overtones RM; noise band 1; noise band 2; distortion
+0492,library/misc synth/average rock.ds,small,8400,8400,4,5,-109.6,-93.4,8.8,8211,8211,-16.2,0,0,,overtones RM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0493,library/misc synth/c maj chord.ds,within 1 step,28800,28800,530,1,-107.7,-92.2,8.37,25941,25941,-15.4,0,0,,tone; tone droop; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; filter; high-pass
+0494,library/misc synth/casio piano c.ds,within 1 step,24000,24000,320,1,-109.1,-82.5,13.61,8126,8126,-26.6,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; downsampling
+0495,library/misc synth/chorded perc.ds,within 1 step,8400,8400,9,1,-120.0,-93.9,15.17,22293,22293,-26.1,0,0,,overtones Add; noise band 1; noise band 2; filter; high-pass
+0496,library/misc synth/consumer fm.ds,within 1 step,49200,49200,940,1,-107.5,-89.0,2.13,29683,29683,-18.5,0,0,,tone; tone droop; overtones FM; overtone tracking; filter; high-pass; stretch
+0497,library/misc synth/dark and sweet fm.ds,within 1 step,28800,28800,86,1,-115.6,-100.4,6.19,27504,27504,-15.1,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion
+0498,library/misc synth/dist high c.ds,small,20400,20400,2,71,-93.4,-80.2,389.93,8281,8281,-13.1,0,0,,overtones FM; overtone tracking; distortion; bit reduction; downsampling; filter
+0499,library/misc synth/eno's lift.ds,large,429600,429600,237173,228,-79.9,-52.2,4.47,8888,8886,-27.7,0,0,,tone; noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; filter
+0500,library/misc synth/eno's pad.ds,small,216000,216000,93175,4,-90.5,-65.3,131.18,8229,8229,-25.3,0,0,,tone; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; filter; stretch
+0501,library/misc synth/eno's ride.ds,small,429600,429600,142199,4,-90.4,-65.1,25.28,8229,8229,-25.2,0,0,,tone; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; filter
+0502,library/misc synth/flat square c.ds,identical,20400,20400,0,0,,,,26357,26357,-13.7,0,0,,overtones FM; overtone tracking; filter
+0503,library/misc synth/fm c bass burst.ds,small,27600,27600,94,2,-109.0,-94.5,10.61,32428,32428,-14.5,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling
+0504,library/misc synth/fur strings 2.ds,identical,86400,86400,0,0,,,,5813,5813,-16.2,0,0,,overtones RM; distortion; filter; high-pass
+0505,library/misc synth/fur strings.ds,within 1 step,86400,86400,6,1,-131.9,-120.3,569.73,27556,27556,-11.6,0,0,,tone; overtones RM; noise band 1; distortion; filter; high-pass
+0506,library/misc synth/it's the music tom c.ds,small,24000,24000,6,200,-80.3,-70.0,170.2,10496,10496,-10.3,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling
+0507,library/misc synth/layered bass synth c.ds,within 1 step,28800,28800,504,1,-107.9,-87.4,8.3,21978,21978,-20.5,0,0,,tone; tone droop; overtones RM; overtone tracking; noise band 1; noise band 2; filter
+0508,library/misc synth/my red hot guitar.ds,identical,120000,120000,0,0,,,,3136,3136,-25.8,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling; filter; stretch
+0509,library/misc synth/raver organ.ds,within 1 step,25200,25200,118,1,-113.6,-93.8,16.64,24267,24267,-19.8,0,0,,tone; tone droop; overtones RM; overtone tracking
+0510,library/misc synth/strong c dub bass.ds,identical,16800,16800,0,0,,,,16384,16384,-9.0,0,0,,tone; tone droop; overtones FM; distortion; bit reduction
+0511,library/misc synth/sync drift.ds,identical,44400,44400,0,0,,,,5212,5212,-16.7,0,0,,overtones FM; distortion
+0512,library/misc synth/sync man.ds,identical,21600,21600,0,0,,,,5476,5476,-17.0,0,0,,overtones FM; overtone tracking; distortion; bit reduction
+0513,library/misc synth/that house chord cm.ds,within 1 step,9600,9600,2,1,-127.1,-112.1,4.58,25839,25839,-15.0,0,0,,tone; overtones Add; filter
+0514,library/misc synth/vibrato pad.ds,within 1 step,195600,195600,4065,1,-107.1,-87.6,2.29,20981,20981,-19.5,0,0,,tone; tone droop; overtones FM; filter; high-pass
+0515,"library/misc synth/who loves ya, baby.ds",identical,244800,244800,0,0,,,,8211,8211,-24.0,0,0,,overtones RM
+0516,library/misc synth/wowmelodictone.ds,identical,19200,19200,0,0,,,,10742,10742,-12.4,0,0,,tone; tone droop; overtones RM; distortion; bit reduction
+0517,library/misc/'lectro hammer.ds,small,21600,21600,4,18,-102.5,-91.8,72.65,25966,25966,-10.8,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter
+0518,library/misc/'lectro square hammer.ds,small,21600,21600,20,36,-93.6,-84.3,37.64,25966,25966,-9.3,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter
+0519,library/misc/12-bit heavy hitter.ds,small,15600,15600,84,32,-88.9,-78.1,0.36,26244,26244,-10.8,0,0,,tone; tone droop; noise; noise slope; overtones RM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0520,library/misc/909 hard snare.ds,small,8400,8400,1453,5,-89.6,-79.8,1.22,32700,32700,-9.8,387,387,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; noise band 2; distortion; filter; high-pass; stretch
+0521,library/misc/AAH.ds,within 1 step,15600,15600,965,1,-102.4,-88.5,22.52,12736,12736,-13.9,0,0,,tone; tone droop; overtones Add; overtone tracking; noise band 1; noise band 2
+0522,library/misc/B1_B2.ds,small,13200,13200,4656,12,-81.5,-62.8,66.76,15549,15549,-18.7,0,0,,noise band 1; noise band 2; version DrumSynth v1.0
+0523,library/misc/Clap.ds,within 1 step,21600,21600,290,1,-109.0,-88.4,12.54,24326,24326,-20.6,0,0,,noise band 1; noise band 2; distortion; filter; high-pass
+0524,library/misc/Distant Thunder.ds,small,208800,208800,12537,2,-97.3,-83.3,51.07,16384,16384,-14.0,0,0,,noise band 1; noise band 2; distortion; filter
+0525,library/misc/HOTSNARE.DS,small,7200,7200,14,91,-78.3,-68.2,1.27,25281,25281,-10.1,0,0,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; downsampling
+0526,library/misc/N_low.ds,within 1 step,12000,12000,29,1,-116.5,-97.9,0.2,22428,22428,-18.6,0,0,,noise; noise slope; version DrumSynth v1.0
+0527,library/misc/N_vlow.ds,within 1 step,12000,12000,4,1,-125.1,-92.2,29.18,2532,2532,-32.9,0,0,,noise; noise slope; filter; version DrumSynth v1.0
+0528,library/misc/RimShot.ds,small,2400,2400,3,2,-114.6,-102.6,1.95,23193,23193,-11.9,0,0,,tone; overtones Add; distortion; filter; high-pass
+0529,library/misc/Saber fight.ds,small,279600,279600,3248,11,-89.6,-82.9,188.28,28900,28900,-6.7,0,0,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; distortion; bit reduction
+0530,library/misc/Simple-c.ds,within 1 step,6000,6000,1,1,-128.1,-112.9,72.59,32700,32700,-15.2,24,24,,noise; noise slope; filter
+0531,library/misc/Simple-r.ds,identical,7200,7200,0,0,,,,16384,16384,-21.4,0,0,,tone; overtones Add; distortion; version DrumSynth v1.0
+0532,library/misc/Simple-s.ds,within 1 step,7200,7200,71,1,-110.4,-95.1,0.54,32700,32700,-15.3,51,51,,tone; noise; noise slope; overtones Add; noise band 1; version DrumSynth v1.0
+0533,library/misc/Tone_dis.ds,within 1 step,10800,10800,3,1,-125.9,-116.2,87.85,16384,16384,-9.7,0,0,,tone; distortion; version DrumSynth v1.0
+0534,library/misc/Tone_sw2.ds,within 1 step,10800,10800,406,1,-104.6,-87.0,1.54,16344,16344,-17.6,0,0,,tone; tone droop; version DrumSynth v1.0
+0535,library/misc/Tone_swp.ds,within 1 step,10800,10800,714,1,-102.1,-84.6,4.65,16346,16346,-17.6,0,0,,tone; version DrumSynth v1.0
+0536,library/misc/airbrush bd.ds,small,16800,16800,11,2,-116.1,-104.1,2.31,32700,32700,-12.0,511,511,,tone; tone droop; noise band 1; noise band 2; distortion; filter
+0537,library/misc/ambient noise snare.ds,within 1 step,8400,8400,163,1,-107.4,-86.8,0.84,17639,17639,-20.6,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2
+0538,library/misc/amen bd.ds,small,16800,16800,2,181,-84.4,-67.9,20.59,24986,24986,-16.5,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; tuning
+0539,library/misc/amen sn 1.ds,identical,12000,12000,0,0,,,,29584,29584,-11.0,0,0,,tone; noise; noise slope; overtones FM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0540,library/misc/and loud sn.ds,small,12000,12000,882,2,-101.5,-89.8,2.59,32700,32700,-11.7,190,190,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; filter
+0541,library/misc/another 909 moment.ds,small,12000,12000,2,2,-122.1,-108.5,5.94,32700,32700,-13.6,130,130,,tone; tone droop; distortion; bit reduction; downsampling
+0542,library/misc/another example snare.ds,small,12000,12000,828,10,-86.9,-78.5,2.27,32700,32700,-8.4,866,866,,tone; tone droop; noise; noise slope; overtones RM; noise band 1; distortion; downsampling; filter; high-pass; tuning
+0543,library/misc/application bass drum.ds,small,33600,33600,2,26,-104.3,-85.8,2.0,26022,26022,-18.5,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; tuning
+0544,library/misc/b1_0.ds,within 1 step,13200,13200,2,1,-128.5,-108.7,22.11,16259,16259,-19.8,0,0,,noise band 1; version DrumSynth v1.0
+0545,library/misc/b1_2.ds,within 1 step,13200,13200,86,1,-112.2,-92.4,2.99,16272,16272,-19.8,0,0,,noise band 1; version DrumSynth v1.0
+0546,library/misc/b1_5.ds,within 1 step,13200,13200,221,1,-108.1,-88.2,3.95,16233,16233,-19.8,0,0,,noise band 1; version DrumSynth v1.0
+0547,library/misc/b1_9.ds,within 1 step,13200,13200,188,1,-108.8,-89.0,3.27,16198,16198,-19.8,0,0,,noise band 1; version DrumSynth v1.0
+0548,library/misc/basic 808 click hum.ds,within 1 step,18000,18000,71,1,-114.3,-96.6,5.08,32014,32014,-17.7,0,0,,tone; tone droop
+0549,library/misc/battle hook sn.ds,small,9600,9600,50,180,-68.1,-61.2,8.41,32700,32700,-6.9,1308,1308,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0550,library/misc/bauble bd.ds,small,24000,24000,23,2,-119.1,-106.2,6.69,32700,32700,-12.8,248,248,,tone; tone droop; distortion
+0551,library/misc/beat box bd.ds,small,9600,9600,18,29,-88.6,-72.8,5.76,10874,10874,-15.8,0,0,,tone; tone droop; noise band 1; distortion
+0552,library/misc/beefy wack.ds,within 1 step,7200,7200,115,1,-108.3,-99.8,0.43,32700,32700,-8.5,459,459,,tone; tone droop; noise; noise slope; overtones Add; noise band 1
+0553,library/misc/big 80's 2.ds,small,13200,13200,6318,9,-83.9,-75.5,1.9,32700,32700,-8.4,762,762,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; filter; high-pass; stretch
+0554,library/misc/big 80's.ds,small,36000,36000,8788,6,-90.1,-75.8,1.25,29698,29698,-14.3,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; filter; high-pass; stretch
+0555,library/misc/big sleeper snare.ds,small,14400,14400,5491,5,-89.3,-78.4,0.23,32700,32700,-10.9,391,391,,tone; noise; noise slope; noise band 1; noise band 2; filter; high-pass
+0556,library/misc/blended snare.ds,small,6000,6000,212,2,-103.7,-90.9,1.45,24964,24964,-12.8,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion
+0557,library/misc/bouncy809bd.ds,within 1 step,21600,21600,25,1,-119.7,-103.2,1.68,32551,32551,-16.5,0,0,,tone; tone droop
+0558,library/misc/break kick.ds,identical,25200,25200,0,0,,,,16384,16384,-16.4,0,0,,tone; tone droop; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; tuning
+0559,library/misc/breathing snare.ds,small,9600,9600,1442,4,-96.4,-87.9,2.13,32700,32700,-8.6,748,748,,noise; noise slope; overtones Add; noise band 1; noise band 2; distortion; downsampling; filter; high-pass
+0560,library/misc/bright house sn.ds,small,24000,24000,130,2,-107.7,-89.8,6.64,17424,17424,-17.9,0,0,,tone; tone droop; noise; noise slope; overtones RM; noise band 1; distortion; filter
+0561,library/misc/buff hit.ds,small,7200,7200,16,18,-91.7,-82.3,6.35,18496,18496,-9.5,0,0,,tone; tone droop; noise band 1; distortion; bit reduction; downsampling; filter; high-pass
+0562,library/misc/buff sound.ds,within 1 step,4800,4800,28,1,-112.6,-96.1,0.77,25816,25816,-16.5,0,0,,tone; tone droop; noise band 1; filter; high-pass
+0563,library/misc/bug into water.ds,small,18000,18000,56,5,-101.4,-92.8,9.61,16641,16641,-8.6,0,0,,tone; noise; noise slope; overtones 808 Cymbal; distortion; bit reduction; downsampling; filter; high-pass
+0564,library/misc/bulge n yr woofer.ds,small,24000,24000,110,4,-101.7,-89.0,15.28,32700,32700,-12.6,362,362,,tone; tone droop; distortion; bit reduction; downsampling
+0565,library/misc/bumpin quickie.ds,within 1 step,13200,13200,1,1,-131.5,-120.5,133.04,32700,32700,-11.0,181,181,,tone; tone droop; distortion
+0566,library/misc/calamity snare.ds,identical,12000,12000,0,0,,,,29198,29198,-15.3,0,0,,noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch; tuning
+0567,library/misc/change the channel snare.ds,identical,4800,4800,0,0,,,,22201,22201,-6.3,0,0,,tone; tone droop; noise; noise slope; distortion; bit reduction; downsampling; filter; high-pass
+0568,library/misc/chow bd.ds,small,21600,21600,8,10,-104.6,-100.9,70.2,32700,32700,-3.7,7789,7789,,tone; tone droop; overtones FM; overtone tracking; noise band 1; distortion; filter
+0569,library/misc/clappy snare.ds,small,9600,9600,214,32,-82.6,-75.6,5.17,30829,30829,-7.0,0,0,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; downsampling
+0570,library/misc/clean low key kick.ds,within 1 step,25200,25200,157,1,-112.4,-97.7,6.42,32700,32700,-14.7,307,307,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; filter; stretch; tuning
+0571,library/misc/clean soft 808.ds,within 1 step,72000,72000,189,1,-116.1,-99.0,5.06,32700,32700,-17.2,29,29,,tone; tone droop
+0572,library/misc/clearly snare.ds,large,15600,15600,1,5132,-58.0,-44.8,66.12,32700,32700,-13.2,197,197,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass; stretch
+0573,library/misc/close mic sn.ds,small,8400,8400,6,45,-88.7,-76.5,8.71,15876,15876,-12.2,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0574,library/misc/compression does it 808.ds,small,58800,58800,8,8,-110.9,-101.9,16.87,31568,31568,-9.0,0,0,,tone; tone droop; distortion; bit reduction; downsampling
+0575,library/misc/crusty bump.ds,small,16800,16800,8,7,-107.2,-96.6,12.7,32700,32700,-10.6,428,428,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter
+0576,library/misc/crusty snare.ds,small,13200,13200,11,180,-76.0,-63.3,32.79,17827,17827,-12.7,0,0,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0577,library/misc/cymbal.ds,identical,19200,19200,0,0,,,,32700,32700,-17.5,50,50,,overtones 808 Cymbal
+0578,library/misc/decompression snare.ds,within 1 step,7200,7200,124,1,-107.9,-96.9,0.57,32700,32700,-11.0,35,35,,noise; noise slope; noise band 1; noise band 2; filter; high-pass
+0579,library/misc/deep bauble bd.ds,small,24000,24000,12,3,-114.0,-99.6,9.93,32690,32690,-14.4,0,0,,tone; tone droop; noise; noise slope; overtones RM; noise band 1; distortion
+0580,library/misc/deep tones.ds,small,10800,10800,16,46,-85.5,-71.4,8.93,32700,32700,-14.1,122,122,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; stretch; tuning
+0581,library/misc/difference snare.ds,large,14400,14400,632,7647,-43.5,-26.2,9.52,16048,16048,-17.3,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter
+0582,library/misc/different 909 snare.ds,small,8400,8400,1256,3,-91.4,-78.9,3.02,32700,32700,-12.5,145,145,,tone; tone droop; noise; noise slope; overtones Add; noise band 2; distortion; filter; high-pass; stretch
+0583,library/misc/dirty world bd.ds,identical,15600,15600,0,0,,,,25966,25966,-11.6,0,0,,tone; tone droop; noise; noise slope; overtones FM; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0584,library/misc/dist sub kick 2.ds,small,8400,8400,26,26,-87.4,-85.7,11.75,32700,32700,-1.7,5190,5190,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; downsampling; filter; high-pass; tuning
+0585,library/misc/dist sub kick.ds,small,8400,8400,20,20,-90.5,-88.7,35.15,32700,32700,-1.8,5024,5024,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; downsampling
+0586,library/misc/electro dnb kick.ds,within 1 step,12000,12000,259,1,-107.0,-97.8,5.28,32700,32700,-9.2,881,881,,tone; tone droop; overtones Add; filter
+0587,library/misc/electro snare layer.ds,small,13200,13200,258,11,-87.3,-65.6,3.15,9406,9406,-21.7,0,0,,tone; tone droop; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0588,library/misc/electronic rim.ds,identical,6000,6000,0,0,,,,27556,27556,-19.4,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; distortion; bit reduction; downsampling; filter; high-pass; stretch; tuning
+0589,library/misc/end transmission.ds,large,241200,241200,12,4510,-60.3,-50.7,460.09,17689,17689,-9.5,0,0,,tone; noise; noise slope; noise band 1; distortion; bit reduction; filter
+0590,library/misc/every 909.ds,within 1 step,19200,19200,3,1,-128.4,-118.1,1.09,30134,30134,-10.3,0,0,,tone; tone droop; tuning
+0591,library/misc/fatness.ds,small,24000,24000,2,9,-112.0,-100.7,6.85,17689,17689,-11.4,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0592,library/misc/fattie bd.ds,within 1 step,15600,15600,2,1,-129.2,-120.4,94.31,32700,32700,-8.9,470,470,,tone; tone droop
+0593,library/misc/feel me!.ds,within 1 step,25200,25200,6,1,-126.5,-114.5,9.46,32700,32700,-12.0,517,517,,overtones FM; overtone tracking; tuning
+0594,library/misc/few people will use this snare.ds,small,19200,19200,3408,3,-96.0,-79.8,2.65,14145,14145,-16.2,0,0,,noise; noise slope; overtones FM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; tuning
+0595,library/misc/flat tire.ds,within 1 step,174000,174000,14,1,-131.3,-115.5,69.43,32700,32700,-15.7,315,315,,tone; tone droop; noise; noise slope; noise band 1; stretch
+0596,library/misc/fm.ds,within 1 step,15600,15600,1,1,-132.2,-118.2,278.55,14744,14744,-14.0,0,0,,overtones FM; version DrumSynth v1.0
+0597,library/misc/fried food.ds,small,56400,56400,9,302,-78.7,-67.1,213.74,11624,11624,-11.6,0,0,,tone; tone droop; overtones FM; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter (overtones only); high-pass; tuning
+0598,library/misc/funky trashcan snare.ds,large,14400,14400,2580,3939,-48.3,-30.4,7.53,24522,24522,-17.9,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0599,library/misc/fuzzy sn.ds,identical,9600,9600,0,0,,,,32700,32700,-11.5,378,378,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0600,library/misc/gabbakick.ds,identical,24000,24000,0,0,,,,20670,20670,-7.5,0,0,,tone; tone droop; noise band 1; distortion; bit reduction
+0601,library/misc/gimme a hard tone.ds,small,19200,19200,39,76,-79.7,-71.1,189.66,14633,14633,-8.6,0,0,,tone; tone droop; distortion; bit reduction; downsampling
+0602,library/misc/gimmie a tone.ds,small,19200,19200,357,2,-105.0,-92.5,0.14,32700,32700,-12.5,194,194,,tone; tone droop; distortion
+0603,library/misc/hard electro brush sn.ds,large,12000,12000,7,128,-80.5,-58.0,16.55,10632,10632,-22.5,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0604,library/misc/hard electronic snare.ds,within 1 step,15600,15600,34,1,-116.9,-101.2,5.37,32700,32700,-15.7,211,211,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; filter; high-pass
+0605,library/misc/hard hittin.ds,small,7200,7200,1415,2,-94.8,-79.7,0.43,26896,26896,-15.1,0,0,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; noise band 2; distortion; filter; high-pass; stretch
+0606,library/misc/hardcore a bd.ds,identical,19200,19200,0,0,,,,17689,17689,-11.6,0,0,,tone; tone droop; overtones RM; distortion; bit reduction; filter; high-pass
+0607,library/misc/hardcore bd.ds,small,7200,7200,23,2,-114.3,-105.4,7.94,32700,32700,-8.8,354,354,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; distortion; filter
+0608,library/misc/hardersnare.ds,small,7200,7200,418,5,-94.4,-81.8,2.02,16384,16384,-12.6,0,0,,tone; tone droop; noise; overtones 808 Cymbal; noise band 1; noise band 2; distortion
+0609,library/misc/heady mix sn.ds,small,12000,12000,3867,7,-88.7,-76.5,0.61,27556,27556,-12.1,0,0,,tone; tone droop; noise; noise band 1; noise band 2; distortion; filter; high-pass
+0610,library/misc/heavy.ds,identical,24000,24000,0,0,,,,32690,32690,-9.5,0,0,,tone; tone droop; overtones FM; distortion; bit reduction; downsampling
+0611,library/misc/hed chunk snare.ds,small,14400,14400,80,16,-88.8,-77.6,12.34,24323,24323,-11.2,0,0,,tone; noise; noise slope; overtones RM; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0612,library/misc/hi pic.ds,small,8400,8400,12,13,-97.5,-84.7,19.37,21580,21580,-12.8,0,0,,noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0613,library/misc/hi-pass.ds,within 1 step,22800,22800,3,1,-129.1,-116.9,22.81,32700,32700,-12.2,119,119,,noise; noise slope; filter; high-pass; version DrumSynth v1.0
+0614,library/misc/hip-hop fantasy kick.ds,small,28800,28800,179,2,-109.9,-95.2,11.52,32700,32700,-14.7,227,227,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion
+0615,library/misc/hipster joint bd.ds,within 1 step,8400,8400,3,1,-124.8,-115.5,0.45,32615,32615,-9.3,0,0,,tone; tone droop
+0616,library/misc/hit me wooden snare.ds,small,10800,10800,49,2,-108.4,-94.1,8.37,22816,22816,-14.3,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; filter; high-pass; tuning
+0617,library/misc/hitthosesubs.ds,within 1 step,18000,18000,50,1,-115.9,-100.9,27.55,32700,32700,-15.0,49,49,,tone; tone droop
+0618,library/misc/hot morning bass drum.ds,within 1 step,15600,15600,23,1,-118.6,-103.0,4.4,32700,32700,-15.6,36,36,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; filter; high-pass
+0619,library/misc/i luv u fat noise.ds,large,28800,28800,718,1130,-61.6,-47.8,4.63,32700,32700,-13.8,252,252,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; distortion; bit reduction; downsampling; filter; high-pass
+0620,library/misc/invisible 909 kick.ds,small,19200,19200,42,13,-94.8,-83.9,24.81,32700,32700,-10.9,454,454,,tone; tone droop; distortion; bit reduction; downsampling; filter
+0621,library/misc/it's like that snare.ds,identical,7200,7200,0,0,,,,32700,32700,-7.0,732,732,,tone; tone droop; noise; noise slope; distortion; bit reduction; downsampling; filter; high-pass
+0622,library/misc/just the bass drum.ds,small,21600,21600,1,56,-98.7,-82.6,72.4,20626,20626,-16.1,0,0,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; filter
+0623,library/misc/kneel and buzz.ds,small,44400,44400,194,4,-102.5,-87.0,16.96,32700,32700,-15.5,494,494,,tone; tone droop; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0624,library/misc/large hall bd.ds,within 1 step,92400,92400,483,1,-113.1,-94.7,5.19,25781,25781,-18.4,0,0,,tone; tone droop; noise band 1; stretch
+0625,library/misc/laughter and jellybeans snare.ds,large,14400,14400,1766,26846,-37.9,-23.0,6.1,32700,32700,-14.9,35,37,,tone; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter; high-pass
+0626,library/misc/light snare.ds,identical,7200,7200,0,0,,,,32700,32700,-11.0,288,288,,tone; tone droop; noise; noise slope; distortion; bit reduction; filter; high-pass
+0627,library/misc/lo-fi bass drum.ds,identical,8400,8400,0,0,,,,32700,32700,-8.0,1080,1080,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling; filter
+0628,library/misc/lo-fi march.ds,identical,9600,9600,0,0,,,,19881,19881,-17.3,0,0,,tone; tone droop; noise; noise slope; distortion; bit reduction; downsampling; filter; high-pass
+0629,library/misc/lo-fi rim.ds,within 1 step,4800,4800,53,1,-109.9,-93.3,1.2,23161,23160,-16.5,0,0,,tone; tone droop; noise; noise band 1; filter; high-pass
+0630,library/misc/loudness sn.ds,small,10800,10800,85,4,-100.7,-89.4,5.44,29135,29135,-11.3,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; filter; high-pass; stretch
+0631,library/misc/lovely clean bd.ds,within 1 step,12000,12000,110,1,-110.7,-99.3,14.67,32700,32700,-11.4,54,54,,tone; tone droop
+0632,library/misc/lower electro bd.ds,small,9600,9600,17,18,-92.7,-82.6,5.85,29584,29584,-10.2,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking; distortion; filter; stretch
+0633,library/misc/mack bd.ds,within 1 step,7200,7200,47,1,-112.2,-99.4,1.5,32425,32425,-12.7,0,0,,tone; tone droop
+0634,library/misc/manipulate bd.ds,small,7200,7200,15,2,-114.6,-104.5,2.04,32700,32700,-10.0,240,240,,tone; tone droop; overtones FM; overtone tracking; distortion
+0635,library/misc/many frequencies.ds,small,16800,16800,52,13,-93.4,-79.8,12.7,23716,23716,-13.5,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0636,library/misc/mello bd.ds,within 1 step,8400,8400,10,1,-119.6,-106.4,3.31,32700,32700,-13.2,61,61,,tone; tone droop
+0637,library/misc/mind ya heds.ds,small,28800,28800,998,2,-100.4,-88.5,3.02,32700,32700,-11.9,1066,1066,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; stretch
+0638,library/misc/missing snare 2.ds,small,16800,16800,8,203,-77.4,-60.1,5.26,14963,14963,-17.3,0,0,,tone; tone droop; noise; noise slope; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0639,library/misc/missing snare.ds,small,20400,20400,4,203,-81.2,-63.3,25.17,14963,14963,-17.9,0,0,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0640,library/misc/more basic bd.ds,small,9600,9600,6,26,-94.3,-86.1,5.96,32700,32700,-8.2,860,860,,tone; tone droop; noise; noise slope; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; filter
+0641,library/misc/more snap.ds,small,6000,6000,619,3,-92.0,-82.6,1.29,32700,32700,-9.4,345,345,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; filter; high-pass; stretch
+0642,library/misc/muted snare.ds,small,13200,13200,1287,5,-95.3,-78.6,2.9,12196,12196,-16.7,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; filter
+0643,library/misc/n_hi.ds,within 1 step,12000,12000,2,1,-128.1,-118.3,10.23,32700,32700,-9.8,239,239,,noise; noise slope; version DrumSynth v1.0
+0644,library/misc/n_mid.ds,identical,12000,12000,0,0,,,,16342,16342,-17.1,0,0,,noise; noise slope; version DrumSynth v1.0
+0645,library/misc/neo808 2.ds,within 1 step,8400,8400,1,1,-129.6,-114.7,9.98,32700,32700,-14.9,98,98,,tone; tone droop; noise; noise slope; distortion; filter; high-pass; stretch; tuning
+0646,library/misc/neo808.ds,within 1 step,8400,8400,2,1,-126.5,-106.9,7.76,21963,21963,-19.6,0,0,,tone; tone droop; noise; noise slope; distortion; filter; high-pass; stretch; tuning
+0647,library/misc/noise calling kick.ds,identical,12000,12000,0,0,,,,32700,32700,-8.1,1299,1299,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; downsampling; tuning
+0648,library/misc/noise clip.ds,identical,8400,8400,0,0,,,,32700,32700,-9.1,459,459,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0649,library/misc/noise.ds,within 1 step,7200,7200,39,1,-113.0,-98.1,5.94,32700,32700,-14.9,8,8,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; filter; high-pass
+0650,library/misc/nosie calling kick 2.ds,identical,10800,10800,0,0,,,,32700,32700,-8.6,900,900,,tone; tone droop; noise; noise slope; distortion; bit reduction; downsampling; tuning
+0651,library/misc/odd snare.ds,small,10800,10800,434,2,-99.0,-84.3,6.71,22816,22816,-14.7,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; filter; high-pass; tuning
+0652,library/misc/original tone snare.ds,large,8400,8400,5,227,-75.4,-58.7,30.79,32700,32700,-16.7,6,6,,noise; noise slope; overtones Add; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0653,library/misc/ot_12.ds,identical,15600,15600,0,0,,,,8150,8150,-17.7,0,0,,overtones Add; version DrumSynth v1.0
+0654,library/misc/ot_34.ds,identical,15600,15600,0,0,,,,8192,8192,-15.4,0,0,,overtones Add; version DrumSynth v1.0
+0655,library/misc/ot_sine.ds,within 1 step,15600,15600,1,1,-132.2,-115.5,278.55,8175,8175,-16.7,0,0,,overtones Add; version DrumSynth v1.0
+0656,library/misc/overdriver kick.ds,small,13200,13200,142,4,-98.9,-91.1,1.27,23193,23193,-7.8,0,0,,tone; tone droop; noise; overtones RM; overtone tracking; noise band 1; noise band 2; distortion
+0657,library/misc/pleasure factory kick.ds,within 1 step,12000,12000,7,1,-122.6,-112.1,6.39,32700,32700,-10.5,242,242,,tone; tone droop; overtones Add; noise band 1; noise band 2; tuning
+0658,library/misc/pop 1 off snare.ds,large,12000,12000,90,30413,-35.5,-25.2,9.98,32700,32700,-10.3,552,546,,tone; noise; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0659,library/misc/power out.ds,identical,50400,50400,0,0,,,,32700,32700,-1.4,36349,36349,,tone; tone droop; noise; noise slope; distortion; bit reduction; stretch; tuning
+0660,library/misc/psychoacoutic bd.ds,small,92400,92400,81,3,-113.0,-93.1,16.46,32700,32700,-19.9,453,453,,tone; tone droop; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0661,library/misc/punchy clean kick.ds,within 1 step,8400,8400,3,1,-124.8,-114.5,9.8,32700,32700,-10.2,93,93,,tone; tone droop; noise; noise slope; noise band 1
+0662,library/misc/puppy kick.ds,identical,13200,13200,0,0,,,,32700,32700,-9.1,1014,1014,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; downsampling
+0663,library/misc/q kick 2.ds,small,13200,13200,141,3,-101.9,-91.2,3.67,32700,32700,-10.7,435,435,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; downsampling; filter; tuning
+0664,library/misc/q'ey bass drum.ds,within 1 step,33600,33600,175,1,-113.1,-98.5,0.07,32700,32700,-14.7,3,3,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; filter; tuning
+0665,library/misc/questoin kick.ds,identical,13200,13200,0,0,,,,18422,18422,-8.2,0,0,,tone; tone droop; overtones Add; overtone tracking; noise band 1; distortion; bit reduction; downsampling; filter; high-pass
+0666,library/misc/r+b fantasy kick.ds,small,38400,38400,216,3,-103.7,-88.9,5.49,32700,32700,-14.9,410,410,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0667,library/misc/reverb please snare.ds,small,12000,12000,358,6,-91.6,-76.0,4.51,28900,28900,-15.5,0,0,,tone; tone droop; overtones RM; overtone tracking; noise band 1; noise band 2; distortion; filter; high-pass; tuning
+0668,library/misc/rimmy noise.ds,identical,13200,13200,0,0,,,,29592,29592,-16.5,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; stretch
+0669,library/misc/rimshot 1.ds,large,8400,8400,368,7094,-46.2,-25.8,3.4,27556,27556,-20.4,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0670,library/misc/rimshot 2.ds,large,8400,8400,412,7098,-46.2,-28.0,1.41,32700,32700,-18.1,24,24,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0671,library/misc/ring fray kick.ds,small,12000,12000,6,135,-80.7,-70.8,4.42,20670,20670,-9.9,0,0,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; distortion; bit reduction; downsampling; filter; high-pass; tuning
+0672,library/misc/ring mod drone bd.ds,within 1 step,195600,195600,6544,1,-105.1,-89.6,22.49,29068,29068,-15.5,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; downsampling
+0673,library/misc/rm.ds,within 1 step,15600,15600,1,1,-132.2,-106.1,190.84,3633,3633,-26.2,0,0,,overtones RM; version DrumSynth v1.0
+0674,library/misc/rubber '82.ds,small,24000,24000,6,40,-94.3,-80.0,5.69,32700,32700,-14.3,387,387,,tone; tone droop; noise band 2; distortion; filter; high-pass
+0675,library/misc/rubbery deep house kick.ds,within 1 step,12000,12000,6,1,-123.3,-113.0,3.08,32700,32700,-10.3,426,426,,tone; tone droop; overtones Add; filter; tuning
+0676,library/misc/serious bd.ds,small,24000,24000,646,2,-105.9,-90.8,8.48,32700,32700,-15.0,128,128,,tone; tone droop; distortion; downsampling
+0677,library/misc/short 909.ds,within 1 step,4800,4800,164,1,-105.0,-90.1,1.04,22731,22731,-14.9,0,0,,tone; tone droop; noise
+0678,library/misc/simon's snare.ds,within 1 step,10800,10800,220,1,-107.2,-91.8,2.61,32700,32700,-15.5,94,94,,tone; tone droop; noise; noise slope; noise band 1; filter; stretch; tuning
+0679,library/misc/simple click bd.ds,within 1 step,7200,7200,4,1,-122.9,-112.6,1.72,32700,32700,-10.3,246,246,,tone; tone droop; noise band 1; distortion
+0680,library/misc/simple-h.ds,within 1 step,3600,3600,1,1,-125.9,-105.2,9.16,21087,21087,-20.6,0,0,,noise; noise slope; version DrumSynth v1.0
+0681,library/misc/simple-k.ds,within 1 step,20400,20400,162,1,-111.3,-96.6,46.33,25163,25163,-14.7,0,0,,tone; tone droop; overtones Add; overtone tracking; version DrumSynth v1.0
+0682,library/misc/skiwlz snare.ds,large,10800,10800,8,808,-63.5,-56.4,55.24,32700,32700,-7.0,1368,1368,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch; tuning
+0683,library/misc/slepper n the wilderness.ds,identical,14400,14400,0,0,,,,11151,11151,-15.3,0,0,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0684,library/misc/sloppy electric.ds,within 1 step,12000,12000,34,1,-115.8,-103.5,12.02,32700,32700,-12.3,548,548,,tone; tone droop; overtones FM; overtone tracking; noise band 2
+0685,library/misc/smooth rim.ds,within 1 step,7200,7200,4,1,-122.9,-108.7,9.71,32700,32700,-14.2,39,39,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; filter; high-pass
+0686,library/misc/snappy 809.ds,within 1 step,4800,4800,37,1,-111.4,-97.2,2.27,32700,32700,-14.3,26,26,,tone; tone droop; noise; noise slope; noise band 1; filter; high-pass
+0687,library/misc/softsnare.ds,within 1 step,7200,7200,42,1,-112.6,-95.3,5.76,30965,30965,-17.4,0,0,,tone; tone droop; noise
+0688,library/misc/sounding kick.ds,small,9600,9600,26,8,-98.9,-86.9,3.13,19881,19881,-12.0,0,0,,tone; tone droop; noise band 1; distortion; bit reduction; downsampling
+0689,library/misc/sounds like a low tom.ds,small,14400,14400,6,101,-84.1,-75.2,76.37,32700,32700,-8.8,674,674,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; stretch
+0690,library/misc/special man bass drum.ds,identical,15600,15600,0,0,,,,32700,32700,-10.3,672,672,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0691,library/misc/splatter.ds,small,8400,8400,40,17,-93.5,-83.5,11.61,23143,23143,-9.9,0,0,,noise; noise slope; noise band 2; distortion; downsampling; stretch
+0692,library/misc/sticky q kick.ds,small,21600,21600,58,3,-108.3,-92.1,0.41,32700,32700,-16.2,130,130,,tone; tone droop; distortion; bit reduction; downsampling; filter; high-pass; stretch; tuning
+0693,library/misc/stiffy snare.ds,identical,12000,12000,0,0,,,,26896,26896,-17.7,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0694,library/misc/sweet tight snare.ds,small,7200,7200,1,2,-122.9,-106.2,2.13,21316,21316,-16.6,0,0,,tone; tone droop; noise; noise slope; distortion
+0695,library/misc/tchak snare.ds,small,13200,13200,482,3,-102.8,-83.3,2.63,12196,12196,-19.5,0,0,,tone; tone droop; noise; overtones FM; overtone tracking; noise band 1; noise band 2; distortion; filter; high-pass
+0696,library/misc/terror n yr hood snare.ds,large,8400,8400,6,539,-67.1,-59.8,27.48,32700,32700,-7.4,1005,1005,,tone; tone droop; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0697,library/misc/test.ds,small,7200,7200,436,4,-95.5,-80.6,6.89,16336,16336,-14.9,0,0,,tone; noise; overtones Add; noise band 1; noise band 2
+0698,library/misc/think bd.ds,identical,12000,12000,0,0,,,,32700,32700,-13.1,360,360,,tone; tone droop; noise; noise slope; overtones FM; overtone tracking; noise band 2; distortion; bit reduction; downsampling; filter; high-pass
+0699,library/misc/think sn 1.ds,small,12000,12000,1366,2,-99.7,-82.4,2.36,20736,20736,-17.3,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; downsampling; filter; high-pass
+0700,library/misc/think sn 2.ds,small,12000,12000,1334,2,-99.8,-83.5,2.22,24336,24336,-16.2,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; downsampling; filter; high-pass
+0701,library/misc/this snare spells electronic.ds,within 1 step,14400,14400,314,1,-106.9,-91.9,6.35,32700,32700,-15.0,6,6,,tone; tone droop; noise; noise slope; noise band 1
+0702,library/misc/tomita clip.ds,within 1 step,15600,15600,330,1,-107.1,-93.2,7.57,32700,32700,-13.9,120,120,,tone; tone droop; overtones FM; overtone tracking; noise band 1; noise band 2
+0703,library/misc/tone snare.ds,large,20400,20400,1168,19644,-39.0,-18.4,9.98,27556,27556,-20.7,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 2; distortion; filter; high-pass
+0704,library/misc/tone.ds,identical,10800,10800,0,0,,,,16346,16346,-17.6,0,0,,tone; version DrumSynth v1.0
+0705,library/misc/tone_deg.ds,identical,20400,20400,0,0,,,,10803,10803,-22.0,0,0,,tone; distortion; bit reduction; downsampling; version DrumSynth v1.0
+0706,library/misc/transient snare.ds,identical,15600,15600,0,0,,,,32700,32700,-19.3,3,3,,noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch; tuning
+0707,library/misc/trashyovertones.ds,large,19200,19200,84,22474,-39.5,-28.0,9.98,30276,30276,-11.5,0,0,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; distortion; bit reduction; filter; high-pass
+0708,library/misc/type snare.ds,small,9600,9600,993,2,-99.9,-87.9,2.52,32700,32700,-12.0,206,206,,tone; noise; noise slope; overtones RM; noise band 1; noise band 2; filter; high-pass
+0709,library/misc/ultra electro bd.ds,within 1 step,7200,7200,55,1,-111.5,-99.1,12.97,23193,23193,-12.4,0,0,,tone; tone droop; noise; noise slope; overtones Add; distortion; filter
+0710,library/misc/usgae bd.ds,small,7200,7200,3,4,-112.1,-102.3,14.29,22937,22937,-9.7,0,0,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling; filter
+0711,library/misc/verby soundin 808.ds,small,72000,72000,48,23,-96.2,-82.2,37.46,32700,32700,-14.0,860,860,,tone; tone droop; noise band 1; noise band 2; distortion; bit reduction; downsampling
+0712,library/misc/very basic snare.ds,within 1 step,4800,4800,93,1,-107.4,-94.2,0.52,32700,32700,-13.2,35,35,,tone; tone droop; noise; noise slope; noise band 1
+0713,library/misc/verylong.ds,small,440400,440400,101544,2,-96.7,-82.6,49.21,27554,27554,-14.1,0,0,,tone; noise; overtones FM; noise band 1; noise band 2; version DrumSynth v1.0
+0714,library/misc/warm deep house kick.ds,within 1 step,19200,19200,50,1,-116.2,-107.5,0.25,32700,32700,-8.6,732,732,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; noise band 1; filter; tuning
+0715,library/misc/warm digi 808 click.ds,within 1 step,37200,37200,7,1,-127.6,-113.2,210.95,21209,21209,-14.4,0,0,,tone; tone droop
+0716,library/misc/whoa bd.ds,small,20400,20400,446,1148,-69.5,-60.0,3.15,32690,32690,-9.4,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking; noise band 2; distortion
+0717,library/misc/wobble wobble.ds,small,42000,42000,197,2,-111.2,-98.4,6.17,32700,32700,-12.8,547,547,,tone; tone droop; overtones Add; distortion
+0718,library/misc/wobbly thumb bd.ds,small,30000,30000,132,5,-100.6,-91.8,14.33,29135,29135,-8.8,0,0,,tone; tone droop; noise band 1; distortion; bit reduction; downsampling; filter
+0719,library/misc/yet another electric bass drum.ds,small,36000,36000,387,8,-92.5,-84.6,35.44,32700,32700,-7.9,2505,2505,,tone; tone droop; distortion; bit reduction; downsampling
+0720,library/misc/yr 808 hummer.ds,within 1 step,85200,85200,3294,1,-104.4,-90.1,3.54,32581,32581,-14.4,0,0,,tone; tone droop; filter; stretch
+0721,library/misc/zoom#4.ds,small,88800,88800,258,16,-91.7,-87.6,93.97,32700,32700,-4.1,25224,25224,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; downsampling; filter (overtones only); stretch; tuning; version DrumSynth v1.0
+0722,library/tr606/TR606 Cymbal.ds,large,44400,44400,409,981,-69.5,-41.8,0.52,29981,29981,-27.7,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1; noise band 2; filter (overtones only); high-pass
+0723,library/tr606/TR606 Hat_C.ds,within 1 step,44400,44400,5,1,-129.8,-99.2,0.43,20028,20028,-30.6,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1
+0724,library/tr606/TR606 Hat_O.ds,small,44400,44400,4204,2,-100.4,-75.2,0.73,23163,23163,-25.2,0,0,,noise; noise slope; overtones 808 Cymbal; noise band 1
+0725,library/tr606/TR606 Kick.ds,within 1 step,10800,10800,63,1,-112.6,-95.8,4.49,24613,24613,-16.9,0,0,,tone; tone droop; filter
+0726,library/tr606/TR606 Snare.ds,within 1 step,6000,6000,16,1,-116.0,-99.9,3.04,32112,32112,-16.2,0,0,,tone; tone droop; noise; noise slope; filter
+0727,library/tr606/TR606 Tom_H.ds,within 1 step,9600,9600,190,1,-107.3,-92.5,3.9,26972,26972,-14.8,0,0,,tone; tone droop; noise band 1; filter
+0728,library/tr606/TR606 Tom_L.ds,within 1 step,8400,8400,189,1,-106.8,-94.6,6.51,26908,26908,-12.2,0,0,,tone; tone droop; noise band 1; filter
+0729,library/tr77/Tr77 cui1.ds,within 1 step,10800,10800,1,1,-130.6,-108.5,27.96,21128,21128,-22.2,0,0,,tone; noise; noise slope; noise band 1; filter; high-pass; stretch
+0730,library/tr77/Tr77 cui2.ds,small,39600,39600,274,19,-93.6,-65.9,251.72,20777,20777,-27.7,0,0,,tone; noise; noise slope; noise band 1; noise band 2; filter; high-pass; stretch
+0731,library/tr77/Tr77 cym.ds,small,16800,16800,3076,5,-89.8,-71.2,25.85,10820,10820,-18.5,0,0,,noise band 1; filter; high-pass
+0732,library/tr77/Tr77 hat.ds,within 1 step,3600,3600,51,1,-108.8,-89.2,0.88,12310,12310,-19.6,0,0,,noise band 1; version DrumSynth v1.0
+0733,library/tr77/Tr77 kick.ds,within 1 step,12000,12000,2,1,-128.1,-115.7,127.1,32700,32700,-12.4,15,15,,tone; tone droop; version DrumSynth v1.0
+0734,library/tr77/Tr77 snare.ds,within 1 step,4800,4800,3,1,-122.4,-105.3,2.97,32700,32700,-17.1,1,1,,tone; tone droop; noise; noise slope; noise band 1; tuning
+0735,library/tr77/Tr77 tom1.ds,within 1 step,7200,7200,1,1,-128.9,-111.2,18.62,19566,19566,-17.7,0,0,,tone; tone droop; version DrumSynth v1.0
+0736,library/tr77/Tr77 tom2.ds,within 1 step,6000,6000,1,1,-128.1,-109.6,32.63,19889,19889,-18.5,0,0,,tone; tone droop; version DrumSynth v1.0
+0737,library/tr808/Clave.ds,within 1 step,12000,12000,151,1,-109.3,-85.8,1.93,23360,23360,-23.5,0,0,,tone; tone droop; overtones Add; overtone tracking
+0738,library/tr808/Cowbell.ds,within 1 step,16800,16800,1,1,-132.6,-107.2,47.39,16692,16692,-25.4,0,0,,overtones Add; filter (overtones only)
+0739,library/tr808/Handclap.ds,within 1 step,21600,21600,1338,1,-102.4,-80.7,63.22,32700,32700,-21.7,6,6,,noise; noise slope; noise band 1; filter; high-pass
+0740,library/tr808/Hat_c.ds,within 1 step,42000,42000,256,1,-112.5,-82.1,1.0,27180,27180,-30.4,0,0,,overtones 808 Cymbal; noise band 1; filter; high-pass
+0741,library/tr808/Hat_o.ds,small,42000,42000,1277,2,-104.6,-82.6,1.07,28300,28300,-22.1,0,0,,overtones 808 Cymbal; noise band 1; filter; high-pass
+0742,library/tr808/Kick.ds,within 1 step,14400,14400,131,1,-110.7,-96.0,8.5,24584,24584,-14.7,0,0,,tone; tone droop; version DrumSynth v1.0
+0743,library/tr808/Kickhard.ds,small,14400,14400,97,3,-103.0,-93.5,9.64,24649,24649,-9.5,0,0,,tone; tone droop; distortion; version DrumSynth v1.0
+0744,library/tr808/Kicklong.ds,within 1 step,38400,38400,247,1,-112.2,-98.3,9.41,24878,24878,-14.0,0,0,,tone; tone droop; overtones Add; overtone tracking
+0745,library/tr808/Ride.ds,within 1 step,42000,42000,2,1,-133.5,-106.1,28.16,32409,32409,-27.4,0,0,,noise; noise slope; overtones 808 Cymbal; filter
+0746,library/tr808/Rimshot.ds,identical,2400,2400,0,0,,,,23104,23104,-15.4,0,0,,overtones Add; distortion
+0747,library/tr808/Snare.ds,within 1 step,7200,7200,3,1,-124.1,-107.9,4.2,27016,27016,-16.3,0,0,,tone; tone droop; noise; noise slope
+0748,library/tr808/Snr_snap.ds,within 1 step,6000,6000,35,1,-112.6,-98.1,1.9,32700,32700,-14.5,23,23,,tone; tone droop; noise; noise slope; noise band 1
+0749,library/tr808/Tom_hi.ds,within 1 step,9600,9600,25,1,-116.2,-105.9,0.7,32700,32700,-10.3,196,196,,tone; tone droop; noise band 1; filter
+0750,library/tr808/Tom_lo.ds,within 1 step,18000,18000,118,1,-112.1,-99.4,7.41,32700,32700,-12.7,129,129,,tone; tone droop; noise band 1; filter
+0751,library/tr808/Tom_mid.ds,within 1 step,14400,14400,144,1,-110.3,-96.9,19.14,26472,26472,-13.4,0,0,,tone; noise band 1; filter
+0752,library/tr909/Clap.ds,within 1 step,9600,9600,202,1,-107.1,-86.8,18.91,32700,32700,-20.3,9,9,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0753,library/tr909/Hat-c.ds,within 1 step,3600,3600,1,1,-125.9,-108.8,10.57,32700,32700,-17.1,7,7,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0754,library/tr909/Hat-c2.ds,within 1 step,4800,4800,84,1,-107.9,-94.3,38.44,32700,32700,-13.6,53,53,,noise; noise slope; overtones RM; noise band 1; filter; high-pass; stretch; version DrumSynth v1.0
+0755,library/tr909/Hat-o.ds,within 1 step,14400,14400,2,1,-128.9,-110.7,110.45,32700,32700,-18.1,15,15,,noise; noise slope; noise band 1; version DrumSynth v1.0
+0756,library/tr909/Hat-o2.ds,small,20400,20400,8791,2,-91.8,-78.2,3.83,32700,32700,-13.6,24,24,,noise; noise slope; overtones RM; noise band 1; filter; high-pass; version DrumSynth v1.0
+0757,library/tr909/Kick.ds,small,12000,12000,268,3,-99.6,-93.7,12.45,25921,25921,-5.9,0,0,,tone; tone droop; overtones Add; distortion; version DrumSynth v1.0
+0758,library/tr909/Kick_1.ds,small,28800,28800,59,3,-110.1,-101.3,10.18,25921,25921,-8.8,0,0,,tone; tone droop; overtones Add; distortion
+0759,library/tr909/Kick_2.ds,within 1 step,12000,12000,39,1,-115.2,-105.5,1.54,32566,32566,-9.7,0,0,,tone; tone droop; distortion; version DrumSynth v1.0
+0760,library/tr909/Kick_3.ds,within 1 step,21600,21600,21,1,-120.4,-108.7,4.67,24871,24871,-11.7,0,0,,tone; tone droop; overtones Add; overtone tracking
+0761,library/tr909/Snare.ds,within 1 step,9600,9600,307,1,-105.3,-87.8,0.59,32700,32700,-17.5,8,8,,tone; noise; noise slope; overtones Add; noise band 1
+0762,library/tr909/Snare2.ds,within 1 step,9600,9600,270,1,-105.8,-88.3,1.18,32700,32700,-17.6,14,14,,tone; tone droop; noise; noise slope; overtones Add; noise band 1
+0763,library/tr909/TR909 Kick.ds,within 1 step,12000,12000,39,1,-115.2,-105.5,1.54,32566,32566,-9.7,0,0,,tone; tone droop; distortion
+0764,drumsynths/BUZZER.DS,small,74400,74400,10535,15,-84.2,-68.8,0.86,28762,28762,-15.4,0,0,,noise; noise slope; noise band 1; noise band 2; stretch
+0765,drumsynths/DF-MOD.DS,identical,290400,290400,0,0,,,,25457,25457,-23.8,0,0,,tone; tone droop; overtones 808 Cymbal; stretch
+0766,drumsynths/SEA.DS,small,88800,88800,24391,3,-93.4,-69.4,8.03,14475,14475,-24.0,0,0,,noise band 1; noise band 2
+0767,drumsynths/WOOSH.DS,small,88800,88800,7643,4,-99.6,-88.2,15.01,32700,32700,-11.4,820,821,,noise band 1; noise band 2; filter; high-pass
+0768,drumsynths/azid bd.ds,identical,19200,19200,0,0,,,,20340,20340,-5.7,0,0,,tone; tone droop; distortion; bit reduction; downsampling; stretch
+0769,drumsynths/bad bd.ds,small,20400,20400,2921,8,-88.0,-78.0,0.91,32700,32700,-10.1,593,593,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; filter (overtones only); high-pass; stretch; tuning
+0770,drumsynths/bassface.ds,identical,22800,22800,0,0,,,,16129,16129,-6.6,0,0,,tone; tone droop; distortion; bit reduction; downsampling; stretch; tuning
+0771,drumsynths/bell.ds,small,26400,26400,153,4,-108.9,-99.1,56.55,32700,32700,-9.8,1109,1109,,noise; noise slope; overtones FM; overtone tracking; filter (overtones only); stretch; tuning
+0772,drumsynths/blip.ds,small,7200,7200,1258,2,-97.7,-82.5,1.93,32700,32700,-15.2,57,57,,tone; tone droop; noise; noise slope; overtones Add; overtone tracking; noise band 1; noise band 2; filter (overtones only); stretch; tuning
+0773,drumsynths/buzz-fuzz.ds,large,290400,290400,62859,20313,-28.8,-11.2,249.25,27573,27573,-17.6,0,0,,tone; tone droop; overtones 808 Cymbal; overtone tracking; stretch
+0774,drumsynths/club bd.ds,within 1 step,49200,49200,12217,1,-96.4,-84.8,11.16,32700,32700,-11.5,11,11,,tone; tone droop; overtones 808 Cymbal; overtone tracking; stretch
+0775,drumsynths/creaker.ds,small,22800,22800,4,80,-89.8,-88.1,153.02,32700,32700,-1.7,13632,13632,,tone; tone droop; noise band 1; distortion; bit reduction; downsampling; filter; stretch; tuning
+0776,drumsynths/dirt bd.ds,identical,22800,22800,0,0,,,,32700,32700,-0.4,20854,20854,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 2; distortion; bit reduction; downsampling; filter (overtones only); high-pass; stretch
+0777,drumsynths/drop.ds,small,36000,36000,2329,6,-99.6,-77.0,4.04,32700,32700,-22.6,18,18,,overtones 808 Cymbal; noise band 1; filter; high-pass; stretch; tuning
+0778,drumsynths/electroblip.ds,small,22800,22800,4122,2,-97.5,-85.8,4.9,32700,32700,-11.7,1,1,,tone; tone droop; stretch
+0779,drumsynths/fat and dark.ds,large,28800,28800,8616,345,-52.1,-42.5,0.07,32700,32700,-9.6,1308,1307,,noise; noise slope; noise band 1; noise band 2; filter; stretch; tuning
+0780,drumsynths/future kick.ds,within 1 step,15600,15600,2,1,-129.2,-112.3,7.82,27036,27036,-17.0,0,0,,tone; tone droop; noise; noise slope
+0781,drumsynths/hardbuzzer.ds,identical,22800,22800,0,0,,,,32700,32700,-0.4,20912,20912,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; distortion; bit reduction; downsampling; stretch; tuning
+0782,drumsynths/hardcore clap.ds,within 1 step,28800,28800,1499,1,-103.1,-91.6,1.79,32700,32700,-11.6,737,737,,noise; noise slope; noise band 2; filter; stretch; tuning
+0783,drumsynths/hardstyle.ds,small,38400,38400,926,90,-77.7,-64.5,3.36,32700,32700,-13.2,332,332,,tone; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0784,drumsynths/hypnobass.ds,within 1 step,22800,22800,483,1,-107.0,-95.3,4.4,32686,32686,-11.7,0,0,,tone; tone droop; stretch
+0785,drumsynths/knocker.ds,within 1 step,18000,18000,1,1,-132.9,-120.9,21.41,32633,32633,-11.9,0,0,,tone; tone droop; stretch
+0786,drumsynths/kraftwerk.ds,within 1 step,27600,27600,1553,1,-102.8,-85.3,0.05,18401,18401,-17.5,0,0,,tone; tone droop; overtones Add; overtone tracking; stretch
+0787,drumsynths/long noisy.ds,small,141600,141600,26053,4,-94.2,-78.8,752.54,32700,32700,-15.4,11,11,,tone; noise; noise slope; stretch
+0788,drumsynths/noisetrain.ds,large,74400,74400,44631,17,-83.5,-56.1,0.52,9636,9638,-27.5,0,0,,noise; noise slope; noise band 1; noise band 2; filter; stretch
+0789,drumsynths/original hc.ds,identical,19200,19200,0,0,,,,20340,20340,-4.6,0,0,,tone; tone droop; distortion; stretch
+0790,drumsynths/plug-out.ds,large,54000,54000,766,1997,-45.4,-42.9,6.94,32700,32700,-2.4,23951,23949,,tone; tone droop; stretch
+0791,drumsynths/psycho fx.ds,small,201600,201600,49625,2,-95.7,-74.6,9.18,32700,32700,-21.2,80,80,,noise; noise slope; noise band 1; filter; high-pass; stretch
+0792,drumsynths/rave bd.ds,identical,12000,12000,0,0,,,,14633,14633,-10.4,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling; filter; stretch
+0793,drumsynths/ringsynth.ds,within 1 step,54000,54000,2165,1,-104.3,-99.5,10.02,32700,32700,-4.8,11622,11622,,tone; tone droop; overtones RM; stretch
+0794,drumsynths/sea2.ds,large,872400,872400,400585,57,-73.2,-55.1,71.97,27785,27786,-18.1,0,0,,noise band 1; noise band 2; filter; high-pass; stretch
+0795,drumsynths/short organ.ds,within 1 step,24000,24000,120,1,-113.3,-89.2,100.45,7086,7086,-24.2,0,0,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; downsampling; filter (overtones only); high-pass
+0796,drumsynths/shuffled hats.ds,small,76800,76800,1163,39,-84.0,-69.1,0.07,32700,32700,-14.8,892,892,,overtones FM; overtone tracking; noise band 1; stretch
+0797,drumsynths/soft hoo.ds,small,290400,290400,21286,2,-100.6,-75.6,488.84,7799,7799,-25.0,0,0,,noise band 1; stretch
+0798,drumsynths/spicy bd.ds,large,18000,18000,78,6340,-43.1,-40.1,19.91,32700,32700,-3.0,6864,6864,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0799,drumsynths/stomp.ds,small,44400,44400,4135,3,-100.3,-88.9,2.49,32700,32700,-11.3,762,762,,tone; tone droop; overtones RM; overtone tracking; filter (overtones only); stretch
+0800,drumsynths/subwoofer.ds,identical,54000,54000,0,0,,,,32700,32700,-0.2,52222,52222,,tone; tone droop; distortion; stretch
+0801,drumsynths/sweeping.ds,within 1 step,31200,31200,10,1,-125.3,-110.6,158.03,32700,32700,-14.6,6,6,,noise; noise slope; stretch
+0802,drumsynths/techriff.ds,small,38400,38400,2713,6,-96.8,-75.8,6.94,32049,32049,-21.1,0,0,,tone; tone droop; noise; noise slope; overtones Add; noise band 1; noise band 2; filter (overtones only); stretch
+0803,drumsynths/tranzlead.ds,within 1 step,27600,27600,10,1,-124.7,-100.3,15.37,32700,32700,-24.4,11,11,,overtones Add; overtone tracking; filter; high-pass; stretch; tuning
+0804,drumsynths/type.ds,within 1 step,13200,13200,3,1,-126.7,-99.5,2.18,20023,20023,-27.2,0,0,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; filter; high-pass
+0805,drumsynths/vibrawave.ds,within 1 step,26400,26400,19,1,-121.7,-109.7,8.5,29671,29671,-12.1,0,0,,overtones FM; overtone tracking; filter; stretch; tuning
+0806,drumsynths/Effects/Scissors.ds,identical,13200,13200,0,0,,,,22303,22303,-31.1,0,0,,tone; noise; noise slope; version DrumSynth v1.0
+0807,drumsynths/Effects/z-drum.ds,identical,6000,6000,0,0,,,,32700,32700,-11.6,257,257,,overtones 808 Cymbal; overtone tracking
+0808,drumsynths/Latin/Clave_we.ds,within 1 step,13200,13200,231,1,-107.9,-88.5,7.94,32284,32284,-19.3,0,0,,tone; noise band 1; version DrumSynth v1.0
+0809,drumsynths/Misc/Alarma.ds,identical,24000,24000,0,0,,,,7396,7396,-14.2,0,0,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; filter (overtones only); high-pass; version DrumSynth v1.0
+0810,drumsynths/Misc/Bee Swap.ds,identical,8400,8400,0,0,,,,20736,20736,-12.0,0,0,,overtones Add; overtone tracking; distortion; filter; version DrumSynth v1.0
+0811,drumsynths/Misc/Bee.ds,identical,8400,8400,0,0,,,,23409,23409,-16.5,0,0,,overtones RM; distortion; filter; version DrumSynth v1.0
+0812,drumsynths/Misc/Heavy.ds,identical,8400,8400,0,0,,,,15876,15876,-11.1,0,0,,overtones FM; distortion; bit reduction; downsampling; filter (overtones only); version DrumSynth v1.0
+0813,drumsynths/Misc/K_8bit2.ds,small,14400,14400,3,85,-88.5,-69.1,26.05,17424,17424,-19.4,0,0,,tone; tone droop; noise; noise slope; noise band 1; distortion; bit reduction; downsampling; version DrumSynth v1.0
+0814,drumsynths/Misc/K_linn2.ds,identical,22800,22800,0,0,,,,24361,24361,-18.8,0,0,,tone; noise; noise slope; version DrumSynth v1.0
+0815,drumsynths/Misc/Low Bass.ds,within 1 step,20400,20400,1,1,-133.4,-113.4,89.57,10544,10544,-20.0,0,0,,tone; tone droop; filter; version DrumSynth v1.0
+0816,drumsynths/Misc/Organ.ds,within 1 step,20400,20400,2,1,-130.4,-116.9,59.71,24604,24604,-13.5,0,0,,tone; tone droop; overtones Add; overtone tracking; filter; version DrumSynth v1.0
+0817,drumsynths/Misc/Poing.ds,within 1 step,18000,18000,2,1,-129.9,-113.2,1.45,16374,16374,-16.7,0,0,,tone; tone droop; filter; version DrumSynth v1.0
+0818,drumsynths/Misc/Puffy.ds,identical,24000,24000,0,0,,,,11664,11664,-14.9,0,0,,tone; tone droop; overtones Add; overtone tracking; distortion; bit reduction; filter (overtones only); high-pass; version DrumSynth v1.0
+0819,drumsynths/Misc/Snaree2.ds,within 1 step,22800,22800,43,1,-117.6,-91.3,13.45,16121,16121,-26.3,0,0,,tone; tone droop; noise; noise slope; version DrumSynth v1.0
+0820,drumsynths/Misc/String.ds,within 1 step,189600,189600,46,1,-126.5,-110.8,11.43,16384,16384,-15.7,0,0,,tone; overtones FM; overtone tracking; distortion; filter; version DrumSynth v1.0
+0821,drumsynths/Misc/Toing.ds,identical,8400,8400,0,0,,,,17956,17956,-11.0,0,0,,overtones FM; distortion; filter (overtones only); version DrumSynth v1.0
+0822,drumsynths/Misc/bass1.ds,small,18000,18000,1,5,-118.9,-113.6,292.93,21025,21025,-5.3,0,0,,tone; tone droop; overtones RM; noise band 1; noise band 2; distortion; filter (overtones only); stretch; version DrumSynth v1.0
+0823,drumsynths/Misc/bass2.ds,identical,18000,18000,0,0,,,,21025,21025,-4.5,0,0,,tone; tone droop; overtones RM; noise band 1; noise band 2; distortion; filter (overtones only); stretch; version DrumSynth v1.0
+0824,drumsynths/R & B/sample.ds,within 1 step,14400,14400,4,1,-125.9,-119.8,16.35,32700,32700,-6.1,1914,1914,,tone; tone droop; noise; noise slope; noise band 1; noise band 2; version DrumSynth v1.0
+0825,drumsynths/Techno/bssy1.ds,within 1 step,12000,12000,704,1,-102.6,-92.2,23.04,32700,32700,-10.5,240,240,,tone; tone droop; noise band 1; distortion; downsampling; version DrumSynth v1.0
+0826,drumsynths/Techno/ch1.ds,within 1 step,24000,24000,45,1,-117.6,-103.7,6.35,32700,32700,-13.9,463,463,,tone; tone droop; noise band 1; noise band 2; distortion; version DrumSynth v1.0
+0827,drumsynths/Techno/crr1.ds,identical,12000,12000,0,0,,,,32700,32700,-13.8,192,192,,overtones FM; noise band 2; distortion; bit reduction; version DrumSynth v1.0
+0828,drumsynths/Techno/crr2.ds,small,19200,19200,60,26,-87.2,-69.3,21.09,25548,25548,-17.9,0,0,,tone; tone droop; distortion; bit reduction; downsampling; version DrumSynth v1.0
+0829,drumsynths/Techno/hhrr1.ds,large,12000,12000,21,256,-69.7,-49.7,62.74,32256,32256,-20.0,0,0,,noise band 1; distortion; bit reduction; version DrumSynth v1.0
+0830,drumsynths/Techno/neow1.ds,small,24000,24000,1,256,-85.9,-74.1,147.62,32000,32000,-11.8,0,0,,noise band 1; distortion; bit reduction; version DrumSynth v1.0
+0831,drumsynths/Techno/neow2.ds,identical,24000,24000,0,0,,,,28672,28672,-12.8,0,0,,noise band 1; distortion; bit reduction; version DrumSynth v1.0
+0832,drumsynths/Techno/plig1.ds,identical,10800,10800,0,0,,,,16320,16320,-17.8,0,0,,tone; tone droop; overtones RM; distortion; bit reduction; downsampling; version DrumSynth v1.0
+0833,drumsynths/Techno/tch1.ds,small,12000,12000,6,256,-75.2,-60.0,21.16,32512,32512,-15.1,0,0,,noise band 1; distortion; bit reduction; version DrumSynth v1.0
+0834,drumsynths/Techno/tidl1.ds,identical,9600,9600,0,0,,,,32700,32700,-10.1,184,184,,tone; tone droop; overtones FM; overtone tracking; distortion; bit reduction; downsampling; version DrumSynth v1.0
+0835,drumsynths/Techno/twid1.ds,identical,24000,24000,0,0,,,,32700,32700,-11.9,448,448,,tone; tone droop; overtones FM; noise band 2; distortion; bit reduction; version DrumSynth v1.0
+0836,drumsynths/Techno/twid2.ds,identical,12000,12000,0,0,,,,32700,32700,-8.9,542,542,,tone; tone droop; overtones RM; noise band 2; distortion; bit reduction; version DrumSynth v1.0
+0837,drumsynths/Techno/woh1.ds,identical,8400,8400,0,0,,,,31232,31232,-19.6,0,0,,overtones RM; distortion; bit reduction; version DrumSynth v1.0
+0838,drumsynths/dark/Shortrim.ds,identical,18000,18000,0,0,,,,6339,6339,-38.4,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0839,drumsynths/dark/bassface.ds,identical,18000,18000,0,0,,,,16129,16129,-6.8,0,0,,tone; tone droop; distortion; bit reduction; downsampling; stretch; tuning
+0840,drumsynths/dark/club bd.ds,within 1 step,22800,22800,2485,1,-99.9,-88.2,2.59,32700,32700,-11.7,9,9,,tone; tone droop; overtones 808 Cymbal; overtone tracking; stretch
+0841,drumsynths/dark/creaker.ds,small,22800,22800,20,32,-90.8,-89.1,152.83,32700,32700,-1.7,13540,13540,,tone; tone droop; noise band 1; distortion; bit reduction; downsampling; filter; stretch; tuning
+0842,drumsynths/dark/dirt bd.ds,identical,12000,12000,0,0,,,,32700,32700,-0.6,10432,10432,,tone; tone droop; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 2; distortion; bit reduction; downsampling; filter (overtones only); high-pass; stretch
+0843,drumsynths/dark/fat and dark.ds,large,15600,15600,4173,189,-58.6,-48.3,0.11,32700,32700,-10.3,471,471,,noise; noise slope; noise band 1; noise band 2; filter; stretch; tuning
+0844,drumsynths/dark/hardcore clap.ds,within 1 step,18000,18000,221,1,-109.4,-96.9,2.13,32700,32700,-12.5,370,370,,tone; noise; noise slope; overtones FM; overtone tracking; noise band 2; filter; stretch; tuning
+0845,drumsynths/dark/hardstyle.ds,large,38400,38400,60,575,-63.2,-32.2,454.42,13787,13787,-31.0,0,0,,tone; noise; noise slope; overtones 808 Cymbal; overtone tracking; noise band 1; noise band 2; distortion; bit reduction; downsampling; filter; high-pass; stretch
+0846,drumsynths/dark/rave bd.ds,small,18000,18000,66,51,-85.6,-83.2,5.22,32700,32700,-2.5,8328,8330,,tone; tone droop; overtones RM; overtone tracking; distortion; bit reduction; downsampling; filter; stretch
+0847,drumsynths/dark/rave.ds,small,12000,12000,7,13,-100.7,-96.5,21.54,26022,26022,-4.2,0,0,,tone; tone droop; overtones RM; overtone tracking; distortion; stretch
+0848,drumsynths/dark/stomp.ds,small,22800,22800,1644,3,-101.0,-89.7,1.22,32700,32700,-11.3,394,394,,tone; tone droop; overtones RM; overtone tracking; filter (overtones only); stretch
+0849,drumsynths/dark/subwoofer.ds,identical,12000,12000,0,0,,,,32700,32700,-0.6,10387,10387,,tone; tone droop; distortion; stretch
