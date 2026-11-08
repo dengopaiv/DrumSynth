@@ -1,0 +1,455 @@
+id,key,tier,length a,length b,differing samples,max diff,diff dBFS,diff vs sound dB,first diff ms,peak a,peak b,rms a dBFS,clipped a,clipped b,lag,file bytes identical,features
+0001,features/dist_b0_r0.ds,identical,18000,18000,0,0,,,,16384,16384,-16.6,0,0,,1,tone; noise; distortion
+0002,features/dist_b0_r1.ds,identical,18000,18000,0,0,,,,16384,16384,-16.9,0,0,,1,tone; noise; distortion; downsampling
+0003,features/dist_b0_r2.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; downsampling
+0004,features/dist_b0_r3.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; downsampling
+0005,features/dist_b0_r4.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; downsampling
+0006,features/dist_b0_r5.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; downsampling
+0007,features/dist_b0_r6.ds,identical,18000,18000,0,0,,,,16384,16384,-17.2,0,0,,1,tone; noise; distortion; downsampling
+0008,features/dist_b0_r7.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; downsampling
+0009,features/dist_b1_r0.ds,identical,18000,18000,0,0,,,,16384,16384,-16.6,0,0,,1,tone; noise; distortion; bit reduction
+0010,features/dist_b1_r1.ds,identical,18000,18000,0,0,,,,16384,16384,-16.9,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0011,features/dist_b1_r2.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0012,features/dist_b1_r3.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0013,features/dist_b1_r4.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0014,features/dist_b1_r5.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0015,features/dist_b1_r6.ds,identical,18000,18000,0,0,,,,16384,16384,-17.2,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0016,features/dist_b1_r7.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0017,features/dist_b2_r0.ds,identical,18000,18000,0,0,,,,16384,16384,-16.7,0,0,,1,tone; noise; distortion; bit reduction
+0018,features/dist_b2_r1.ds,identical,18000,18000,0,0,,,,16384,16384,-16.9,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0019,features/dist_b2_r2.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0020,features/dist_b2_r3.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0021,features/dist_b2_r4.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0022,features/dist_b2_r5.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0023,features/dist_b2_r6.ds,identical,18000,18000,0,0,,,,16384,16384,-17.2,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0024,features/dist_b2_r7.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0025,features/dist_b3_r0.ds,identical,18000,18000,0,0,,,,16384,16384,-16.7,0,0,,1,tone; noise; distortion; bit reduction
+0026,features/dist_b3_r1.ds,identical,18000,18000,0,0,,,,16384,16384,-16.9,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0027,features/dist_b3_r2.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0028,features/dist_b3_r3.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0029,features/dist_b3_r4.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0030,features/dist_b3_r5.ds,identical,18000,18000,0,0,,,,16384,16384,-17.2,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0031,features/dist_b3_r6.ds,identical,18000,18000,0,0,,,,16384,16384,-17.3,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0032,features/dist_b3_r7.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0033,features/dist_b4_r0.ds,identical,18000,18000,0,0,,,,16384,16384,-16.8,0,0,,1,tone; noise; distortion; bit reduction
+0034,features/dist_b4_r1.ds,identical,18000,18000,0,0,,,,16384,16384,-17.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0035,features/dist_b4_r2.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0036,features/dist_b4_r3.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0037,features/dist_b4_r4.ds,identical,18000,18000,0,0,,,,16384,16384,-17.2,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0038,features/dist_b4_r5.ds,identical,18000,18000,0,0,,,,16384,16384,-17.3,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0039,features/dist_b4_r6.ds,identical,18000,18000,0,0,,,,16384,16384,-17.4,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0040,features/dist_b4_r7.ds,identical,18000,18000,0,0,,,,16384,16384,-17.2,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0041,features/dist_b5_r0.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; bit reduction
+0042,features/dist_b5_r1.ds,identical,18000,18000,0,0,,,,16384,16384,-17.4,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0043,features/dist_b5_r2.ds,identical,18000,18000,0,0,,,,16384,16384,-17.5,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0044,features/dist_b5_r3.ds,identical,18000,18000,0,0,,,,16384,16384,-17.5,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0045,features/dist_b5_r4.ds,identical,18000,18000,0,0,,,,16384,16384,-17.6,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0046,features/dist_b5_r5.ds,identical,18000,18000,0,0,,,,16384,16384,-17.7,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0047,features/dist_b5_r6.ds,identical,18000,18000,0,0,,,,16384,16384,-17.8,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0048,features/dist_b5_r7.ds,identical,18000,18000,0,0,,,,16384,16384,-17.6,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0049,features/dist_b6_r0.ds,identical,18000,18000,0,0,,,,16384,16384,-18.3,0,0,,1,tone; noise; distortion; bit reduction
+0050,features/dist_b6_r1.ds,identical,18000,18000,0,0,,,,16384,16384,-18.8,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0051,features/dist_b6_r2.ds,identical,18000,18000,0,0,,,,16384,16384,-19.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0052,features/dist_b6_r3.ds,identical,18000,18000,0,0,,,,16384,16384,-19.1,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0053,features/dist_b6_r4.ds,identical,18000,18000,0,0,,,,16384,16384,-19.3,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0054,features/dist_b6_r5.ds,identical,18000,18000,0,0,,,,16384,16384,-19.4,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0055,features/dist_b6_r6.ds,identical,18000,18000,0,0,,,,15155,15155,-19.5,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0056,features/dist_b6_r7.ds,identical,18000,18000,0,0,,,,16384,16384,-19.3,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0057,features/dist_b7_r0.ds,identical,18000,18000,0,0,,,,16384,16384,-22.4,0,0,,1,tone; noise; distortion; bit reduction
+0058,features/dist_b7_r1.ds,identical,18000,18000,0,0,,,,16384,16384,-24.0,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0059,features/dist_b7_r2.ds,identical,18000,18000,0,0,,,,16384,16384,-24.9,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0060,features/dist_b7_r3.ds,identical,18000,18000,0,0,,,,16384,16384,-25.3,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0061,features/dist_b7_r4.ds,identical,18000,18000,0,0,,,,12288,12288,-26.2,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0062,features/dist_b7_r5.ds,identical,18000,18000,0,0,,,,13107,13107,-26.4,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0063,features/dist_b7_r6.ds,identical,18000,18000,0,0,,,,10649,10649,-26.9,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0064,features/dist_b7_r7.ds,identical,18000,18000,0,0,,,,12288,12288,-26.2,0,0,,1,tone; noise; distortion; bit reduction; downsampling
+0065,features/dist_clip0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; distortion
+0066,features/dist_clip10.ds,identical,18000,18000,0,0,,,,16384,16384,-11.1,0,0,,1,tone; distortion
+0067,features/dist_clip30.ds,identical,18000,18000,0,0,,,,16384,16384,-7.2,0,0,,1,tone; distortion
+0068,features/dist_clip60.ds,identical,18000,18000,0,0,,,,16384,16384,-6.6,0,0,,1,tone; distortion
+0069,features/edge_all_on.ds,identical,18000,18000,0,0,,,,16384,16384,-15.4,0,0,,1,tone; noise; overtones Add; noise band 1; noise band 2; distortion
+0070,features/edge_comment_empty.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0071,features/edge_comment_long.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0072,features/edge_dist_rate11.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone; noise; distortion; downsampling
+0073,features/edge_dist_rate8.ds,identical,18000,18000,0,0,,,,16165,16165,-17.2,0,0,,1,tone; distortion; downsampling
+0074,features/edge_env_32_points.ds,identical,2400,2400,0,0,,,,32700,32700,-3.0,1200,1200,,1,tone
+0075,features/edge_env_40_points.ds,identical,2400,2400,0,0,,,,32700,32700,-3.0,1200,1200,,1,tone
+0076,features/edge_env_back_in_time.ds,identical,14400,14400,0,0,,,,16377,16377,-13.4,0,0,,1,tone
+0077,features/edge_env_decimals.ds,identical,12000,12000,0,0,,,,16459,16459,-20.2,0,0,,1,tone
+0078,features/edge_env_double_space.ds,identical,10800,10800,0,0,,,,16377,16377,-16.1,0,0,,1,tone
+0079,features/edge_env_empty.ds,identical,2400,2400,0,0,,,,32700,32700,-3.0,1200,1200,,1,tone
+0080,features/edge_env_hold_past_442000.ds,identical,447600,447600,0,0,,,,32700,32700,-12.3,4508,4508,,1,tone; noise; filter
+0081,features/edge_env_late_start.ds,identical,10800,10800,0,0,,,,16377,16377,-14.6,0,0,,1,tone
+0082,features/edge_env_one_point.ds,identical,2400,2400,0,0,,,,32700,32700,-3.0,1200,1200,,1,tone
+0083,features/edge_env_trailing_space.ds,identical,10800,10800,0,0,,,,16377,16377,-16.1,0,0,,1,tone
+0084,features/edge_freq_0.ds,identical,18000,18000,0,0,,,,24559,24559,-16.3,0,0,,1,tone; overtones Add; overtone tracking
+0085,features/edge_freq_22050.ds,identical,18000,18000,0,0,,,,16384,16384,-17.1,0,0,,1,tone
+0086,features/edge_freq_negative.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0087,features/edge_hex_int.ds,identical,18000,18000,0,0,,,,4094,4094,-29.2,0,0,,1,tone
+0088,features/edge_level_0.ds,identical,18000,18000,0,0,,,,0,0,,0,0,,1,tone
+0089,features/edge_level_200.ds,identical,18000,18000,0,0,,,,32700,32700,-9.4,714,714,,1,tone; noise
+0090,features/edge_long_numbers.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0091,features/edge_method_4.ds,identical,9600,9600,0,0,,,,0,0,,0,0,,1,overtones 4
+0092,features/edge_missing_keys.ds,identical,2400,2400,0,0,,,,0,0,,0,0,,1,tone
+0093,features/edge_quoted.ds,identical,4800,4800,0,0,,,,16369,16369,-15.8,0,0,,1,tone
+0094,features/edge_slope_200.ds,identical,12000,12000,0,0,,,,32700,32700,-9.4,672,672,,1,noise; noise slope
+0095,features/edge_version1.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; version DrumSynth v1.0
+0097,features/edge_wave_7.ds,identical,9600,9600,0,0,,,,16384,16384,-15.2,0,0,,1,overtones Add
+0098,features/filter_m1_r0_hp0.ds,identical,18000,18000,0,0,,,,28592,28592,-17.1,0,0,,1,tone; noise; filter
+0099,features/filter_m1_r0_hp1.ds,identical,18000,18000,0,0,,,,16635,16635,-22.2,0,0,,1,tone; noise; filter; high-pass
+0100,features/filter_m1_r11_hp0.ds,identical,18000,18000,0,0,,,,31640,31640,-16.7,0,0,,1,tone; noise; filter
+0101,features/filter_m1_r11_hp1.ds,identical,18000,18000,0,0,,,,17692,17692,-22.4,0,0,,1,tone; noise; filter; high-pass
+0102,features/filter_m1_r22_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-16.5,1,1,,1,tone; noise; filter
+0103,features/filter_m1_r22_hp1.ds,identical,18000,18000,0,0,,,,18467,18467,-22.2,0,0,,1,tone; noise; filter; high-pass
+0104,features/filter_m1_r33_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-16.4,5,5,,1,tone; noise; filter
+0105,features/filter_m1_r33_hp1.ds,identical,18000,18000,0,0,,,,20856,20856,-22.0,0,0,,1,tone; noise; filter; high-pass
+0106,features/filter_m1_r44_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-16.2,9,9,,1,tone; noise; filter
+0107,features/filter_m1_r44_hp1.ds,identical,18000,18000,0,0,,,,25746,25746,-21.6,0,0,,1,tone; noise; filter; high-pass
+0108,features/filter_m1_r55_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-15.9,15,15,,1,tone; noise; filter
+0109,features/filter_m1_r55_hp1.ds,identical,18000,18000,0,0,,,,32099,32099,-20.9,0,0,,1,tone; noise; filter; high-pass
+0110,features/filter_m1_r66_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-15.6,31,31,,1,tone; noise; filter
+0111,features/filter_m1_r66_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-20.0,4,4,,1,tone; noise; filter; high-pass
+0112,features/filter_m1_r77_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-15.2,59,59,,1,tone; noise; filter
+0113,features/filter_m1_r77_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-18.7,27,27,,1,tone; noise; filter; high-pass
+0114,features/filter_m1_r88_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-14.3,140,140,,1,tone; noise; filter
+0115,features/filter_m1_r88_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-16.7,87,87,,1,tone; noise; filter; high-pass
+0116,features/filter_m1_r99_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-1.1,12002,12002,,1,tone; noise; filter
+0117,features/filter_m1_r99_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-1.1,11961,11961,,1,tone; noise; filter; high-pass
+0118,features/filter_m2_r0_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-15.0,32,32,,1,tone; noise; overtones Add; filter (overtones only)
+0119,features/filter_m2_r0_hp1.ds,identical,18000,18000,0,0,,,,31178,31178,-15.6,0,0,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0120,features/filter_m2_r11_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-14.8,33,33,,1,tone; noise; overtones Add; filter (overtones only)
+0121,features/filter_m2_r11_hp1.ds,identical,18000,18000,0,0,,,,31224,31224,-15.6,0,0,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0122,features/filter_m2_r22_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-14.7,38,38,,1,tone; noise; overtones Add; filter (overtones only)
+0123,features/filter_m2_r22_hp1.ds,identical,18000,18000,0,0,,,,32097,32097,-15.6,0,0,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0124,features/filter_m2_r33_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-14.6,38,38,,1,tone; noise; overtones Add; filter (overtones only)
+0125,features/filter_m2_r33_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-15.5,1,1,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0126,features/filter_m2_r44_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-14.5,38,38,,1,tone; noise; overtones Add; filter (overtones only)
+0127,features/filter_m2_r44_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-15.5,4,4,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0128,features/filter_m2_r55_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-14.4,42,42,,1,tone; noise; overtones Add; filter (overtones only)
+0129,features/filter_m2_r55_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-15.4,9,9,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0130,features/filter_m2_r66_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-14.2,51,51,,1,tone; noise; overtones Add; filter (overtones only)
+0131,features/filter_m2_r66_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-15.2,16,16,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0132,features/filter_m2_r77_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-13.9,78,78,,1,tone; noise; overtones Add; filter (overtones only)
+0133,features/filter_m2_r77_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-14.9,34,34,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0134,features/filter_m2_r88_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-13.5,143,143,,1,tone; noise; overtones Add; filter (overtones only)
+0135,features/filter_m2_r88_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-14.4,92,92,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0136,features/filter_m2_r99_hp0.ds,identical,18000,18000,0,0,,,,32700,32700,-1.8,9155,9155,,1,tone; noise; overtones Add; filter (overtones only)
+0137,features/filter_m2_r99_hp1.ds,identical,18000,18000,0,0,,,,32700,32700,-1.8,9140,9140,,1,tone; noise; overtones Add; filter (overtones only); high-pass
+0138,features/noise_level1.ds,identical,12000,12000,0,0,,,,0,0,,0,0,,1,noise
+0139,features/noise_level181.ds,identical,12000,12000,0,0,,,,32679,32679,-14.3,0,0,,1,noise
+0140,features/noise_level64.ds,identical,12000,12000,0,0,,,,4085,4085,-32.4,0,0,,1,noise
+0141,features/noise_slope-10.ds,identical,12000,12000,0,0,,,,16889,16889,-20.7,0,0,,1,noise; noise slope
+0142,features/noise_slope-100.ds,identical,12000,12000,0,0,,,,19391,19391,-22.2,0,0,,1,noise; noise slope
+0143,features/noise_slope-20.ds,identical,12000,12000,0,0,,,,19093,19093,-20.4,0,0,,1,noise; noise slope
+0144,features/noise_slope-30.ds,identical,12000,12000,0,0,,,,22578,22578,-19.6,0,0,,1,noise; noise slope
+0145,features/noise_slope-40.ds,identical,12000,12000,0,0,,,,27001,27001,-18.7,0,0,,1,noise; noise slope
+0146,features/noise_slope-50.ds,identical,12000,12000,0,0,,,,31775,31775,-17.7,0,0,,1,noise; noise slope
+0147,features/noise_slope-60.ds,identical,12000,12000,0,0,,,,32700,32700,-17.0,2,2,,1,noise; noise slope
+0148,features/noise_slope-70.ds,identical,12000,12000,0,0,,,,32700,32700,-16.5,4,4,,1,noise; noise slope
+0149,features/noise_slope-80.ds,identical,12000,12000,0,0,,,,32700,32700,-16.6,7,7,,1,noise; noise slope
+0150,features/noise_slope-90.ds,identical,12000,12000,0,0,,,,32700,32700,-17.6,3,3,,1,noise; noise slope
+0151,features/noise_slope0.ds,identical,12000,12000,0,0,,,,16342,16342,-20.3,0,0,,1,noise
+0152,features/noise_slope10.ds,identical,12000,12000,0,0,,,,19721,19721,-20.2,0,0,,1,noise; noise slope
+0153,features/noise_slope100.ds,identical,12000,12000,0,0,,,,32700,32700,-13.0,120,120,,1,noise; noise slope
+0154,features/noise_slope20.ds,identical,12000,12000,0,0,,,,23913,23913,-19.6,0,0,,1,noise; noise slope
+0155,features/noise_slope30.ds,identical,12000,12000,0,0,,,,28105,28105,-18.8,0,0,,1,noise; noise slope
+0156,features/noise_slope40.ds,identical,12000,12000,0,0,,,,32297,32297,-17.9,0,0,,1,noise; noise slope
+0157,features/noise_slope50.ds,identical,12000,12000,0,0,,,,32700,32700,-16.9,2,2,,1,noise; noise slope
+0158,features/noise_slope60.ds,identical,12000,12000,0,0,,,,32700,32700,-16.0,9,9,,1,noise; noise slope
+0159,features/noise_slope70.ds,identical,12000,12000,0,0,,,,32700,32700,-15.1,22,22,,1,noise; noise slope
+0160,features/noise_slope80.ds,identical,12000,12000,0,0,,,,32700,32700,-14.3,49,49,,1,noise; noise slope
+0161,features/noise_slope90.ds,identical,12000,12000,0,0,,,,32700,32700,-13.6,84,84,,1,noise; noise slope
+0162,features/noiseband2_f1000_df0.ds,identical,6000,6000,0,0,,,,16283,16283,-15.6,0,0,,1,noise band 2
+0163,features/noiseband2_f1000_df10.ds,identical,6000,6000,0,0,,,,16310,16310,-15.6,0,0,,1,noise band 2
+0164,features/noiseband2_f1000_df100.ds,identical,6000,6000,0,0,,,,16302,16302,-15.7,0,0,,1,noise band 2
+0165,features/noiseband2_f1000_df25.ds,identical,6000,6000,0,0,,,,16297,16297,-15.6,0,0,,1,noise band 2
+0166,features/noiseband2_f1000_df50.ds,identical,6000,6000,0,0,,,,16239,16239,-15.5,0,0,,1,noise band 2
+0167,features/noiseband2_f1000_df75.ds,identical,6000,6000,0,0,,,,16326,16326,-15.6,0,0,,1,noise band 2
+0168,features/noiseband2_f15000_df0.ds,identical,6000,6000,0,0,,,,16347,16347,-15.6,0,0,,1,noise band 2
+0169,features/noiseband2_f15000_df10.ds,identical,6000,6000,0,0,,,,16288,16288,-15.6,0,0,,1,noise band 2
+0170,features/noiseband2_f15000_df100.ds,identical,6000,6000,0,0,,,,16341,16341,-15.6,0,0,,1,noise band 2
+0171,features/noiseband2_f15000_df25.ds,identical,6000,6000,0,0,,,,16306,16306,-15.6,0,0,,1,noise band 2
+0172,features/noiseband2_f15000_df50.ds,identical,6000,6000,0,0,,,,16346,16346,-15.5,0,0,,1,noise band 2
+0173,features/noiseband2_f15000_df75.ds,identical,6000,6000,0,0,,,,16371,16371,-15.6,0,0,,1,noise band 2
+0174,features/noiseband2_f200_df0.ds,identical,6000,6000,0,0,,,,16049,16049,-15.6,0,0,,1,noise band 2
+0175,features/noiseband2_f200_df10.ds,identical,6000,6000,0,0,,,,16019,16019,-15.6,0,0,,1,noise band 2
+0176,features/noiseband2_f200_df100.ds,identical,6000,6000,0,0,,,,16217,16217,-15.6,0,0,,1,noise band 2
+0177,features/noiseband2_f200_df25.ds,identical,6000,6000,0,0,,,,15937,15937,-16.2,0,0,,1,noise band 2
+0178,features/noiseband2_f200_df50.ds,identical,6000,6000,0,0,,,,16348,16348,-15.3,0,0,,1,noise band 2
+0179,features/noiseband2_f200_df75.ds,identical,6000,6000,0,0,,,,16362,16362,-15.4,0,0,,1,noise band 2
+0180,features/noiseband2_f5000_df0.ds,identical,6000,6000,0,0,,,,16290,16290,-15.6,0,0,,1,noise band 2
+0181,features/noiseband2_f5000_df10.ds,identical,6000,6000,0,0,,,,16264,16264,-15.6,0,0,,1,noise band 2
+0182,features/noiseband2_f5000_df100.ds,identical,6000,6000,0,0,,,,16353,16353,-15.5,0,0,,1,noise band 2
+0183,features/noiseband2_f5000_df25.ds,identical,6000,6000,0,0,,,,16266,16266,-15.6,0,0,,1,noise band 2
+0184,features/noiseband2_f5000_df50.ds,identical,6000,6000,0,0,,,,16326,16326,-15.6,0,0,,1,noise band 2
+0185,features/noiseband2_f5000_df75.ds,identical,6000,6000,0,0,,,,16324,16324,-15.6,0,0,,1,noise band 2
+0186,features/noiseband2_f50_df0.ds,identical,6000,6000,0,0,,,,15044,15044,-15.8,0,0,,1,noise band 2
+0187,features/noiseband2_f50_df10.ds,identical,6000,6000,0,0,,,,15074,15074,-15.8,0,0,,1,noise band 2
+0188,features/noiseband2_f50_df100.ds,identical,6000,6000,0,0,,,,16270,16270,-15.4,0,0,,1,noise band 2
+0189,features/noiseband2_f50_df25.ds,identical,6000,6000,0,0,,,,16094,16094,-14.9,0,0,,1,noise band 2
+0190,features/noiseband2_f50_df50.ds,identical,6000,6000,0,0,,,,16356,16356,-15.5,0,0,,1,noise band 2
+0191,features/noiseband2_f50_df75.ds,identical,6000,6000,0,0,,,,16372,16372,-15.7,0,0,,1,noise band 2
+0192,features/noiseband_f1000_df0.ds,identical,6000,6000,0,0,,,,16283,16283,-15.6,0,0,,1,noise band 1
+0193,features/noiseband_f1000_df10.ds,identical,6000,6000,0,0,,,,16310,16310,-15.6,0,0,,1,noise band 1
+0194,features/noiseband_f1000_df100.ds,identical,6000,6000,0,0,,,,16302,16302,-15.7,0,0,,1,noise band 1
+0195,features/noiseband_f1000_df25.ds,identical,6000,6000,0,0,,,,16297,16297,-15.6,0,0,,1,noise band 1
+0196,features/noiseband_f1000_df50.ds,identical,6000,6000,0,0,,,,16239,16239,-15.5,0,0,,1,noise band 1
+0197,features/noiseband_f1000_df75.ds,identical,6000,6000,0,0,,,,16326,16326,-15.6,0,0,,1,noise band 1
+0198,features/noiseband_f15000_df0.ds,identical,6000,6000,0,0,,,,16347,16347,-15.6,0,0,,1,noise band 1
+0199,features/noiseband_f15000_df10.ds,identical,6000,6000,0,0,,,,16288,16288,-15.6,0,0,,1,noise band 1
+0200,features/noiseband_f15000_df100.ds,identical,6000,6000,0,0,,,,16341,16341,-15.6,0,0,,1,noise band 1
+0201,features/noiseband_f15000_df25.ds,identical,6000,6000,0,0,,,,16306,16306,-15.6,0,0,,1,noise band 1
+0202,features/noiseband_f15000_df50.ds,identical,6000,6000,0,0,,,,16346,16346,-15.5,0,0,,1,noise band 1
+0203,features/noiseband_f15000_df75.ds,identical,6000,6000,0,0,,,,16371,16371,-15.6,0,0,,1,noise band 1
+0204,features/noiseband_f200_df0.ds,identical,6000,6000,0,0,,,,16049,16049,-15.6,0,0,,1,noise band 1
+0205,features/noiseband_f200_df10.ds,identical,6000,6000,0,0,,,,16019,16019,-15.6,0,0,,1,noise band 1
+0206,features/noiseband_f200_df100.ds,identical,6000,6000,0,0,,,,16217,16217,-15.6,0,0,,1,noise band 1
+0207,features/noiseband_f200_df25.ds,identical,6000,6000,0,0,,,,15937,15937,-16.2,0,0,,1,noise band 1
+0208,features/noiseband_f200_df50.ds,identical,6000,6000,0,0,,,,16348,16348,-15.3,0,0,,1,noise band 1
+0209,features/noiseband_f200_df75.ds,identical,6000,6000,0,0,,,,16362,16362,-15.4,0,0,,1,noise band 1
+0210,features/noiseband_f5000_df0.ds,identical,6000,6000,0,0,,,,16290,16290,-15.6,0,0,,1,noise band 1
+0211,features/noiseband_f5000_df10.ds,identical,6000,6000,0,0,,,,16264,16264,-15.6,0,0,,1,noise band 1
+0212,features/noiseband_f5000_df100.ds,identical,6000,6000,0,0,,,,16353,16353,-15.5,0,0,,1,noise band 1
+0213,features/noiseband_f5000_df25.ds,identical,6000,6000,0,0,,,,16266,16266,-15.6,0,0,,1,noise band 1
+0214,features/noiseband_f5000_df50.ds,identical,6000,6000,0,0,,,,16326,16326,-15.6,0,0,,1,noise band 1
+0215,features/noiseband_f5000_df75.ds,identical,6000,6000,0,0,,,,16324,16324,-15.6,0,0,,1,noise band 1
+0216,features/noiseband_f50_df0.ds,identical,6000,6000,0,0,,,,15044,15044,-15.8,0,0,,1,noise band 1
+0217,features/noiseband_f50_df10.ds,identical,6000,6000,0,0,,,,15074,15074,-15.8,0,0,,1,noise band 1
+0218,features/noiseband_f50_df100.ds,identical,6000,6000,0,0,,,,16270,16270,-15.4,0,0,,1,noise band 1
+0219,features/noiseband_f50_df25.ds,identical,6000,6000,0,0,,,,16094,16094,-14.9,0,0,,1,noise band 1
+0220,features/noiseband_f50_df50.ds,identical,6000,6000,0,0,,,,16356,16356,-15.5,0,0,,1,noise band 1
+0221,features/noiseband_f50_df75.ds,identical,6000,6000,0,0,,,,16372,16372,-15.7,0,0,,1,noise band 1
+0222,features/ot_m0_f100_150.ds,identical,9600,9600,0,0,,,,16381,16381,-18.2,0,0,,1,overtones Add
+0223,features/ot_m0_f1234.5_5678.9.ds,identical,9600,9600,0,0,,,,15926,15926,-18.2,0,0,,1,overtones Add
+0224,features/ot_m0_f50_13000.ds,identical,9600,9600,0,0,,,,16265,16265,-18.2,0,0,,1,overtones Add
+0225,features/ot_m0_f8000_9000.ds,identical,9600,9600,0,0,,,,16161,16161,-18.2,0,0,,1,overtones Add
+0226,features/ot_m0_filter.ds,identical,9600,9600,0,0,,,,16326,16326,-18.5,0,0,,1,overtones Add; filter (overtones only)
+0227,features/ot_m0_p0.ds,identical,9600,9600,0,0,,,,16365,16365,-14.6,0,0,,1,overtones Add
+0228,features/ot_m0_p100.ds,identical,9600,9600,0,0,,,,16351,16351,-15.8,0,0,,1,overtones Add
+0229,features/ot_m0_p25.ds,identical,9600,9600,0,0,,,,16362,16362,-16.7,0,0,,1,overtones Add
+0230,features/ot_m0_p75.ds,identical,9600,9600,0,0,,,,16355,16355,-17.7,0,0,,1,overtones Add
+0231,features/ot_m0_track01.ds,identical,18000,18000,0,0,,,,30434,30434,-15.7,0,0,,1,tone; overtones Add; overtone tracking
+0232,features/ot_m0_track10.ds,identical,18000,18000,0,0,,,,28500,28500,-15.7,0,0,,1,tone; overtones Add; overtone tracking
+0233,features/ot_m0_track11.ds,identical,18000,18000,0,0,,,,30063,30063,-15.8,0,0,,1,tone; overtones Add; overtone tracking
+0234,features/ot_m0_w00.ds,identical,9600,9600,0,0,,,,16358,16358,-18.2,0,0,,1,overtones Add
+0235,features/ot_m0_w01.ds,identical,9600,9600,0,0,,,,15783,15783,-18.2,0,0,,1,overtones Add
+0236,features/ot_m0_w02.ds,identical,9600,9600,0,0,,,,15558,15558,-18.7,0,0,,1,overtones Add
+0237,features/ot_m0_w03.ds,identical,9600,9600,0,0,,,,15326,15326,-18.9,0,0,,1,overtones Add
+0238,features/ot_m0_w04.ds,identical,9600,9600,0,0,,,,16374,16374,-16.6,0,0,,1,overtones Add
+0239,features/ot_m0_w10.ds,identical,9600,9600,0,0,,,,15665,15665,-18.5,0,0,,1,overtones Add
+0240,features/ot_m0_w11.ds,identical,9600,9600,0,0,,,,16118,16118,-17.9,0,0,,1,overtones Add
+0241,features/ot_m0_w12.ds,identical,9600,9600,0,0,,,,15990,15990,-19.1,0,0,,1,overtones Add
+0242,features/ot_m0_w13.ds,identical,9600,9600,0,0,,,,15625,15625,-19.1,0,0,,1,overtones Add
+0243,features/ot_m0_w14.ds,identical,9600,9600,0,0,,,,16008,16008,-16.8,0,0,,1,overtones Add
+0244,features/ot_m0_w20.ds,identical,9600,9600,0,0,,,,15590,15590,-19.2,0,0,,1,overtones Add
+0245,features/ot_m0_w21.ds,identical,9600,9600,0,0,,,,15705,15705,-19.3,0,0,,1,overtones Add
+0246,features/ot_m0_w22.ds,identical,9600,9600,0,0,,,,14252,14252,-19.9,0,0,,1,overtones Add
+0247,features/ot_m0_w23.ds,identical,9600,9600,0,0,,,,14641,14641,-19.9,0,0,,1,overtones Add
+0248,features/ot_m0_w24.ds,identical,9600,9600,0,0,,,,15794,15794,-17.4,0,0,,1,overtones Add
+0249,features/ot_m0_w30.ds,identical,9600,9600,0,0,,,,16119,16119,-19.1,0,0,,1,overtones Add
+0250,features/ot_m0_w31.ds,identical,9600,9600,0,0,,,,15294,15294,-19.4,0,0,,1,overtones Add
+0251,features/ot_m0_w32.ds,identical,9600,9600,0,0,,,,14755,14755,-20.0,0,0,,1,overtones Add
+0252,features/ot_m0_w33.ds,identical,9600,9600,0,0,,,,14472,14472,-20.1,0,0,,1,overtones Add
+0253,features/ot_m0_w34.ds,identical,9600,9600,0,0,,,,16119,16119,-17.2,0,0,,1,overtones Add
+0254,features/ot_m0_w40.ds,identical,9600,9600,0,0,,,,16367,16367,-16.2,0,0,,1,overtones Add
+0255,features/ot_m0_w41.ds,identical,9600,9600,0,0,,,,16326,16326,-16.2,0,0,,1,overtones Add
+0256,features/ot_m0_w42.ds,identical,9600,9600,0,0,,,,16308,16308,-16.5,0,0,,1,overtones Add
+0257,features/ot_m0_w43.ds,identical,9600,9600,0,0,,,,16070,16070,-16.6,0,0,,1,overtones Add
+0258,features/ot_m0_w44.ds,identical,9600,9600,0,0,,,,16384,16384,-15.2,0,0,,1,overtones Add
+0259,features/ot_m1_f100_150.ds,identical,9600,9600,0,0,,,,15933,15933,-14.8,0,0,,1,overtones FM
+0260,features/ot_m1_f1234.5_5678.9.ds,identical,9600,9600,0,0,,,,16283,16283,-14.6,0,0,,1,overtones FM
+0261,features/ot_m1_f50_13000.ds,identical,9600,9600,0,0,,,,16280,16280,-14.6,0,0,,1,overtones FM
+0262,features/ot_m1_f8000_9000.ds,identical,9600,9600,0,0,,,,16363,16363,-14.6,0,0,,1,overtones FM
+0263,features/ot_m1_filter.ds,identical,9600,9600,0,0,,,,16217,16217,-15.0,0,0,,1,overtones FM; filter (overtones only)
+0264,features/ot_m1_p0.ds,identical,9600,9600,0,0,,,,16365,16365,-14.6,0,0,,1,overtones FM
+0265,features/ot_m1_p100.ds,identical,9600,9600,0,0,,,,16260,16260,-14.6,0,0,,1,overtones FM
+0266,features/ot_m1_p25.ds,identical,9600,9600,0,0,,,,16246,16246,-14.6,0,0,,1,overtones FM
+0267,features/ot_m1_p75.ds,identical,9600,9600,0,0,,,,16358,16358,-14.6,0,0,,1,overtones FM
+0268,features/ot_m1_track01.ds,identical,18000,18000,0,0,,,,31924,31924,-14.2,0,0,,1,tone; overtones FM; overtone tracking
+0269,features/ot_m1_track10.ds,identical,18000,18000,0,0,,,,29957,29957,-14.2,0,0,,1,tone; overtones FM; overtone tracking
+0270,features/ot_m1_track11.ds,identical,18000,18000,0,0,,,,31355,31355,-14.3,0,0,,1,tone; overtones FM; overtone tracking
+0271,features/ot_m1_w00.ds,identical,9600,9600,0,0,,,,16219,16219,-14.6,0,0,,1,overtones FM
+0272,features/ot_m1_w01.ds,identical,9600,9600,0,0,,,,16208,16208,-14.6,0,0,,1,overtones FM
+0273,features/ot_m1_w02.ds,identical,9600,9600,0,0,,,,16322,16322,-14.6,0,0,,1,overtones FM
+0274,features/ot_m1_w03.ds,identical,9600,9600,0,0,,,,16363,16363,-14.6,0,0,,1,overtones FM
+0275,features/ot_m1_w04.ds,identical,9600,9600,0,0,,,,16153,16153,-14.6,0,0,,1,overtones FM
+0276,features/ot_m1_w10.ds,identical,9600,9600,0,0,,,,16275,16275,-15.0,0,0,,1,overtones FM
+0277,features/ot_m1_w11.ds,identical,9600,9600,0,0,,,,16352,16352,-15.0,0,0,,1,overtones FM
+0278,features/ot_m1_w12.ds,identical,9600,9600,0,0,,,,16348,16348,-15.1,0,0,,1,overtones FM
+0279,features/ot_m1_w13.ds,identical,9600,9600,0,0,,,,16322,16322,-15.0,0,0,,1,overtones FM
+0280,features/ot_m1_w14.ds,identical,9600,9600,0,0,,,,16361,16361,-15.0,0,0,,1,overtones FM
+0281,features/ot_m1_w20.ds,identical,9600,9600,0,0,,,,16210,16210,-16.4,0,0,,1,overtones FM
+0282,features/ot_m1_w21.ds,identical,9600,9600,0,0,,,,16057,16057,-16.5,0,0,,1,overtones FM
+0283,features/ot_m1_w22.ds,identical,9600,9600,0,0,,,,16264,16264,-16.6,0,0,,1,overtones FM
+0284,features/ot_m1_w23.ds,identical,9600,9600,0,0,,,,16273,16273,-16.4,0,0,,1,overtones FM
+0285,features/ot_m1_w24.ds,identical,9600,9600,0,0,,,,16273,16273,-16.3,0,0,,1,overtones FM
+0286,features/ot_m1_w30.ds,identical,9600,9600,0,0,,,,15981,15981,-16.4,0,0,,1,overtones FM
+0287,features/ot_m1_w31.ds,identical,9600,9600,0,0,,,,16123,16123,-16.5,0,0,,1,overtones FM
+0288,features/ot_m1_w32.ds,identical,9600,9600,0,0,,,,16080,16080,-16.5,0,0,,1,overtones FM
+0289,features/ot_m1_w33.ds,identical,9600,9600,0,0,,,,16027,16027,-16.4,0,0,,1,overtones FM
+0290,features/ot_m1_w34.ds,identical,9600,9600,0,0,,,,16167,16167,-16.4,0,0,,1,overtones FM
+0291,features/ot_m1_w40.ds,identical,9600,9600,0,0,,,,16384,16384,-11.6,0,0,,1,overtones FM
+0292,features/ot_m1_w41.ds,identical,9600,9600,0,0,,,,16384,16384,-11.6,0,0,,1,overtones FM
+0293,features/ot_m1_w42.ds,identical,9600,9600,0,0,,,,16384,16384,-11.6,0,0,,1,overtones FM
+0294,features/ot_m1_w43.ds,identical,9600,9600,0,0,,,,16384,16384,-11.6,0,0,,1,overtones FM
+0295,features/ot_m1_w44.ds,identical,9600,9600,0,0,,,,16384,16384,-11.6,0,0,,1,overtones FM
+0296,features/ot_m2_f100_150.ds,identical,9600,9600,0,0,,,,16381,16381,-15.7,0,0,,1,overtones RM
+0297,features/ot_m2_f1234.5_5678.9.ds,identical,9600,9600,0,0,,,,16129,16129,-15.7,0,0,,1,overtones RM
+0298,features/ot_m2_f50_13000.ds,identical,9600,9600,0,0,,,,16220,16220,-15.7,0,0,,1,overtones RM
+0299,features/ot_m2_f8000_9000.ds,identical,9600,9600,0,0,,,,16159,16159,-15.7,0,0,,1,overtones RM
+0300,features/ot_m2_filter.ds,identical,9600,9600,0,0,,,,16329,16329,-16.0,0,0,,1,overtones RM; filter (overtones only)
+0301,features/ot_m2_p0.ds,identical,9600,9600,0,0,,,,16365,16365,-14.6,0,0,,1,overtones RM
+0302,features/ot_m2_p100.ds,identical,9600,9600,0,0,,,,16333,16333,-20.5,0,0,,1,overtones RM
+0303,features/ot_m2_p25.ds,identical,9600,9600,0,0,,,,16365,16365,-14.7,0,0,,1,overtones RM
+0304,features/ot_m2_p75.ds,identical,9600,9600,0,0,,,,16352,16352,-18.8,0,0,,1,overtones RM
+0305,features/ot_m2_track01.ds,identical,18000,18000,0,0,,,,29944,29944,-14.8,0,0,,1,tone; overtones RM; overtone tracking
+0306,features/ot_m2_track10.ds,identical,18000,18000,0,0,,,,28727,28727,-14.9,0,0,,1,tone; overtones RM; overtone tracking
+0307,features/ot_m2_track11.ds,identical,18000,18000,0,0,,,,27669,27669,-14.9,0,0,,1,tone; overtones RM; overtone tracking
+0308,features/ot_m2_w00.ds,identical,9600,9600,0,0,,,,16361,16361,-15.7,0,0,,1,overtones RM
+0309,features/ot_m2_w01.ds,identical,9600,9600,0,0,,,,15947,15947,-15.5,0,0,,1,overtones RM
+0310,features/ot_m2_w02.ds,identical,9600,9600,0,0,,,,15504,15504,-15.7,0,0,,1,overtones RM
+0311,features/ot_m2_w03.ds,identical,9600,9600,0,0,,,,15912,15912,-15.7,0,0,,1,overtones RM
+0312,features/ot_m2_w04.ds,identical,9600,9600,0,0,,,,16365,16365,-15.7,0,0,,1,overtones RM
+0313,features/ot_m2_w10.ds,identical,9600,9600,0,0,,,,15975,15975,-16.1,0,0,,1,overtones RM
+0314,features/ot_m2_w11.ds,identical,9600,9600,0,0,,,,16196,16196,-15.9,0,0,,1,overtones RM
+0315,features/ot_m2_w12.ds,identical,9600,9600,0,0,,,,15825,15825,-16.1,0,0,,1,overtones RM
+0316,features/ot_m2_w13.ds,identical,9600,9600,0,0,,,,15701,15701,-16.1,0,0,,1,overtones RM
+0317,features/ot_m2_w14.ds,identical,9600,9600,0,0,,,,15975,15975,-16.1,0,0,,1,overtones RM
+0318,features/ot_m2_w20.ds,identical,9600,9600,0,0,,,,16037,16037,-17.5,0,0,,1,overtones RM
+0319,features/ot_m2_w21.ds,identical,9600,9600,0,0,,,,15984,15984,-17.3,0,0,,1,overtones RM
+0320,features/ot_m2_w22.ds,identical,9600,9600,0,0,,,,15472,15472,-17.5,0,0,,1,overtones RM
+0321,features/ot_m2_w23.ds,identical,9600,9600,0,0,,,,15640,15640,-17.5,0,0,,1,overtones RM
+0322,features/ot_m2_w24.ds,identical,9600,9600,0,0,,,,16038,16038,-17.5,0,0,,1,overtones RM
+0323,features/ot_m2_w30.ds,identical,9600,9600,0,0,,,,16092,16092,-17.5,0,0,,1,overtones RM
+0324,features/ot_m2_w31.ds,identical,9600,9600,0,0,,,,15663,15663,-17.3,0,0,,1,overtones RM
+0325,features/ot_m2_w32.ds,identical,9600,9600,0,0,,,,15151,15151,-17.5,0,0,,1,overtones RM
+0326,features/ot_m2_w33.ds,identical,9600,9600,0,0,,,,15111,15111,-17.5,0,0,,1,overtones RM
+0327,features/ot_m2_w34.ds,identical,9600,9600,0,0,,,,16092,16092,-17.5,0,0,,1,overtones RM
+0328,features/ot_m2_w40.ds,identical,9600,9600,0,0,,,,16379,16379,-12.7,0,0,,1,overtones RM
+0329,features/ot_m2_w41.ds,identical,9600,9600,0,0,,,,16326,16326,-12.5,0,0,,1,overtones RM
+0330,features/ot_m2_w42.ds,identical,9600,9600,0,0,,,,16322,16322,-12.7,0,0,,1,overtones RM
+0331,features/ot_m2_w43.ds,identical,9600,9600,0,0,,,,16200,16200,-12.7,0,0,,1,overtones RM
+0332,features/ot_m2_w44.ds,identical,9600,9600,0,0,,,,16384,16384,-12.7,0,0,,1,overtones RM
+0333,features/ot_m3_f100_150.ds,identical,9600,9600,0,0,,,,32700,32700,-21.1,7,7,,1,overtones 808 Cymbal
+0334,features/ot_m3_f1234.5_5678.9.ds,identical,9600,9600,0,0,,,,32700,32700,-10.0,258,258,,1,overtones 808 Cymbal
+0335,features/ot_m3_f50_13000.ds,identical,9600,9600,0,0,,,,32700,32700,-10.5,426,426,,1,overtones 808 Cymbal
+0336,features/ot_m3_f8000_9000.ds,identical,9600,9600,0,0,,,,32700,32700,-10.1,285,285,,1,overtones 808 Cymbal
+0337,features/ot_m3_filter.ds,identical,9600,9600,0,0,,,,32700,32700,-24.4,2,2,,1,overtones 808 Cymbal; filter (overtones only)
+0338,features/ot_m3_p0.ds,identical,9600,9600,0,0,,,,9844,9844,-28.6,0,0,,1,overtones 808 Cymbal
+0339,features/ot_m3_p100.ds,identical,9600,9600,0,0,,,,32700,32700,-11.7,139,139,,1,overtones 808 Cymbal
+0340,features/ot_m3_p25.ds,identical,9600,9600,0,0,,,,21292,21292,-21.8,0,0,,1,overtones 808 Cymbal
+0341,features/ot_m3_p75.ds,identical,9600,9600,0,0,,,,32700,32700,-13.2,84,84,,1,overtones 808 Cymbal
+0342,features/ot_m3_track01.ds,identical,18000,18000,0,0,,,,32700,32700,-12.8,304,304,,1,tone; overtones 808 Cymbal; overtone tracking
+0343,features/ot_m3_track10.ds,identical,18000,18000,0,0,,,,32700,32700,-11.5,554,554,,1,tone; overtones 808 Cymbal; overtone tracking
+0344,features/ot_m3_track11.ds,identical,18000,18000,0,0,,,,32700,32700,-14.0,144,144,,1,tone; overtones 808 Cymbal; overtone tracking
+0345,features/ot_m3_w00.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0346,features/ot_m3_w01.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0347,features/ot_m3_w02.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0348,features/ot_m3_w03.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0349,features/ot_m3_w04.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0350,features/ot_m3_w10.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0351,features/ot_m3_w11.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0352,features/ot_m3_w12.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0353,features/ot_m3_w13.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0354,features/ot_m3_w14.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0355,features/ot_m3_w20.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0356,features/ot_m3_w21.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0357,features/ot_m3_w22.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0358,features/ot_m3_w23.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0359,features/ot_m3_w24.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0360,features/ot_m3_w30.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0361,features/ot_m3_w31.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0362,features/ot_m3_w32.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0363,features/ot_m3_w33.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0364,features/ot_m3_w34.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0365,features/ot_m3_w40.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0366,features/ot_m3_w41.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0367,features/ot_m3_w42.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0368,features/ot_m3_w43.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0369,features/ot_m3_w44.ds,identical,9600,9600,0,0,,,,32700,32700,-16.9,21,21,,1,overtones 808 Cymbal
+0370,features/tone_droop0_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0371,features/tone_droop0_1.ds,identical,2400,2400,0,0,,,,16377,16377,-21.6,0,0,,1,tone
+0372,features/tone_droop0_2.ds,identical,32400,32400,0,0,,,,16351,16351,-17.5,0,0,,1,tone
+0373,features/tone_droop100_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0374,features/tone_droop100_1.ds,identical,2400,2400,0,0,,,,16377,16377,-20.9,0,0,,1,tone; tone droop
+0375,features/tone_droop100_2.ds,identical,32400,32400,0,0,,,,15391,15391,-17.5,0,0,,1,tone; tone droop
+0376,features/tone_droop10_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0377,features/tone_droop10_1.ds,identical,2400,2400,0,0,,,,16377,16377,-21.6,0,0,,1,tone; tone droop
+0378,features/tone_droop10_2.ds,identical,32400,32400,0,0,,,,16350,16350,-17.5,0,0,,1,tone; tone droop
+0379,features/tone_droop20_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0380,features/tone_droop20_1.ds,identical,2400,2400,0,0,,,,16377,16377,-21.4,0,0,,1,tone; tone droop
+0381,features/tone_droop20_2.ds,identical,32400,32400,0,0,,,,16349,16349,-17.5,0,0,,1,tone; tone droop
+0382,features/tone_droop30_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0383,features/tone_droop30_1.ds,identical,2400,2400,0,0,,,,16377,16377,-22.5,0,0,,1,tone; tone droop
+0384,features/tone_droop30_2.ds,identical,32400,32400,0,0,,,,16347,16347,-17.5,0,0,,1,tone; tone droop
+0385,features/tone_droop40_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0386,features/tone_droop40_1.ds,identical,2400,2400,0,0,,,,16377,16377,-22.6,0,0,,1,tone; tone droop
+0387,features/tone_droop40_2.ds,identical,32400,32400,0,0,,,,16342,16342,-17.5,0,0,,1,tone; tone droop
+0388,features/tone_droop50_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0389,features/tone_droop50_1.ds,identical,2400,2400,0,0,,,,16377,16377,-21.7,0,0,,1,tone; tone droop
+0390,features/tone_droop50_2.ds,identical,32400,32400,0,0,,,,16329,16329,-17.5,0,0,,1,tone; tone droop
+0391,features/tone_droop60_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0392,features/tone_droop60_1.ds,identical,2400,2400,0,0,,,,16377,16377,-21.2,0,0,,1,tone; tone droop
+0393,features/tone_droop60_2.ds,identical,32400,32400,0,0,,,,16301,16301,-17.5,0,0,,1,tone; tone droop
+0394,features/tone_droop70_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0395,features/tone_droop70_1.ds,identical,2400,2400,0,0,,,,16377,16377,-21.0,0,0,,1,tone; tone droop
+0396,features/tone_droop70_2.ds,identical,32400,32400,0,0,,,,16221,16221,-17.5,0,0,,1,tone; tone droop
+0397,features/tone_droop80_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0398,features/tone_droop80_1.ds,identical,2400,2400,0,0,,,,16377,16377,-20.9,0,0,,1,tone; tone droop
+0399,features/tone_droop80_2.ds,identical,32400,32400,0,0,,,,15959,15959,-17.5,0,0,,1,tone; tone droop
+0400,features/tone_droop90_0.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tone droop
+0401,features/tone_droop90_1.ds,identical,2400,2400,0,0,,,,16377,16377,-20.9,0,0,,1,tone; tone droop
+0402,features/tone_droop90_2.ds,identical,32400,32400,0,0,,,,15584,15584,-17.5,0,0,,1,tone; tone droop
+0403,features/tone_env3.ds,identical,90000,90000,0,0,,,,16384,16384,-10.9,0,0,,1,tone
+0404,features/tone_env4.ds,identical,8400,8400,0,0,,,,15860,15860,-15.4,0,0,,1,tone
+0405,features/tone_f1000_1000.ds,identical,18000,18000,0,0,,,,16337,16337,-17.2,0,0,,1,tone
+0406,features/tone_f1000_120.ds,identical,18000,18000,0,0,,,,16337,16337,-17.2,0,0,,1,tone
+0407,features/tone_f1000_20.ds,identical,18000,18000,0,0,,,,16337,16337,-17.2,0,0,,1,tone
+0408,features/tone_f100_1000.ds,identical,18000,18000,0,0,,,,16382,16382,-17.2,0,0,,1,tone
+0409,features/tone_f100_120.ds,identical,18000,18000,0,0,,,,16382,16382,-17.2,0,0,,1,tone
+0410,features/tone_f100_20.ds,identical,18000,18000,0,0,,,,16382,16382,-17.2,0,0,,1,tone
+0411,features/tone_f15000_1000.ds,identical,18000,18000,0,0,,,,16329,16329,-17.2,0,0,,1,tone
+0412,features/tone_f15000_120.ds,identical,18000,18000,0,0,,,,16328,16328,-17.2,0,0,,1,tone
+0413,features/tone_f15000_20.ds,identical,18000,18000,0,0,,,,16328,16328,-17.2,0,0,,1,tone
+0414,features/tone_f200_1000.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0415,features/tone_f200_120.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0416,features/tone_f200_20.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0417,features/tone_f20_1000.ds,identical,18000,18000,0,0,,,,16383,16383,-17.1,0,0,,1,tone
+0418,features/tone_f20_120.ds,identical,18000,18000,0,0,,,,16383,16383,-17.2,0,0,,1,tone
+0419,features/tone_f20_20.ds,identical,18000,18000,0,0,,,,16383,16383,-17.2,0,0,,1,tone
+0420,features/tone_f440_1000.ds,identical,18000,18000,0,0,,,,16351,16351,-17.2,0,0,,1,tone
+0421,features/tone_f440_120.ds,identical,18000,18000,0,0,,,,16351,16351,-17.2,0,0,,1,tone
+0422,features/tone_f440_20.ds,identical,18000,18000,0,0,,,,16351,16351,-17.2,0,0,,1,tone
+0423,features/tone_f5000_1000.ds,identical,18000,18000,0,0,,,,16322,16322,-17.2,0,0,,1,tone
+0424,features/tone_f5000_120.ds,identical,18000,18000,0,0,,,,16321,16321,-17.2,0,0,,1,tone
+0425,features/tone_f5000_20.ds,identical,18000,18000,0,0,,,,16320,16320,-17.2,0,0,,1,tone
+0426,features/tone_f50_1000.ds,identical,18000,18000,0,0,,,,16383,16383,-17.2,0,0,,1,tone
+0427,features/tone_f50_120.ds,identical,18000,18000,0,0,,,,16383,16383,-17.2,0,0,,1,tone
+0428,features/tone_f50_20.ds,identical,18000,18000,0,0,,,,16383,16383,-17.2,0,0,,1,tone
+0429,features/tone_level1.ds,identical,18000,18000,0,0,,,,0,0,,0,0,,1,tone
+0430,features/tone_level181.ds,identical,18000,18000,0,0,,,,32700,32700,-11.2,2,2,,1,tone
+0431,features/tone_level64.ds,identical,18000,18000,0,0,,,,4094,4094,-29.2,0,0,,1,tone
+0432,features/tone_master-20.ds,identical,18000,18000,0,0,,,,1637,1637,-37.2,0,0,,1,tone
+0433,features/tone_master-6.ds,identical,18000,18000,0,0,,,,8208,8208,-23.2,0,0,,1,tone
+0434,features/tone_master20.ds,identical,18000,18000,0,0,,,,32700,32700,-3.6,5437,5437,,1,tone
+0435,features/tone_master6.ds,identical,18000,18000,0,0,,,,32677,32677,-11.2,0,0,,1,tone
+0436,features/tone_phase-90.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0437,features/tone_phase0.ds,identical,18000,18000,0,0,,,,16265,16265,-17.2,0,0,,1,tone
+0438,features/tone_phase180.ds,identical,18000,18000,0,0,,,,16265,16265,-17.2,0,0,,1,tone
+0439,features/tone_phase270.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone
+0440,features/tone_phase360.ds,identical,18000,18000,0,0,,,,16265,16265,-17.2,0,0,,1,tone
+0441,features/tone_phase45.ds,identical,18000,18000,0,0,,,,16324,16324,-17.2,0,0,,1,tone
+0442,features/tone_stretch10.ds,identical,4800,4800,0,0,,,,16377,16377,-18.4,0,0,,1,tone; stretch
+0443,features/tone_stretch1000.ds,identical,162000,162000,0,0,,,,16377,16377,-16.7,0,0,,1,tone; stretch
+0444,features/tone_stretch20.ds,identical,4800,4800,0,0,,,,16377,16377,-18.4,0,0,,1,tone; stretch
+0445,features/tone_stretch200.ds,identical,33600,33600,0,0,,,,16377,16377,-16.9,0,0,,1,tone; stretch
+0446,features/tone_stretch2000.ds,identical,162000,162000,0,0,,,,16377,16377,-16.7,0,0,,1,tone; stretch
+0447,features/tone_stretch50.ds,identical,9600,9600,0,0,,,,16377,16377,-17.5,0,0,,1,tone; stretch
+0448,features/tone_stretch99.5.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; stretch
+0449,features/tone_tune-0.5.ds,identical,18000,18000,0,0,,,,16377,16377,-17.2,0,0,,1,tone; tuning
+0450,features/tone_tune-12.ds,identical,18000,18000,0,0,,,,16382,16382,-17.2,0,0,,1,tone; tuning
+0451,features/tone_tune-24.ds,identical,18000,18000,0,0,,,,16383,16383,-17.2,0,0,,1,tone; tuning
+0452,features/tone_tune12.ds,identical,18000,18000,0,0,,,,16357,16357,-17.2,0,0,,1,tone; tuning
+0453,features/tone_tune24.ds,identical,18000,18000,0,0,,,,16306,16306,-17.2,0,0,,1,tone; tuning
+0454,features/tone_tune36.ds,identical,18000,18000,0,0,,,,16336,16336,-17.2,0,0,,1,tone; tuning
+0455,features/tone_tune7.ds,identical,18000,18000,0,0,,,,16369,16369,-17.2,0,0,,1,tone; tuning

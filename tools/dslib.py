@@ -204,3 +204,17 @@ def read_wav(path_or_bytes):
     if data is None or bits != 16:
         raise ValueError("no 16-bit PCM data")
     return rate, channels, data, info
+
+
+def cpu_name():
+    """The processor's name, for render records: the x87 transcendental
+    instructions are not specified to the last bit, so results are tied to
+    the CPU they were made on (docs/rewrite-plan.md, Risks)."""
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE,
+                            r"HARDWARE\DESCRIPTION\System\CentralProcessor\0") as k:
+            return winreg.QueryValueEx(k, "ProcessorNameString")[0].strip()
+    except OSError:
+        import platform
+        return platform.processor() or "unknown"

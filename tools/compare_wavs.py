@@ -157,7 +157,10 @@ def main():
         except ValueError as e:
             only.append((m["key"], f"unreadable: {e}"))
             continue
-        rows.append({"id": pid, "key": m["key"], **r, "features": m["features"]})
+        with open(pa, "rb") as fa, open(pb, "rb") as fb:
+            same_bytes = fa.read() == fb.read()
+        rows.append({"id": pid, "key": m["key"], **r, "file bytes identical": int(same_bytes),
+                     "features": m["features"]})
 
     report = args.report or os.path.join(dslib.REPO, "docs", "reports", f"{args.a}-vs-{args.b}.md")
     csv_path = args.csv or os.path.splitext(report)[0] + ".csv"
@@ -187,6 +190,9 @@ def main():
     for t in TIERS:
         if tiers[t] or t in ("identical", "large"):
             L.append(f"| {t} | {tiers[t]} | {tiers[t] / total:.0%} |" if total else f"| {t} | 0 | – |")
+    L.append("")
+    nbytes = sum(r["file bytes identical"] for r in rows)
+    L.append(f"Whole files byte for byte identical (header, samples, INFO chunk): **{nbytes} of {total}**.")
     L.append("")
     L.append("Categories: **identical** means every sample is the same. **Within 1 step** means no sample differs by more than 1 of 32768, which is rounding. "
              f"**Small** means the difference is at least {-SMALL_DB:.0f} dB below the sound. **Large** is anything else. "

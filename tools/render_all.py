@@ -10,6 +10,11 @@ RENDERER is one of:
     src       original drumsynth.c compiled with today's MSVC (32-bit)
     new       modern engine src/DrumSynth.Core (64-bit)
     new-x86   modern engine src/DrumSynth.Core (32-bit)
+    c17       the C17 rewrite, engine/ (64-bit), reading presets with its own
+              parser
+    c17-libm  diagnostic: the C17 rewrite with today's C library math
+    c17-winapi the C17 rewrite reading presets with the Windows profile
+              functions, like the original
     original  no rendering: collects the WAVs the original program saved next
               to their presets
     custom    any renderer with the same command line, given with --exe
@@ -38,8 +43,12 @@ Options:
                       whether a render depends on the one before it)
     --raw-stack       do not zero the stack before each render; the original
                       engine reads an uninitialized variable (docs/findings.md)
+    --jobs N          render N presets at once (default: number of processors)
+    --timeout S       stop a render after S seconds and count it as failed
+                      (default 120): some inputs make the original loop forever
 """
 import argparse
+import concurrent.futures
 import csv
 import datetime
 import os
@@ -67,6 +76,13 @@ RENDERERS = {
             "modern engine src/DrumSynth.Core compiled with today's MSVC, 64-bit"),
     "new-x86": ([os.path.join(X86, "new_render.exe")],
                 "modern engine src/DrumSynth.Core compiled with today's MSVC, 32-bit"),
+    "c17": ([os.path.join(X64, "c17_render.exe")],
+            "C17 rewrite engine/ (64-bit), its own .ds parser"),
+    "c17-winapi": ([os.path.join(X64, "c17_render.exe"), "--dll", "winapi"],
+                   "C17 rewrite engine/ (64-bit), reading .ds files with the Windows profile functions"),
+    "c17-libm": ([os.path.join(X64, "c17_libm_render.exe")],
+                 "diagnostic: the C17 rewrite with today's C library for sin, cos, pow, exp, fmod and "
+                 "text-to-float instead of the original's x87 sequences and VC6 routines"),
     "original": (None, "WAVs saved by the original DrumSynth program next to their presets"),
     "custom": ([], "a renderer given with --exe, for experiments"),
 }
@@ -94,6 +110,12 @@ def main():
                          "state left by the previous one (default: one process per preset)")
     ap.add_argument("--raw-stack", action="store_true",
                     help="do not zero the stack before each render (see renderer_main.c)")
+    ap.add_argument("--timeout", type=float, default=120,
+                    help="seconds before a render is stopped and counted as failed (default 120); "
+                         "some inputs make the original DLL loop forever")
+    ap.add_argument("--jobs", type=int, default=os.cpu_count() or 1,
+                    help="presets rendered at the same time, each in its own process "
+                         "(default: the number of processors; ignored with --batch)")
     ap.add_argument("--exe", nargs="+", help="custom renderer: program and its options")
     ap.add_argument("--description", help="custom renderer: what it is, for the reports")
     args = ap.parse_args()
@@ -156,19 +178,41 @@ def main():
         else:
             # One process per preset: every render starts like the first
             # sound after the program starts, with all global tables zero.
+            # The processes are independent, so --jobs runs several at once.
+            # A render that takes longer than --timeout is stopped and counted
+            # as failed: some inputs make the original DLL loop forever
+            # (docs/findings.md, section 9).
+            def one(pid):
+                cmd = command + extra + [os.path.join(preset_dir, pid + ".ds"), os.path.join(target, pid + ".wav")]
+                try:
+                    return pid, subprocess.run(cmd, capture_output=True, text=True, timeout=args.timeout)
+                except subprocess.TimeoutExpired:
+                    timeouts.append(pid)
+                    return pid, subprocess.CompletedProcess(cmd, 1, f"timeout\t{pid}.ds\n", "")
+            timeouts = []
             outputs = []
-            for pid in order:
-                result = subprocess.run(command + extra + [os.path.join(preset_dir, pid + ".ds"),
-                                                           os.path.join(target, pid + ".wav")],
-                                        capture_output=True, text=True)
-                if result.returncode not in (0, 1):
-                    sys.stderr.write(result.stderr)
-                    sys.exit(f"renderer failed on {pid} (exit code {result.returncode})")
-                outputs.append(result.stdout)
+            notes = []
+            with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, args.jobs)) as pool:
+                for pid, result in pool.map(one, order):
+                    if result.returncode not in (0, 1):
+                        sys.stderr.write(result.stderr)
+                        sys.exit(f"renderer failed on {pid} (exit code {result.returncode})")
+                    outputs.append(result.stdout)
+                    notes += [ln for ln in result.stderr.splitlines() if ln.startswith("notes ")]
+            if notes or timeouts:
+                # the C17 engine's notes (DS_NOTE_*), and renders that never ended
+                with open(os.path.join(target, "notes.csv"), "w", newline="", encoding="utf-8") as f:
+                    w = csv.writer(f)
+                    w.writerow(["id", "note"])
+                    for ln in notes:
+                        flags, _, path = ln[6:].partition("\t")
+                        w.writerow([os.path.splitext(os.path.basename(path))[0], "flags " + flags])
+                    for pid in timeouts:
+                        w.writerow([pid, f"timeout after {args.timeout:g} s"])
         for out_text in outputs:
             for line in out_text.splitlines():
                 code, _, path = line.partition("\t")
-                codes[os.path.splitext(os.path.basename(path))[0]] = int(code)
+                codes[os.path.splitext(os.path.basename(path))[0]] = int(code) if code.lstrip("-").isdigit() else code
         by_id = dict(zip(ids, presets))
         for pid in ids:
             code = codes.get(pid)
@@ -182,7 +226,7 @@ def main():
         w.writerows(failures)
 
     seconds = (datetime.datetime.now() - started).total_seconds()
-    dirty = " (with uncommitted changes)" if git("status", "--porcelain", "--", "src", "drumsynth.c") else ""
+    dirty = " (with uncommitted changes)" if git("status", "--porcelain", "--", "src", "drumsynth.c", "engine") else ""
     with open(os.path.join(target, "info.txt"), "w", encoding="utf-8") as f:
         f.write(f"renderer: {args.renderer}\n")
         f.write(f"mode: {'batch (one process for all presets)' if args.batch else 'fresh (one process per preset)'}\n")
@@ -191,6 +235,7 @@ def main():
         f.write(f"description: {description}\n")
         f.write(f"commit: {git('rev-parse', '--short', 'HEAD')}{dirty}\n")
         f.write(f"date: {started:%Y-%m-%d %H:%M}\n")
+        f.write(f"cpu: {dslib.cpu_name()}\n")
         f.write(f"presets: {len(presets)} unique ({duplicates} duplicates skipped)\n")
         f.write(f"rendered: {rendered}\n")
         f.write(f"failed: {len(failures)}\n")
