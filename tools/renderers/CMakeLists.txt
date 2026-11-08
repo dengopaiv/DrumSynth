@@ -3,9 +3,12 @@
 #   cmake -S tools/renderers -B build/renderers-x86 -A Win32
 #   cmake --build build/renderers-x86 --config Release   -> ref_render, src_render, new_render
 #   cmake -S tools/renderers -B build/renderers-x64 -A x64
-#   cmake --build build/renderers-x64 --config Release   -> new_render
+#   cmake --build build/renderers-x64 --config Release   -> new_render, c17_render
 cmake_minimum_required(VERSION 3.20)
 project(DrumSynthRenderers LANGUAGES C)
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    enable_language(ASM_MASM)
+endif()
 
 set(REPO_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
@@ -28,3 +31,13 @@ add_executable(new_render renderer_main.c new_render.c
 target_include_directories(new_render PRIVATE ${REPO_ROOT}/src/DrumSynth.Core)
 # Link the engine statically; DS_EXPORTS only makes DS_API a dllexport.
 target_compile_definitions(new_render PRIVATE DS_EXPORTS)
+
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    # The C17 rewrite (engine/), 64-bit only.
+    add_subdirectory(${REPO_ROOT}/engine ${CMAKE_BINARY_DIR}/engine)
+    add_executable(c17_render renderer_main.c c17_render.c)
+    target_link_libraries(c17_render PRIVATE drumsynth_engine)
+    # Diagnostic: the same engine with the C library's math (DS_ABLATE_LIBM).
+    add_executable(c17_libm_render renderer_main.c c17_render.c)
+    target_link_libraries(c17_libm_render PRIVATE drumsynth_engine_libm)
+endif()
