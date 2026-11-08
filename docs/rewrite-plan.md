@@ -16,6 +16,7 @@ Its routines agree bit for bit with the DLL's own on about 1.9 million inputs ([
 
 | Phase | Result |
 |---|---|
+| 0. The plan | This document (commit `bd5f30d`): what "precise" means (identical to `ref`), the 14 things that must match, the method, the phases and the risks. |
 | 1. Read the machine code | [disasm/README.md](disasm/README.md), with annotated listings. Every floating-point operation of `ds2wav()` and its helpers is accounted for, and so are the runtime routines behind `fmod`, `pow`, `rand`, `_ftol` and `sscanf("%f")`. |
 | 2. Test material | `tools/probes/`: `probe32` calls the DLL's internal routines by address, `probe64` the engine's, `ini_probe` compares with Windows, `make_presets.py` generates single-feature and random presets. The CPU goes into `info.txt`, and `compare_wavs.py` compares whole files byte for byte. |
 | 3. Engine skeleton | `engine/`, the `c17_render` renderer and `c17` in `render_all.py`. The disassembly was complete before any code was written, so the first version was already a full transcription. It was identical on all 849 presets at once. The "plain C library" baseline was therefore made afterwards, as a diagnostic build: `c17-libm`, 684 identical. See findings, section 8. |

@@ -18,6 +18,9 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
 | 2026-11-08 | **Document everything.** Over-documenting is better than under-documenting. | The repository is the record of the research. |
 | 2026-11-08 | Work happens on the `refactor` branch. | |
 | 2026-11-08 | **The engine aims to be as exact as possible: identical to `ref`, sample for sample.** Not "higher precision than the original": the original's roundings are part of its sound. The method is in [rewrite-plan.md](rewrite-plan.md). | "The more precision we have, the better." |
+| 2026-11-08 | **Where the original hangs, the engine renders and flags** (`DS_NOTE_HANG`): it produces a sound and never freezes. | User's choice, from three options: render and flag, refuse with an error, or render silence. |
+| 2026-11-08 | **The GUI warns but allows** combinations that freeze the original, such as a one-point tone envelope with tracked triangle overtones. The editor allows what the original allowed, and announces a warning when the engine flags a note. | Faithful to the original's editor, and accessible: the warning is announced. |
+| 2026-11-08 | **Testing on other CPUs is postponed.** It stays an open item. | No other machine available now. |
 
 ## Done
 
@@ -31,14 +34,14 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
 
 - **The exact C17 engine** (`engine/`, 2026-11-08), following [rewrite-plan.md](rewrite-plan.md).
   - It is byte-identical to the original DLL on all 849 presets, 454 single-feature presets and 1995 random presets.
-  - On the other 5 random presets the DLL hangs. The engine renders them and flags them: findings, section 9. A one-point tone envelope with tracked triangle overtones freezes the original. The GUI checklist should note that the editor must not allow it, or the engine must warn.
+  - On the other 5 random presets the DLL hangs. The engine renders them and flags them: findings, section 9. A one-point tone envelope with tracked triangle overtones freezes the original. Decided: the engine renders and flags it, and the GUI warns but allows it.
   - Its routines agree bit for bit with the DLL's own on about 1.9 million inputs.
   - The checksums are frozen as its regression test (`tools/check_reference.py`).
   - The analysis of the machine code is in [disasm/README.md](disasm/README.md).
 
 ## Next
 
-1. **Check the engine on other processors** (an AMD one and a recent Intel one) with `tools/check_reference.py`. The x87 transcendental instructions may differ in their last bit between models (findings, section 9).
+1. **Check the engine on other processors** (an AMD one and a recent Intel one) with `tools/check_reference.py`. Postponed, 2026-11-08. The x87 transcendental instructions may differ in their last bit between models (findings, section 9).
 2. **A feature checklist of the original GUI** from `gui/DRUMSYN.FRM`:
    - controls and their ranges;
    - menus (Generate All WAVs, Delete All WAVs, New Kit, Set Location, envelope Copy, Paste and Reset);
