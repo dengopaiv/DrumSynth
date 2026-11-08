@@ -17,6 +17,7 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
 | 2026-11-08 | **The reference is the original DLL at the Windows default x87 precision, each preset rendered as the first sound after start, with the stack cleared.** | Findings sections 3–5: the original's output depends on precision, on the previous render and on uninitialized memory. This is the defined, reproducible version of its sound. |
 | 2026-11-08 | **Document everything.** Over-documenting is better than under-documenting. | The repository is the record of the research. |
 | 2026-11-08 | Work happens on the `refactor` branch. | |
+| 2026-11-08 | **The engine aims to be as exact as possible: identical to `ref`, sample for sample.** Not "higher precision than the original": the original's roundings are part of its sound. The method is in [rewrite-plan.md](rewrite-plan.md). | "The more precision we have, the better." |
 
 ## Done
 
@@ -30,21 +31,17 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
 
 ## Next
 
-1. **Disassemble the original DLL's synthesis loops** (`dumpbin /disasm bin/ds2wav.dll`). Record which values Visual C++ 6 kept in x87 registers and where it stored them to `float` memory. Write the results into findings.md.
-2. **Write the C17 engine** (`engine/` or a replacement for `src/DrumSynth.Core/`; to be decided).
-   - All state in a structure zeroed per render.
-   - `Ot` starts at 0.
-   - An explicit MSVC-compatible random generator.
-   - Safe `.ds` parsing.
-   - `double` where the DLL kept x87 register values.
-   - It gets its own renderer in `tools/renderers/` and an entry in `render_all.py`.
-3. **Iterate with the comparison** until every preset is identical or within 1 step of `ref`, or the remaining differences are explained in findings.md.
-4. **A feature checklist of the original GUI** from `gui/DRUMSYN.FRM`:
+1. **The exact C17 engine**, following [rewrite-plan.md](rewrite-plan.md) (decided 2026-11-08: as exact as possible, meaning identical output to `ref` sample for sample, not just close). In short:
+   - read the DLL's machine code to learn every rounding point;
+   - build test material (single-feature presets, random presets, tests that call the DLL's own internal functions);
+   - write the engine in `engine/`, with VC6's x87 math routines reproduced in 64-bit assembly;
+   - measure every step with the render comparison.
+2. **A feature checklist of the original GUI** from `gui/DRUMSYN.FRM`:
    - controls and their ranges;
    - menus (Generate All WAVs, Delete All WAVs, New Kit, Set Location, envelope Copy, Paste and Reset);
    - the envelope editor's 7 envelopes and 13 zoom ranges;
    - keyboard handling.
-5. **The wxWidgets GUI**, built against that checklist, starting with the accessible envelope editor.
+3. **The wxWidgets GUI**, built against that checklist, starting with the accessible envelope editor.
 
 ## The existing WPF port
 
