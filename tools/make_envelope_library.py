@@ -1,19 +1,25 @@
 """Build the DrumSynth envelope library from .ds preset collections.
 
 Usage:
-    python tools/make_envelope_library.py OUTPUT_DIR COLLECTION [COLLECTION ...]
+    python tools/make_envelope_library.py OUTPUT_DIR [COLLECTION ...]
 
-Reads every .ds file under the given collection folders (identical files that
-appear in several collections are counted once), finds every envelope, and
-keeps the shapes used at least MIN_USES times across all envelope types.
-Each kept shape is listed under every envelope type it was used in, in one
-INI-style file per type, using the same "time,level time,level" syntax as
-.ds files. Times are in samples at 44.1 kHz (before Stretch), levels in %.
+COLLECTION is a folder or .zip of .ds files. Default: the two collections in
+the repository, bin/library.zip and drumsynths/ (see tools/dslib.py).
+Identical presets that appear in several collections are counted once.
+
+Every envelope is read the way DrumSynth reads it (the first occurrence of a
+key in its section, like GetPrivateProfileString). The shapes used at least
+MIN_USES times across all envelope types are kept. Each kept shape is listed
+under every envelope type it was used in, in one INI-style file per type,
+using the same "time,level time,level" syntax as .ds files. Times are in
+samples at 44.1 kHz (before Stretch), levels in %.
 """
-import hashlib
 import os
 import sys
 from collections import Counter, defaultdict
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import dslib  # noqa: E402
 
 FS = 44100
 MIN_USES = 3
@@ -47,21 +53,14 @@ def parse_envelope(text):
     return tuple(points)
 
 
-def read_envelopes(path):
-    """Yield (envelope type, points) for each envelope in a .ds file."""
-    section = ""
-    with open(path, "r", encoding="latin-1") as f:
-        for line in f:
-            line = line.strip()
-            if line.startswith("[") and "]" in line:
-                section = line[1:line.index("]")].strip().lower()
-            elif "=" in line:
-                key, value = line.split("=", 1)
-                env_type = KEY_TO_TYPE.get((section, key.strip().lower()))
-                if env_type:
-                    points = parse_envelope(value)
-                    if points:
-                        yield env_type, points
+def read_envelopes(ini):
+    """Yield (envelope type, points) for each envelope in a parsed .ds file."""
+    for (section, key), env_type in KEY_TO_TYPE.items():
+        value = ini.get(section, {}).get(key)
+        if value is not None:
+            points = parse_envelope(value)
+            if points:
+                yield env_type, points
 
 
 def num(x):
@@ -101,38 +100,24 @@ def describe(points):
 
 
 def main():
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 2:
         print(__doc__)
         return 2
-    out_dir, roots = sys.argv[1], sys.argv[2:]
+    out_dir, roots = sys.argv[1], sys.argv[2:] or None
 
-    seen_hashes = set()
-    files = 0
-    duplicates = 0
+    presets, duplicates = dslib.load_presets(roots)
+    files = len(presets)
     total = Counter()                      # shape -> uses (all types)
     per_type = defaultdict(Counter)        # type -> shape -> uses
-    examples = defaultdict(list)           # (type, shape) -> preset paths
+    examples = defaultdict(list)           # (type, shape) -> preset keys
 
-    for root in roots:
-        for d, _, names in sorted(os.walk(root)):
-            for name in sorted(names):
-                if not name.lower().endswith(".ds"):
-                    continue
-                path = os.path.join(d, name)
-                with open(path, "rb") as f:
-                    digest = hashlib.md5(f.read().replace(b"\r", b"")).hexdigest()
-                if digest in seen_hashes:
-                    duplicates += 1
-                    continue
-                seen_hashes.add(digest)
-                files += 1
-                rel = os.path.relpath(path, root).replace(os.sep, "/")
-                for env_type, points in read_envelopes(path):
-                    total[points] += 1
-                    per_type[env_type][points] += 1
-                    ex = examples[(env_type, points)]
-                    if len(ex) < MAX_EXAMPLES:
-                        ex.append(rel)
+    for preset in presets:
+        for env_type, points in read_envelopes(preset.ini):
+            total[points] += 1
+            per_type[env_type][points] += 1
+            ex = examples[(env_type, points)]
+            if len(ex) < MAX_EXAMPLES:
+                ex.append(preset.key)
 
     kept = {shape for shape, n in total.items() if n >= MIN_USES}
     os.makedirs(out_dir, exist_ok=True)
