@@ -39,15 +39,19 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
   - The checksums are frozen as its regression test (`tools/check_reference.py`).
   - The analysis of the machine code is in [disasm/README.md](disasm/README.md).
 
+- **The GUI feature checklist** ([gui-checklist.md](gui-checklist.md), 2026-11-08): every control, range, menu, key, envelope-editor rule and file behaviour of the original GUI, with the accessible equivalent of each and its status.
+- **The accessible wxWidgets GUI** (`app/`, 2026-11-08), built on `engine/` against the checklist.
+  - Every item of the checklist is done, except two left out on purpose: grey frames for 16-colour screens, and Ctrl alone playing, which conflicts with screen readers.
+  - Envelopes are edited with a point list, fields and buttons, with the original's mouse graph beside them.
+  - Sliders announce their value text.
+  - MSAA reports a name for every focusable control (`app/tests/msaa_dump`).
+  - Loading and re-saving all 849 presets: 843 identical, and 6 change exactly as the original GUI changes them (`app/tests/preset_roundtrip`).
+  - Help: [gui-help.md](gui-help.md).
+
 ## Next
 
 1. **Check the engine on other processors** (an AMD one and a recent Intel one) with `tools/check_reference.py`. Postponed, 2026-11-08. The x87 transcendental instructions may differ in their last bit between models (findings, section 9).
-2. **A feature checklist of the original GUI** from `gui/DRUMSYN.FRM`:
-   - controls and their ranges;
-   - menus (Generate All WAVs, Delete All WAVs, New Kit, Set Location, envelope Copy, Paste and Reset);
-   - the envelope editor's 7 envelopes and 13 zoom ranges;
-   - keyboard handling.
-3. **The wxWidgets GUI**, built against that checklist and on `engine/`, starting with the accessible envelope editor. The original GUI writes the `.ds` file and calls `ds2wav`, showing the progress percentage in the window title; the engine's in-memory parser gives the same result without a file.
+2. **Try the GUI with screen readers** (NVDA, JAWS, Narrator) on real sound design work, and adjust wording, order and announcements from that use.
 
 ## The existing WPF port
 
