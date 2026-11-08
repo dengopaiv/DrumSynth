@@ -56,3 +56,18 @@ Makefile
 # Keep original bin folder but ignore built files
 !bin/library.zip
 !bin/drumsyn.hlp
+
+# Renders made by tools/render_all.py
+renders/
+
+# Python bytecode
+__pycache__/
+
+# Leftovers of the old DrumSynth install the drumsynths/ collection came from:
+# drumsyn.exe and ds2wav.dll are identical to bin/, drumsyn.hlp is the help file,
+# DrumSyn.ini holds local window and path settings, ds2wav.exe is a third-party
+# 2019 .NET tool of unknown origin. See the commit that added drumsynths/.
+drumsynths/drumsyn.exe
+drumsynths/ds2wav.exe
+drumsynths/drumsyn.hlp
+drumsynths/DrumSyn.ini
