@@ -4,6 +4,19 @@ A faithful, screen-reader-accessible recreation of **mda DrumSynth 2.0**, the dr
 
 The original source and binary are kept as the specification. The new engine (`engine/`, C17, 64-bit, Windows) renders every preset byte for byte identical to the original DLL, and the accessible wxWidgets GUI (`app/`) does everything the original program did. Every change to the engine is checked against the original's frozen checksums (`tools/check_reference.py`). See [docs/plan.md](docs/plan.md).
 
+## Download and use
+
+The current release is **DrumSynth 4.0.0, accessible edition**: `DrumSynth-4.0.0-win64.zip` on the GitHub releases page, for Windows 10 or 11, 64-bit.
+- Unzip it and start `DrumSynth.exe`; nothing is installed. It comes with 31 kits of sounds.
+- Usage and keys: [docs/gui-help.md](docs/gui-help.md).
+- What's new: [docs/release-notes.md](docs/release-notes.md).
+
+## Building
+
+- The engine: [engine/README.md](engine/README.md).
+- The program: [app/README.md](app/README.md), which needs Visual Studio, CMake and wxWidgets from vcpkg.
+- A full release, built, tested and zipped into `dist/`: `python tools/make_release.py`.
+
 ## What's here
 
 | Path | What it is |
@@ -19,13 +32,13 @@ The original source and binary are kept as the specification. The new engine (`e
 | `src/` | The earlier modern port: the engine in `src/DrumSynth.Core/` and a C#/WPF app in `src/DrumSynth.App/`. Kept for reference |
 | `tools/` | Render comparison and analysis tools ([tools/README.md](tools/README.md)) |
 | `docs/` | Plan, findings, how-tos, reports and the envelope library ([docs/README.md](docs/README.md)) |
-| `BUILD.md` | How to build the WPF port |
+| `BUILD.md` | How to build the WPF port (3.0) |
 
 ## Branches
 
-- `master`: the original DrumSynth 2.0 files.
-- `modern-wpf`: the WPF port.
-- `refactor`: current work. The tools, the docs, the preset collection and the rewrite.
+- `master`: the main branch: the original DrumSynth 2.0 files, the C17 engine, the accessible GUI, the tools and the docs. Releases are made from it.
+- `refactor`: where the 4.0 work was done; merged into `master`.
+- `modern-wpf`: the 3.0 WPF port, kept for reference.
 
 ## Licence
 

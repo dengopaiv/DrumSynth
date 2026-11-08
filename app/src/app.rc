@@ -1,3 +1,30 @@
-// Windows resources: wxWidgets standard resources, including the manifest
-// for common controls 6 and DPI awareness.
+// Windows resources: wxWidgets standard resources (including the manifest
+// for common controls 6 and DPI awareness) and the version information.
+// The version comes from app/CMakeLists.txt (project VERSION).
 #include "wx/msw/wx.rc"
+
+1 VERSIONINFO
+FILEVERSION DS_VERSION_MAJOR, DS_VERSION_MINOR, DS_VERSION_PATCH, 0
+PRODUCTVERSION DS_VERSION_MAJOR, DS_VERSION_MINOR, DS_VERSION_PATCH, 0
+FILEOS 0x40004
+FILETYPE 0x1
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "dengopaiv"
+            VALUE "FileDescription", "DrumSynth, accessible edition"
+            VALUE "FileVersion", DS_VERSION_STRING
+            VALUE "InternalName", "DrumSynth"
+            VALUE "LegalCopyright", "DrumSynth 2.0 (c) 2000 Paul Kellett; MIT or GPL v2 or later"
+            VALUE "OriginalFilename", "DrumSynth.exe"
+            VALUE "ProductName", "DrumSynth"
+            VALUE "ProductVersion", DS_VERSION_STRING
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END

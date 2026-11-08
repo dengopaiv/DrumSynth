@@ -6,7 +6,7 @@
 # Needs wxWidgets 3.3 (vcpkg: wxwidgets:x64-windows). vcpkg copies its DLLs
 # next to the program. See app/README.md.
 cmake_minimum_required(VERSION 3.20)
-project(DrumSynthApp LANGUAGES C CXX ASM_MASM)
+project(DrumSynthApp VERSION 4.0.0 LANGUAGES C CXX ASM_MASM)
 
 find_package(wxWidgets CONFIG REQUIRED)
 
@@ -22,7 +22,10 @@ add_executable(DrumSynth WIN32
     src/app.rc)
 set_property(TARGET DrumSynth PROPERTY CXX_STANDARD 17)
 set_property(TARGET DrumSynth PROPERTY CXX_STANDARD_REQUIRED ON)
-target_compile_definitions(DrumSynth PRIVATE _CRT_SECURE_NO_WARNINGS UNICODE _UNICODE)
+target_compile_definitions(DrumSynth PRIVATE _CRT_SECURE_NO_WARNINGS UNICODE _UNICODE
+    DS_VERSION_STRING="${PROJECT_VERSION}"
+    DS_VERSION_MAJOR=${PROJECT_VERSION_MAJOR} DS_VERSION_MINOR=${PROJECT_VERSION_MINOR}
+    DS_VERSION_PATCH=${PROJECT_VERSION_PATCH})
 target_compile_options(DrumSynth PRIVATE /W3 /utf-8)
 target_link_libraries(DrumSynth PRIVATE drumsynth_engine wx::core wx::base winmm uiautomationcore)
 

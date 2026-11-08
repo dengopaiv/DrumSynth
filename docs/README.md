@@ -9,6 +9,7 @@ Reference material for the faithful, screen-reader-accessible DrumSynth recreati
 | [disasm/](disasm/README.md) | The original DLL's machine code, annotated, and what it does that the source doesn't show: every rounding point, reordering, constant and runtime routine |
 | [reference/](reference/probes.md) | Reference data: the probe results (DLL routines vs the engine's, bit for bit), Windows' `.ds` reading rules ([ini-rules.md](reference/ini-rules.md)), and the checksums of all reference renders ([checksums.csv](reference/checksums.csv)) |
 | [gui-checklist.md](gui-checklist.md) | Every feature of the original GUI, with its accessible equivalent and status |
+| [release-notes.md](release-notes.md) | What each release brings |
 | [gui-help.md](gui-help.md) | The help of the new GUI (the original help text, with the keys) |
 | [findings.md](findings.md) | How the original engine really behaves, measured: the reference, x87 precision, the uninitialized `Ot`, state carried between renders, and what the C17 rewrite has to do |
 | [rendering.md](rendering.md) | How to build the renderers, render all presets and compare two engines |

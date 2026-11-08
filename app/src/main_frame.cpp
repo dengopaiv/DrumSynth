@@ -221,8 +221,10 @@ void MainFrame::MakeMenus()
     Bind(wxEVT_MENU, [this](wxCommandEvent&) { env_->Reset(); }, ID_ENV_RESET);
     Bind(wxEVT_MENU, [this](wxCommandEvent&) { ShowHelp(); }, ID_HELP);
     Bind(wxEVT_MENU, [this](wxCommandEvent&) {
-        wxMessageBox("DrumSynth 2.0, accessible edition.\n\nThe original DrumSynth 2.0 is Copyright (c) 2000 "
-                     "Paul Kellett (mda-vst.com). This program renders sounds exactly as the original does.",
+        wxMessageBox("DrumSynth " DS_VERSION_STRING ", accessible edition.\n\n"
+                     "A recreation of DrumSynth 2.0, Copyright (c) 2000 Paul Kellett (mda-vst.com). "
+                     "It renders sounds exactly as the original does.\n\n"
+                     "MIT licence or GPL version 2 or later. https://github.com/dengopaiv/DrumSynth",
                      "About DrumSynth", wxOK | wxICON_INFORMATION, this);
     }, wxID_ABOUT);
 }
@@ -640,6 +642,9 @@ void MainFrame::Warn(const wxString& msg)
 void MainFrame::LoadSettings()
 {
     dsPath_ = IniGet(iniPath_, L"Files", L"Path", ExeDir());
+    // a relative location is relative to the program's folder (the release
+    // ships "Path=Kits"), so the folder can be moved
+    if (fs::path(dsPath_).is_relative()) dsPath_ = (fs::path(ExeDir()) / dsPath_).lexically_normal().wstring();
     while (!dsPath_.empty() && dsPath_.back() == L'\\') dsPath_.pop_back();
     saveWav_ = (int)vb::Val(ToAnsi(IniGet(iniPath_, L"Files", L"SaveWAVs", L"1")));
     int x = (int)vb::Val(ToAnsi(IniGet(iniPath_, L"Window", L"X", L"-1")));
@@ -652,7 +657,12 @@ void MainFrame::SaveSettings()
     wxPoint pos = GetPosition();
     WritePrivateProfileStringW(L"Window", L"X", std::to_wstring(pos.x).c_str(), iniPath_.c_str());
     WritePrivateProfileStringW(L"Window", L"Y", std::to_wstring(pos.y).c_str(), iniPath_.c_str());
-    WritePrivateProfileStringW(L"Files", L"Path", dsPath_.c_str(), iniPath_.c_str());
+    // a location inside the program's folder is kept relative
+    std::wstring path = dsPath_;
+    std::error_code ec;
+    fs::path rel = fs::relative(dsPath_, ExeDir(), ec);
+    if (!ec && !rel.empty() && rel.native().rfind(L"..", 0) != 0) path = rel.wstring();
+    WritePrivateProfileStringW(L"Files", L"Path", path.c_str(), iniPath_.c_str());
     WritePrivateProfileStringW(L"Files", L"SaveWAVs", std::to_wstring(saveWav_).c_str(), iniPath_.c_str());
 }
 
