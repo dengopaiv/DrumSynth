@@ -2,7 +2,7 @@
 
 A faithful, screen-reader-accessible recreation of **mda DrumSynth 2.0**, the drum sound synthesizer by Paul Kellett (1998–2000). This repository is the upstream for it.
 
-The original source and binary are kept as the specification. A new engine (C17, 64-bit, Windows) and a wxWidgets GUI are being built against it. Every change to the engine is checked by rendering all 849 presets and comparing them sample by sample with the original DLL. See [docs/plan.md](docs/plan.md).
+The original source and binary are kept as the specification. The new engine (`engine/`, C17, 64-bit, Windows) renders every preset byte for byte identical to the original DLL; a wxWidgets GUI is next. Every change to the engine is checked against the original's frozen checksums (`tools/check_reference.py`). See [docs/plan.md](docs/plan.md).
 
 ## What's here
 
@@ -14,6 +14,7 @@ The original source and binary are kept as the specification. A new engine (C17,
 | `help/` | Original WinHelp source |
 | `bin/` | Original binaries: `drumsyn.exe`, `ds2wav.dll`, `drumsyn.hlp`, and `library.zip`, the preset library shipped with 2.0 (764 presets) |
 | `drumsynths/` | A later preset collection: 687 presets in 29 folders (86 of them exist nowhere else), and 6 WAVs saved by the original program |
+| `engine/` | **The C17 engine**, exact to the original ([engine/README.md](engine/README.md)) |
 | `src/` | The earlier modern port: the engine in `src/DrumSynth.Core/` and a C#/WPF app in `src/DrumSynth.App/`. Kept for reference |
 | `tools/` | Render comparison and analysis tools ([tools/README.md](tools/README.md)) |
 | `docs/` | Plan, findings, how-tos, reports and the envelope library ([docs/README.md](docs/README.md)) |

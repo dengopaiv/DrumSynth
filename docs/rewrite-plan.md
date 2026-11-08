@@ -2,6 +2,33 @@
 
 Plan for the C17 engine (64-bit, Windows), written 2026-11-08. The background is in [findings.md](findings.md). The general plan and decisions are in [plan.md](plan.md).
 
+## Status (2026-11-08): done
+
+All phases are complete. The C17 engine (`engine/`) renders these **byte for byte identical** to `ref`, whole WAV files included:
+
+| Test set | Renders | Report |
+|---|---|---|
+| unique presets | 849 | [reports/ref-vs-c17.md](reports/ref-vs-c17.md) |
+| single-feature presets | 454 | [reports/features-ref-vs-c17.md](reports/features-ref-vs-c17.md) |
+| random presets | 1995 (the DLL hangs on the other 5; the engine flags them) | [reports/fuzz-ref-vs-c17.md](reports/fuzz-ref-vs-c17.md) |
+
+Its routines agree bit for bit with the DLL's own on about 1.9 million inputs ([reference/probes.md](reference/probes.md)). The checksums are frozen in [reference/checksums.csv](reference/checksums.csv) and checked by `tools/check_reference.py`: 3304 renders, 0 differences, in about 30 seconds.
+
+| Phase | Result |
+|---|---|
+| 1. Read the machine code | [disasm/README.md](disasm/README.md), with annotated listings. Every floating-point operation of `ds2wav()` and its helpers is accounted for, and so are the runtime routines behind `fmod`, `pow`, `rand`, `_ftol` and `sscanf("%f")`. |
+| 2. Test material | `tools/probes/`: `probe32` calls the DLL's internal routines by address, `probe64` the engine's, `ini_probe` compares with Windows, `make_presets.py` generates single-feature and random presets. The CPU goes into `info.txt`, and `compare_wavs.py` compares whole files byte for byte. |
+| 3. Engine skeleton | `engine/`, the `c17_render` renderer and `c17` in `render_all.py`. The disassembly was complete before any code was written, so the first version was already a full transcription. It was identical on all 849 presets at once. The "plain C library" baseline was therefore made afterwards, as a diagnostic build: `c17-libm`, 684 identical. See findings, section 8. |
+| 4. Rounding points and constants | in `ds_engine.c`, each with its DLL address |
+| 5. x87 math routines | `x87/ds_x87.asm`: `fsin`, `fcos`, `_CIpow`'s core, the inlined `exp` |
+| 6. 80-bit chains | The `fsin`/`fcos` result times the next factor; the droop `exp` chains, whose values lie outside the `double` range. Everything else is 53-bit, which C `double` reproduces. |
+| 7. Parsing | VC6's text-to-float conversion, transcribed (`ds_vc6_fltin.c`, including a rounding quirk); `sscanf`'s return values; the Windows profile rules ([reference/ini-rules.md](reference/ini-rules.md)). The probes show 0 differences. |
+| 8. WAV bytes and `ds2mem` | Byte-identical files; `ds_factors` reproduces `ds2mem`'s factors. |
+| 9. Hardening | The feature and random presets, and the probes' edge inputs, include NaN, infinities, denormals, zero, negative and huge values. Where the original hangs, crashes or reads garbage, the engine does something defined and reports it in `ds_sound.notes` (findings, section 9). Speed is about the same as the DLL: 100 s of sound in 0.75 s. |
+| 10. Freeze | [reference/checksums.csv](reference/checksums.csv) and `tools/check_reference.py`. |
+
+The rest of this document is the plan as written before the work.
+
 ## What "precise" means here
 
 **Precise means: the same output as the original, sample for sample.** The target is **ref**, the original `bin/ds2wav.dll` rendered under the reference conditions (findings, "What the rewrite has to do"). Success means every preset renders **identical** to ref, not merely "close".

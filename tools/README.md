@@ -4,10 +4,13 @@ Scripts and programs for studying the original DrumSynth 2.0 and checking the re
 
 | Tool | What it does | Documentation |
 |---|---|---|
-| `renderers/` | C programs that render `.ds` files to `.wav`: `ref_render` (the original `bin/ds2wav.dll`), `src_render` (the original `drumsynth.c`), `new_render` (the modern port). One shared command line in `renderer_main.c`. Built with CMake. | [docs/rendering.md](../docs/rendering.md) |
+| `renderers/` | C programs that render `.ds` files to `.wav`: `ref_render` (the original `bin/ds2wav.dll`), `src_render` (the original `drumsynth.c`), `new_render` (the modern port), `c17_render` (the C17 rewrite, `engine/`). One shared command line in `renderer_main.c`. Built with CMake. | [docs/rendering.md](../docs/rendering.md) |
 | `dslib.py` | Shared Python module: loads the preset collections (`bin/library.zip` and `drumsynths/` by default), removes duplicate presets, parses `.ds` files like `GetPrivateProfileString`, names the features a preset uses, reads WAV files. | the module's docstrings |
 | `render_all.py` | Renders all 849 unique presets with one renderer into `renders/<name>/`, one process per preset by default. | [docs/rendering.md](../docs/rendering.md) |
 | `compare_wavs.py` | Compares two render sets sample by sample; writes a markdown report and a CSV to `docs/reports/`. | [docs/rendering.md](../docs/rendering.md) |
+| `check_reference.py` | The C17 engine's regression test: renders presets, feature presets and random presets with `c17` and compares the files with the DLL's checksums in `docs/reference/checksums.csv`. | [docs/rendering.md](../docs/rendering.md) |
+| `probes/` | `probe32` calls the DLL's internal routines by address, `probe64` the engine's versions; `ini_probe`/`ini_probe32` compare the parser with Windows; `run_probes.py` runs them all; `make_presets.py` generates feature and random presets; `ini_rules.py` holds the Windows profile experiments. | [docs/reference/probes.md](../docs/reference/probes.md), [docs/reference/ini-rules.md](../docs/reference/ini-rules.md) |
+| `disasm/` | `make_listings.py` writes the annotated disassembly in `docs/disasm/`; `annotate.py` annotates any range; `peconst.py` reads constants from the DLL. | [docs/disasm/README.md](../docs/disasm/README.md) |
 | `make_envelope_library.py` | Builds the envelope library in `docs/envelopes/` from the presets. | [docs/envelopes/README.md](../docs/envelopes/README.md) |
 
 Run the Python tools from the repository root, for example `python tools/render_all.py ref`. They find the repository from their own location, so the current folder only matters for relative paths you pass in.

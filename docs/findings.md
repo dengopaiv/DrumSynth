@@ -114,20 +114,93 @@ Report: [ref-fpu24-vs-src](reports/ref-fpu24-vs-src.md).
 - **The original only accepts version 1 and 2 files.** It checks the 12th character of `Version=` (`DrumSynth v1.x` or `v2.x`); 171 presets are v1.0 files.
 - **Absolute paths are required.** The original reads presets with `GetPrivateProfileString`, which looks in the Windows folder when given a bare file name. `renderer_main.c` makes every path absolute.
 
+## 7. The machine code holds more than the source (from the disassembly)
+
+The full analysis is in [disasm/README.md](disasm/README.md). In short, the output also depends on these, which the source does not show:
+
+- VC6 replaced divisions by constants with multiplications by a `float` reciprocal: `l / 1200` in the sound length, `ph / TwoPi` in the sawtooth, and the noise slope, phase, droop and band-width divisions. It also folded `TwoPi / Fs` into one `float` constant.
+- It reordered sums and products, for example the noise filter, the band-width step and the filter-all input.
+- It kept some values in x87 registers at 53 bits and never rounded them to `float`:
+  - the noise level `NL`;
+  - the `sqrt`, `pow`, `exp` and `fabs` results;
+  - the tone phase sum that goes to `fmod`;
+  - the filter feedback.
+- `exp` is an inline x87 sequence, and `sin`/`cos` are bare `fsin`/`fcos` whose 64-bit results go straight into the next multiplication.
+- `fmod` of ±0 gives +0.
+- `GetPrivateProfileInt` results are converted to floating point as unsigned numbers, for `Param`, `Bits` and `Clipping`.
+- A NaN sample is written as the clip level.
+- `sscanf("%f")` does not round correctly. VC6's 80-bit conversion rounds exact ties down, and in a few other cases near a rounding boundary, because its tail test starts one bit late. No preset value is affected.
+- The original reads and writes past its envelope tables:
+  - more than 32 points spill into the next row;
+  - after the hold time, `UpdateEnv` walks on through memory one point per sample;
+  - downsampling with a `Rate` above 7 spills into `envpts[0]`.
+
+  What it finds there is part of its output, so the rewrite keeps the DLL's memory layout for these variables.
+
+The `getEnv` buffer overflow (section 6) turns out to be harmless in the DLL. The 8-byte token buffer lies directly below the envelope string on the stack, so a long token runs on into the part of the string already read, and is still read whole.
+
+## 8. How much each part of the reproduction matters
+
+A diagnostic build of the C17 engine uses today's C library for `sin`, `cos`, `pow`, `exp`, `fmod` and text-to-float instead of the x87 sequences and VC6 routines (`c17-libm`). Against ref:
+
+| Build | Identical | Within 1 step | Small | Large |
+|---|---|---|---|---|
+| `c17-libm` | 684 | 67 | 81 | 17 |
+| `c17` | **849** | 0 | 0 | 0 |
+
+All 165 differences in `c17-libm` are in presets with tone droop, whose pitch curve is an `exp`. So the inlined x87 `exp` is what matters most. For these presets, today's `sin`, `cos` and `pow` round the same as the x87 instructions almost always. Report: [ref-vs-c17-libm](reports/ref-vs-c17-libm.md).
+
+## 9. The C17 rewrite is exact
+
+The rewrite (`engine/`) renders every one of the 849 presets **byte for byte identical** to ref, whole WAV files included ([ref-vs-c17](reports/ref-vs-c17.md)). It is also identical on these:
+
+| Test set | Renders | Report |
+|---|---|---|
+| single-feature presets | 454 | [features-ref-vs-c17](reports/features-ref-vs-c17.md) |
+| random presets | 1995 of 2000 | [fuzz-ref-vs-c17](reports/fuzz-ref-vs-c17.md) |
+
+The other 5 random presets make **the original DLL hang**: it never finishes, and the renderer stops it after the timeout. The rewrite renders them and flags each with `DS_NOTE_HANG`. All five use the triangle waveform for overtone 1 with tracking (`Wave1=2`, `Track1=1`).
+- In three of them, the tone envelope has only one point, so its length `envData[1][MAX]` is 0. The tone's pitch sweep divides by it (`t / MAX`, or `-4 / MAX` with droop), so the tone phase becomes NaN. With tracking, so does the overtone phase, and the triangle's `while (ph < TwoPi) ph += TwoPi` never ends.
+- In the other two, the tone envelope has 32 points, the most the tables hold. Its end marker is written into the first level (section 7). The rewrite found a non-finite phase at the same place.
+
+This is a hang in the original program, not only in test conditions. A preset saved with a one-point tone envelope and tracked triangle overtones would freeze DrumSynth 2.0 when played. None of the 849 presets does this. No preset triggers any other note either.
+
+Its routines agree bit for bit with the DLL's own, called by address, on about 1.9 million inputs, and its parser agrees with Windows on about 182,000 queries ([reference/probes.md](reference/probes.md)).
+
+### Where the rewrite cannot follow the original
+
+The rewrite does something defined in each of these cases and flags it in `ds_sound.notes`:
+
+- **Garbage the original reads:**
+  - the uninitialized `Ot`, defined as 0 (section 4);
+  - the envelope state left by the previous render, defined as the first sound after start (section 5);
+  - `getEnv`'s token buffer before the first character of an envelope that starts with a separator (`DS_NOTE_TOKEN_START`);
+  - the runtime library's memory, when `UpdateEnv` walks past `timestretch` (`DS_NOTE_MEMORY_BEYOND`).
+- **Cases where the original hangs or crashes** (`DS_NOTE_HANG`):
+  - the triangle waveform at a NaN or −∞ phase;
+  - distortion `Rate` below 0;
+  - a noise band whose step is 0.
+- **`pow` with a non-finite argument, or a result outside the `double` range** (`DS_NOTE_POW_SPECIAL`). There `_CIpow` goes through its error handler, and the rewrite gives the IEEE result.
+  - It happens when the filter envelope runs past its end: `UpdateEnv` then reads envelope *times* as levels, and the filter computes `pow(10, huge)`.
+  - It happened in 18 of the random presets, and every one of them came out identical to the DLL.
+- **Files with NUL bytes or a byte order mark**, which Windows reads by its own guesses ([reference/ini-rules.md](reference/ini-rules.md)).
+- **A different processor.** `fsin`, `fcos`, `fyl2x` and `f2xm1` may differ in the last bit between processor models. The reference checksums were made on an Intel Core i7-8850H. On another CPU, run `tools/check_reference.py`; differences there would be the CPU's, and are to be documented here.
+
 ## What the rewrite has to do
 
 The C17 rewrite (64-bit, Windows) is judged against **ref**: the original DLL at the Windows default precision, each preset rendered in a fresh process, stack cleared. Concretely:
 
 1. **Start every render from a defined state.** Keep all state in a structure that is zeroed for each render, so a render can't depend on the previous one. That matches the reference's "first sound after start" (section 5).
 2. **Initialize `Ot` to 0** (section 4).
-3. **Reproduce Visual C++ 6's x87 evaluation** where it matters. The first target is the noise bands (section 3). The way to find out exactly which values VC6 kept at higher precision is to disassemble the loops in `bin/ds2wav.dll` (`dumpbin /disasm`). Then compute those values as `double` in the rewrite and round to `float` exactly where the DLL stores to memory. With 53-bit precision, x87 register values have the same precision as a C `double`.
+3. **Reproduce Visual C++ 6's x87 evaluation**, done as described in sections 7–9: register values as `double`, `float` exactly where the DLL stores, and the transcendental sequences in ml64 assembly.
 4. **Implement the random generator explicitly**, with the same formula as Microsoft's C runtime (`seed = seed * 214013 + 2531011`, result `(seed >> 16) & 0x7FFF`), reseeded with 1 on every render. Then the result doesn't depend on the compiler's `rand()`.
 5. **Keep `FixedSeq` ignored**, as the DLL does (section 1).
-6. **Parse safely**, without the original's overflows (section 6), while giving the same values for every existing preset.
+6. **Parse safely**, without the original's overflows (section 6), while giving the same values. This is done: the parser follows Windows' rules, and VC6's number conversion is transcribed.
 7. **Check every step** by rendering with the rewrite and comparing against `ref` with `tools/compare_wavs.py`. The goal is as many presets as possible identical or within 1 step, with every remaining difference explained.
 
 ## Open questions
 
-- Exactly which intermediate values VC6 kept in x87 registers (section 3). This will come from the disassembly.
+- ~~Exactly which intermediate values VC6 kept in x87 registers~~: answered by the disassembly (section 7).
+- Whether other processors give the same `fsin`/`fcos`/`f2xm1`/`fyl2x` results as the i7-8850H. To find out, run `tools/check_reference.py` on an AMD processor and a recent Intel one.
 - Whether some 2005–2006 build of DrumSynth honoured `FixedSeq` (section 1). That build isn't available; the evidence is only the 4 WAVs with noise.
 - The x87 precision the original VB6 program ran at. The 2 noise-free WAVs match at 53 bits, but they don't depend on precision, so they can't confirm it. 53 bits is the Windows default, and the VB6 runtime isn't known to change it.

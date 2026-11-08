@@ -29,19 +29,22 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
   - See [rendering.md](rendering.md) and [reports/](reports/README.md).
 - **Findings** about the original engine: the reference renderer reproduces the original program; x87 precision; the uninitialized `Ot`; envelope state carrying over between renders. See [findings.md](findings.md).
 
+- **The exact C17 engine** (`engine/`, 2026-11-08), following [rewrite-plan.md](rewrite-plan.md).
+  - It is byte-identical to the original DLL on all 849 presets, 454 single-feature presets and 1995 random presets.
+  - On the other 5 random presets the DLL hangs. The engine renders them and flags them: findings, section 9. A one-point tone envelope with tracked triangle overtones freezes the original. The GUI checklist should note that the editor must not allow it, or the engine must warn.
+  - Its routines agree bit for bit with the DLL's own on about 1.9 million inputs.
+  - The checksums are frozen as its regression test (`tools/check_reference.py`).
+  - The analysis of the machine code is in [disasm/README.md](disasm/README.md).
+
 ## Next
 
-1. **The exact C17 engine**, following [rewrite-plan.md](rewrite-plan.md) (decided 2026-11-08: as exact as possible, meaning identical output to `ref` sample for sample, not just close). In short:
-   - read the DLL's machine code to learn every rounding point;
-   - build test material (single-feature presets, random presets, tests that call the DLL's own internal functions);
-   - write the engine in `engine/`, with VC6's x87 math routines reproduced in 64-bit assembly;
-   - measure every step with the render comparison.
+1. **Check the engine on other processors** (an AMD one and a recent Intel one) with `tools/check_reference.py`. The x87 transcendental instructions may differ in their last bit between models (findings, section 9).
 2. **A feature checklist of the original GUI** from `gui/DRUMSYN.FRM`:
    - controls and their ranges;
    - menus (Generate All WAVs, Delete All WAVs, New Kit, Set Location, envelope Copy, Paste and Reset);
    - the envelope editor's 7 envelopes and 13 zoom ranges;
    - keyboard handling.
-3. **The wxWidgets GUI**, built against that checklist, starting with the accessible envelope editor.
+3. **The wxWidgets GUI**, built against that checklist and on `engine/`, starting with the accessible envelope editor. The original GUI writes the `.ds` file and calls `ds2wav`, showing the progress percentage in the window title; the engine's in-memory parser gives the same result without a file.
 
 ## The existing WPF port
 

@@ -24,13 +24,15 @@ cmake -S tools/renderers -B build/renderers-x64 -A x64
 cmake --build build/renderers-x64 --config Release
 ```
 
-The 32-bit build makes `ref_render.exe`, `src_render.exe` and `new_render.exe`; the 64-bit build makes `new_render.exe`. `build/` is not tracked by git.
+The 32-bit build makes `ref_render.exe`, `src_render.exe` and `new_render.exe`. The 64-bit build makes `new_render.exe`, `c17_render.exe` (the C17 rewrite, `engine/`) and `c17_libm_render.exe` (a diagnostic variant of it). `build/` is not tracked by git.
 
 | Program | Engine | Notes |
 |---|---|---|
 | `ref_render.exe` (32-bit) | the original `bin/ds2wav.dll` | Loads the DLL at run time (`--dll PATH`) and calls `ds2wav()` the way the VB6 GUI does. Must be 32-bit, because the DLL is. |
 | `src_render.exe` (32-bit) | the original `drumsynth.c`, unmodified | Compiled with `/GS-`: the original writes one byte past a buffer in `getEnv()`, and the stack check would stop the program. |
 | `new_render.exe` (32- and 64-bit) | the modern port `src/DrumSynth.Core/drumsynth.c` | Calls `ds_to_wav()`. |
+| `c17_render.exe` (64-bit) | the C17 rewrite, `engine/` | Calls `ds_render_file()`. `--dll winapi` reads presets with the Windows profile functions instead of the engine's own parser. |
+| `c17_libm_render.exe` (64-bit) | the C17 rewrite built with `DS_ABLATE_LIBM` | Today's C library for `sin`, `cos`, `pow`, `exp`, `fmod` and text-to-float. Shows what the x87 reproduction is worth (findings, section 8). |
 
 ### The renderers' command line
 
@@ -62,6 +64,9 @@ Renderers known to `render_all.py`:
 | `src` | original source, today's compiler, 32-bit |
 | `new` | modern port, 64-bit |
 | `new-x86` | modern port, 32-bit |
+| `c17` | **the C17 rewrite** (`engine/`), 64-bit, its own `.ds` parser |
+| `c17-winapi` | the C17 rewrite reading presets with the Windows functions |
+| `c17-libm` | diagnostic: the C17 rewrite with today's C library math |
 | `original` | no rendering: copies the 6 WAVs saved by the original program |
 | `custom` | any program with the same command line: `--exe PROGRAM [OPTIONS] --name NAME [--description TEXT]` |
 
@@ -73,13 +78,16 @@ Options:
 - **`--raw-stack`** passes `--no-clear-stack` to the renderer.
 - **`--collections PATH ...`** uses other preset folders or zips. The default is `bin/library.zip` and `drumsynths/`.
 - **`--out DIR`** writes somewhere other than `renders/`.
+- **`--jobs N`** renders N presets at once, each in its own process. The default is the number of processors. It has no effect with `--batch`.
+- **`--timeout S`** stops a render after S seconds and counts it as failed, "no result". The default is 120. Some inputs make the original DLL loop forever (findings, section 9).
+- The C17 renderer reports its notes (`DS_NOTE_*`) on stderr. `render_all.py` collects them, and any timeouts, in `renders/<name>/notes.csv`.
 
 What a run writes:
 
 - `renders/presets/NNNN.ds`: the 849 unique presets, numbered. Numbered ASCII names keep the original engine's ANSI file functions away from names like "JürgenSohn".
 - `renders/<name>/NNNN.wav`: one render per preset.
 - `renders/<name>/manifest.csv`: the id, collection path, checksum and features of each preset.
-- `renders/<name>/info.txt`: what rendered it, from which commit (with a note if `src/` or `drumsynth.c` had uncommitted changes), the mode, the order, the date and the counts.
+- `renders/<name>/info.txt`: what rendered it, from which commit (with a note if `src/`, `drumsynth.c` or `engine/` had uncommitted changes), the mode, the order, the date, **the CPU** and the counts. The CPU matters because the x87 transcendental instructions may differ in their last bit between processor models.
 - `renders/<name>/failures.csv`: presets the renderer reported an error for.
 
 A full run takes 20–35 seconds per renderer in the default mode.
@@ -106,6 +114,7 @@ What is measured for each preset (CSV columns):
 | `peak a`, `peak b`, `rms a dBFS` | levels |
 | `clipped a`, `clipped b` | samples at DrumSynth's clip point (32700) or beyond |
 | `lag` | for large differences only: a shift of up to ±64 samples that makes B match A to −60 dB, if there is one |
+| `file bytes identical` | 1 if the whole WAV files are byte for byte the same (header, samples, INFO chunk) |
 | `features` | the DrumSynth features the preset uses (from `dslib.features()`) |
 
 The categories:
@@ -123,8 +132,32 @@ The report lists:
 - a table **by feature** showing which DrumSynth features the differing presets use. A feature whose presets are all identical can't be the cause. Sorted by the number of large differences;
 - the presets with the **largest differences**.
 
+## More test presets
+
+`tools/probes/make_presets.py` generates presets beyond the 849 real ones:
+- `features`: single-feature sweeps and edge cases;
+- `fuzz`: random presets from a seed.
+
+Render and compare them in their own folders:
+
+```
+python tools/probes/make_presets.py features renders/gen/features
+python tools/render_all.py ref --collections renders/gen/features --out renders/features
+python tools/render_all.py c17 --collections renders/gen/features --out renders/features
+python tools/compare_wavs.py ref c17 --renders renders/features --report docs/reports/features-ref-vs-c17.md
+```
+
+The same works with `fuzz renders/gen/fuzz --count 2000` and `--out renders/fuzz`.
+
+`tools/probes/run_probes.py` compares the DLL's internal routines with the engine's, and Windows' profile functions with the engine's parser. Its report is [reference/probes.md](reference/probes.md).
+
+## The regression test
+
+`python tools/check_reference.py` renders the three sets (presets, features, fuzz) with `c17`. It compares every WAV file with the MD5 checksums of the DLL's renders in [reference/checksums.csv](reference/checksums.csv), and reports any difference. It runs in a few minutes. `--update` rewrites the checksums from the ref renders; do that only when the reference itself changes.
+
 ## Checking a change to the engine
 
+0. For the C17 engine: `python tools/check_reference.py` must still report 0 differences.
 1. Change the engine and rebuild the renderer.
 2. Render: `python tools/render_all.py new`, or `custom` for an experimental build.
 3. Compare against the reference: `python tools/compare_wavs.py ref new`.

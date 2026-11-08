@@ -36,6 +36,35 @@ Counts are presets per category: identical / within 1 step / small / large.
 | [new-x86-vs-new](new-x86-vs-new.md) | The modern port as 32-bit and as 64-bit. The 5 `Ot` presets plus `spicy bd` | 814 | 20 | 9 | 6 |
 | [ref-vs-new](ref-vs-new.md) | **Where the modern port stands against the reference.** This is the starting point for the C17 rewrite. | 75 | 188 | 213 | 373 |
 
+## The C17 rewrite
+
+These were rendered later on 2026-11-08, with the renderers and the engine at the state of the commit that added them. Besides the four categories, each report says how many whole WAV files are byte for byte identical.
+
+| Report | What it shows | Identical | Within 1 | Small | Large |
+|---|---|---|---|---|---|
+| [ref-vs-c17](ref-vs-c17.md) | **The C17 rewrite against the reference: identical.** All 849 files are byte for byte identical. | 849 | 0 | 0 | 0 |
+| [ref-vs-c17-winapi](ref-vs-c17-winapi.md) | The rewrite reading presets with the Windows functions instead of its own parser | 849 | 0 | 0 | 0 |
+| [ref-vs-c17-libm](ref-vs-c17-libm.md) | Diagnostic: the rewrite with today's C library math instead of the x87 sequences. All differences are in presets with droop, through `exp` (findings, section 8). | 684 | 67 | 81 | 17 |
+| [features-ref-vs-c17](features-ref-vs-c17.md) | 454 single-feature presets (`tools/probes/make_presets.py features`) | 454 | 0 | 0 | 0 |
+| [fuzz-ref-vs-c17](fuzz-ref-vs-c17.md) | 2000 random presets (`make_presets.py fuzz`, seed 20261108). The DLL hangs on 5, which are listed as missing (findings, section 9). | 1995 | 0 | 0 | 0 |
+
+Remaking them:
+
+```
+python tools/render_all.py c17
+python tools/render_all.py c17-winapi
+python tools/render_all.py c17-libm
+python tools/compare_wavs.py ref c17
+python tools/compare_wavs.py ref c17-winapi
+python tools/compare_wavs.py ref c17-libm
+python tools/probes/make_presets.py features renders/gen/features
+python tools/probes/make_presets.py fuzz renders/gen/fuzz --count 2000
+for r in ref c17; do python tools/render_all.py $r --collections renders/gen/features --out renders/features; done
+for r in ref c17; do python tools/render_all.py $r --collections renders/gen/fuzz --out renders/fuzz; done
+python tools/compare_wavs.py ref c17 --renders renders/features --report docs/reports/features-ref-vs-c17.md
+python tools/compare_wavs.py ref c17 --renders renders/fuzz --report docs/reports/fuzz-ref-vs-c17.md
+```
+
 `ref-vs-new` and `ref-vs-src` put every preset in the same category: the 29 presets where `src` and `new` differ are already in the same category against `ref`, and their values only move slightly.
 
 ## Remaking the reports
