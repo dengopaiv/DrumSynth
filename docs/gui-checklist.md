@@ -21,7 +21,7 @@ The **Status** column is filled in by the GUI work: ✓ done, ✗ left out on pu
 
 | # | Original | Accessible equivalent | Status |
 |---|---|---|---|
-| 1.1 | One window, "DrumSynth 2.0", all controls on one page; layout by section with coloured frames (`Shape1`) | One window. Each section is a named group (static box) whose controls follow in tab order. The section colours appear in the envelope graph only. | ✓ |
+| 1.1 | One window, "DrumSynth 2.0", all controls on one page; layout by section with coloured frames (`Shape1`) | One window, titled with this edition's version ("DrumSynth 4.0.0") until a sound is loaded. Each section is a named group (static box) whose controls follow in tab order. The section colours appear in the envelope graph only. | ✓ |
 | 1.2 | Title: `<Name> - DrumSynth` after loading or saving; `[DrumSynth v2.0]` and digits while loading; `NN%` while rendering (the DLL's `SetWindowText`) | The same title. Loading and rendering are quick, so instead of the changing title the result goes to the status bar: "Loaded …", "Rendered 0.32 seconds". | ✓ |
 | 1.3 | Tab order (`TabIndex`): Play, kit list, sound list, Load, Save, then Tone, Overtones, Noise, Noise Band 1, Noise Band 2, Distortion, Filter, Master, envelope, comment, Help | The same order. The envelope editor sits after the sections. | ✓ |
 | 1.4 | Warning triangle (`warning`) next to Play when reading, writing or playing fails | A status bar message, also announced | ✓ |

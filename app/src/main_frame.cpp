@@ -87,7 +87,9 @@ int Clamp(int v, int lo, int hi) { return std::min(std::max(v, lo), hi); }
 // ---- Building the window -------------------------------------------------------
 
 MainFrame::MainFrame(const wxString& openFile)
-    : wxFrame(nullptr, wxID_ANY, "DrumSynth 2.0")
+    // the original's caption is "DrumSynth 2.0"; this edition shows its own
+    // version until a sound is loaded ("Name - DrumSynth")
+    : wxFrame(nullptr, wxID_ANY, "DrumSynth " DS_VERSION_STRING)
 {
     preset_ = Preset::NewSound();
     preset_.comment = kTips[(GetTickCount() / 10) % 5];
