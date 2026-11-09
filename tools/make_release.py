@@ -14,12 +14,14 @@ Steps:
        DrumSynth.exe and the DLLs it needs (wxWidgets and its image
        libraries, the Visual C++ runtime, Tolk and NVDA's controller client
        when the build found them), the help (gui-help.html, which the Help
-       button opens, made by tools/make_help_html.py, and gui-help.md),
-       README.txt, the licences (licenses/ for third-party code), the presets
+       button opens, made by tools/make_help_html.py, and gui-help.md), the
+       Documentation/ folder (DOC_PAGES as web pages, with an index),
+       README.txt with the credits, the licences (licenses/ for third-party code), the presets
        as kit folders in Kits/ (DrumSyn.ini points the program there): the
        DrumSynth 2.0 library (bin/library.zip) merged with the drumsynths/
        collection, and the envelope library as envelope files in Envelopes/
        (tools/make_envelope_files.py), where Load envelope... looks first.
+       Kits with a known author get a Credits.txt in their folder (KIT_CREDITS).
   4. Zip it as dist/DrumSynth-<version>-win64.zip and write its SHA-256.
 
 The version is app/CMakeLists.txt's project VERSION. Release notes are
@@ -38,6 +40,7 @@ import zipfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dslib  # noqa: E402
 import make_envelope_files  # noqa: E402
+import make_help_html  # noqa: E402
 
 REPO = dslib.REPO
 VCPKG = os.environ.get("VCPKG_ROOT", r"C:\GIT\environment\vcpkg")
@@ -156,6 +159,47 @@ def add_presets(dest):
     return added, same, renamed
 
 
+# The documentation shipped as web pages: repository path -> path in the
+# release. Links between these pages stay local; links to other repository
+# files go to GitHub (make_help_html.repo_linker).
+DOC_PAGES = {
+    "docs/gui-help.md": "gui-help.html",
+    "docs/reference/file-formats.md": "Documentation/file-formats.html",
+    "docs/reference/ini-rules.md": "Documentation/ini-rules.html",
+    "docs/release-notes.md": "Documentation/release-notes.html",
+    "CREDITS.md": "Documentation/credits.html",
+}
+
+DOC_INDEX = """# DrumSynth documentation
+
+The documentation of DrumSynth {version}, accessible edition. Everything else, including how the original engine was studied, is in the source repository: https://github.com/dengopaiv/DrumSynth.
+
+- [Help](../gui-help.html): every key and control. The Help button opens it.
+- [File formats](file-formats.html): `.ds` sounds, `.dse` envelopes, the WAV files and `DrumSyn.ini`, key by key.
+- [How Windows reads a .ds file](ini-rules.html): the reading rules the engine follows.
+- [Release notes](release-notes.html): what this release brings.
+- [Credits](credits.html): who made DrumSynth and its kits.
+"""
+
+# Kits whose author is known (CREDITS.md): kit folder -> Credits.txt text
+KIT_CREDITS = {
+    "dark": "The Dark kit is made by the artist Darkside.\n"
+            "His music can be found at https://soundcloud.com/dRxId\n",
+}
+
+
+def write_docs(dest, ver):
+    """The pages of DOC_PAGES and Documentation/index.html. Returns their count."""
+    for src, out in DOC_PAGES.items():
+        link = make_help_html.repo_linker(src, DOC_PAGES, out)
+        make_help_html.write_page(os.path.join(REPO, *src.split("/")), os.path.join(dest, *out.split("/")),
+                                  link=link)
+    title, content = make_help_html.Converter().convert(DOC_INDEX.format(version=ver))
+    with open(os.path.join(dest, "Documentation", "index.html"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(make_help_html.page(title, content, "tools/make_release.py"))
+    return len(DOC_PAGES) + 1
+
+
 README = """DrumSynth {version}, accessible edition
 ==========================================
 
@@ -183,6 +227,18 @@ through Tolk (Tolk.dll and nvdaControllerClient64.dll); otherwise they go out
 as UI Automation notifications and appear in the status bar.
 
 Requirements: Windows 10 or 11, 64-bit.
+
+Documentation
+-------------
+Documentation\\index.html lists the documentation: the help, the file formats
+(.ds, .dse, WAV, DrumSyn.ini), the release notes and the credits.
+
+Credits
+-------
+DrumSynth 2.0 is by Paul Kellett (http://www.mda-vst.com).
+The Dark kit is made by the artist Darkside. His music can be found at
+https://soundcloud.com/dRxId
+All credits: Documentation\\credits.html.
 
 Licence
 -------
@@ -216,8 +272,7 @@ def package(ver, out):
         shutil.copy2(os.path.join(crt[-1], dll), dest)
         shipped.append(dll)
     shutil.copy2(os.path.join(REPO, "docs", "gui-help.md"), dest)
-    run([sys.executable, os.path.join(REPO, "tools", "make_help_html.py"), os.path.join(dest, "gui-help.html"),
-         "--source", os.path.join(REPO, "docs", "gui-help.md")])
+    pages = write_docs(dest, ver)
     envelopes = make_envelope_files.write_files(os.path.join(dest, "Envelopes"))
     for lic in ("MIT License.txt", "gpl-2.0.txt", "readme.license"):
         shutil.copy2(os.path.join(REPO, lic), dest)
@@ -244,6 +299,11 @@ def package(ver, out):
     kitdir = os.path.join(dest, "Kits")
     added, same, renamed = add_presets(kitdir)
     kits = len([d for d in os.listdir(kitdir) if os.path.isdir(os.path.join(kitdir, d))])
+    for kit, text in KIT_CREDITS.items():
+        if not os.path.isdir(os.path.join(kitdir, kit)):
+            sys.exit(f"KIT_CREDITS names a kit that isn't shipped: {kit}")
+        with open(os.path.join(kitdir, kit, "Credits.txt"), "w", encoding="utf-8", newline="\r\n") as f:
+            f.write(text)
     # the program's settings: kits in the Kits folder (relative to the program)
     with open(os.path.join(dest, "DrumSyn.ini"), "w", encoding="ascii", newline="\r\n") as f:
         f.write("[Files]\nPath=Kits\nSaveWAVs=1\n")
@@ -266,6 +326,7 @@ def package(ver, out):
     print(f"{zpath}: {os.path.getsize(zpath) / 1e6:.1f} MB, sha256 {digest}")
     print(f"presets: {added} files written ({renamed} renamed), {same} duplicates skipped, {kits} kits")
     print(f"envelope files: {envelopes}")
+    print(f"documentation pages: {pages}")
     print("shipped DLLs:", ", ".join(shipped))
     return zpath
 

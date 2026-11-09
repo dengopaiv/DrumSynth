@@ -240,6 +240,7 @@ void MainFrame::MakeMenus()
         wxMessageBox("DrumSynth " DS_VERSION_STRING ", accessible edition.\n\n"
                      "A recreation of DrumSynth 2.0, Copyright (c) 2000 Paul Kellett (mda-vst.com). "
                      "It renders sounds exactly as the original does.\n\n"
+                     "The Dark kit is made by the artist Darkside: soundcloud.com/dRxId\n\n"
                      "MIT licence or GPL version 2 or later. https://github.com/dengopaiv/DrumSynth",
                      "About DrumSynth", wxOK | wxICON_INFORMATION, this);
     }, wxID_ABOUT);

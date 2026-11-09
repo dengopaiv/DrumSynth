@@ -50,6 +50,7 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
   - Loading and re-saving all 849 presets: 843 identical, and 6 change exactly as the original GUI changes them (`app/tests/preset_roundtrip`).
   - Help: [gui-help.md](gui-help.md), shown as a web page (`tools/make_help_html.py`).
 - **Documentation gaps closed** (2026-11-09): the file formats ([reference/file-formats.md](reference/file-formats.md)), the help as HTML instead of raw Markdown, and the envelope library shipped as `.dse` files. Writing the format reference found the Distortion Rate mismatch (findings, section 6).
+- **Release package with documentation and credits** (2026-11-09): the release has a `Documentation` folder (file formats, INI reading rules, release notes, credits, as web pages) and credits for the kits. The Dark kit is by the artist Darkside (https://soundcloud.com/dRxId), credited in [../CREDITS.md](../CREDITS.md), the help, the About box, README.txt and a `Credits.txt` in the kit's folder.
 
 ## Next
 

@@ -10,7 +10,7 @@ It replaces the 3.0 "Modern WPF Edition", which stays on the `modern-wpf` branch
 
 ### Download
 
-`DrumSynth-4.0.0-win64.zip`, for Windows 10 or 11, 64-bit. Unzip it anywhere and start `DrumSynth.exe`; nothing is installed. The `Kits` folder holds 31 kits: the DrumSynth 2.0 library and later presets.
+`DrumSynth-4.0.0-win64.zip`, for Windows 10 or 11, 64-bit. Unzip it anywhere and start `DrumSynth.exe`; nothing is installed. The `Kits` folder holds 31 kits: the DrumSynth 2.0 library and later presets, among them the **Dark** kit by the artist **Darkside** (https://soundcloud.com/dRxId). The `Documentation` folder has the file formats, these notes and the credits as web pages ([../CREDITS.md](../CREDITS.md)).
 
 ### The engine: exactly the original's sound
 
@@ -49,9 +49,11 @@ It replaces the 3.0 "Modern WPF Edition", which stays on the `modern-wpf` branch
 
 ### Documentation
 
+The download's `Documentation` folder has these as web pages; `Documentation\index.html` lists them.
 - [gui-help.md](gui-help.md): the help, with every key and control.
 - [reference/file-formats.md](reference/file-formats.md): the `.ds`, `.dse`, WAV and `DrumSyn.ini` formats, key by key.
 - [findings.md](findings.md): how the original engine really behaves. One finding from writing the format reference: the Distortion Rate names are one step off from "4 kHz" on, and "1 kHz" sounds the same as "4 kHz". This edition keeps the original's behaviour and explains it in the help.
+- [../CREDITS.md](../CREDITS.md): who made DrumSynth, its kits and the components it uses.
 
 ### Known limits
 

@@ -34,12 +34,17 @@ The current release is **DrumSynth 4.0.0, accessible edition**: `DrumSynth-4.0.0
 | `tools/` | Render comparison and analysis tools ([tools/README.md](tools/README.md)) |
 | `docs/` | Plan, findings, how-tos, reports and the envelope library ([docs/README.md](docs/README.md)) |
 | `BUILD.md` | How to build the WPF port (3.0) |
+| `CREDITS.md` | Who made DrumSynth, its kits and the components it uses |
 
 ## Branches
 
 - `master`: the main branch: the original DrumSynth 2.0 files, the C17 engine, the accessible GUI, the tools and the docs. Releases are made from it.
 - `refactor`: where the 4.0 work was done; merged into `master`.
 - `modern-wpf`: the 3.0 WPF port, kept for reference.
+
+## Credits
+
+DrumSynth 2.0 is by Paul Kellett. The **Dark** kit is made by the artist **Darkside**; his music can be found at https://soundcloud.com/dRxId. All credits: [CREDITS.md](CREDITS.md).
 
 ## Licence
 

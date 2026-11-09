@@ -146,6 +146,12 @@ If DrumSynth can't read, write or play a sound, it says so, and the message also
   - a sound with both filter boxes on is saved with the filter on the overtones only.
 - **The file formats** of `.ds` sounds, `.dse` envelopes and the WAV files, with every key and what it does, are described in [file-formats.md](https://github.com/dengopaiv/DrumSynth/blob/master/docs/reference/file-formats.md) in the source repository. `.ds` files are plain text and can be edited in Notepad.
 
+## Credits
+
+- DrumSynth 2.0 is by Paul Kellett (http://www.mda-vst.com).
+- The **Dark** kit is made by the artist **Darkside**. His music can be found at https://soundcloud.com/dRxId.
+- All credits, including the components the program uses: [CREDITS.md](https://github.com/dengopaiv/DrumSynth/blob/master/CREDITS.md).
+
 ## Copyright
 
 DrumSynth Version 2.0, Copyright © 2000 Paul Kellett (http://www.mda-vst.com). DrumSynth is free software and is provided "as is" with no warranty of any kind.
