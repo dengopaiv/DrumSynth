@@ -1094,9 +1094,14 @@ void MainFrame::SetLocation()
     Announce(wxString::Format("%u kits", kits_->GetCount()), this);
 }
 
+// The help page next to the program, made from docs/gui-help.md by the build
+// (tools/make_help_html.py), opens in the browser, where tables and headings
+// read properly. The Markdown text is the fallback: next to the program, or
+// in the repository's docs/ when run from the build folder.
 void MainFrame::ShowHelp()
 {
-    for (const wchar_t* rel : {L"\\gui-help.md", L"\\..\\..\\..\\docs\\gui-help.md", L"\\..\\docs\\gui-help.md"}) {
+    for (const wchar_t* rel : {L"\\gui-help.html", L"\\gui-help.md", L"\\..\\..\\..\\docs\\gui-help.md",
+                               L"\\..\\docs\\gui-help.md"}) {
         fs::path p = fs::path(ExeDir() + rel);
         std::error_code ec;
         if (fs::exists(p, ec)) {
@@ -1104,7 +1109,7 @@ void MainFrame::ShowHelp()
             return;
         }
     }
-    Warn("The help file gui-help.md was not found next to the program.");
+    Warn("The help file gui-help.html was not found next to the program.");
 }
 
 // ---- Keys and closing -------------------------------------------------------------

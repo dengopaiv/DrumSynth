@@ -3,14 +3,16 @@
 A recreation of the DrumSynth 2.0 program (`gui/`, Visual Basic 5) in C++17 with wxWidgets 3.3, on the exact C17 engine (`engine/`). It does what the original did, and is fully usable from the keyboard and with a screen reader.
 
 - **What it must do:** [docs/gui-checklist.md](../docs/gui-checklist.md), with the status of every item.
-- **How to use it:** [docs/gui-help.md](../docs/gui-help.md), which the Help button opens.
+- **How to use it:** [docs/gui-help.md](../docs/gui-help.md). The Help button opens it as `gui-help.html` in the web browser.
+- **The files it reads and writes:** [docs/reference/file-formats.md](../docs/reference/file-formats.md).
 
 ## Building
 
 You need:
 - Visual Studio with the C++ tools;
 - CMake;
-- wxWidgets from vcpkg (`vcpkg install wxwidgets:x64-windows`).
+- wxWidgets from vcpkg (`vcpkg install wxwidgets:x64-windows`);
+- Python 3, to make the help page. Without it the build warns, and Help opens the Markdown file instead.
 
 ```
 cmake -S app -B build/app -A x64 -DCMAKE_TOOLCHAIN_FILE=%VCPKG_ROOT%/scripts/buildsystems/vcpkg.cmake
@@ -18,7 +20,7 @@ cmake --build build/app --config Release
 build\app\Release\DrumSynth.exe [sound.ds]
 ```
 
-vcpkg copies the wxWidgets DLLs next to `DrumSynth.exe`, and the build copies `gui-help.md` there. At first the program looks for kit folders next to itself, as the original did. **Kit → Set location** chooses another folder, such as the repository's `drumsynths/`, and the choice is remembered in `DrumSyn.ini` next to the program.
+vcpkg copies the wxWidgets DLLs next to `DrumSynth.exe`. The build puts the help there: `gui-help.html`, made from `docs/gui-help.md` by `tools/make_help_html.py`, and `gui-help.md` itself. The Help button opens the HTML page in the browser, where screen readers can move by heading and table; Markdown in Notepad would read out every `|` and `**`. For the envelope library, run `python tools/make_envelope_files.py build/app/Release/Envelopes` once; the release ships it. At first the program looks for kit folders next to itself, as the original did. **Kit → Set location** chooses another folder, such as the repository's `drumsynths/`, and the choice is remembered in `DrumSyn.ini` next to the program.
 
 Optional: put `Tolk.dll` (and its screen reader client DLLs) next to the program. Messages such as "Saved", "Envelope pasted" or the warnings are then spoken through Tolk. Without it they go out as UI Automation notifications, which NVDA and Narrator read, and they also appear in the status bar.
 

@@ -1,6 +1,18 @@
 # Envelope library
 
-Envelope shapes taken from the DrumSynth preset collections, meant as a list of ready shapes for the accessible envelope editor. The faithful way to move envelopes between presets is still the original's Copy and Paste; this library is an extra on top of it.
+Envelope shapes taken from the DrumSynth preset collections: ready shapes for the envelope editor, in the order they are most used.
+
+The library is kept here as one INI file per envelope type, with names, use counts and examples. The program can't open these files directly. It loads envelope files (`.dse`, one envelope per file), so the library is also turned into those:
+- **In the release:** the `Envelopes` folder next to `DrumSynth.exe` holds all 492 entries as `.dse` files, one folder per envelope type, for example `Envelopes\1 Tone\01 100%, 20% at 39.7 ms, 0% at 119 ms.dse`. **Load envelope...** (Ctrl+Shift+O) starts there. `tools/make_release.py` puts them there.
+- **From the repository:** `python tools/make_envelope_files.py OUT_FOLDER` writes the same files anywhere, for example `build\app\Release\Envelopes` for a program you built yourself.
+- The number in front of each file name is the entry's place in its library file, most used first. The rest is the entry's `Name`.
+- The `.dse` format is in [../reference/file-formats.md](../reference/file-formats.md#dse-envelope-files). Each file's `From=` says which library file it came from and how many presets use it.
+
+Other ways to move an envelope, in the program:
+- **Load envelope from sound...** takes any of the seven envelopes of another `.ds` file.
+- **Copy** and **Paste**, the original's way, copy within the sound being edited, and only the first 19 points.
+
+Both are generated: the INI files from the presets ([How it was made](#how-it-was-made)), and the `.dse` files from the INI files. To change the library, change the scripts and regenerate, rather than editing either by hand.
 
 ## Files
 

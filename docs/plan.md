@@ -48,7 +48,8 @@ A **faithful recreation of mda DrumSynth 2.0** (Paul Kellett, 2000) that is **fu
   - Sliders announce their value text.
   - MSAA reports a name for every focusable control (`app/tests/msaa_dump`).
   - Loading and re-saving all 849 presets: 843 identical, and 6 change exactly as the original GUI changes them (`app/tests/preset_roundtrip`).
-  - Help: [gui-help.md](gui-help.md).
+  - Help: [gui-help.md](gui-help.md), shown as a web page (`tools/make_help_html.py`).
+- **Documentation gaps closed** (2026-11-09): the file formats ([reference/file-formats.md](reference/file-formats.md)), the help as HTML instead of raw Markdown, and the envelope library shipped as `.dse` files. Writing the format reference found the Distortion Rate mismatch (findings, section 6).
 
 ## Next
 

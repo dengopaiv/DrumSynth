@@ -113,6 +113,12 @@ Report: [ref-fpu24-vs-src](reports/ref-fpu24-vs-src.md).
 - **The original renders are deterministic.** The same preset rendered several times in one process, and whole runs repeated, give identical files once the stack and the starting state are controlled.
 - **The original only accepts version 1 and 2 files.** It checks the 12th character of `Version=` (`DrumSynth v1.x` or `v2.x`); 171 presets are v1.0 files.
 - **Absolute paths are required.** The original reads presets with `GetPrivateProfileString`, which looks in the Windows folder when given a bare file name. `renderer_main.c` makes every path absolute.
+- **Distortion `Rate` 7 is the same as 4, and the labels from 4 up are one step off** (found 2026-11-09, while writing [reference/file-formats.md](reference/file-formats.md)).
+  - The engine averages blocks of `DStep = 1 + Rate` samples, then remaps 7 to 20, 6 to 10 and 5 to 8 (line 397). So Rates 0–7 give blocks of 1, 2, 3, 4, **8, 10, 20, 8**.
+  - The program labels the Rates "[none]", "11 kHz", "7 kHz", "5 kHz", "4 kHz", "3 kHz", "2 kHz", "1 kHz". These are half the reduced sample rate, the highest frequency left. They fit blocks of 1, 2, 3, 4, **5, 8, 10, 20**. The remapping was probably meant for `DStep` 6, 7 and 8, one higher.
+  - In practice, "4 kHz" gives about 2.8 kHz, "3 kHz" about 2.2 kHz, "2 kHz" about 1.1 kHz, and "1 kHz" the same as "4 kHz".
+  - Measured with the original DLL (`ref_render`): a noise preset rendered at Rate 3–7 holds each sample for 4, 8, 10, 20 and 8 samples.
+  - The C17 engine does the same (`engine/src/ds_engine.c`, `DStep`). The program keeps the original labels, and the help explains them.
 
 ## 7. The machine code holds more than the source (from the disassembly)
 

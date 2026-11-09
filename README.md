@@ -8,7 +8,8 @@ The original source and binary are kept as the specification. The new engine (`e
 
 The current release is **DrumSynth 4.0.0, accessible edition**: `DrumSynth-4.0.0-win64.zip` on the GitHub releases page, for Windows 10 or 11, 64-bit.
 - Unzip it and start `DrumSynth.exe`; nothing is installed. It comes with 31 kits of sounds.
-- Usage and keys: [docs/gui-help.md](docs/gui-help.md).
+- Usage and keys: [docs/gui-help.md](docs/gui-help.md). The program's Help button opens it as a web page.
+- File formats (`.ds`, `.dse`, WAV, `DrumSyn.ini`): [docs/reference/file-formats.md](docs/reference/file-formats.md).
 - What's new: [docs/release-notes.md](docs/release-notes.md).
 
 ## Building

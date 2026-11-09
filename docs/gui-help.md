@@ -62,6 +62,7 @@ Each section uses an envelope for its volume. There is also an envelope for the 
 - **Load envelope from sound...** takes an envelope out of another sound's `.ds` file without loading the sound. Choose the sound, then which of its seven envelopes goes into the current one. The current envelope is offered first.
 - All points are kept, unlike Paste. As when saving a sound, times and levels are saved as whole numbers.
 - The files go in the `Envelopes` folder next to DrumSynth unless you choose another one, which is then remembered.
+- **The envelope library:** the `Envelopes` folder comes with 492 envelope shapes taken from the presets, in a folder for each envelope ("1 Tone" to "7 Filter"). The most used come first, and each file name describes the shape, for example "01 100%, 20% at 39.7 ms, 0% at 119 ms". Any of them fits any envelope.
 - Loading replaces the current envelope. Load the sound again if you want the old envelope back.
 
 **The graph** shows the envelope for sighted users, with the other active envelopes in their section colours:
@@ -102,6 +103,8 @@ Each produces a band of noise with adjustable centre frequency and width.
 
 The whole waveform can be clipped, and reduced to a lower bit resolution or sample rate. A little clipping often makes a sound louder and harder without sounding obviously distorted.
 
+The **Rate** names give the highest frequency left. As in the original, they are right up to "5 kHz", but from there on the sound is one step lower than its name: "4 kHz" gives about 2.8 kHz, "3 kHz" about 2.2 kHz, "2 kHz" about 1.1 kHz, and "1 kHz" sounds the same as "4 kHz". The names are kept so that sounds read and save as in the original.
+
 ### Filter
 
 A resonant low-pass filter, or high-pass with **High-pass**, can be applied to the whole sound (**Filter**) or just the overtones (**Filter overtones only**). The filter has its own envelope for the cut-off frequency, and self-oscillates at the highest resonance.
@@ -141,6 +144,7 @@ If DrumSynth can't read, write or play a sound, it says so, and the message also
   - envelope values are saved as whole numbers;
   - a sound with Tuning, Stretch and Level all 0 is loaded with Master off, and then saved with Stretch 100;
   - a sound with both filter boxes on is saved with the filter on the overtones only.
+- **The file formats** of `.ds` sounds, `.dse` envelopes and the WAV files, with every key and what it does, are described in [file-formats.md](https://github.com/dengopaiv/DrumSynth/blob/master/docs/reference/file-formats.md) in the source repository. `.ds` files are plain text and can be edited in Notepad.
 
 ## Copyright
 

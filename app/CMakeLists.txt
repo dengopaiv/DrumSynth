@@ -36,9 +36,20 @@ set_property(TARGET preset_roundtrip PROPERTY CXX_STANDARD 17)
 target_compile_definitions(preset_roundtrip PRIVATE _CRT_SECURE_NO_WARNINGS)
 target_link_libraries(preset_roundtrip PRIVATE drumsynth_engine)
 
-# The help text goes next to the program.
+# The help goes next to the program: gui-help.html, which the Help button
+# opens in the browser (made from docs/gui-help.md by tools/make_help_html.py,
+# which needs Python), and gui-help.md, opened when there is no HTML page.
 add_custom_command(TARGET DrumSynth POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_SOURCE_DIR}/../docs/gui-help.md $<TARGET_FILE_DIR:DrumSynth>/gui-help.md)
+find_package(Python3 COMPONENTS Interpreter)
+if(Python3_Interpreter_FOUND)
+    add_custom_command(TARGET DrumSynth POST_BUILD
+        COMMAND Python3::Interpreter ${CMAKE_CURRENT_SOURCE_DIR}/../tools/make_help_html.py
+                $<TARGET_FILE_DIR:DrumSynth>/gui-help.html
+                --source ${CMAKE_CURRENT_SOURCE_DIR}/../docs/gui-help.md)
+else()
+    message(WARNING "Python not found: gui-help.html isn't made, and Help opens gui-help.md instead")
+endif()
 
 # Test: what MSAA reports for every control of the running GUI.
 add_executable(msaa_dump tests/msaa_dump.cpp)

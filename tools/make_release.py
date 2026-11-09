@@ -13,10 +13,13 @@ Steps:
   3. Assemble dist/DrumSynth-<version>-win64/:
        DrumSynth.exe and the DLLs it needs (wxWidgets and its image
        libraries, the Visual C++ runtime, Tolk and NVDA's controller client
-       when the build found them), gui-help.md, README.txt, the licences
-       (licenses/ for third-party code), and the presets as kit folders in
-       Kits/ (DrumSyn.ini points the program there): the DrumSynth 2.0
-       library (bin/library.zip) merged with the drumsynths/ collection.
+       when the build found them), the help (gui-help.html, which the Help
+       button opens, made by tools/make_help_html.py, and gui-help.md),
+       README.txt, the licences (licenses/ for third-party code), the presets
+       as kit folders in Kits/ (DrumSyn.ini points the program there): the
+       DrumSynth 2.0 library (bin/library.zip) merged with the drumsynths/
+       collection, and the envelope library as envelope files in Envelopes/
+       (tools/make_envelope_files.py), where Load envelope... looks first.
   4. Zip it as dist/DrumSynth-<version>-win64.zip and write its SHA-256.
 
 The version is app/CMakeLists.txt's project VERSION. Release notes are
@@ -34,6 +37,7 @@ import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import dslib  # noqa: E402
+import make_envelope_files  # noqa: E402
 
 REPO = dslib.REPO
 VCPKG = os.environ.get("VCPKG_ROOT", r"C:\GIT\environment\vcpkg")
@@ -167,8 +171,12 @@ location chooses another folder of kits; the choice is kept in DrumSyn.ini.
 
 Press F1 to F12 to play the first sounds of a kit, Enter or Ctrl+P to play
 the sound being edited. Kit sounds are synthesized as you play them, so the
-kits need no WAV files. All keys and controls are described in gui-help.md (the
-Help button opens it).
+kits need no WAV files. All keys and controls are described in gui-help.html
+(the Help button opens it in the web browser); gui-help.md is the same text.
+
+The Envelopes folder holds {envelopes} envelope shapes taken from the presets, one
+folder per envelope, most used first. Load envelope... (Ctrl+Shift+O) puts one
+into the envelope being edited.
 
 Spoken messages: with NVDA running, messages such as "Saved" are spoken
 through Tolk (Tolk.dll and nvdaControllerClient64.dll); otherwise they go out
@@ -208,6 +216,9 @@ def package(ver, out):
         shutil.copy2(os.path.join(crt[-1], dll), dest)
         shipped.append(dll)
     shutil.copy2(os.path.join(REPO, "docs", "gui-help.md"), dest)
+    run([sys.executable, os.path.join(REPO, "tools", "make_help_html.py"), os.path.join(dest, "gui-help.html"),
+         "--source", os.path.join(REPO, "docs", "gui-help.md")])
+    envelopes = make_envelope_files.write_files(os.path.join(dest, "Envelopes"))
     for lic in ("MIT License.txt", "gpl-2.0.txt", "readme.license"):
         shutil.copy2(os.path.join(REPO, lic), dest)
 
@@ -239,7 +250,7 @@ def package(ver, out):
     commit = subprocess.run(["git", "-C", REPO, "rev-parse", "--short", "HEAD"], capture_output=True,
                             text=True).stdout.strip()
     with open(os.path.join(dest, "README.txt"), "w", encoding="utf-8", newline="\r\n") as f:
-        f.write(README.format(version=ver, kits=kits, commit=commit))
+        f.write(README.format(version=ver, kits=kits, envelopes=envelopes, commit=commit))
 
     zpath = os.path.join(out, name + ".zip")
     if os.path.exists(zpath):
@@ -254,6 +265,7 @@ def package(ver, out):
         f.write(f"{digest}  {os.path.basename(zpath)}\n")
     print(f"{zpath}: {os.path.getsize(zpath) / 1e6:.1f} MB, sha256 {digest}")
     print(f"presets: {added} files written ({renamed} renamed), {same} duplicates skipped, {kits} kits")
+    print(f"envelope files: {envelopes}")
     print("shipped DLLs:", ", ".join(shipped))
     return zpath
 

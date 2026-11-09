@@ -31,7 +31,8 @@ It replaces the 3.0 "Modern WPF Edition", which stays on the `modern-wpf` branch
   - a list of points read as "Point 2 of 3: 45.4 ms, −14.0 dB";
   - time and level fields;
   - Add, Delete, Copy, Paste and Reset (Ctrl+N, Delete, Ctrl+C, Ctrl+V);
-  - **envelope files**, new in this edition: Save envelope (Ctrl+Shift+S) keeps an envelope shape in a `.dse` file, Load envelope (Ctrl+Shift+O) puts one into any envelope of any sound, and Load envelope from sound takes an envelope out of another sound.
+  - **envelope files**, new in this edition: Save envelope (Ctrl+Shift+S) keeps an envelope shape in a `.dse` file, Load envelope (Ctrl+Shift+O) puts one into any envelope of any sound, and Load envelope from sound takes an envelope out of another sound;
+  - **an envelope library**: the `Envelopes` folder holds 492 shapes taken from the presets, one folder per envelope, most used first, with names that describe the shape.
 
   The original's mouse graph is still there.
 - Messages ("Saved", "Envelope copied", warnings) are spoken through NVDA (Tolk), or sent as UI Automation notifications, and shown in the status bar.
@@ -44,7 +45,13 @@ It replaces the 3.0 "Modern WPF Edition", which stays on the `modern-wpf` branch
 - Clicking a sound in the kit, or pressing F1 to F12, synthesizes it from its `.ds` file. The original played the sound's WAV file, which had to be generated first.
 - "Save .WAV" in the Save dialog now decides whether the WAV is saved. The original always saved it.
 - Envelopes can be saved and loaded on their own, and taken from another sound. The original could only copy an envelope within the sound being edited.
-- Help is a Markdown file, `gui-help.md`, instead of WinHelp, which today's Windows can't open.
+- Help is a web page, `gui-help.html`, opened in the browser, instead of WinHelp, which today's Windows can't open. `gui-help.md` is the same text.
+
+### Documentation
+
+- [gui-help.md](gui-help.md): the help, with every key and control.
+- [reference/file-formats.md](reference/file-formats.md): the `.ds`, `.dse`, WAV and `DrumSyn.ini` formats, key by key.
+- [findings.md](findings.md): how the original engine really behaves. One finding from writing the format reference: the Distortion Rate names are one step off from "4 kHz" on, and "1 kHz" sounds the same as "4 kHz". This edition keeps the original's behaviour and explains it in the help.
 
 ### Known limits
 
